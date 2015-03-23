@@ -1,5 +1,6 @@
 package src.tool;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -223,6 +224,15 @@ public class PageTextArea {
 		BigDecimal b = new BigDecimal(a);
 		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
 		return f;
+	}
+
+
+
+	public void setText(String text) throws IOException {
+		// TODO Auto-generated method stub
+		TextObject to = new TextObject();
+		to.setString(text);
+		texts.add(to);
 	}
 	
 }

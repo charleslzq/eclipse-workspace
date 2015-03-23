@@ -1,0 +1,14 @@
+package src.tool;
+
+import java.io.IOException;
+
+import org.apache.pdfbox.util.PDFTextStripperByArea;
+
+public class TextStripperByRectangleObject extends PDFTextStripperByArea {
+
+	public TextStripperByRectangleObject() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+}

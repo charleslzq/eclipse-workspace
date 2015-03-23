@@ -1,5 +1,6 @@
 package src.tool;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class TextObject{
 	private Matrix textMatrix;
 	private String textFont;
 	private boolean singleString;
-	private COSString content;
+	private String content;
 	private COSArray contents;
 	
 	public TextObject(){
@@ -40,7 +41,7 @@ public class TextObject{
 		System.out.println(textMatrix.toString());
 		System.out.println(textFont);
 		if(singleString)
-			System.out.println(content.getString());
+			System.out.println(content);
 		else{
 			for(int i = 0; i< contents.size(); i++){
 				if(contents.get(i) instanceof COSString)
@@ -51,7 +52,7 @@ public class TextObject{
 	
 	public void setString(COSString s){
 		singleString = true;
-		content = s;
+		content = s.getString();
 	}
 	
 	public void addString(COSArray s){
@@ -73,7 +74,7 @@ public class TextObject{
 	
 	public String getString(){
 		if(singleString)
-			return content.getString();
+			return content;
 		else{
 			String result = "";
 			for(int i = 0; i < contents.size(); i++){
@@ -85,5 +86,10 @@ public class TextObject{
 			}
 			return result;
 		}
+	}
+	
+	public void setString(String s) throws IOException{
+		singleString = true;
+		content = s;
 	}
 }

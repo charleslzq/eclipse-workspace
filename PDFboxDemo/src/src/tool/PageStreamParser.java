@@ -12,6 +12,7 @@ import org.apache.pdfbox.pdfparser.PDFStreamParser;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDStream;
 import org.apache.pdfbox.util.PDFOperator;
+import org.apache.pdfbox.util.PDFTextStripperByArea;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -40,6 +41,35 @@ public class PageStreamParser {
 		
 		precision = 2;
 		
+		/*PDFTextStripperByArea ptsba = new PDFTextStripperByArea();
+		for(int i = 0; i < tp.getSize(); i++){
+			if(areas.containsKey(new Integer(i))){
+				ptsba.addRegion(i+"", areas.get(new Integer(i)).getRectangle());
+			}
+		}
+		ptsba.extractRegions(pdp);
+		for(int i = 0; i < pta.size(); i++){
+			int no = pta.get(i).getAreaNo();
+			String text = ptsba.getTextForRegion(no+"");
+			//System.out.println(i+":"+no+":"+text);
+			if(text != null)
+				pta.get(i).setText(text);
+		}*/
+		
+		TextStripperByRectangleObject tsbro = new TextStripperByRectangleObject();
+		for(int i = 0; i < tp.getSize(); i++){
+			if(areas.containsKey(new Integer(i))){
+				tsbro.addRegion(i, areas.get(new Integer(i)));
+			}
+		}
+		tsbro.extractRegions(pdp);
+		for(int i = 0; i < pta.size() ; i++){
+			int no = pta.get(i).getAreaNo();
+			String text = tsbro.getTextForRegion(no);
+			pta.get(i).setText(text);
+			//System.out.println(no+":"+text);
+		}
+		//System.out.println(regionNames.size());
 	}
 	
 	public PDStream getPDStream(){
@@ -89,11 +119,11 @@ public class PageStreamParser {
 		for(int i = 0; i < tp.getSize(); i++)
 			if(areas.containsKey(new Integer(i)))
 				textAreas.add(new PageTextArea(i, areas.get(new Integer(i))));
-		for(int i = 0; i < textAreas.size(); i++)
+		/*for(int i = 0; i < textAreas.size(); i++)
 			for(int j = 0; j < tp.getSize(); j++)
 				if(texts.containsKey(new Integer(j)))
 					if(textAreas.get(i).isInThisArea(texts.get(new Integer(j))))
-						textAreas.get(i).putText(texts.get(new Integer(j)));
+						textAreas.get(i).putText(texts.get(new Integer(j)));*/
 		for(int i = 0; i < textAreas.size(); i++)
 			for(int j = i+1 ; j < textAreas.size(); j++){
 				if( textAreas.get(i).getRight() == null && textAreas.get(i).nextColumnInTheSameRow(textAreas.get(j))){

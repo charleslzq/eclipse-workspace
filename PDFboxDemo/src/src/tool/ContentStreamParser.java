@@ -61,6 +61,7 @@ public class ContentStreamParser {
 			textAreas.get(i).setText(text);
 			//System.out.println(no+":"+text);
 		}
+		attachTexts(textAreas, texts);
 		return textAreas;
 	}
 	
@@ -149,6 +150,20 @@ public class ContentStreamParser {
 				textAreas.get(i).recursiveSetColAndRowNo(col, row, 2);
 				if(textAreas.get(i).isIsolated() == true)
 					row = 0;
+			}
+		}
+	}
+	
+	private void attachTexts(List<PageTextArea> textAreas, Map<Integer, TextObject> texts){
+		for(int i = 0; i < tp.getSize(); i++){
+			if( texts.containsKey(new Integer(i))){
+				TextObject to = texts.get(new Integer(i));
+				if(to.getString() != null && to.getString().isEmpty() == false){
+					for(int j = 0; j < textAreas.size(); j++){
+						if(textAreas.get(j).isInThisArea(to))
+							textAreas.get(j).putText(to);
+					}
+				}
 			}
 		}
 	}

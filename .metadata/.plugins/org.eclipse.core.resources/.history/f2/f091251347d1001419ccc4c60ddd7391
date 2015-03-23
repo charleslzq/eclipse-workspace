@@ -1,0 +1,42 @@
+package src.tool;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdfparser.PDFStreamParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+
+public class ContentStreamParser {
+	private PDFStreamParser psp;
+	private TokenParser tp;
+	private Map<Integer, RectangleObject> areas;
+	private Map<Integer, TextObject> texts;
+	private List<PageTextArea> pta;
+	private TextStripperByRectangleObject tsbro;
+	private int precision = 3;
+	
+	public ContentStreamParser(PDPage pdp) throws IOException{
+		psp = new PDFStreamParser(pdp.getContents().getStream());
+		tp = new TokenParser(psp.getTokens());
+		
+		areas = tp.rectangleParser();
+		texts = tp.textParser();
+		
+		tsbro = new TextStripperByRectangleObject();
+		
+		for(int i = 0; i < tp.getSize(); i++){
+			if(areas.containsKey(new Integer(i))){
+				tsbro.addRegion(i, areas.get(new Integer(i)));
+			}
+		}
+		tsbro.extractRegions(pdp);
+		for(int i = 0; i < pta.size() ; i++){
+			int no = pta.get(i).getAreaNo();
+			String text = tsbro.getTextForRegion(no);
+			pta.get(i).setText(text);
+			//System.out.println(no+":"+text);
+		}
+	}
+
+}

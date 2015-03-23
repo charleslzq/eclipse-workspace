@@ -1,0 +1,374 @@
+package src.tool;
+
+import java.awt.Font;
+import java.awt.Rectangle;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.pdfbox.cos.COSArray;
+import org.apache.pdfbox.cos.COSBase;
+import org.apache.pdfbox.cos.COSDictionary;
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.cos.COSFloat;
+import org.apache.pdfbox.cos.COSInteger;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.cos.COSObject;
+import org.apache.pdfbox.cos.COSString;
+import org.apache.pdfbox.encoding.Encoding;
+import org.apache.pdfbox.encoding.EncodingManager;
+import org.apache.pdfbox.pdfparser.PDFObjectStreamParser;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdfparser.PDFStreamParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDStream;
+import org.apache.pdfbox.pdmodel.common.PDTextStream;
+import org.apache.pdfbox.pdmodel.font.FontManager;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDFontFactory;
+import org.apache.pdfbox.util.PDFOperator;
+import org.apache.pdfbox.util.PDFStreamEngine;
+import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.util.StringUtil;
+
+public class PageStreamGenerator {
+	private List<PDPage> pages;
+	private List<PDStream> pdss;
+	private ContentStreamParser csp;
+	private PDFParser parser;
+	@SuppressWarnings("rawtypes")
+	private List<List> tokens;
+	private List<COSObject> lc;
+	private List so;
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public PageStreamGenerator(FileInputStream fis) throws IOException{
+		parser = new PDFParser(fis);
+		parser.parse();
+		
+		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		
+		pdss = new ArrayList<PDStream>();
+		for(int i = 0 ; i < pages.size() ; i++)
+			pdss.add( pages.get(i).getContents() );
+		
+		tokens = new ArrayList<List>();
+		
+		/*COSDocument cod = parser.getDocument();
+		//PDFObjectStreamParser posp = new PDFObjectStreamParser(cod.createCOSStream(),cod, true);
+		//posp.parse();
+		lc = cod.getObjects();
+		List<COSObject>lb = cod.getObjectsByType(COSName.FONT);
+		for(int i = 0; i < lc.size(); i++){
+			System.out.println(lc.size() + " Object: "+lc.get(i).getObjectNumber().intValue());
+		}
+		for(int i = 0; i < lb.size(); i++){
+			System.out.println(lb.size() + " Font Object: "+lb.get(i).getObjectNumber().intValue() + " " + lb.get(i).getItem(COSName.ENCODING) + " " + lb.get(i).getItem(COSName.NAME));
+			//PDFont pf = new PDFont();
+			//Font pf = FontManager.getAwtFont(lb.get(i).getItem(COSName.ENCODING).toString());
+		}*/
+		
+		so = new ArrayList();
+	}
+	
+	public int getSize(){
+		if( pages.size() == pdss.size() )
+			return pages.size();
+		return -1;
+	}
+	
+	public PDStream getStream(int i){
+		return pdss.get(i);
+	}
+	
+	public void parse() throws IOException{
+		if( this.getSize() > 0){
+			for(int i = 0; i < this.getSize(); i++){
+				PDStream ps = pdss.get(i);
+				if( ps != null){
+					PDFStreamParser psp = new PDFStreamParser(ps.getStream());
+					psp.parse();
+					tokens.add(psp.getTokens());
+				}
+				else
+					tokens.add(null);
+			}
+		}
+	}
+	
+	public void printTokens() throws IOException{
+		BufferedWriter writer = new BufferedWriter(new FileWriter("456789.txt"));
+		for(int i = 0; i< tokens.size() ; i++){
+			if(tokens.get(i) == null ){
+				writer.write("Page "+i+" is empty!\n");
+			}
+			else{
+				for(int j = 0; j < tokens.get(i).size() ; j++)
+					writer.write("Page " + i + ": " + tokens.get(i).get(j).toString() + "\n");
+			}
+		}
+	}
+	
+	public void translate() throws IOException{
+		boolean text = false;
+		for(int i = 0; i< tokens.size() ; i++){
+			if(tokens.get(i) != null ){
+				for(int j = 0; j < tokens.get(i).size() ; j++){ 
+					if( tokens.get(i).get(j) instanceof PDFOperator){
+						PDFOperator op = (PDFOperator) tokens.get(i).get(j);
+						if( op.getOperation().equals("TJ")){
+							COSArray previous = (COSArray) tokens.get(i).get(j - 1);
+							/*PDStream newStream = PDStream.createFromCOS(previous);
+							PDPage pg = new PDPage();
+							pg.setContents(newStream);
+							PDDocument pd = new PDDocument();
+							pd.addPage(pg);*/
+							TextObject to = (TextObject) so.get(so.size()-1);
+                            to.addString(previous);
+							
+							for (int k = 0; k < previous.size(); k++){    
+	                            Object arrElement = previous.getObject(k);    
+	                            if (arrElement instanceof COSString){    
+	                                COSString cosString = (COSString) arrElement; 
+	                                EncodingManager em = new EncodingManager();
+	                                Encoding e = em.getEncoding(COSName.WIN_ANSI_ENCODING);
+	                                PDFStreamEngine pse = new PDFStreamEngine();
+	                              
+	                                //System.out.println("Page " + i + " token " + j + ":" +	cosString.getString());
+	                                
+	                                //pd.close();
+	                            }
+	                        }
+						}
+						else if( op.getOperation().equals("Tj")){
+							if(text == true){
+								COSString previous = (COSString) tokens.get(j - 1); 
+								TextObject to = (TextObject) so.get(so.size()-1);
+								to.setString(previous);
+							}
+						}
+						else if(op.getOperation().equals("BT")){
+							so.add(new TextObject());
+							text = true;
+						}
+						else if(op.getOperation().equals("f*") || op.getOperation().equals("W*")){
+							if( tokens.get(i).get(j-1) instanceof PDFOperator){
+								PDFOperator op2 = (PDFOperator) tokens.get(i).get(j-1);
+								if(op2.getOperation().equals("re")){
+									//System.out.println(i+" " +j);
+									if( tokens.get(i).get(j-5) instanceof COSFloat){
+										if( tokens.get(i).get(j-4) instanceof COSFloat){
+											if( tokens.get(i).get(j-3) instanceof COSFloat){
+												if( tokens.get(i).get(j-2) instanceof COSFloat){
+													COSFloat a = (COSFloat) tokens.get(i).get(j-5);
+													COSFloat b = (COSFloat) tokens.get(i).get(j-4);
+													COSFloat c = (COSFloat) tokens.get(i).get(j-3);
+													COSFloat d = (COSFloat) tokens.get(i).get(j-2);
+													so.add(new RectangleObject(a.doubleValue(),b.doubleValue(),c.doubleValue(),d.doubleValue()));
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						else if(op.getOperation().equals("Tm")){
+							if(text == true){
+								TextObject to = (TextObject)so.get(so.size()-1);
+								float a =0, b=0, c=0, d=0, e=0, f=0;
+								if(tokens.get(i).get(j-6) instanceof COSInteger)
+									a = ((COSInteger) tokens.get(i).get(j-6) ).floatValue();
+								else if(tokens.get(i).get(j-6) instanceof COSFloat)
+									a = ((COSFloat) tokens.get(i).get(j-6) ).floatValue();
+								if(tokens.get(i).get(j-5) instanceof COSInteger)
+									b = ((COSInteger) tokens.get(i).get(j-5) ).floatValue();
+								else if(tokens.get(i).get(j-5) instanceof COSFloat)
+									b = ((COSFloat) tokens.get(i).get(j-5) ).floatValue();
+								if(tokens.get(i).get(j-4) instanceof COSInteger)
+									c = ((COSInteger) tokens.get(i).get(j-4) ).floatValue();
+								else if(tokens.get(i).get(j-4) instanceof COSFloat)
+									c = ((COSFloat) tokens.get(i).get(j-4) ).floatValue();
+								if(tokens.get(i).get(j-3) instanceof COSInteger)
+									d = ((COSInteger) tokens.get(i).get(j-3) ).floatValue();
+								else if(tokens.get(i).get(j-3) instanceof COSFloat)
+									d = ((COSFloat) tokens.get(i).get(j-3) ).floatValue();
+								if(tokens.get(i).get(j-2) instanceof COSInteger)
+									e = ((COSInteger) tokens.get(i).get(j-2) ).floatValue();
+								else if(tokens.get(i).get(j-2) instanceof COSFloat)
+									e = ((COSFloat) tokens.get(i).get(j-2) ).floatValue();
+								if(tokens.get(i).get(j-1) instanceof COSInteger)
+									f = ((COSInteger) tokens.get(i).get(j-1) ).floatValue();
+								else if(tokens.get(i).get(j-1) instanceof COSFloat)
+									f = ((COSFloat) tokens.get(i).get(j-1) ).floatValue();
+								to.setMatrix( a, b,c,d,e,f);
+							}
+							
+						}
+						else if(op.getOperation().equals("ET")){
+							text = false;
+						}
+					}
+					else if(tokens.get(i).get(j) instanceof COSName){
+						if(text == true){
+							TextObject to = (TextObject) so.get(so.size()-1);
+							COSName cn = (COSName) tokens.get(i).get(j);
+							to.setFontName(cn.getName());
+						}
+					}
+					//System.out.println(tokens.get(i).get(j).toString());
+				}
+			}
+		}
+		/*for(int i = 0; i < so.size() ; i++){
+			if(so.get(i) instanceof RectangleObject){
+				RectangleObject ro = (RectangleObject) so.get(i);
+				ro.print();
+			}
+			else if (so.get(i) instanceof TextObject){
+				TextObject to = (TextObject) so.get(i);
+				to.print();
+			}
+		}*/
+	}
+	
+	public void tableFinder(){
+		ArrayList<ArrayList<RectangleObject>> lines = new ArrayList<ArrayList<RectangleObject>>();
+		int numberOfLines = 0;
+		int numberOfCells = 0;
+		/*for(int i = 0; i < so.size(); i++)
+			System.out.println(so.toString());*/
+		for(int i = 0; i < so.size(); i++){
+			if( so.get(i) instanceof RectangleObject){
+				RectangleObject ro = (RectangleObject) so.get(i);
+				//ro.print();
+				if(ro.isLine(1) == false){
+					if(numberOfLines==0){
+						lines.add(new ArrayList<RectangleObject>());
+						lines.get(0).add(ro);
+						numberOfLines ++;
+						numberOfCells = 1;
+					}
+					else if( ro.getYofLeftUpper() == lines.get(numberOfLines-1).get(numberOfCells-1).getYofLeftUpper() ){
+						if(ro.getXofLeftUpper() != lines.get(numberOfLines-1).get(numberOfCells-1).getXofLeftUpper()){
+							lines.get(numberOfLines-1).add(ro);
+							numberOfCells++;
+						}
+					}
+					else if (ro.getYofLeftUpper() != lines.get(numberOfLines-1).get(numberOfCells-1).getYofLeftUpper()){
+						lines.add(new ArrayList<RectangleObject>());
+						numberOfLines++;
+						lines.get(numberOfLines-1).add(ro);
+						numberOfCells = 1;
+					}
+				}
+			}
+		}
+		for(int i = 0; i < lines.size(); i++){
+			ArrayList<RectangleObject> line = lines.get(i);
+			System.out.println("Line: " + i);
+			for(int j = 0; j < line.size() ; j++)
+				line.get(j).print();
+			System.out.println("-------");
+		}
+		int start = 0;
+		int end = 0;
+		boolean flag = false;
+		int count = 0;   
+		System.out.println(lines.size());
+		for(int i = 0; i < lines.size(); i++){
+			if( lines.get(i).size() == 1 && flag == false)
+				continue;
+			else if( lines.get(i).size() != 1 && flag == false){
+				flag = true;
+				start = i;
+				end = i;
+				//System.out.println("Line "+start+":");
+			}
+			else if( lines.get(i).size() !=1 && flag == true){
+				end++;
+				//System.out.println("Line "+end+":");
+				continue;
+			}
+			else if( (lines.get(i).size() == 1 && flag == true)){
+				if (end - start > 1){
+					count++;
+					int innerStart = start;
+					int innerEnd = end;
+					for(int j = start; j <= end ; j++){
+						if(j < end ){
+							if(lines.get(j).get(0).getYofLeftUpper() < lines.get(j+1).get(0).getYofLeftUpper()){
+								if(innerEnd == end || innerEnd < innerStart){
+									count++;
+									//System.out.println("Table "+count+":(Page " + lines.get(j).get(0).getPage() + ")");
+									innerEnd = j;
+									for(int k = innerStart; k <= innerEnd; k++){
+										System.out.println("Line "+ (k-innerStart+1) +":");
+										for(int t = 0; t < lines.get(k).size(); t++){
+											System.out.println("Cell "+ t +":");
+											lines.get(k).get(t).print();
+										}
+									}
+									System.out.println("------------------");
+									System.out.println("------------------");
+									System.out.println("------------------");
+								}
+								innerStart = j+1;
+							}
+						}
+					}
+				}
+				flag = false;
+			}
+		}
+		if(end - start > 1 && end == lines.size()-1){
+			int innerStart = start;
+			int innerEnd = end;
+			for(int j = start; j <= end ; j++){
+				if(j < end ){
+					if(lines.get(j).get(0).getYofLeftUpper() < lines.get(j+1).get(0).getYofLeftUpper()){
+						if(innerEnd == end || innerEnd < innerStart){
+							count++;
+							System.out.println("Table "+count+":");
+							innerEnd = j;
+							for(int k = innerStart; k <= innerEnd; k++){
+								System.out.println("Line "+ (k-innerStart+1) +":");
+								for(int t = 0; t < lines.get(k).size(); t++){
+									System.out.println("Cell "+ t +":");
+									lines.get(k).get(t).print();
+								}
+							}
+							System.out.println("------------------");
+							System.out.println("------------------");
+							System.out.println("------------------");
+						}
+						innerStart = j+1;
+					}
+				}
+				else{
+					if(innerEnd < innerStart){
+						count++;
+						System.out.println("Table "+count+":");
+						innerEnd = j;
+						for(int k = innerStart; k <= innerEnd; k++){
+							System.out.println("Line "+ (k-innerStart+1) +":");
+							for(int t = 0; t < lines.get(k).size(); t++){
+								System.out.println("Cell "+ t +":");
+								lines.get(k).get(t).print();
+							}
+						}
+						System.out.println("------------------");
+						System.out.println("------------------");
+						System.out.println("------------------");
+					}
+				}
+			}
+		}
+	}
+	
+}

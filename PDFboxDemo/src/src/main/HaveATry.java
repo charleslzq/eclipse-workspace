@@ -30,8 +30,8 @@ public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		FileInputStream fis = new FileInputStream("123.pdf");
-		FileOutputStream fos = new FileOutputStream("123.xml");
+		FileInputStream fis = new FileInputStream("430248_2014-04-29_63948159.pdf");
+		FileOutputStream fos = new FileOutputStream("430248_2014-04-29_63948159.xml");
 		//BufferedWriter writer = new BufferedWriter(new FileWriter("430248_2014-04-29_63948159.xml"));
 		
 		//PageStreamGenerator psg = new PageStreamGenerator(fis);

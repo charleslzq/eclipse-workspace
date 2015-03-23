@@ -1,0 +1,15 @@
+package src.tool;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdfparser.PDFStreamParser;
+
+public class ContentStreamParser {
+	PDFStreamParser psp;
+	private TokenParser tp;
+	private Map<Integer, RectangleObject> areas;
+	private Map<Integer, TextObject> texts;
+	private List<PageTextArea> pta;
+
+}

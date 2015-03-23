@@ -1,0 +1,174 @@
+package src.tool;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+
+public class ContentStreamParser {
+	private PDPage pdpage;
+	private TokenParser tp;
+	private List<PageTextArea> pta;
+	private TextStripperByRectangleObject tsbro;
+	private int precision = 2;
+	private double err = 0.1;
+	
+	public ContentStreamParser(PDPage pdp) throws IOException{
+		pdpage = pdp;
+		tp = new TokenParser(pdpage.getContents().getStream().getStreamTokens());
+		
+		tsbro = new TextStripperByRectangleObject();
+		
+		pta = this.PageAreaConstructor();
+		
+	}
+	
+	public int getPrecision() {
+		return precision;
+	}
+
+	public void setPrecision(int precision) {
+		this.precision = precision;
+	}
+
+	public double getErr() {
+		return err;
+	}
+
+	public void setErr(double err) {
+		this.err = err;
+	}
+
+	public List<PageTextArea> PageAreaConstructor() throws IOException{
+		Map<Integer, RectangleObject> areas = tp.getAreas();
+		Map<Integer, TextObject> texts = tp.getTexts();
+		List<PageTextArea> textAreas = this.constructRegions(areas);
+		this.findSplittedInformation(textAreas);
+		
+		
+		int col = 0;
+		int row = 0;
+		for(int i = 0; i < textAreas.size() ; i++){
+			if(textAreas.get(i).nullColRow()){
+				textAreas.get(i).recursiveSetColAndRowNo(col, row, 2);
+				if(textAreas.get(i).isIsolated() == true)
+					//row += textAreas.get(i).getSplitedRows();
+				//else
+					row = 0;
+			}
+		}
+		for(int i = 0; i < tp.getSize(); i++){
+			if(areas.containsKey(new Integer(i))){
+				tsbro.addRegion(i, areas.get(new Integer(i)));
+			}
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = 0; i < textAreas.size() ; i++){
+			int no = textAreas.get(i).getAreaNo();
+			String text = tsbro.getTextForRegion(no);
+			textAreas.get(i).setText(text);
+			//System.out.println(no+":"+text);
+		}
+		return textAreas;
+	}
+	
+	private List<PageTextArea> constructRegions(Map<Integer, RectangleObject> areas){
+		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
+		for(int i = 0; i < tp.getSize(); i++)
+			if(areas.containsKey(new Integer(i)))
+				textAreas.add(new PageTextArea(i, areas.get(new Integer(i))));
+		for(int i = 0; i < textAreas.size(); i++)
+			for(int j = i+1 ; j < textAreas.size(); j++){
+				if( textAreas.get(i).getRight() == null && textAreas.get(i).nextColumnInTheSameRow(textAreas.get(j))){
+					textAreas.get(i).setRight(textAreas.get(j));
+					textAreas.get(j).setReferenced(true);
+				}
+				else if( textAreas.get(i).getDown() == null && textAreas.get(i).nextRowInTheSameColumn(textAreas.get(j))){
+					textAreas.get(i).setDown(textAreas.get(j));
+					textAreas.get(j).setReferenced(true);
+				}
+			}
+		return textAreas;
+	}
+	
+	private void findSplittedInformation(List<PageTextArea> textAreas){
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea current = textAreas.get(i);
+			if( current.getRight() != null){
+				int n = precision;
+				if(alreadyEqual(current.getHeight(), current.getRight().getHeight(), err))
+					current.getRight().setSplitedRows(current.getSplitedRows());
+				else{
+					double sum = current.getRight().getHeight()/current.getHeight();
+					current.getRight().setSplitedRows(round(current.getSplitedRows()*sum,n));
+					if( sum < 1){
+						PageTextArea next = current.getRight();
+						while( sum < 1){
+							if(next.getDown() != null){
+								double tmp = next.getDown().getHeight()/current.getHeight();
+								sum += tmp;
+								if(alreadyEqual(sum,1,Math.exp(-(n-1)))){
+									next.getDown().setSplitedRows(round(1-sum+tmp,n)*current.getSplitedRows());
+									break;
+								}
+								next.getDown().setSplitedRows(round(tmp*current.getSplitedRows(),n));
+								next = next.getDown();
+							}
+							else
+								break;
+						}
+					}
+				}
+			}
+			if( current.getDown() != null){
+				int n = precision;
+				if(alreadyEqual(current.getWidth(), current.getDown().getWidth(), err))
+					current.getDown().setSplitedCols(current.getSplitedCols());
+				else{
+					double sum = current.getDown().getWidth()/current.getWidth();
+					current.getDown().setSplitedCols(round(current.getSplitedCols()*sum,n));
+					if(sum < 1){
+						PageTextArea next = current.getDown();
+						while(sum < 1){
+							if(next.getRight() != null){
+								double tmp = next.getRight().getWidth()/current.getWidth();
+								sum += tmp;
+								if(alreadyEqual(sum, 1, Math.exp(-(n-1)))){
+									next.getRight().setSplitedCols(round(1-sum+tmp,n)*current.getSplitedCols());
+									break;
+								}
+								next.getRight().setSplitedCols(round(tmp*current.getSplitedCols(),n));
+								next = next.getRight();
+							}
+							else
+								break;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void simplifyPositions(List<PageTextArea> textAreas){
+		
+	}
+	
+	public double round(double a, int n){
+		BigDecimal b = new BigDecimal(a);
+		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
+		return f;
+	}
+	
+	public boolean alreadyEqual(double a, double b, double err){
+		if(Math.abs(a-b) <= err)
+			return true;
+		return false;
+	}
+	
+	public List<PageTextArea> getPTA(){
+		return pta;
+	}
+}

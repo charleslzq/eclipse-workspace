@@ -13,11 +13,23 @@ import org.apache.pdfbox.util.PDFOperator;
 
 public class TokenParser {
 	private List tokens;
+	private Map<Integer, RectangleObject> areas;
+	private Map<Integer, TextObject> texts;
 	
 	public TokenParser(List t){
 		tokens = t;
+		areas = this.rectangleParser();
+		texts = this.textParser();
 	}
 	
+	public Map<Integer, RectangleObject> getAreas() {
+		return areas;
+	}
+
+	public Map<Integer, TextObject> getTexts() {
+		return texts;
+	}
+
 	public void print(){
 		for(int i = 0 ; i < tokens.size(); i++)
 			System.out.println(tokens.get(i).toString());

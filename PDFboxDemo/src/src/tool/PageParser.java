@@ -34,14 +34,6 @@ public class PageParser {
 		xml = DocumentHelper.createDocument();
 	}
 	
-	public void print(){
-		System.out.println("123");
-		System.out.println(psp.size());
-		for(int i = 0; i < psp.size(); i++)
-			psp.get(i).print();
-			//psp.get(68).test();
-	}
-	
 	public void output(FileOutputStream fos) throws Exception{
 		//for(int i = 0; i < psp.size(); i++)
 			//bw.write(psp.get(i).getPDStream().getInputStreamAsString());

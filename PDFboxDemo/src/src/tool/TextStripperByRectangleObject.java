@@ -17,6 +17,7 @@ public class TextStripperByRectangleObject extends PDFTextStripper {
     private Map<Integer,Vector<ArrayList<TextPosition>>> regionCharacterList = 
         new HashMap<Integer,Vector<ArrayList<TextPosition>>>();
     private Map<Integer,StringWriter> regionText = new HashMap<Integer,StringWriter>();
+    private List<CharacterObject> characters = new ArrayList<CharacterObject>();
 
 	
 	//@SuppressWarnings("deprecation")
@@ -26,6 +27,13 @@ public class TextStripperByRectangleObject extends PDFTextStripper {
 		this.setPageSeparator("");
 		setPageStart("");
 		setPageEnd("");
+	}
+	
+	public boolean contain(Integer in){
+		for(int i = 0; i< regions.size() ; i++)
+			if(regions.get(i).equals(in))
+				return true;
+		return false;
 	}
 	
 	public void addRegion( int areaNo, RectangleObject rect ){
@@ -70,6 +78,7 @@ public class TextStripperByRectangleObject extends PDFTextStripper {
 	            if( rect.isInThisRectangle( text.getTextPos().getValue(2, 0), text.getTextPos().getValue(2, 1) ) )
 	            {
 	                charactersByArticle = (Vector)regionCharacterList.get( region );
+	                characters.add(new CharacterObject(region, text));
 	                super.processTextPosition( text );
 	            }
 	        }
@@ -90,5 +99,18 @@ public class TextStripperByRectangleObject extends PDFTextStripper {
 	            output = regionText.get( region );
 	            super.writePage();
 	        }
+	    }
+	    
+	    public List<CharacterObject> getCharactersByRegion(int no){
+	    	List<CharacterObject> returnList = new ArrayList<CharacterObject>();
+	    	for(int i = 0; i < characters.size(); i++)
+	    		if(characters.get(i).getAreaNo() == no)
+	    			returnList.add(characters.get(i));
+	    	return returnList;
+	    }
+	    
+	    public void print(){
+	    	for(int i = 0; i < characters.size(); i++)
+	    		characters.get(i).print();
 	    }
 	}

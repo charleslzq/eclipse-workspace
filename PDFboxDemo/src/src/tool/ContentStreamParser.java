@@ -19,10 +19,14 @@ public class ContentStreamParser {
 	public ContentStreamParser(PDPage pdp) throws IOException{
 		pdpage = pdp;
 		tp = new TokenParser(pdpage.getContents().getStream().getStreamTokens());
+		//tp.print();
 		
 		tsbro = new TextStripperByRectangleObject();
 		
 		pta = this.PageAreaConstructor();
+		
+		//tsbro.print();
+		this.extraTextsAfterLastTable();
 		
 	}
 	
@@ -44,24 +48,35 @@ public class ContentStreamParser {
 
 	public List<PageTextArea> PageAreaConstructor() throws IOException{
 		Map<Integer, RectangleObject> areas = tp.getAreas();
-		Map<Integer, TextObject> texts = tp.getTexts();
+		//Map<Integer, TextObject> texts = tp.getTexts();
 		List<PageTextArea> textAreas = this.constructRegions(areas);
 		this.findSplittedInformation(textAreas);
 		this.simplifyPositions(textAreas);
+		int last = 0;
 
 		for(int i = 0; i < tp.getSize(); i++){
 			if(areas.containsKey(new Integer(i))){
 				tsbro.addRegion(i, areas.get(new Integer(i)));
+				last = i;
 			}
 		}
+		
+		if(last !=0 && areas != null){
+			RectangleObject lastRo = areas.get(new Integer(last));
+			double y = lastRo.getYofLeftUpper() - lastRo.getHeight();
+			double w = pdpage.getArtBox().getWidth();
+			RectangleObject extra = new RectangleObject(0,0,w,y);
+			tsbro.addRegion(-1, extra);
+		}
+		
 		tsbro.extractRegions(pdpage);
-		for(int i = 0; i < textAreas.size() ; i++){
+		/*for(int i = 0; i < textAreas.size() ; i++){
 			int no = textAreas.get(i).getAreaNo();
 			String text = tsbro.getTextForRegion(no);
 			textAreas.get(i).setText(text);
 			//System.out.println(no+":"+text);
-		}
-		attachTexts(textAreas, texts);
+		}*/
+		attachTexts(textAreas);
 		return textAreas;
 	}
 	
@@ -154,17 +169,10 @@ public class ContentStreamParser {
 		}
 	}
 	
-	private void attachTexts(List<PageTextArea> textAreas, Map<Integer, TextObject> texts){
-		for(int i = 0; i < tp.getSize(); i++){
-			if( texts.containsKey(new Integer(i))){
-				TextObject to = texts.get(new Integer(i));
-				if(to.getString() != null && to.getString().isEmpty() == false){
-					for(int j = 0; j < textAreas.size(); j++){
-						if(textAreas.get(j).isInThisArea(to))
-							textAreas.get(j).putText(to);
-					}
-				}
-			}
+	private void attachTexts(List<PageTextArea> textAreas){
+		for(int i = 0; i < textAreas.size(); i++){
+			int no = textAreas.get(i).getAreaNo();
+			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
 		}
 	}
 	
@@ -182,5 +190,54 @@ public class ContentStreamParser {
 	
 	public List<PageTextArea> getPTA(){
 		return pta;
+	}
+	
+	public List<TableInformation> extractTableInformation(){
+		List<TableInformation> ti = new ArrayList<TableInformation>();
+		for(int i = 0; i < pta.size(); i++){
+			if(!pta.get(i).isReferenced()){
+				if(!pta.get(i).isIsolated()){
+					PageTextArea head = pta.get(i);
+					PageTextArea current = head;
+					List<Float> ls1 = new ArrayList<Float>();
+					List<Float> ls2 = new ArrayList<Float>();
+					List<String> ls3 = new ArrayList<String>();
+					int count1 = 0;
+					int count2 = 0;
+					while(current != null){
+						count1++;
+						ls1.add(new Float(current.getX()));
+						ls3.add(current.getString());
+						current = current.getRight();
+					}
+					current = head;
+					while(current.getDown()!=null)
+						current = current.getDown();
+					while(current!=null){
+						count2++;
+						ls2.add(new Float(current.getX()));
+						PageTextArea tmp = current.getRight();
+						if(tmp!=null){
+							while(tmp.getDown() != null)
+								tmp = tmp.getDown();
+							current = tmp;
+						}
+						else
+							break;
+					}
+					ti.add(new TableInformation(count1,count2,ls1,ls2,ls3));
+				}
+			}
+		}
+		return ti;
+	}
+	
+	public boolean extraTextsAfterLastTable(){
+		if(tsbro.contain(-1)){
+			String text = tsbro.getTextForRegion(-1);
+			if(text.equals(" "))
+				return false;
+		}
+		return true;
 	}
 }

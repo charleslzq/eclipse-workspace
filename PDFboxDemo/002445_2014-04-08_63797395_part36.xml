@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <PageNumberThatMayContainConsecutiveTable/>
+  <Page1>
+    <TableInformation/>
+    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page1>
+  <Page2>
+    <TableInformation/>
+    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page2>
+</root>

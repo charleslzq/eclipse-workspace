@@ -24,17 +24,18 @@ import org.apache.pdfbox.util.operator.EndText;
 import org.apache.pdfbox.util.operator.OperatorProcessor;
 
 import src.tool.PageParser;
-import src.tool.PageStreamGenerator;
 
 public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		FileInputStream fis = new FileInputStream("430248_2014-04-29_63948159.pdf");
-		FileOutputStream fos = new FileOutputStream("430248_2014-04-29_63948159.xml");
+		FileInputStream fis = new FileInputStream("123.pdf");
+		FileOutputStream fos = new FileOutputStream("123.xml");
 		//BufferedWriter writer = new BufferedWriter(new FileWriter("430248_2014-04-29_63948159.xml"));
 		
 		//PageStreamGenerator psg = new PageStreamGenerator(fis);
+		
+		//PDFTextStripper tsp = new PDFTextStripper();
 		
 		//PDFStreamEngine pse = new PDFStreamEngine();
 		//pse.registerOperatorProcessor("BT", new BeginText());
@@ -58,6 +59,7 @@ public class HaveATry {
 		psg.printTokens();*/
 		
 		PageParser pp = new PageParser(fis);
+		//pp.parse(30, 40);
 		//pp.print();
 		pp.xmlBuilder();
 		pp.output(fos);

@@ -3,6 +3,7 @@ package src.tool;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -26,10 +27,13 @@ public class PageParser {
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
 		psp = new ArrayList<PageStreamParser>();
-		
 		for(int i = 0; i < pages.size(); i++){
-			psp.add(new PageStreamParser(i, pages.get(i)));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("002445_2014-04-08_63797395_part36¡£txt"));
+			writer.write(pages.get(i).getContents().getInputStreamAsString());
+			writer.close();
+			psp.add(new PageStreamParser(i,pages.get(i)));
 		}
+		
 		
 		xml = DocumentHelper.createDocument();
 	}
@@ -44,8 +48,16 @@ public class PageParser {
 	
 	public void xmlBuilder(){
 		Element root = xml.addElement("root");
+		Element pageNo = root.addElement("PageNumberThatMayContainConsecutiveTable");
+		List<Integer> result = this.findTableOnMultiplePages();
+		if(result.size() > 0){
+			for(int i = 0; i < result.size(); i++){
+				Element no = pageNo.addElement("No");
+				no.addText(result.get(i).intValue()+"");
+			}
+		}
 		for(int i = 0; i < psp.size(); i++){
-			Element page = root.addElement("Page"+(new Integer(i)).toString());
+			Element page = root.addElement("Page"+(new Integer(i+1)).toString());
 			psp.get(i).writeXML(page);
 		}
 	}
@@ -57,4 +69,17 @@ public class PageParser {
 		   writer.write(xml);
 		   writer.flush();
 		 }
+	 
+	 public List<Integer> findTableOnMultiplePages(){
+		 List<Integer> returnList = new ArrayList<Integer>();
+		 for(int i = 0; i < psp.size()-1 ; i++){
+			 if(psp.get(i).containTable() == false || psp.get(i+1).containTable() == false)
+				 continue;
+			 if(psp.get(i).nextTable(psp.get(i+1)) == true){
+				 psp.get(i).setMightContainTableInTheNextPage(true);
+				 returnList.add(new Integer(i+1));
+			 }
+		 }
+		 return returnList;
+	 }
 }

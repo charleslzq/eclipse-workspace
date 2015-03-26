@@ -6,13 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.dom4j.Element;
+
 public class PageTextArea {
 	private int areaNo;
 	private double colNo;
 	private double rowNo;
 	
 	private RectangleObject area;
-	private List<TextObject> texts;
+	//private List<TextObject> texts;
+	private List<CellLine> lines;
+	private List<CharacterGroup> groups;
+	//private List<CharacterObject> characters;
 	
 	private PageTextArea right;
 	private PageTextArea down;
@@ -31,7 +36,10 @@ public class PageTextArea {
 		splitedCols = 1;
 		
 		area = ro;
-		texts = new ArrayList<TextObject>();
+		lines = new ArrayList<CellLine>();
+		//groups = new ArrayList<CharacterGroup>();
+		//texts = new ArrayList<TextObject>();
+		//characters = new ArrayList<CharacterObject>();
 		
 		right = null;
 		down = null;
@@ -53,9 +61,9 @@ public class PageTextArea {
 
 
 
-	public void putText(TextObject to){
+	/*public void putText(TextObject to){
 		texts.add(to);
-	}
+	}*/
 	
 	public void setRight(PageTextArea r){
 		right = r;
@@ -194,7 +202,7 @@ public class PageTextArea {
 		return area.isInThisRectangle(x, y);
 	}
 	
-	public boolean isInThisArea(TextObject to){
+	/*public boolean isInThisArea(TextObject to){
 		return area.isInThisRectangle(to.getX(), to.getY());
 	}
 	
@@ -210,7 +218,11 @@ public class PageTextArea {
 	
 	public TextObject getText(int i){
 		return texts.get(i);
-	}
+	}*/
+	
+	/*public int textSize(){
+		return characters.size();
+	}*/
 	
 	public double getX(){
 		return area.getXofLeftUpper();
@@ -220,19 +232,128 @@ public class PageTextArea {
 		return area.getYofLeftUpper();
 	}
 	
+	public String getString(){
+		String s = "";
+		for(int i = 0; i < lines.size(); i++)
+			s += lines.get(i).getString();
+		return s;
+	}
+	
+	public void setCharacters(List<CharacterObject> characters) {
+		//this.characters = characters;
+		if(characters.size() == 0)
+			return;
+		List<CharacterGroup> groups = new ArrayList<CharacterGroup>();
+		CharacterGroup current = new CharacterGroup(characters.get(0));
+		groups.add(current);
+		boolean newGroup = false;
+		int last = 0;
+		if(characters.size() > 1){
+			for(int i = 1; i < characters.size(); i++){
+				if( characters.get(last).isNextInTheSameLine(characters.get(i)) && characters.get(i).getCharacter().equals(" ") == false){
+					current.addCharacter(characters.get(i));
+					last = i;
+				}
+				else if(characters.get(i).getCharacter().equals(" ") == true){
+					newGroup = true;
+					continue;
+				}
+				else if(newGroup == true && characters.get(i).getCharacter().equals(" ") == false){
+					last = i;
+					current = new CharacterGroup(characters.get(i));
+					groups.add(current);
+					newGroup = false;
+				}
+				else if(characters.get(last).isNextInTheSameLine(characters.get(i)) == false){
+					current = new CharacterGroup(characters.get(i));
+					groups.add(current);
+					last = i;
+				}
+			}
+		}
+		int cellNo = 1;
+		CellLine currentLine = new CellLine(cellNo,groups.get(0));
+		lines.add(currentLine);
+		if(groups.size() > 1){
+			//System.out.println(groups.size());
+			for(int i = 1; i < groups.size(); i++){
+				if( groups.get(i-1).isInTheSameLine(groups.get(i)) )
+					currentLine.addGroup(groups.get(i));
+				else{
+					cellNo++;
+					currentLine = new CellLine(cellNo, groups.get(i));
+					lines.add(currentLine);
+				}
+			}
+		}
+	}
+
+
+
 	public double round(double a, int n){
 		BigDecimal b = new BigDecimal(a);
 		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
 		return f;
 	}
+	
+	public void writeToXML(Element currentTable){
+		Element tmp = currentTable.addElement("Cell");
+		tmp.addAttribute("No", this.getAreaNo()+"");
+		Element areaPosition = tmp.addElement("AreaPosition");
+		Element xOfLeftUpper = areaPosition.addElement("XofLeftUpper");
+		xOfLeftUpper.addText(this.getX()+"");
+		Element yOfLeftUpper = areaPosition.addElement("YofLeftUpper");
+		yOfLeftUpper.addText(this.getY()+"");
+		Element width = areaPosition.addElement("Width");
+		width.addText(this.getWidth()+"");
+		Element height = areaPosition.addElement("Height");
+		height.addText(this.getHeight()+"");
+		Element cellInformation = tmp.addElement("SimplifiedPosition");
+		Element splitedRows = cellInformation.addElement("SimplifiedHeight");
+		Element splitedCols = cellInformation.addElement("SimplifiedWidth");
+		splitedRows.addText(this.getSplitedRows()+"");
+		splitedCols.addText(this.getSplitedCols()+"");
+		Element rowNo = cellInformation.addElement("SimplifedY");
+		rowNo.addText(this.getRowNo()+"");
+		Element colNo = cellInformation.addElement("SimplifedX");
+		colNo.addText(this.getColNo()+"");
+		Element links = tmp.addElement("Links");
+		Element rightLink = links.addElement("NextCellInTheSameRow");
+		if(this.getRight()!=null)
+			rightLink.addText(this.getRight().getAreaNo()+"");
+		Element downLink = links.addElement("NextCellInTheSameColumn");
+		if(this.getDown()!=null)
+			downLink.addText(this.getDown().getAreaNo()+"");
+		Element text = tmp.addElement("Text");
+		text.addAttribute("Content", this.getString());
+		for(int j = 0; j < lines.size(); j++)
+			lines.get(j).writeToXML(text);
+		/*for(int j = 0; j < groups.size(); j++)
+			groups.get(j).writeToXML(text);
+		for(int j = 0; j < this.textSize(); j++){
+			this.getCharacter(j).writeToXML(text);
+		}*/
+		/*if(this.nullText() == false)
+			for(int j = 0; j < this.textSize(); j++){
+				TextObject to = this.getText(j);
+				Element text = tmp.addElement("Text");
+				Element content = text.addElement("Content");
+				content.addText(to.getString());
+				Element position = text.addElement("TextPosition");
+				Element x = position.addElement("X");
+				x.addText(to.getX()+"");
+				Element y = position.addElement("Y");
+				y.addText(to.getY()+"");
+			}*/
+	}
 
 
 
-	public void setText(String text) throws IOException {
+	/*public void setText(String text) throws IOException {
 		// TODO Auto-generated method stub
 		TextObject to = new TextObject();
 		to.setString(text);
 		texts.add(to);
-	}
+	}*/
 	
 }

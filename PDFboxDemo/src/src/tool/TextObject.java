@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.pdfbox.cos.COSArray;
 import org.apache.pdfbox.cos.COSString;
 import org.apache.pdfbox.util.Matrix;
+import org.dom4j.Element;
 
 public class TextObject{
 	private Matrix textMatrix;
@@ -14,6 +15,7 @@ public class TextObject{
 	private boolean singleString;
 	private String content;
 	private COSArray contents;
+	private float fontSize;
 	
 	public TextObject(){
 		textMatrix = new Matrix();
@@ -64,6 +66,14 @@ public class TextObject{
 		textFont = s;
 	}
 	
+	public float getFontSize() {
+		return fontSize;
+	}
+
+	public void setFontSize(float fontSize) {
+		this.fontSize = fontSize;
+	}
+
 	public double getX(){
 		return textMatrix.getValue(2, 0);
 	}
@@ -91,5 +101,17 @@ public class TextObject{
 	public void setString(String s) throws IOException{
 		singleString = true;
 		content = s;
+	}
+	
+	public void writeToXML(Element text){
+		Element content = text.addElement("Content");
+		content.addText(this.getString());
+		Element fontsize = text.addElement("FontSize");
+		fontsize.addText(fontSize+"");
+		Element position = text.addElement("TextPosition");
+		Element x = position.addElement("X");
+		x.addText(this.getX()+"");
+		Element y = position.addElement("Y");
+		y.addText(this.getY()+"");
 	}
 }

@@ -21,19 +21,56 @@ public class PageStreamParser {
 	private int pageNo;
 	private PDStream content;
 	private ContentStreamParser csp;
+	private List<TableInformation> ti;
+	private boolean extraTexts;
+	private boolean mightContainTableInTheNextPage;
 	
 	public PageStreamParser(int a, PDPage pdp) throws IOException{
 		pageNo = a;
 		content = pdp.getContents();
 
 		csp = new ContentStreamParser(pdp);
+		
+		ti = csp.extractTableInformation();
+		
+		extraTexts = csp.extraTextsAfterLastTable();
+		
+		this.mightContainTableInTheNextPage = false;
 	}
 	
 	public PDStream getPDStream(){
 		return content;
 	}
 	
+	public List<TableInformation> getTi() {
+		return ti;
+	}
+
+	public boolean isMightContainTableInTheNextPage() {
+		return mightContainTableInTheNextPage;
+	}
+
+	public void setMightContainTableInTheNextPage(
+			boolean mightContainTableInTheNextPage) {
+		this.mightContainTableInTheNextPage = mightContainTableInTheNextPage;
+	}
+
+	public boolean isExtraTexts() {
+		return extraTexts;
+	}
+	
+	public boolean containTable(){
+		if(ti.size() == 0)
+			return false;
+		return true;
+	}
+
 	public void writeXML(Element pageRoot){
+		Element tableInformation = pageRoot.addElement("TableInformation");
+		for(int i = 0 ; i < ti.size(); i++)
+			ti.get(i).writeToXML(tableInformation);
+		Element m = pageRoot.addElement("MightContainTableInTheNextPage");
+		m.addText(this.mightContainTableInTheNextPage+"");
 		List<PageTextArea> pta = csp.getPTA();
 		Element currentTable = null;
 		int count = 0;
@@ -46,47 +83,31 @@ public class PageStreamParser {
 				}
 			}
 			if(currentTable != null){
-				Element tmp = currentTable.addElement("Cell");
-				tmp.addAttribute("No", pta.get(i).getAreaNo()+"");
-				Element areaPosition = tmp.addElement("AreaPosition");
-				Element xOfLeftUpper = areaPosition.addElement("XofLeftUpper");
-				xOfLeftUpper.addText(pta.get(i).getX()+"");
-				Element yOfLeftUpper = areaPosition.addElement("YofLeftUpper");
-				yOfLeftUpper.addText(pta.get(i).getY()+"");
-				Element width = areaPosition.addElement("Width");
-				width.addText(pta.get(i).getWidth()+"");
-				Element height = areaPosition.addElement("Height");
-				height.addText(pta.get(i).getHeight()+"");
-				Element cellInformation = tmp.addElement("SimplifiedPosition");
-				Element splitedRows = cellInformation.addElement("SimplifiedHeight");
-				Element splitedCols = cellInformation.addElement("SimplifiedWidth");
-				splitedRows.addText(pta.get(i).getSplitedRows()+"");
-				splitedCols.addText(pta.get(i).getSplitedCols()+"");
-				Element rowNo = cellInformation.addElement("SimplifedY");
-				rowNo.addText(pta.get(i).getRowNo()+"");
-				Element colNo = cellInformation.addElement("SimplifedX");
-				colNo.addText(pta.get(i).getColNo()+"");
-				Element links = tmp.addElement("Links");
-				Element rightLink = links.addElement("NextCellInTheSameRow");
-				if(pta.get(i).getRight()!=null)
-					rightLink.addText(pta.get(i).getRight().getAreaNo()+"");
-				Element downLink = links.addElement("NextCellInTheSameColumn");
-				if(pta.get(i).getDown()!=null)
-					downLink.addText(pta.get(i).getDown().getAreaNo()+"");
-				if(pta.get(i).nullText() == false)
-					for(int j = 0; j < pta.get(i).textSize(); j++){
-						TextObject to = pta.get(i).getText(j);
-						Element text = tmp.addElement("Text");
-						Element content = text.addElement("Content");
-						content.addText(to.getString());
-						Element position = text.addElement("TextPosition");
-						Element x = position.addElement("X");
-						x.addText(to.getX()+"");
-						Element y = position.addElement("Y");
-						y.addText(to.getY()+"");
-					}
+				pta.get(i).writeToXML(currentTable);
 			}
 		}
+	}
+	
+	public boolean nextTable(PageStreamParser psp){
+		TableInformation last = ti.get(ti.size()-1);
+		TableInformation first = psp.getTi().get(0);
+		if(last.getRowNumInTheLastRow() != first.getRowNumInTheFirstRow())
+			return false;
+		if(last.getRowNumInTheLastRow() > 1){
+			float offset = last.getXofCellInTheLastRow(0)-first.getXofCellInTheFirstRow(0);
+			for(int i = 1; i < last.getRowNumInTheLastRow(); i++){
+				if(almostEqual(last.getXofCellInTheLastRow(i), first.getXofCellInTheFirstRow(i)+offset, 0.2) == false){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public boolean almostEqual(double a, double b, double err){
+		if(Math.abs(a-b) <= err)
+			return true;
+		return false;
 	}
 	
 	

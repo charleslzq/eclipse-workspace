@@ -1,0 +1,10 @@
+package src.tool;
+
+public class CharacterObject {
+	int regionNo;
+	String content;
+	
+	public CharacterObject(int no, TextPosition text){
+		
+	}
+}

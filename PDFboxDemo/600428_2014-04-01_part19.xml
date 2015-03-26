@@ -1,0 +1,4117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <PageNumberThatMayContainConsecutiveTable/>
+  <Page1>
+    <TableInformation/>
+    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page1>
+  <Page2>
+    <TableInformation>
+      <Table>
+        <RowNumInTheFirstRow>4</RowNumInTheFirstRow>
+        <RowNumInTheLastRow>10</RowNumInTheLastRow>
+        <XsInTheFirstRow>
+          <X>49.2</X>
+          <X>156.8</X>
+          <X>250.12</X>
+          <X>450.06</X>
+        </XsInTheFirstRow>
+        <XsInTheLastRow>
+          <X>49.2</X>
+          <X>156.8</X>
+          <X>220.76</X>
+          <X>250.12</X>
+          <X>308.92</X>
+          <X>331.3</X>
+          <X>364.42</X>
+          <X>390.94</X>
+          <X>450.06</X>
+          <X>516.54</X>
+        </XsInTheLastRow>
+        <TextsInTheFirstRow>
+          <X></X>
+          <X>本次变动前</X>
+          <X>本次变动增减（＋，－）</X>
+          <X>本次变动后</X>
+        </TextsInTheFirstRow>
+      </Table>
+    </TableInformation>
+    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+    <Table No.="1">
+      <Cell No="486">
+        <AreaPosition>
+          <XofLeftUpper>49.20000076293945</XofLeftUpper>
+          <YofLeftUpper>645.819995880127</YofLeftUpper>
+          <Width>106.94000244140625</Width>
+          <Height>55.20000076293945</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>0.0</SimplifedY>
+          <SimplifedX>0.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>549</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>3241</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>53.88</X>
+            <Y>206.59998</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>53.88</X>
+                <Y>206.59998</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>53.88</X>
+                    <Y>206.59998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="549">
+        <AreaPosition>
+          <XofLeftUpper>156.8000030517578</XofLeftUpper>
+          <YofLeftUpper>645.8200120925903</YofLeftUpper>
+          <Width>92.66000366210938</Width>
+          <Height>13.619999885559082</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.25</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>0.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>612</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>938</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="本次变动前">
+          <CellLine LineNo="1" Content="本次变动前">
+            <X>176.9</X>
+            <Y>206.59998</Y>
+            <Width>52.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="本次变动前">
+                <X>176.9</X>
+                <Y>206.59998</Y>
+                <Width>52.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="本">
+                    <X>176.9</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="次">
+                    <X>187.4</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="变">
+                    <X>197.9</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="动">
+                    <X>208.4</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="前">
+                    <X>218.9</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="612">
+        <AreaPosition>
+          <XofLeftUpper>250.1199951171875</XofLeftUpper>
+          <YofLeftUpper>645.8200120925903</YofLeftUpper>
+          <Width>199.22000122070312</Width>
+          <Height>13.619999885559082</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.25</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>0.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>675</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>1126</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="本次变动增减（＋，－）">
+          <CellLine LineNo="1" Content="本次变动增减（＋，－）">
+            <X>292.0</X>
+            <Y>206.59998</Y>
+            <Width>115.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="本次变动增减（＋，－）">
+                <X>292.0</X>
+                <Y>206.59998</Y>
+                <Width>115.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="本">
+                    <X>292.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="次">
+                    <X>302.5</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="变">
+                    <X>313.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="动">
+                    <X>323.5</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="增">
+                    <X>334.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="减">
+                    <X>344.5</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="（">
+                    <X>355.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="＋">
+                    <X>365.5</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="，">
+                    <X>376.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="－">
+                    <X>386.5</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="）">
+                    <X>397.0</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="675">
+        <AreaPosition>
+          <XofLeftUpper>450.05999755859375</XofLeftUpper>
+          <YofLeftUpper>645.8200120925903</YofLeftUpper>
+          <Width>96.05999755859375</Width>
+          <Height>13.619999885559082</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.25</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>0.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow/>
+          <NextCellInTheSameColumn>1565</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="本次变动后">
+          <CellLine LineNo="1" Content="本次变动后">
+            <X>472.02</X>
+            <Y>206.59998</Y>
+            <Width>52.50003</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="本次变动后">
+                <X>472.02</X>
+                <Y>206.59998</Y>
+                <Width>52.50003</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="本">
+                    <X>472.02</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="次">
+                    <X>482.52</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="变">
+                    <X>493.02</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="动">
+                    <X>503.52</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5000305</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="后">
+                    <X>514.02</X>
+                    <Y>206.59998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="938">
+        <AreaPosition>
+          <XofLeftUpper>156.8000030517578</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>63.29999923706055</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.68</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1059</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>3679</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="数量">
+          <CellLine LineNo="1" Content="数量">
+            <X>177.98</X>
+            <Y>234.56</Y>
+            <Width>21.0</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="数量">
+                <X>177.98</X>
+                <Y>234.56</Y>
+                <Width>21.0</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="数">
+                    <X>177.98</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="量">
+                    <X>188.48</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1059">
+        <AreaPosition>
+          <XofLeftUpper>220.75999450683594</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>28.700000762939453</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.32</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>1.68</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1126</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>4092</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="比例(%)">
+          <CellLine LineNo="1" Content="比">
+            <X>229.82</X>
+            <Y>220.94</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="比">
+                <X>229.82</X>
+                <Y>220.94</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="比">
+                    <X>229.82</X>
+                    <Y>220.94</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="例">
+            <X>229.82</X>
+            <Y>234.56</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="例">
+                <X>229.82</X>
+                <Y>234.56</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="例">
+                    <X>229.82</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="(%)">
+            <X>227.18</X>
+            <Y>248.18</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="(%)">
+                <X>227.18</X>
+                <Y>248.18</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="(">
+                    <X>227.18</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="%">
+                    <X>232.43</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char=")">
+                    <X>237.68</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1126">
+        <AreaPosition>
+          <XofLeftUpper>250.1199951171875</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>58.08000183105469</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.29</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1218</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>4480</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="发行新股">
+          <CellLine LineNo="1" Content="发行新股">
+            <X>258.16</X>
+            <Y>234.56</Y>
+            <Width>42.0</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="发行新股">
+                <X>258.16</X>
+                <Y>234.56</Y>
+                <Width>42.0</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="发">
+                    <X>258.16</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="行">
+                    <X>268.66</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="新">
+                    <X>279.16</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>289.66</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1218">
+        <AreaPosition>
+          <XofLeftUpper>308.9200134277344</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>21.65999984741211</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.11</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>2.29</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1339</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>4893</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="送股">
+          <CellLine LineNo="1" Content="送">
+            <X>314.5</X>
+            <Y>227.77997</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="送">
+                <X>314.5</X>
+                <Y>227.77997</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="送">
+                    <X>314.5</X>
+                    <Y>227.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="股">
+            <X>314.5</X>
+            <Y>241.33997</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="股">
+                <X>314.5</X>
+                <Y>241.33997</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="股">
+                    <X>314.5</X>
+                    <Y>241.33997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1339">
+        <AreaPosition>
+          <XofLeftUpper>331.29998779296875</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>32.400001525878906</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.16</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>2.4</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1431</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>5306</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="公 积金 转股">
+          <CellLine LineNo="1" Content="公 积">
+            <X>336.34</X>
+            <Y>220.94</Y>
+            <Width>22.320007</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="公">
+                <X>336.34</X>
+                <Y>220.94</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>1.3200073</Spacing>
+                <Characters>
+                  <Character Char="公">
+                    <X>336.34</X>
+                    <Y>220.94</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="积">
+                <X>348.16</X>
+                <Y>220.94</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="积">
+                    <X>348.16</X>
+                    <Y>220.94</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="金 转">
+            <X>336.34</X>
+            <Y>234.56</Y>
+            <Width>22.320007</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="金">
+                <X>336.34</X>
+                <Y>234.56</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>1.3200073</Spacing>
+                <Characters>
+                  <Character Char="金">
+                    <X>336.34</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="转">
+                <X>348.16</X>
+                <Y>234.56</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="转">
+                    <X>348.16</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="股">
+            <X>336.34</X>
+            <Y>248.18</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="股">
+                <X>336.34</X>
+                <Y>248.18</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="股">
+                    <X>336.34</X>
+                    <Y>248.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1431">
+        <AreaPosition>
+          <XofLeftUpper>364.4200134277344</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>25.799999237060547</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.44</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>2.56</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1498</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>5719</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="其他">
+          <CellLine LineNo="1" Content="其">
+            <X>372.1</X>
+            <Y>227.77997</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="其">
+                <X>372.1</X>
+                <Y>227.77997</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="其">
+                    <X>372.1</X>
+                    <Y>227.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="他">
+            <X>372.1</X>
+            <Y>241.33997</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="他">
+                <X>372.1</X>
+                <Y>241.33997</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="他">
+                    <X>372.1</X>
+                    <Y>241.33997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1498">
+        <AreaPosition>
+          <XofLeftUpper>390.94000244140625</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>58.400001525878906</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1565</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>6132</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="小计">
+          <CellLine LineNo="1" Content="小计">
+            <X>409.62</X>
+            <Y>234.56</Y>
+            <Width>21.0</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="小计">
+                <X>409.62</X>
+                <Y>234.56</Y>
+                <Width>21.0</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="小">
+                    <X>409.62</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="计">
+                    <X>420.12</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1565">
+        <AreaPosition>
+          <XofLeftUpper>450.05999755859375</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>65.81999969482422</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.69</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>1686</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>6595</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="数量">
+          <CellLine LineNo="1" Content="数量">
+            <X>472.44</X>
+            <Y>234.56</Y>
+            <Width>21.0</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="数量">
+                <X>472.44</X>
+                <Y>234.56</Y>
+                <Width>21.0</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="数">
+                    <X>472.44</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="量">
+                    <X>482.94</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="1686">
+        <AreaPosition>
+          <XofLeftUpper>516.5399780273438</XofLeftUpper>
+          <YofLeftUpper>631.4799957275391</YofLeftUpper>
+          <Width>29.579999923706055</Width>
+          <Height>40.86000061035156</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>0.75</SimplifiedHeight>
+          <SimplifiedWidth>0.31</SimplifiedWidth>
+          <SimplifedY>0.25</SimplifedY>
+          <SimplifedX>4.69</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow/>
+          <NextCellInTheSameColumn>7008</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="比例(%)">
+          <CellLine LineNo="1" Content="比">
+            <X>526.32</X>
+            <Y>220.94</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="比">
+                <X>526.32</X>
+                <Y>220.94</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="比">
+                    <X>526.32</X>
+                    <Y>220.94</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="例">
+            <X>526.32</X>
+            <Y>234.56</Y>
+            <Width>10.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="例">
+                <X>526.32</X>
+                <Y>234.56</Y>
+                <Width>10.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="例">
+                    <X>526.32</X>
+                    <Y>234.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="(%)">
+            <X>523.68</X>
+            <Y>248.18</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="(%)">
+                <X>523.68</X>
+                <Y>248.18</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="(">
+                    <X>523.68</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="%">
+                    <X>528.93</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char=")">
+                    <X>534.18</X>
+                    <Y>248.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="3241">
+        <AreaPosition>
+          <XofLeftUpper>49.20000076293945</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>106.94000244140625</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>0.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>3679</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7299</NextCellInTheSameColumn>
+        </Links>
+        <Text Content="一、有限售条件股份1 、国家持股2 、国有法人持股3 、其他内资持股其中：境内法人持股境内自然人持股４、外资持股其中：境外法人持股境外自然人持股二、无限售条件股份1 、人民币普通股2 、境内上市的外资股3 、境外上市的外资股4 、其他">
+          <CellLine LineNo="1" Content="一、有限售条件股份">
+            <X>53.88</X>
+            <Y>262.57996</Y>
+            <Width>94.49999</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="一、有限售条件股份">
+                <X>53.88</X>
+                <Y>262.57996</Y>
+                <Width>94.49999</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="一">
+                    <X>53.88</X>
+                    <Y>262.57996</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="、">
+                    <X>64.4325</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="有">
+                    <X>74.985</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="限">
+                    <X>85.5375</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="售">
+                    <X>96.0375</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="条">
+                    <X>106.5375</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="件">
+                    <X>117.09</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>127.642494</X>
+                    <Y>262.57996</Y>
+                    <Width>10.499992</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="份">
+                    <X>138.19499</X>
+                    <Y>262.57996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="1 、国家持股">
+            <X>53.88</X>
+            <Y>283.03998</Y>
+            <Width>57.780003</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1">
+                <X>53.88</X>
+                <Y>283.03998</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>53.88</X>
+                    <Y>283.03998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、国家持股">
+                <X>59.16</X>
+                <Y>283.03998</Y>
+                <Width>52.500004</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>283.03998</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="国">
+                    <X>69.66</X>
+                    <Y>283.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="家">
+                    <X>80.16</X>
+                    <Y>283.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>90.66</X>
+                    <Y>283.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>101.16</X>
+                    <Y>283.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="2 、国有法人持股">
+            <X>53.88</X>
+            <Y>303.44</Y>
+            <Width>78.78</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="2">
+                <X>53.88</X>
+                <Y>303.44</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="2">
+                    <X>53.88</X>
+                    <Y>303.44</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、国有法人持股">
+                <X>59.16</X>
+                <Y>303.44</Y>
+                <Width>73.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>303.44</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="国">
+                    <X>69.66</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="有">
+                    <X>80.16</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="法">
+                    <X>90.66</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>101.16</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>111.597</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>122.097</X>
+                    <Y>303.44</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="4" Content="3 、其他内资持股">
+            <X>53.88</X>
+            <Y>323.89996</Y>
+            <Width>78.78</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="3">
+                <X>53.88</X>
+                <Y>323.89996</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="3">
+                    <X>53.88</X>
+                    <Y>323.89996</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、其他内资持股">
+                <X>59.16</X>
+                <Y>323.89996</Y>
+                <Width>73.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>323.89996</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="其">
+                    <X>69.66</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="他">
+                    <X>80.16</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="内">
+                    <X>90.66</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="资">
+                    <X>101.16</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>111.597</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>122.097</X>
+                    <Y>323.89996</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="5" Content="其中：">
+            <X>64.38</X>
+            <Y>344.3</Y>
+            <Width>31.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="其中：">
+                <X>64.38</X>
+                <Y>344.3</Y>
+                <Width>31.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="其">
+                    <X>64.38</X>
+                    <Y>344.3</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="中">
+                    <X>74.88</X>
+                    <Y>344.3</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="：">
+                    <X>85.38</X>
+                    <Y>344.3</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="6" Content="境内法人持股">
+            <X>74.88</X>
+            <Y>364.75998</Y>
+            <Width>63.000008</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="境内法人持股">
+                <X>74.88</X>
+                <Y>364.75998</Y>
+                <Width>63.000008</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="境">
+                    <X>74.88</X>
+                    <Y>364.75998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="内">
+                    <X>85.38</X>
+                    <Y>364.75998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="法">
+                    <X>95.88</X>
+                    <Y>364.75998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>106.38</X>
+                    <Y>364.75998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>116.88</X>
+                    <Y>364.75998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>127.38</X>
+                    <Y>364.75998</Y>
+                    <Width>10.500008</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="7" Content="境内自然人持股">
+            <X>74.88</X>
+            <Y>385.15997</Y>
+            <Width>73.50001</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="境内自然人持股">
+                <X>74.88</X>
+                <Y>385.15997</Y>
+                <Width>73.50001</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="境">
+                    <X>74.88</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="内">
+                    <X>85.38</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="自">
+                    <X>95.88</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="然">
+                    <X>106.38</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>116.88</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>127.38</X>
+                    <Y>385.15997</Y>
+                    <Width>10.500008</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>137.88</X>
+                    <Y>385.15997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="8" Content="４、外资持股">
+            <X>53.88</X>
+            <Y>405.56</Y>
+            <Width>63.000004</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="４、外资持股">
+                <X>53.88</X>
+                <Y>405.56</Y>
+                <Width>63.000004</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="４">
+                    <X>53.88</X>
+                    <Y>405.56</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="、">
+                    <X>64.380005</X>
+                    <Y>405.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>74.880005</X>
+                    <Y>405.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="资">
+                    <X>85.380005</X>
+                    <Y>405.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>95.880005</X>
+                    <Y>405.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>106.380005</X>
+                    <Y>405.56</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="9" Content="其中：">
+            <X>64.38</X>
+            <Y>426.03998</Y>
+            <Width>31.5</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="其中：">
+                <X>64.38</X>
+                <Y>426.03998</Y>
+                <Width>31.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="其">
+                    <X>64.38</X>
+                    <Y>426.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="中">
+                    <X>74.88</X>
+                    <Y>426.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="：">
+                    <X>85.38</X>
+                    <Y>426.03998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="10" Content="境外法人持股">
+            <X>74.88</X>
+            <Y>446.43997</Y>
+            <Width>63.000008</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="境外法人持股">
+                <X>74.88</X>
+                <Y>446.43997</Y>
+                <Width>63.000008</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="境">
+                    <X>74.88</X>
+                    <Y>446.43997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>85.38</X>
+                    <Y>446.43997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="法">
+                    <X>95.88</X>
+                    <Y>446.43997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>106.38</X>
+                    <Y>446.43997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>116.88</X>
+                    <Y>446.43997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>127.38</X>
+                    <Y>446.43997</Y>
+                    <Width>10.500008</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="11" Content="境外自然人持股">
+            <X>74.88</X>
+            <Y>466.9</Y>
+            <Width>73.50001</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="境外自然人持股">
+                <X>74.88</X>
+                <Y>466.9</Y>
+                <Width>73.50001</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="境">
+                    <X>74.88</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>85.38</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="自">
+                    <X>95.88</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="然">
+                    <X>106.38</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>116.88</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="持">
+                    <X>127.38</X>
+                    <Y>466.9</Y>
+                    <Width>10.500008</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>137.88</X>
+                    <Y>466.9</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="12" Content="二、无限售条件股份">
+            <X>53.88</X>
+            <Y>500.91998</Y>
+            <Width>94.49999</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="二、无限售条件股份">
+                <X>53.88</X>
+                <Y>500.91998</Y>
+                <Width>94.49999</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="二">
+                    <X>53.88</X>
+                    <Y>500.91998</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="、">
+                    <X>64.4325</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="无">
+                    <X>74.985</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="限">
+                    <X>85.5375</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="售">
+                    <X>96.0375</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="条">
+                    <X>106.5375</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="件">
+                    <X>117.09</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>127.642494</X>
+                    <Y>500.91998</Y>
+                    <Width>10.499992</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="份">
+                    <X>138.19499</X>
+                    <Y>500.91998</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="13" Content="1 、人民币普通股">
+            <X>53.88</X>
+            <Y>521.38</Y>
+            <Width>78.78</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1">
+                <X>53.88</X>
+                <Y>521.38</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>53.88</X>
+                    <Y>521.38</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、人民币普通股">
+                <X>59.16</X>
+                <Y>521.38</Y>
+                <Width>73.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>521.38</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="人">
+                    <X>69.66</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="民">
+                    <X>80.16</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="币">
+                    <X>90.66</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="普">
+                    <X>101.16</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="通">
+                    <X>111.597</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>122.097</X>
+                    <Y>521.38</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="14" Content="2 、境内上市的外资股">
+            <X>53.88</X>
+            <Y>541.77997</Y>
+            <Width>99.78</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="2">
+                <X>53.88</X>
+                <Y>541.77997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="2">
+                    <X>53.88</X>
+                    <Y>541.77997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、境内上市的外资股">
+                <X>59.16</X>
+                <Y>541.77997</Y>
+                <Width>94.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>541.77997</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="境">
+                    <X>67.14</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="内">
+                    <X>77.64</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="上">
+                    <X>88.14</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="市">
+                    <X>98.64</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="的">
+                    <X>109.076996</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>119.576996</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="资">
+                    <X>130.077</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>140.577</X>
+                    <Y>541.77997</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="15" Content="3 、境外上市的外资股">
+            <X>53.88</X>
+            <Y>562.18</Y>
+            <Width>99.78</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="3">
+                <X>53.88</X>
+                <Y>562.18</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="3">
+                    <X>53.88</X>
+                    <Y>562.18</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、境外上市的外资股">
+                <X>59.16</X>
+                <Y>562.18</Y>
+                <Width>94.5</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>562.18</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="境">
+                    <X>67.14001</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>77.64001</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="上">
+                    <X>88.14001</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="市">
+                    <X>98.64001</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="的">
+                    <X>109.077</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="外">
+                    <X>119.577</X>
+                    <Y>562.18</Y>
+                    <Width>10.499992</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="资">
+                    <X>130.077</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>140.577</X>
+                    <Y>562.18</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="16" Content="4 、其他">
+            <X>53.88</X>
+            <Y>582.64</Y>
+            <Width>36.780003</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="4">
+                <X>53.88</X>
+                <Y>582.64</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>0.02999878</Spacing>
+                <Characters>
+                  <Character Char="4">
+                    <X>53.88</X>
+                    <Y>582.64</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+              <Group Content="、其他">
+                <X>59.16</X>
+                <Y>582.64</Y>
+                <Width>31.500004</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="、">
+                    <X>59.16</X>
+                    <Y>582.64</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="其">
+                    <X>69.66</X>
+                    <Y>582.64</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="他">
+                    <X>80.16</X>
+                    <Y>582.64</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="3679">
+        <AreaPosition>
+          <XofLeftUpper>156.8000030517578</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>63.29999923706055</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.68</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>4092</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7362</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" 16904463931690446393">
+          <CellLine LineNo="1" Content=" ">
+            <X>215.06</X>
+            <Y>262.57996</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>215.06</X>
+                <Y>262.57996</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>215.06</X>
+                    <Y>262.57996</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="1690446393">
+            <X>162.56</X>
+            <Y>502.96</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>162.56</X>
+                <Y>502.96</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>162.56</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>167.81</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>173.06</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>178.31</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>183.56</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>188.81</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>194.06</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>199.31</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>204.56</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>209.81</X>
+                    <Y>502.96</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="1690446393">
+            <X>162.56</X>
+            <Y>522.93994</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>162.56</X>
+                <Y>522.93994</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>162.56</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>167.81</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>173.06</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>178.31</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>183.56</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>188.81</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>194.06</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>199.31</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>204.56</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>209.81</X>
+                    <Y>522.93994</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="4092">
+        <AreaPosition>
+          <XofLeftUpper>220.75999450683594</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>28.700000762939453</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.32</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.68</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>4480</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7425</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" 100100x">
+          <CellLine LineNo="1" Content=" ">
+            <X>244.36</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>244.36</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>244.36</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="100">
+            <X>228.62</X>
+            <Y>502.06</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>228.62</X>
+                <Y>502.06</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>228.62</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>233.87</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>239.12</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="100">
+            <X>228.62</X>
+            <Y>522.1</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>228.62</X>
+                <Y>522.1</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>228.62</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>233.87</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>239.12</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="4" Content="x">
+            <X>247.52841</X>
+            <Y>517.9639</Y>
+            <Width>9.9653015</Width>
+            <Height>22.500013</Height>
+            <Groups>
+              <Group Content="x">
+                <X>247.52841</X>
+                <Y>517.9639</Y>
+                <Width>9.9653015</Width>
+                <Height>22.500013</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="x">
+                    <X>247.52841</X>
+                    <Y>517.9639</Y>
+                    <Width>9.9653015</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="4480">
+        <AreaPosition>
+          <XofLeftUpper>250.1199951171875</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>58.08000183105469</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.29</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>4893</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7463</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" -PDFD">
+          <CellLine LineNo="1" Content=" ">
+            <X>303.16</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>303.16</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>303.16</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="-PDFD">
+            <X>257.4937</X>
+            <Y>503.1908</Y>
+            <Width>56.1882</Width>
+            <Height>22.500013</Height>
+            <Groups>
+              <Group Content="-PDFD">
+                <X>257.4937</X>
+                <Y>503.1908</Y>
+                <Width>56.1882</Width>
+                <Height>22.500013</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="-">
+                    <X>257.4937</X>
+                    <Y>503.1908</Y>
+                    <Width>7.307892</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="P">
+                    <X>264.8016</X>
+                    <Y>492.35718</Y>
+                    <Width>11.092682</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="D">
+                    <X>275.8943</X>
+                    <Y>475.91275</Y>
+                    <Width>13.649445</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="F">
+                    <X>289.54373</X>
+                    <Y>455.67804</Y>
+                    <Width>10.488739</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="D">
+                    <X>300.03247</X>
+                    <Y>440.12894</Y>
+                    <Width>13.649445</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="4893">
+        <AreaPosition>
+          <XofLeftUpper>308.9200134277344</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>21.65999984741211</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.11</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.29</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>5306</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7501</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" ivi">
+          <CellLine LineNo="1" Content=" ">
+            <X>325.54</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>325.54</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>325.54</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="ivi">
+            <X>313.68192</X>
+            <Y>419.89423</Y>
+            <Width>19.205872</Width>
+            <Height>22.500013</Height>
+            <Groups>
+              <Group Content="ivi">
+                <X>313.68192</X>
+                <Y>419.89423</Y>
+                <Width>19.205872</Width>
+                <Height>22.500013</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="i">
+                    <X>313.68192</X>
+                    <Y>419.89423</Y>
+                    <Width>4.590088</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="v">
+                    <X>318.272</X>
+                    <Y>413.08963</Y>
+                    <Width>10.025696</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="i">
+                    <X>328.2977</X>
+                    <Y>398.22696</Y>
+                    <Width>4.590088</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="5306">
+        <AreaPosition>
+          <XofLeftUpper>331.29998779296875</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>32.400001525878906</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.16</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.4</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>5719</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7539</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" sion">
+          <CellLine LineNo="1" Content=" ">
+            <X>358.66</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>358.66</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>358.66</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="sion">
+            <X>332.8878</X>
+            <Y>391.42236</Y>
+            <Width>35.69391</Width>
+            <Height>22.500013</Height>
+            <Groups>
+              <Group Content="sion">
+                <X>332.8878</X>
+                <Y>391.42236</Y>
+                <Width>35.69391</Width>
+                <Height>22.500013</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="s">
+                    <X>332.8878</X>
+                    <Y>391.42236</Y>
+                    <Width>8.978851</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="i">
+                    <X>341.86664</X>
+                    <Y>378.11163</Y>
+                    <Width>4.590088</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="o">
+                    <X>346.45673</X>
+                    <Y>371.30704</Y>
+                    <Width>10.911499</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                  <Character Char="n">
+                    <X>357.36823</X>
+                    <Y>355.1312</Y>
+                    <Width>11.21347</Width>
+                    <Height>22.500013</Height>
+                    <Font>Tahoma</Font>
+                    <FontSize>36.0</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="5719">
+        <AreaPosition>
+          <XofLeftUpper>364.4200134277344</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>25.799999237060547</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.44</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.56</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>6132</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7577</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>385.24</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>385.24</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>385.24</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="6132">
+        <AreaPosition>
+          <XofLeftUpper>390.94000244140625</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>58.400001525878906</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>6595</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7615</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>444.3</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>444.3</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>444.3</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="6595">
+        <AreaPosition>
+          <XofLeftUpper>450.05999755859375</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>65.81999969482422</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.69</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7008</NextCellInTheSameRow>
+          <NextCellInTheSameColumn>7678</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" 16904463931690446393">
+          <CellLine LineNo="1" Content=" ">
+            <X>510.78</X>
+            <Y>262.57996</Y>
+            <Width>5.2500305</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>510.78</X>
+                <Y>262.57996</Y>
+                <Width>5.2500305</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>510.78</X>
+                    <Y>262.57996</Y>
+                    <Width>5.2500305</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="1690446393">
+            <X>458.28</X>
+            <Y>502.47998</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>458.28</X>
+                <Y>502.47998</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>458.28</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>463.53</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>468.78</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>474.03</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>479.28</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>484.53</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>489.78</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>495.03</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>500.28</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>505.53</X>
+                    <Y>502.47998</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="1690446393">
+            <X>458.28</X>
+            <Y>522.52</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>458.28</X>
+                <Y>522.52</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>458.28</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>463.53</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>468.78</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>474.03</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>479.28</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>484.53</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>489.78</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>495.03</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>500.28</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>505.53</X>
+                    <Y>522.52</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7008">
+        <AreaPosition>
+          <XofLeftUpper>516.5399780273438</XofLeftUpper>
+          <YofLeftUpper>589.9000091552734</YofLeftUpper>
+          <Width>29.579999923706055</Width>
+          <Height>360.9200134277344</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.31</SimplifiedWidth>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.69</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow/>
+          <NextCellInTheSameColumn>7768</NextCellInTheSameColumn>
+        </Links>
+        <Text Content=" 100100">
+          <CellLine LineNo="1" Content=" ">
+            <X>541.5</X>
+            <Y>260.83997</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>541.5</X>
+                <Y>260.83997</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>541.5</X>
+                    <Y>260.83997</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="2" Content="100">
+            <X>525.78</X>
+            <Y>502.06</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>525.78</X>
+                <Y>502.06</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>525.78</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>531.03</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>536.28</X>
+                    <Y>502.06</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+          <CellLine LineNo="3" Content="100">
+            <X>525.78</X>
+            <Y>522.1</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>525.78</X>
+                <Y>522.1</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>525.78</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>531.03</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>536.28</X>
+                    <Y>522.1</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7299">
+        <AreaPosition>
+          <XofLeftUpper>49.20000076293945</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>106.94000244140625</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>0.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7362</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content="三、股份总数">
+          <CellLine LineNo="1" Content="三、股份总数">
+            <X>53.88</X>
+            <Y>624.16</Y>
+            <Width>63.000004</Width>
+            <Height>5.8222504</Height>
+            <Groups>
+              <Group Content="三、股份总数">
+                <X>53.88</X>
+                <Y>624.16</Y>
+                <Width>63.000004</Width>
+                <Height>5.8222504</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="三">
+                    <X>53.88</X>
+                    <Y>624.16</Y>
+                    <Width>10.500004</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="、">
+                    <X>64.4325</X>
+                    <Y>624.16</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="股">
+                    <X>74.985</X>
+                    <Y>624.16</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="份">
+                    <X>85.5375</X>
+                    <Y>624.16</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="总">
+                    <X>96.0375</X>
+                    <Y>624.16</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="数">
+                    <X>106.5375</X>
+                    <Y>624.16</Y>
+                    <Width>10.5</Width>
+                    <Height>5.8222504</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7362">
+        <AreaPosition>
+          <XofLeftUpper>156.8000030517578</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>63.29999923706055</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.68</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7425</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content="1690446393">
+          <CellLine LineNo="1" Content="1690446393">
+            <X>161.9</X>
+            <Y>624.22</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>161.9</X>
+                <Y>624.22</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>161.9</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>167.15</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>172.4</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>177.65</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>182.9</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>188.15</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>193.4</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>198.65</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>203.9</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>209.15</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7425">
+        <AreaPosition>
+          <XofLeftUpper>220.75999450683594</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>28.700000762939453</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.32</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.68</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7463</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content="100">
+          <CellLine LineNo="1" Content="100">
+            <X>228.62</X>
+            <Y>624.22</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>228.62</X>
+                <Y>624.22</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>228.62</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>233.87</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>239.12</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7463">
+        <AreaPosition>
+          <XofLeftUpper>250.1199951171875</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>58.08000183105469</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.29</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7501</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>303.16</X>
+            <Y>624.22</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>303.16</X>
+                <Y>624.22</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>303.16</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7501">
+        <AreaPosition>
+          <XofLeftUpper>308.9200134277344</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>21.65999984741211</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.11</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.29</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7539</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>325.54</X>
+            <Y>624.22</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>325.54</X>
+                <Y>624.22</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>325.54</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7539">
+        <AreaPosition>
+          <XofLeftUpper>331.29998779296875</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>32.400001525878906</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.16</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.4</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7577</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>358.66</X>
+            <Y>624.22</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>358.66</X>
+                <Y>624.22</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>358.66</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7577">
+        <AreaPosition>
+          <XofLeftUpper>364.4200134277344</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>25.799999237060547</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.44</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.56</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7615</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>385.24</X>
+            <Y>624.22</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>385.24</X>
+                <Y>624.22</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>385.24</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7615">
+        <AreaPosition>
+          <XofLeftUpper>390.94000244140625</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>58.400001525878906</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>1.0</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7678</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content=" ">
+          <CellLine LineNo="1" Content=" ">
+            <X>444.3</X>
+            <Y>624.22</Y>
+            <Width>5.25</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content=" ">
+                <X>444.3</X>
+                <Y>624.22</Y>
+                <Width>5.25</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char=" ">
+                    <X>444.3</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7678">
+        <AreaPosition>
+          <XofLeftUpper>450.05999755859375</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>65.81999969482422</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.69</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow>7768</NextCellInTheSameRow>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content="1690446393">
+          <CellLine LineNo="1" Content="1690446393">
+            <X>458.28</X>
+            <Y>624.22</Y>
+            <Width>52.5</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="1690446393">
+                <X>458.28</X>
+                <Y>624.22</Y>
+                <Width>52.5</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>458.28</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>463.53</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>468.78</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>474.03</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>479.28</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="4">
+                    <X>484.53</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="6">
+                    <X>489.78</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>495.03</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="9">
+                    <X>500.28</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="3">
+                    <X>505.53</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+      <Cell No="7768">
+        <AreaPosition>
+          <XofLeftUpper>516.5399780273438</XofLeftUpper>
+          <YofLeftUpper>228.26000213623047</YofLeftUpper>
+          <Width>29.579999923706055</Width>
+          <Height>20.459999084472656</Height>
+        </AreaPosition>
+        <SimplifiedPosition>
+          <SimplifiedHeight>1.0</SimplifiedHeight>
+          <SimplifiedWidth>0.31</SimplifiedWidth>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.69</SimplifedX>
+        </SimplifiedPosition>
+        <Links>
+          <NextCellInTheSameRow/>
+          <NextCellInTheSameColumn/>
+        </Links>
+        <Text Content="100">
+          <CellLine LineNo="1" Content="100">
+            <X>525.78</X>
+            <Y>624.22</Y>
+            <Width>15.75</Width>
+            <Height>5.25</Height>
+            <Groups>
+              <Group Content="100">
+                <X>525.78</X>
+                <Y>624.22</Y>
+                <Width>15.75</Width>
+                <Height>5.25</Height>
+                <Spacing>-1.0</Spacing>
+                <Characters>
+                  <Character Char="1">
+                    <X>525.78</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>531.06006</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                  <Character Char="0">
+                    <X>536.28</X>
+                    <Y>624.22</Y>
+                    <Width>5.25</Width>
+                    <Height>5.25</Height>
+                    <Font>ABCDEE+ËÎÌå</Font>
+                    <FontSize>10.5</FontSize>
+                  </Character>
+                </Characters>
+              </Group>
+            </Groups>
+          </CellLine>
+        </Text>
+      </Cell>
+    </Table>
+  </Page2>
+</root>

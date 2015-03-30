@@ -61,17 +61,17 @@ public class ContentStreamParser {
 		for(int i = 0; i < tp.getSize(); i++){
 			if(areas.containsKey(new Integer(i))){
 				tsbro.addRegion(i, areas.get(new Integer(i)));
-				last = i;
+				//last = i;
 			}
 		}
 		
-		if(last !=0 && areas != null){
+		/*if(last !=0 && areas != null){
 			RectangleObject lastRo = areas.get(new Integer(last));
 			double y = lastRo.getYofLeftUpper() - lastRo.getHeight();
 			double w = pdpage.getArtBox().getWidth();
 			RectangleObject extra = new RectangleObject(0,0,w,y);
 			tsbro.addRegion(-1, extra);
-		}
+		}*/
 		
 		tsbro.extractRegions(pdpage);
 		/*for(int i = 0; i < textAreas.size() ; i++){
@@ -80,6 +80,7 @@ public class ContentStreamParser {
 			textAreas.get(i).setText(text);
 			//System.out.println(no+":"+text);
 		}*/
+		//tsbro.print();
 		attachTexts(textAreas);
 		return textAreas;
 	}
@@ -87,8 +88,10 @@ public class ContentStreamParser {
 	private List<PageTextArea> constructRegions(Map<Integer, RectangleObject> areas){
 		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
 		for(int i = 0; i < tp.getSize(); i++)
-			if(areas.containsKey(new Integer(i)))
+			if(areas.containsKey(new Integer(i))){
 				textAreas.add(new PageTextArea(i, areas.get(new Integer(i))));
+				//System.out.println(i);
+			}
 		for(int i = 0; i < textAreas.size(); i++)
 			for(int j = i+1 ; j < textAreas.size(); j++){
 				if( textAreas.get(i).getRight() == null && textAreas.get(i).nextColumnInTheSameRow(textAreas.get(j))){

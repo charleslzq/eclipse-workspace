@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <root>
-  <PageNumberThatMayContainConsecutiveTable>
-    <No>2</No>
-  </PageNumberThatMayContainConsecutiveTable>
-  <Page1>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>111.98</X>
-          <X>181.22</X>
-          <X>406.39</X>
-          <X>496.87</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>111.98</X>
-          <X>181.22</X>
-          <X>406.39</X>
-          <X>496.87</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  <Page 0>
     <Table No.="1">
       <Cell No="258">
         <AreaPosition>
@@ -51,7 +20,7 @@
           <NextCellInTheSameRow>321</NextCellInTheSameRow>
           <NextCellInTheSameColumn>691</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="321">
         <AreaPosition>
@@ -64,13 +33,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>384</NextCellInTheSameRow>
           <NextCellInTheSameColumn>754</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物简称 "/>
       </Cell>
       <Cell No="384">
         <AreaPosition>
@@ -83,13 +52,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>447</NextCellInTheSameRow>
           <NextCellInTheSameColumn>817</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物全称 "/>
       </Cell>
       <Cell No="447">
         <AreaPosition>
@@ -102,13 +71,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>510</NextCellInTheSameRow>
           <NextCellInTheSameColumn>880</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="510">
         <AreaPosition>
@@ -121,13 +90,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1045</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="691">
         <AreaPosition>
@@ -139,14 +108,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>754</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1214</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="754">
         <AreaPosition>
@@ -158,14 +127,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>817</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1277</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IANDC "/>
       </Cell>
       <Cell No="817">
         <AreaPosition>
@@ -177,14 +146,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>880</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1340</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Information and Computation "/>
       </Cell>
       <Cell No="880">
         <AreaPosition>
@@ -196,14 +165,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1045</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1403</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="1045">
         <AreaPosition>
@@ -215,14 +184,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1466</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.journals.elsevier.com/information-and-computation/ "/>
       </Cell>
       <Cell No="1214">
         <AreaPosition>
@@ -234,14 +203,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1277</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1277">
         <AreaPosition>
@@ -253,14 +222,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1340</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="SICOMP "/>
       </Cell>
       <Cell No="1340">
         <AreaPosition>
@@ -272,14 +241,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1403</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIAM Journal on Computing "/>
       </Cell>
       <Cell No="1403">
         <AreaPosition>
@@ -291,14 +260,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1466</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIAM "/>
       </Cell>
       <Cell No="1466">
         <AreaPosition>
@@ -310,46 +279,18 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://epubs.siam.org/sicomp/ "/>
       </Cell>
     </Table>
-  </Page1>
-  <Page2>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>184.58</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>184.58</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>true</MightContainTableInTheNextPage>
+  </Page 0>
+  <Page 1>
     <Table No.="1">
       <Cell No="130">
         <AreaPosition>
@@ -368,7 +309,7 @@
           <NextCellInTheSameRow>193</NextCellInTheSameRow>
           <NextCellInTheSameColumn>560</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="193">
         <AreaPosition>
@@ -381,13 +322,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>256</NextCellInTheSameRow>
           <NextCellInTheSameColumn>617</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物简称 "/>
       </Cell>
       <Cell No="256">
         <AreaPosition>
@@ -400,13 +341,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>319</NextCellInTheSameRow>
           <NextCellInTheSameColumn>674</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物全称 "/>
       </Cell>
       <Cell No="319">
         <AreaPosition>
@@ -419,13 +360,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>382</NextCellInTheSameRow>
           <NextCellInTheSameColumn>731</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="382">
         <AreaPosition>
@@ -438,13 +379,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>788</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="560">
         <AreaPosition>
@@ -456,14 +397,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>617</NextCellInTheSameRow>
           <NextCellInTheSameColumn>951</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="617">
         <AreaPosition>
@@ -475,14 +416,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>674</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1008</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="TALG "/>
       </Cell>
       <Cell No="674">
         <AreaPosition>
@@ -494,14 +435,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>731</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1065</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM Transactions on Algorithms "/>
       </Cell>
       <Cell No="731">
         <AreaPosition>
@@ -513,14 +454,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>788</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1122</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="788">
         <AreaPosition>
@@ -532,14 +473,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1179</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://talg.acm.org/ "/>
       </Cell>
       <Cell No="951">
         <AreaPosition>
@@ -551,14 +492,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1008</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1342</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1008">
         <AreaPosition>
@@ -570,14 +511,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1065</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1399</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="TOCL "/>
       </Cell>
       <Cell No="1065">
         <AreaPosition>
@@ -589,14 +530,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1122</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1456</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM Transactions on Computational Logic "/>
       </Cell>
       <Cell No="1122">
         <AreaPosition>
@@ -608,14 +549,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1179</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1513</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="1179">
         <AreaPosition>
@@ -627,14 +568,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1570</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://tocl.acm.org/ "/>
       </Cell>
       <Cell No="1342">
         <AreaPosition>
@@ -646,14 +587,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>3.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1399</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1733</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="3 "/>
       </Cell>
       <Cell No="1399">
         <AreaPosition>
@@ -665,14 +606,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1456</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1768</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="TOMS "/>
       </Cell>
       <Cell No="1456">
         <AreaPosition>
@@ -684,14 +625,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1513</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1825</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM Transactions on Mathematical Software "/>
       </Cell>
       <Cell No="1513">
         <AreaPosition>
@@ -703,14 +644,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1570</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1882</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="1570">
         <AreaPosition>
@@ -722,14 +663,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1961</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://toms.acm.org/ "/>
       </Cell>
       <Cell No="1733">
         <AreaPosition>
@@ -741,14 +682,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>4.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1768</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2124</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="4 "/>
       </Cell>
       <Cell No="1768">
         <AreaPosition>
@@ -760,14 +701,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1825</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2159</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="1825">
         <AreaPosition>
@@ -779,14 +720,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1882</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2216</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Algorithmica "/>
       </Cell>
       <Cell No="1882">
         <AreaPosition>
@@ -798,14 +739,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1961</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2273</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="1961">
         <AreaPosition>
@@ -817,14 +758,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2352</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springerlink.com/content/100117/ "/>
       </Cell>
       <Cell No="2124">
         <AreaPosition>
@@ -836,14 +777,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>5.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2159</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2515</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="5 "/>
       </Cell>
       <Cell No="2159">
         <AreaPosition>
@@ -855,14 +796,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2216</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2572</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="2216">
         <AreaPosition>
@@ -874,14 +815,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2273</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2629</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Computational complexity "/>
       </Cell>
       <Cell No="2273">
         <AreaPosition>
@@ -893,14 +834,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2352</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2686</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="2352">
         <AreaPosition>
@@ -912,14 +853,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2787</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springer.com/birkhauser/computer+science/journal/37 "/>
       </Cell>
       <Cell No="2515">
         <AreaPosition>
@@ -931,14 +872,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>6.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2572</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2950</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="6 "/>
       </Cell>
       <Cell No="2572">
         <AreaPosition>
@@ -950,14 +891,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2629</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2985</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="FAC "/>
       </Cell>
       <Cell No="2629">
         <AreaPosition>
@@ -969,14 +910,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2686</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3042</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Formal Aspects of Computing "/>
       </Cell>
       <Cell No="2686">
         <AreaPosition>
@@ -988,14 +929,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2787</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3121</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="2787">
         <AreaPosition>
@@ -1007,14 +948,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3222</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springerlink.com/content/1433-299X/ "/>
       </Cell>
       <Cell No="2950">
         <AreaPosition>
@@ -1026,14 +967,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>7.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2985</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3385</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="7 "/>
       </Cell>
       <Cell No="2985">
         <AreaPosition>
@@ -1045,14 +986,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3042</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3420</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="3042">
         <AreaPosition>
@@ -1064,14 +1005,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3121</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3543</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Formal Methods in System Design "/>
       </Cell>
       <Cell No="3121">
         <AreaPosition>
@@ -1083,14 +1024,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3222</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3600</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="3222">
         <AreaPosition>
@@ -1102,14 +1043,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3657</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springerlink.com/content/1572-8102/ "/>
       </Cell>
       <Cell No="3385">
         <AreaPosition>
@@ -1121,14 +1062,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>8.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3420</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3820</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="8 "/>
       </Cell>
       <Cell No="3420">
         <AreaPosition>
@@ -1140,14 +1081,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3543</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3877</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="3543">
         <AreaPosition>
@@ -1159,14 +1100,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3600</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3934</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="INFORMS Journal on Computing "/>
       </Cell>
       <Cell No="3600">
         <AreaPosition>
@@ -1178,14 +1119,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3657</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3991</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="INFORMS "/>
       </Cell>
       <Cell No="3657">
         <AreaPosition>
@@ -1197,14 +1138,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4316</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.informs.org/Pubs/IJOC "/>
       </Cell>
       <Cell No="3820">
         <AreaPosition>
@@ -1216,14 +1157,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>9.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3877</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4479</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="9 "/>
       </Cell>
       <Cell No="3877">
         <AreaPosition>
@@ -1235,14 +1176,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3934</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4536</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="JCSS "/>
       </Cell>
       <Cell No="3934">
         <AreaPosition>
@@ -1254,14 +1195,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3991</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4593</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Computer and System Sciences "/>
       </Cell>
       <Cell No="3991">
         <AreaPosition>
@@ -1273,14 +1214,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4316</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4650</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="4316">
         <AreaPosition>
@@ -1292,14 +1233,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4707</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.journals.elsevier.com/journal-of-computer-and-system-sciences/ "/>
       </Cell>
       <Cell No="4479">
         <AreaPosition>
@@ -1311,14 +1252,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>10.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4536</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4872</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="10 "/>
       </Cell>
       <Cell No="4536">
         <AreaPosition>
@@ -1330,14 +1271,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4593</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4907</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="JGO "/>
       </Cell>
       <Cell No="4593">
         <AreaPosition>
@@ -1349,14 +1290,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4650</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4964</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Global Optimization "/>
       </Cell>
       <Cell No="4650">
         <AreaPosition>
@@ -1368,14 +1309,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4707</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5021</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="4707">
         <AreaPosition>
@@ -1387,14 +1328,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5100</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://link.springer.com/journal/10898 "/>
       </Cell>
       <Cell No="4872">
         <AreaPosition>
@@ -1406,14 +1347,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>11.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4907</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5285</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="11 "/>
       </Cell>
       <Cell No="4907">
         <AreaPosition>
@@ -1425,14 +1366,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4964</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5342</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="4964">
         <AreaPosition>
@@ -1444,14 +1385,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5021</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5421</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Symbolic Computation "/>
       </Cell>
       <Cell No="5021">
         <AreaPosition>
@@ -1463,14 +1404,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5100</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5500</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="5100">
         <AreaPosition>
@@ -1482,14 +1423,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5557</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.elsevier.com/wps/find/journaldescription.cws_home/622902/description "/>
       </Cell>
       <Cell No="5285">
         <AreaPosition>
@@ -1501,14 +1442,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>12.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5342</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5742</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="12 "/>
       </Cell>
       <Cell No="5342">
         <AreaPosition>
@@ -1520,14 +1461,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5421</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5799</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="MSCS "/>
       </Cell>
       <Cell No="5421">
         <AreaPosition>
@@ -1539,14 +1480,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5500</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5856</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Mathematical Structures in Computer Science "/>
       </Cell>
       <Cell No="5500">
         <AreaPosition>
@@ -1558,14 +1499,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5557</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5913</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Cambridge University Press "/>
       </Cell>
       <Cell No="5557">
         <AreaPosition>
@@ -1577,14 +1518,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>6082</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://journals.cambridge.org/action/displayJournal?jid=MSC "/>
       </Cell>
       <Cell No="5742">
         <AreaPosition>
@@ -1596,14 +1537,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>13.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5799</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="13 "/>
       </Cell>
       <Cell No="5799">
         <AreaPosition>
@@ -1615,14 +1556,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>13.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5856</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="TCS "/>
       </Cell>
       <Cell No="5856">
         <AreaPosition>
@@ -1634,14 +1575,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>13.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5913</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Theoretical Computer Science "/>
       </Cell>
       <Cell No="5913">
         <AreaPosition>
@@ -1653,14 +1594,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>13.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>6082</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="6082">
         <AreaPosition>
@@ -1672,46 +1613,18 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>13.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.journals.elsevier.com/theoretical-computer-science/ "/>
       </Cell>
     </Table>
-  </Page2>
-  <Page3>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>184.58</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>184.58</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page 1>
+  <Page 2>
     <Table No.="1">
       <Cell No="123">
         <AreaPosition>
@@ -1730,7 +1643,7 @@
           <NextCellInTheSameRow>186</NextCellInTheSameRow>
           <NextCellInTheSameColumn>556</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="186">
         <AreaPosition>
@@ -1743,13 +1656,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>249</NextCellInTheSameRow>
           <NextCellInTheSameColumn>594</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物简称 "/>
       </Cell>
       <Cell No="249">
         <AreaPosition>
@@ -1762,13 +1675,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>312</NextCellInTheSameRow>
           <NextCellInTheSameColumn>682</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="刊物全称 "/>
       </Cell>
       <Cell No="312">
         <AreaPosition>
@@ -1781,13 +1694,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>375</NextCellInTheSameRow>
           <NextCellInTheSameColumn>745</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="375">
         <AreaPosition>
@@ -1800,13 +1713,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>808</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="556">
         <AreaPosition>
@@ -1818,14 +1731,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>594</NextCellInTheSameRow>
           <NextCellInTheSameColumn>977</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="594">
         <AreaPosition>
@@ -1837,14 +1750,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>682</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1015</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="682">
         <AreaPosition>
@@ -1856,14 +1769,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>745</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1078</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Annals of Pure and Applied Logic "/>
       </Cell>
       <Cell No="745">
         <AreaPosition>
@@ -1875,14 +1788,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>808</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1141</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="808">
         <AreaPosition>
@@ -1894,14 +1807,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1204</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.sciencedirect.com/science/journal/01680072 "/>
       </Cell>
       <Cell No="977">
         <AreaPosition>
@@ -1913,14 +1826,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1015</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1373</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1015">
         <AreaPosition>
@@ -1932,14 +1845,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1078</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1411</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="1078">
         <AreaPosition>
@@ -1951,14 +1864,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1141</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1474</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Acta Informatica "/>
       </Cell>
       <Cell No="1141">
         <AreaPosition>
@@ -1970,14 +1883,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1204</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1537</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="1204">
         <AreaPosition>
@@ -1989,14 +1902,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1652</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springerlink.com/content/100460/ "/>
       </Cell>
       <Cell No="1373">
         <AreaPosition>
@@ -2008,14 +1921,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>3.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1411</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1821</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="3 "/>
       </Cell>
       <Cell No="1411">
         <AreaPosition>
@@ -2027,14 +1940,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1474</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1859</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="1474">
         <AreaPosition>
@@ -2046,14 +1959,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1537</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1922</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Discrete Applied Mathematics "/>
       </Cell>
       <Cell No="1537">
         <AreaPosition>
@@ -2065,14 +1978,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1652</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1985</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="1652">
         <AreaPosition>
@@ -2084,14 +1997,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2048</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.elsevier.com/wps/find/journaldescription.cws_home/505609/description "/>
       </Cell>
       <Cell No="1821">
         <AreaPosition>
@@ -2103,14 +2016,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>4.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1859</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2217</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="4 "/>
       </Cell>
       <Cell No="1859">
         <AreaPosition>
@@ -2122,14 +2035,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1922</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2255</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="1922">
         <AreaPosition>
@@ -2141,14 +2054,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1985</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2368</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Fundamenta Informaticae "/>
       </Cell>
       <Cell No="1985">
         <AreaPosition>
@@ -2160,14 +2073,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2048</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2431</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IOS Press "/>
       </Cell>
       <Cell No="2048">
         <AreaPosition>
@@ -2179,14 +2092,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2573</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://fi.mimuw.edu.pl/index.php/FI/index "/>
       </Cell>
       <Cell No="2217">
         <AreaPosition>
@@ -2198,14 +2111,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>5.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2255</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2742</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="5 "/>
       </Cell>
       <Cell No="2255">
         <AreaPosition>
@@ -2217,14 +2130,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2368</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2780</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="2368">
         <AreaPosition>
@@ -2236,14 +2149,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2431</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2843</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Higher-Order and Symbolic Computation "/>
       </Cell>
       <Cell No="2431">
         <AreaPosition>
@@ -2255,14 +2168,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2573</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2906</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="2573">
         <AreaPosition>
@@ -2274,14 +2187,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3094</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://springerlink.metapress.com/content/1573-0557/ "/>
       </Cell>
       <Cell No="2742">
         <AreaPosition>
@@ -2293,14 +2206,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>6.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2780</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3263</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="6 "/>
       </Cell>
       <Cell No="2780">
         <AreaPosition>
@@ -2312,14 +2225,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2843</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3353</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="2843">
         <AreaPosition>
@@ -2331,14 +2244,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2906</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3416</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Information Processing Letters "/>
       </Cell>
       <Cell No="2906">
         <AreaPosition>
@@ -2350,14 +2263,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3094</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3479</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="3094">
         <AreaPosition>
@@ -2369,14 +2282,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3642</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.journals.elsevier.com/information-processing-letters/# "/>
       </Cell>
       <Cell No="3263">
         <AreaPosition>
@@ -2388,14 +2301,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>7.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3353</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3811</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="7 "/>
       </Cell>
       <Cell No="3353">
         <AreaPosition>
@@ -2407,14 +2320,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3416</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3874</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="JCOMPLEXITY "/>
       </Cell>
       <Cell No="3416">
         <AreaPosition>
@@ -2426,14 +2339,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3479</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3962</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Complexity "/>
       </Cell>
       <Cell No="3479">
         <AreaPosition>
@@ -2445,14 +2358,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3642</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4050</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Elsevier "/>
       </Cell>
       <Cell No="3642">
         <AreaPosition>
@@ -2464,14 +2377,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4113</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.journals.elsevier.com/journal-of-complexity/ "/>
       </Cell>
       <Cell No="3811">
         <AreaPosition>
@@ -2483,14 +2396,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>8.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3874</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4282</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="8 "/>
       </Cell>
       <Cell No="3874">
         <AreaPosition>
@@ -2502,14 +2415,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3962</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4320</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="LOGCOM "/>
       </Cell>
       <Cell No="3962">
         <AreaPosition>
@@ -2521,14 +2434,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4050</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4383</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Logic and Computation "/>
       </Cell>
       <Cell No="4050">
         <AreaPosition>
@@ -2540,14 +2453,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4113</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4471</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Oxford University Press "/>
       </Cell>
       <Cell No="4113">
         <AreaPosition>
@@ -2559,14 +2472,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4584</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://logcom.oxfordjournals.org/ "/>
       </Cell>
       <Cell No="4282">
         <AreaPosition>
@@ -2578,14 +2491,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>9.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4320</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4753</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="9 "/>
       </Cell>
       <Cell No="4320">
         <AreaPosition>
@@ -2597,14 +2510,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4383</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4816</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="4383">
         <AreaPosition>
@@ -2616,14 +2529,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4471</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4879</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Journal of Symbolic Logic "/>
       </Cell>
       <Cell No="4471">
         <AreaPosition>
@@ -2635,14 +2548,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4584</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4942</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Association for Symbolic Logic "/>
       </Cell>
       <Cell No="4584">
         <AreaPosition>
@@ -2654,14 +2567,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5080</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.aslonline.org/journals-journal.html "/>
       </Cell>
       <Cell No="4753">
         <AreaPosition>
@@ -2673,14 +2586,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>10.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4816</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5274</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="10 "/>
       </Cell>
       <Cell No="4816">
         <AreaPosition>
@@ -2692,14 +2605,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4879</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5414</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="LMCS "/>
       </Cell>
       <Cell No="4879">
         <AreaPosition>
@@ -2711,14 +2624,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4942</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5552</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Logical Methods in Computer Science "/>
       </Cell>
       <Cell No="4942">
         <AreaPosition>
@@ -2730,14 +2643,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5080</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5615</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="LMCS "/>
       </Cell>
       <Cell No="5080">
         <AreaPosition>
@@ -2749,14 +2662,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5678</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.lmcs-online.org/index.php "/>
       </Cell>
       <Cell No="5274">
         <AreaPosition>
@@ -2768,14 +2681,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>11.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5414</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5872</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="11 "/>
       </Cell>
       <Cell No="5414">
         <AreaPosition>
@@ -2787,14 +2700,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5552</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5910</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIDMA "/>
       </Cell>
       <Cell No="5552">
         <AreaPosition>
@@ -2806,14 +2719,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5615</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5973</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIAM Journal on Discrete Mathematics "/>
       </Cell>
       <Cell No="5615">
         <AreaPosition>
@@ -2825,14 +2738,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5678</NextCellInTheSameRow>
           <NextCellInTheSameColumn>6036</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIAM "/>
       </Cell>
       <Cell No="5678">
         <AreaPosition>
@@ -2844,14 +2757,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>11.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>6149</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.siam.org/journals/sidma.php "/>
       </Cell>
       <Cell No="5872">
         <AreaPosition>
@@ -2863,14 +2776,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>12.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5910</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="12 "/>
       </Cell>
       <Cell No="5910">
         <AreaPosition>
@@ -2882,14 +2795,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5973</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content=" "/>
       </Cell>
       <Cell No="5973">
         <AreaPosition>
@@ -2901,14 +2814,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>6036</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Theory of Computing Systems "/>
       </Cell>
       <Cell No="6036">
         <AreaPosition>
@@ -2920,14 +2833,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>6149</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="6149">
         <AreaPosition>
@@ -2939,46 +2852,18 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>12.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.springerlink.com/content/1433-0490/ "/>
       </Cell>
     </Table>
-  </Page3>
-  <Page4>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>418.63</X>
-          <X>503.59</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>418.63</X>
-          <X>503.59</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page 2>
+  <Page 3>
     <Table No.="1">
       <Cell No="284">
         <AreaPosition>
@@ -2997,7 +2882,7 @@
           <NextCellInTheSameRow>347</NextCellInTheSameRow>
           <NextCellInTheSameColumn>717</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="347">
         <AreaPosition>
@@ -3010,13 +2895,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>410</NextCellInTheSameRow>
           <NextCellInTheSameColumn>780</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议简称 "/>
       </Cell>
       <Cell No="410">
         <AreaPosition>
@@ -3029,13 +2914,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>473</NextCellInTheSameRow>
           <NextCellInTheSameColumn>893</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议全称 "/>
       </Cell>
       <Cell No="473">
         <AreaPosition>
@@ -3048,13 +2933,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>536</NextCellInTheSameRow>
           <NextCellInTheSameColumn>956</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="536">
         <AreaPosition>
@@ -3067,13 +2952,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1019</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="717">
         <AreaPosition>
@@ -3085,14 +2970,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>780</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1188</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="780">
         <AreaPosition>
@@ -3104,14 +2989,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>893</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1251</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="STOC "/>
       </Cell>
       <Cell No="893">
         <AreaPosition>
@@ -3123,14 +3008,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>956</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1339</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM Symposium on Theory of Computing "/>
       </Cell>
       <Cell No="956">
         <AreaPosition>
@@ -3142,14 +3027,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1019</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1402</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="1019">
         <AreaPosition>
@@ -3161,14 +3046,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1515</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.sigact.org/stoc.html "/>
       </Cell>
       <Cell No="1188">
         <AreaPosition>
@@ -3180,14 +3065,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1251</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1684</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1251">
         <AreaPosition>
@@ -3199,14 +3084,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1339</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1747</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="FOCS "/>
       </Cell>
       <Cell No="1339">
         <AreaPosition>
@@ -3218,14 +3103,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1402</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1810</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE Symposium on Foundations of Computer Science "/>
       </Cell>
       <Cell No="1402">
         <AreaPosition>
@@ -3237,14 +3122,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1515</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1873</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE "/>
       </Cell>
       <Cell No="1515">
         <AreaPosition>
@@ -3256,14 +3141,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1986</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://ieee-focs.org/ "/>
       </Cell>
       <Cell No="1684">
         <AreaPosition>
@@ -3275,14 +3160,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>3.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1747</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="3 "/>
       </Cell>
       <Cell No="1747">
         <AreaPosition>
@@ -3294,14 +3179,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1810</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="LICS "/>
       </Cell>
       <Cell No="1810">
         <AreaPosition>
@@ -3313,14 +3198,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1873</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE Symposium on Logic in Computer Science "/>
       </Cell>
       <Cell No="1873">
         <AreaPosition>
@@ -3332,14 +3217,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1986</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE "/>
       </Cell>
       <Cell No="1986">
         <AreaPosition>
@@ -3351,46 +3236,18 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www2.informatik.hu-berlin.de/lics/ "/>
       </Cell>
     </Table>
-  </Page4>
-  <Page5>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>411.43</X>
-          <X>503.59</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page 3>
+  <Page 4>
     <Table No.="1">
       <Cell No="123">
         <AreaPosition>
@@ -3409,7 +3266,7 @@
           <NextCellInTheSameRow>186</NextCellInTheSameRow>
           <NextCellInTheSameColumn>556</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="186">
         <AreaPosition>
@@ -3422,13 +3279,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>249</NextCellInTheSameRow>
           <NextCellInTheSameColumn>619</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议简称 "/>
       </Cell>
       <Cell No="249">
         <AreaPosition>
@@ -3441,13 +3298,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>312</NextCellInTheSameRow>
           <NextCellInTheSameColumn>682</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议全称 "/>
       </Cell>
       <Cell No="312">
         <AreaPosition>
@@ -3460,13 +3317,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>375</NextCellInTheSameRow>
           <NextCellInTheSameColumn>745</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="375">
         <AreaPosition>
@@ -3479,13 +3336,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>808</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="556">
         <AreaPosition>
@@ -3497,14 +3354,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>619</NextCellInTheSameRow>
           <NextCellInTheSameColumn>977</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="619">
         <AreaPosition>
@@ -3516,14 +3373,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>682</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1040</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SoCG "/>
       </Cell>
       <Cell No="682">
         <AreaPosition>
@@ -3535,14 +3392,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>745</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1153</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM Symposium on Computational Geometry "/>
       </Cell>
       <Cell No="745">
         <AreaPosition>
@@ -3554,14 +3411,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>808</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1216</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="808">
         <AreaPosition>
@@ -3573,14 +3430,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1356</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.uniriotec.br/~socg2013/ "/>
       </Cell>
       <Cell No="977">
         <AreaPosition>
@@ -3592,14 +3449,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1040</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1525</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1040">
         <AreaPosition>
@@ -3611,14 +3468,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1153</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1588</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SODA "/>
       </Cell>
       <Cell No="1153">
         <AreaPosition>
@@ -3630,14 +3487,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1216</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1676</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM-SIAM Symposium on Discrete Algorithms "/>
       </Cell>
       <Cell No="1216">
         <AreaPosition>
@@ -3649,14 +3506,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1356</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1739</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="SIAM "/>
       </Cell>
       <Cell No="1356">
         <AreaPosition>
@@ -3668,14 +3525,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1802</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.informatik.uni-trier.de/~ley/db/conf/soda/index.html "/>
       </Cell>
       <Cell No="1525">
         <AreaPosition>
@@ -3687,14 +3544,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>3.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1588</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1971</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="3 "/>
       </Cell>
       <Cell No="1588">
         <AreaPosition>
@@ -3706,14 +3563,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1676</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2034</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="CAV "/>
       </Cell>
       <Cell No="1676">
         <AreaPosition>
@@ -3725,14 +3582,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1739</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2147</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Computer Aided Verification "/>
       </Cell>
       <Cell No="1739">
         <AreaPosition>
@@ -3744,14 +3601,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1802</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2210</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="1802">
         <AreaPosition>
@@ -3763,14 +3620,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2273</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://cav2013.forsyte.at/ "/>
       </Cell>
       <Cell No="1971">
         <AreaPosition>
@@ -3782,14 +3639,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>4.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2034</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2442</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="4 "/>
       </Cell>
       <Cell No="2034">
         <AreaPosition>
@@ -3801,14 +3658,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2147</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2505</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="CADE/IJCAR "/>
       </Cell>
       <Cell No="2147">
         <AreaPosition>
@@ -3820,14 +3677,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2210</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2568</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Conference on Automated Deduction/The International Joint Conference on Automated Reasoning "/>
       </Cell>
       <Cell No="2210">
         <AreaPosition>
@@ -3839,14 +3696,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2273</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2631</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="2273">
         <AreaPosition>
@@ -3858,14 +3715,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2694</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.cadeinc.org/Conferences.html "/>
       </Cell>
       <Cell No="2442">
         <AreaPosition>
@@ -3877,14 +3734,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>5.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2505</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2863</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="5 "/>
       </Cell>
       <Cell No="2505">
         <AreaPosition>
@@ -3896,14 +3753,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2568</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2926</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="CCC "/>
       </Cell>
       <Cell No="2568">
         <AreaPosition>
@@ -3915,14 +3772,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2631</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3014</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE Conference on Computational Complexity "/>
       </Cell>
       <Cell No="2631">
         <AreaPosition>
@@ -3934,14 +3791,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2694</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3077</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IEEE "/>
       </Cell>
       <Cell No="2694">
         <AreaPosition>
@@ -3953,14 +3810,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3140</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://computationalcomplexity.org/ "/>
       </Cell>
       <Cell No="2863">
         <AreaPosition>
@@ -3972,14 +3829,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>6.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2926</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3309</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="6 "/>
       </Cell>
       <Cell No="2926">
         <AreaPosition>
@@ -3991,14 +3848,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3014</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3372</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ICALP "/>
       </Cell>
       <Cell No="3014">
         <AreaPosition>
@@ -4010,14 +3867,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3077</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3435</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="International Colloquium on Automata, Languages and Programming "/>
       </Cell>
       <Cell No="3077">
         <AreaPosition>
@@ -4029,14 +3886,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3140</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3498</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="3140">
         <AreaPosition>
@@ -4048,14 +3905,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3636</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.icalp2013.lu.lv/ "/>
       </Cell>
       <Cell No="3309">
         <AreaPosition>
@@ -4067,14 +3924,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>7.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3372</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="7 "/>
       </Cell>
       <Cell No="3372">
         <AreaPosition>
@@ -4086,14 +3943,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3435</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="CONCUR "/>
       </Cell>
       <Cell No="3435">
         <AreaPosition>
@@ -4105,14 +3962,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3498</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="International Conference on Concurrency Theory "/>
       </Cell>
       <Cell No="3498">
         <AreaPosition>
@@ -4124,14 +3981,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3636</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="3636">
         <AreaPosition>
@@ -4143,46 +4000,18 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.concur-conferences.org/concur2013/ "/>
       </Cell>
     </Table>
-  </Page5>
-  <Page6>
-    <TableInformation>
-      <Table>
-        <RowNumInTheFirstRow>5</RowNumInTheFirstRow>
-        <RowNumInTheLastRow>5</RowNumInTheLastRow>
-        <XsInTheFirstRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>405.43</X>
-          <X>512.11</X>
-        </XsInTheFirstRow>
-        <XsInTheLastRow>
-          <X>65.76</X>
-          <X>113.66</X>
-          <X>191.66</X>
-          <X>405.43</X>
-          <X>512.11</X>
-        </XsInTheLastRow>
-        <TextsInTheFirstRow>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-          <X></X>
-        </TextsInTheFirstRow>
-      </Table>
-    </TableInformation>
-    <MightContainTableInTheNextPage>false</MightContainTableInTheNextPage>
+  </Page 4>
+  <Page 5>
     <Table No.="1">
       <Cell No="123">
         <AreaPosition>
@@ -4201,7 +4030,7 @@
           <NextCellInTheSameRow>186</NextCellInTheSameRow>
           <NextCellInTheSameColumn>556</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="序号 "/>
       </Cell>
       <Cell No="186">
         <AreaPosition>
@@ -4214,13 +4043,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>249</NextCellInTheSameRow>
           <NextCellInTheSameColumn>619</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议简称 "/>
       </Cell>
       <Cell No="249">
         <AreaPosition>
@@ -4233,13 +4062,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>312</NextCellInTheSameRow>
           <NextCellInTheSameColumn>682</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="会议全称 "/>
       </Cell>
       <Cell No="312">
         <AreaPosition>
@@ -4252,13 +4081,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>375</NextCellInTheSameRow>
           <NextCellInTheSameColumn>745</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="出版社 "/>
       </Cell>
       <Cell No="375">
         <AreaPosition>
@@ -4271,13 +4100,13 @@
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
           <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>885</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="网址 "/>
       </Cell>
       <Cell No="556">
         <AreaPosition>
@@ -4289,14 +4118,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>1.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>619</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1054</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="1 "/>
       </Cell>
       <Cell No="619">
         <AreaPosition>
@@ -4308,14 +4137,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>682</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1117</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="CSL "/>
       </Cell>
       <Cell No="682">
         <AreaPosition>
@@ -4327,14 +4156,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>745</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1180</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Computer Science Logic "/>
       </Cell>
       <Cell No="745">
         <AreaPosition>
@@ -4346,14 +4175,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>885</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1243</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="885">
         <AreaPosition>
@@ -4365,14 +4194,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>1.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>1356</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.informatik.uni-trier.de/~ley/db/conf/csl/index.html "/>
       </Cell>
       <Cell No="1054">
         <AreaPosition>
@@ -4384,14 +4213,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>2.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1117</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1525</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="2 "/>
       </Cell>
       <Cell No="1117">
         <AreaPosition>
@@ -4403,14 +4232,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1180</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1588</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ESA "/>
       </Cell>
       <Cell No="1180">
         <AreaPosition>
@@ -4422,14 +4251,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1243</NextCellInTheSameRow>
           <NextCellInTheSameColumn>1701</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="European Symposium on Algorithms "/>
       </Cell>
       <Cell No="1243">
         <AreaPosition>
@@ -4441,14 +4270,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1356</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2043</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="1356">
         <AreaPosition>
@@ -4460,14 +4289,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>2.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2106</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://esa-symposium.org/ "/>
       </Cell>
       <Cell No="1525">
         <AreaPosition>
@@ -4479,14 +4308,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>3.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1588</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2275</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="3 "/>
       </Cell>
       <Cell No="1588">
         <AreaPosition>
@@ -4498,14 +4327,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>1701</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2338</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="FSTTCS "/>
       </Cell>
       <Cell No="1701">
         <AreaPosition>
@@ -4517,14 +4346,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2043</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2426</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Foundations of Software Technology and Theoretical Computer Science "/>
       </Cell>
       <Cell No="2043">
         <AreaPosition>
@@ -4536,14 +4365,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2106</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2489</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Indian Association for Research in Computing Science "/>
       </Cell>
       <Cell No="2106">
         <AreaPosition>
@@ -4555,14 +4384,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>3.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>2652</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.fsttcs.org/ "/>
       </Cell>
       <Cell No="2275">
         <AreaPosition>
@@ -4574,14 +4403,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>4.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2338</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2821</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="4 "/>
       </Cell>
       <Cell No="2338">
         <AreaPosition>
@@ -4593,14 +4422,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2426</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2884</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="IPCO "/>
       </Cell>
       <Cell No="2426">
         <AreaPosition>
@@ -4612,14 +4441,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2489</NextCellInTheSameRow>
           <NextCellInTheSameColumn>2972</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="International Conference on Integer Programming and Combinatorial Optimization "/>
       </Cell>
       <Cell No="2489">
         <AreaPosition>
@@ -4631,14 +4460,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2652</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3035</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="2652">
         <AreaPosition>
@@ -4650,14 +4479,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>4.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3102</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.informatik.uni-trier.de/~ley/db/conf/ipco/index.html "/>
       </Cell>
       <Cell No="2821">
         <AreaPosition>
@@ -4669,14 +4498,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>5.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2884</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3271</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="5 "/>
       </Cell>
       <Cell No="2884">
         <AreaPosition>
@@ -4688,14 +4517,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>2972</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3334</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="RTA "/>
       </Cell>
       <Cell No="2972">
         <AreaPosition>
@@ -4707,14 +4536,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3035</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3422</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="International Conference on Rewriting Techniques and Applications "/>
       </Cell>
       <Cell No="3035">
         <AreaPosition>
@@ -4726,14 +4555,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3102</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3485</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="3102">
         <AreaPosition>
@@ -4745,14 +4574,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>5.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>3573</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://rewriting.loria.fr/rta/ "/>
       </Cell>
       <Cell No="3271">
         <AreaPosition>
@@ -4764,14 +4593,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>6.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3334</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3742</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="6 "/>
       </Cell>
       <Cell No="3334">
         <AreaPosition>
@@ -4783,14 +4612,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3422</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3805</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ISAAC "/>
       </Cell>
       <Cell No="3422">
         <AreaPosition>
@@ -4802,14 +4631,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3485</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3893</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="International Symposium on Algorithms and Computation "/>
       </Cell>
       <Cell No="3485">
         <AreaPosition>
@@ -4821,14 +4650,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3573</NextCellInTheSameRow>
           <NextCellInTheSameColumn>3956</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="3573">
         <AreaPosition>
@@ -4840,14 +4669,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>6.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4019</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="www.csie.ntu.edu.tw/isaac2012 "/>
       </Cell>
       <Cell No="3742">
         <AreaPosition>
@@ -4859,14 +4688,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>7.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3805</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4188</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="7 "/>
       </Cell>
       <Cell No="3805">
         <AreaPosition>
@@ -4878,14 +4707,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3893</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4251</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="MFCS "/>
       </Cell>
       <Cell No="3893">
         <AreaPosition>
@@ -4897,14 +4726,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>3956</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4414</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Mathematical Foundations of Computer Science "/>
       </Cell>
       <Cell No="3956">
         <AreaPosition>
@@ -4916,14 +4745,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4019</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4477</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="4019">
         <AreaPosition>
@@ -4935,14 +4764,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>7.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>4619</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.mfcs.sk/ "/>
       </Cell>
       <Cell No="4188">
         <AreaPosition>
@@ -4954,14 +4783,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>8.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4251</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4788</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="8 "/>
       </Cell>
       <Cell No="4251">
         <AreaPosition>
@@ -4973,14 +4802,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4414</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4851</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="STACS "/>
       </Cell>
       <Cell No="4414">
         <AreaPosition>
@@ -4992,14 +4821,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4477</NextCellInTheSameRow>
           <NextCellInTheSameColumn>4989</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Symposium on Theoretical Aspects of Computer Science "/>
       </Cell>
       <Cell No="4477">
         <AreaPosition>
@@ -5011,14 +4840,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4619</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5052</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="4619">
         <AreaPosition>
@@ -5030,14 +4859,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>8.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5115</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.stacs-conf.org/ "/>
       </Cell>
       <Cell No="4788">
         <AreaPosition>
@@ -5049,14 +4878,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>9.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4851</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5284</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="9 "/>
       </Cell>
       <Cell No="4851">
         <AreaPosition>
@@ -5068,14 +4897,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>4989</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5347</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="FMCAD "/>
       </Cell>
       <Cell No="4989">
         <AreaPosition>
@@ -5087,14 +4916,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5052</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5460</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="Formal Method in Computer-Aided Design "/>
       </Cell>
       <Cell No="5052">
         <AreaPosition>
@@ -5106,14 +4935,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5115</NextCellInTheSameRow>
           <NextCellInTheSameColumn>5523</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="ACM "/>
       </Cell>
       <Cell No="5115">
         <AreaPosition>
@@ -5125,14 +4954,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>9.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn>5586</NextCellInTheSameColumn>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://www.cs.utexas.edu/~hunt/FMCAD/FMCAD13/  "/>
       </Cell>
       <Cell No="5284">
         <AreaPosition>
@@ -5144,14 +4973,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
+          <SimplifedY>10.0</SimplifedY>
           <SimplifedX>0.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5347</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="10 "/>
       </Cell>
       <Cell No="5347">
         <AreaPosition>
@@ -5163,14 +4992,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>1.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5460</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="SAT "/>
       </Cell>
       <Cell No="5460">
         <AreaPosition>
@@ -5182,14 +5011,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>2.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5523</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Theory and Applications of Satisfiability Testing "/>
       </Cell>
       <Cell No="5523">
         <AreaPosition>
@@ -5201,14 +5030,14 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>3.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow>5586</NextCellInTheSameRow>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="Springer "/>
       </Cell>
       <Cell No="5586">
         <AreaPosition>
@@ -5220,15 +5049,15 @@
         <SimplifiedPosition>
           <SimplifiedHeight>1.0</SimplifiedHeight>
           <SimplifiedWidth>1.0</SimplifiedWidth>
-          <SimplifedY>0.0</SimplifedY>
-          <SimplifedX>0.0</SimplifedX>
+          <SimplifedY>10.0</SimplifedY>
+          <SimplifedX>4.0</SimplifedX>
         </SimplifiedPosition>
         <Links>
           <NextCellInTheSameRow/>
           <NextCellInTheSameColumn/>
         </Links>
-        <Text Content=""/>
+        <Text Content="http://sat2013.cs.helsinki.fi/ "/>
       </Cell>
     </Table>
-  </Page6>
+  </Page 5>
 </root>

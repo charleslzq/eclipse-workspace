@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <Table >
+    <row 行头="序号 " 第0列="刊物简称 " 第1列="刊物全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列="IANDC " 第1列="Information and Computation " 第2列="Elsevier " 第3列="http://www.journals.elsevier.com/information-and-computation/ "/>
+    <row 行头="2 " 第0列="SICOMP " 第1列="SIAM Journal on Computing " 第2列="SIAM " 第3列="http://epubs.siam.org/sicomp/ "/>
+  </Table >
+  <Table >
+    <row 行头="序号 " 第0列="刊物简称 " 第1列="刊物全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列="TALG " 第1列="ACM Transactions on Algorithms " 第2列="ACM " 第3列="http://talg.acm.org/ "/>
+    <row 行头="2 " 第0列="TOCL " 第1列="ACM Transactions on Computational Logic " 第2列="ACM " 第3列="http://tocl.acm.org/ "/>
+    <row 行头="3 " 第0列="TOMS " 第1列="ACM Transactions on Mathematical Software " 第2列="ACM " 第3列="http://toms.acm.org/ "/>
+    <row 行头="4 " 第0列=" " 第1列="Algorithmica " 第2列="Springer " 第3列="http://www.springerlink.com/content/100117/ "/>
+    <row 行头="5 " 第0列=" " 第1列="Computational complexity " 第2列="Springer " 第3列="http://www.springer.com/birkhauser/computer+science/journal/37 "/>
+    <row 行头="6 " 第0列="FAC " 第1列="Formal Aspects of Computing " 第2列="Springer " 第3列="http://www.springerlink.com/content/1433-299X/ "/>
+    <row 行头="7 " 第0列=" " 第1列="Formal Methods in System Design " 第2列="Springer " 第3列="http://www.springerlink.com/content/1572-8102/ "/>
+    <row 行头="8 " 第0列=" " 第1列="INFORMS Journal on Computing " 第2列="INFORMS " 第3列="http://www.informs.org/Pubs/IJOC "/>
+    <row 行头="9 " 第0列="JCSS " 第1列="Journal of Computer and System Sciences " 第2列="Elsevier " 第3列="http://www.journals.elsevier.com/journal-of-computer-and-system-sciences/ "/>
+    <row 行头="10 " 第0列="JGO " 第1列="Journal of Global Optimization " 第2列="Springer " 第3列="http://link.springer.com/journal/10898 "/>
+    <row 行头="11 " 第0列=" " 第1列="Journal of Symbolic Computation " 第2列="Elsevier " 第3列="http://www.elsevier.com/wps/find/journaldescription.cws_home/622902/description "/>
+    <row 行头="12 " 第0列="MSCS " 第1列="Mathematical Structures in Computer Science " 第2列="Cambridge University Press " 第3列="http://journals.cambridge.org/action/displayJournal?jid=MSC "/>
+    <row 行头="13 " 第0列="TCS " 第1列="Theoretical Computer Science " 第2列="Elsevier " 第3列="http://www.journals.elsevier.com/theoretical-computer-science/ "/>
+  </Table >
+  <Table >
+    <row 行头="序号 " 第0列="刊物简称 " 第1列="刊物全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列=" " 第1列="Annals of Pure and Applied Logic " 第2列="Elsevier " 第3列="http://www.sciencedirect.com/science/journal/01680072 "/>
+    <row 行头="2 " 第0列=" " 第1列="Acta Informatica " 第2列="Springer " 第3列="http://www.springerlink.com/content/100460/ "/>
+    <row 行头="3 " 第0列=" " 第1列="Discrete Applied Mathematics " 第2列="Elsevier " 第3列="http://www.elsevier.com/wps/find/journaldescription.cws_home/505609/description "/>
+    <row 行头="4 " 第0列=" " 第1列="Fundamenta Informaticae " 第2列="IOS Press " 第3列="http://fi.mimuw.edu.pl/index.php/FI/index "/>
+    <row 行头="5 " 第0列=" " 第1列="Higher-Order and Symbolic Computation " 第2列="Springer " 第3列="http://springerlink.metapress.com/content/1573-0557/ "/>
+    <row 行头="6 " 第0列=" " 第1列="Information Processing Letters " 第2列="Elsevier " 第3列="http://www.journals.elsevier.com/information-processing-letters/# "/>
+    <row 行头="7 " 第0列="JCOMPLEXITY " 第1列="Journal of Complexity " 第2列="Elsevier " 第3列="http://www.journals.elsevier.com/journal-of-complexity/ "/>
+    <row 行头="8 " 第0列="LOGCOM " 第1列="Journal of Logic and Computation " 第2列="Oxford University Press " 第3列="http://logcom.oxfordjournals.org/ "/>
+    <row 行头="9 " 第0列=" " 第1列="Journal of Symbolic Logic " 第2列="Association for Symbolic Logic " 第3列="http://www.aslonline.org/journals-journal.html "/>
+    <row 行头="10 " 第0列="LMCS " 第1列="Logical Methods in Computer Science " 第2列="LMCS " 第3列="http://www.lmcs-online.org/index.php "/>
+    <row 行头="11 " 第0列="SIDMA " 第1列="SIAM Journal on Discrete Mathematics " 第2列="SIAM " 第3列="http://www.siam.org/journals/sidma.php "/>
+    <row 行头="12 " 第0列=" " 第1列="Theory of Computing Systems " 第2列="Springer " 第3列="http://www.springerlink.com/content/1433-0490/ "/>
+  </Table >
+  <Table >
+    <row 行头="序号 " 第0列="会议简称 " 第1列="会议全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列="STOC " 第1列="ACM Symposium on Theory of Computing " 第2列="ACM " 第3列="http://www.sigact.org/stoc.html "/>
+    <row 行头="2 " 第0列="FOCS " 第1列="IEEE Symposium on Foundations of Computer Science " 第2列="IEEE " 第3列="http://ieee-focs.org/ "/>
+    <row 行头="3 " 第0列="LICS " 第1列="IEEE Symposium on Logic in Computer Science " 第2列="IEEE " 第3列="http://www2.informatik.hu-berlin.de/lics/ "/>
+  </Table >
+  <Table >
+    <row 行头="序号 " 第0列="会议简称 " 第1列="会议全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列="SoCG " 第1列="ACM Symposium on Computational Geometry " 第2列="ACM " 第3列="http://www.uniriotec.br/~socg2013/ "/>
+    <row 行头="2 " 第0列="SODA " 第1列="ACM-SIAM Symposium on Discrete Algorithms " 第2列="SIAM " 第3列="http://www.informatik.uni-trier.de/~ley/db/conf/soda/index.html "/>
+    <row 行头="3 " 第0列="CAV " 第1列="Computer Aided Verification " 第2列="Springer " 第3列="http://cav2013.forsyte.at/ "/>
+    <row 行头="4 " 第0列="CADE/IJCAR " 第1列="Conference on Automated Deduction/The International Joint Conference on Automated Reasoning " 第2列="Springer " 第3列="http://www.cadeinc.org/Conferences.html "/>
+    <row 行头="5 " 第0列="CCC " 第1列="IEEE Conference on Computational Complexity " 第2列="IEEE " 第3列="http://computationalcomplexity.org/ "/>
+    <row 行头="6 " 第0列="ICALP " 第1列="International Colloquium on Automata, Languages and Programming " 第2列="Springer " 第3列="http://www.icalp2013.lu.lv/ "/>
+    <row 行头="7 " 第0列="CONCUR " 第1列="International Conference on Concurrency Theory " 第2列="Springer " 第3列="http://www.concur-conferences.org/concur2013/ "/>
+  </Table >
+  <Table >
+    <row 行头="序号 " 第0列="会议简称 " 第1列="会议全称 " 第2列="出版社 " 第3列="网址 "/>
+    <row 行头="1 " 第0列="CSL " 第1列="Computer Science Logic " 第2列="Springer " 第3列="http://www.informatik.uni-trier.de/~ley/db/conf/csl/index.html "/>
+    <row 行头="2 " 第0列="ESA " 第1列="European Symposium on Algorithms " 第2列="Springer " 第3列="http://esa-symposium.org/ "/>
+    <row 行头="3 " 第0列="FSTTCS " 第1列="Foundations of Software Technology and Theoretical Computer Science " 第2列="Indian Association for Research in Computing Science " 第3列="http://www.fsttcs.org/ "/>
+    <row 行头="4 " 第0列="IPCO " 第1列="International Conference on Integer Programming and Combinatorial Optimization " 第2列="Springer " 第3列="http://www.informatik.uni-trier.de/~ley/db/conf/ipco/index.html "/>
+    <row 行头="5 " 第0列="RTA " 第1列="International Conference on Rewriting Techniques and Applications " 第2列="Springer " 第3列="http://rewriting.loria.fr/rta/ "/>
+    <row 行头="6 " 第0列="ISAAC " 第1列="International Symposium on Algorithms and Computation " 第2列="Springer " 第3列="www.csie.ntu.edu.tw/isaac2012 "/>
+    <row 行头="7 " 第0列="MFCS " 第1列="Mathematical Foundations of Computer Science " 第2列="Springer " 第3列="http://www.mfcs.sk/ "/>
+    <row 行头="8 " 第0列="STACS " 第1列="Symposium on Theoretical Aspects of Computer Science " 第2列="Springer " 第3列="http://www.stacs-conf.org/ "/>
+    <row 行头="9 " 第0列="FMCAD " 第1列="Formal Method in Computer-Aided Design " 第2列="ACM " 第3列="http://www.cs.utexas.edu/~hunt/FMCAD/FMCAD13/  "/>
+    <row 行头="10 " 第0列="SAT " 第1列="Theory and Applications of Satisfiability Testing " 第2列="Springer " 第3列="http://sat2013.cs.helsinki.fi/ "/>
+  </Table >
+</root>

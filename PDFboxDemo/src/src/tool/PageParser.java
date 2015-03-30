@@ -28,17 +28,25 @@ public class PageParser {
 		PDFParser parser = new PDFParser(fis);
 		parser.parse();
 		
+		xml = DocumentHelper.createDocument();
+		Element root = xml.addElement("root");
+		BufferedWriter writer = new BufferedWriter(new FileWriter("text.txt"));
+		
 		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
 		psp = new ArrayList<PageStreamParser>();
 		for(int i = 0; i < pages.size(); i++){
-			/*BufferedWriter writer = new BufferedWriter(new FileWriter("002445_2014-04-08_63797395_part36¡£txt"));
+			
 			writer.write(pages.get(i).getContents().getInputStreamAsString());
-			writer.close();*/
+			
 			psp.add(new PageStreamParser(i,pages.get(i)));
+			System.out.println("Page "+i);
+			psp.get(i).constructTable();
+			psp.get(i).printRowAndColumnMap();
+			psp.get(i).writeTableToXML(root);
 		}
 		
+		writer.close();
 		
-		xml = DocumentHelper.createDocument();
 	}
 	
 	public void output(FileOutputStream fos) throws Exception{
@@ -52,9 +60,11 @@ public class PageParser {
 	public void parse() throws IOException{
 		Element root = this.xmlBuilder();
 		for(int i = 0; i < psp.size(); i++){
+			System.out.println("Page "+i);
 			psp.get(i).constructTable();
-			Element page = root.addElement("Page "+i);
-			psp.get(i).writeXML(page);
+			//psp.get(i).printRowAndColumnMap();
+			//Element page = root.addElement("Page "+i);
+			//psp.get(i).writeXML(page);
 		}
 	}
 	

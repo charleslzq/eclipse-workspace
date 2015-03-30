@@ -2,12 +2,16 @@ package src.main;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JFileChooser;
 
 import org.apache.pdfbox.cos.COSStream;
 import org.apache.pdfbox.pdfparser.*;
@@ -29,51 +33,68 @@ import src.tool.PageParser;
 public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
+		//test();
 		// TODO Auto-generated method stub
-		FileInputStream fis = new FileInputStream("430248_2014-04-29_63948159.pdf");
-		BufferedInputStream bis = new BufferedInputStream(fis);
-		FileOutputStream fos = new FileOutputStream("430248_2014-04-29_63948159.xml");
-		//BufferedWriter writer = new BufferedWriter(new FileWriter("430248_2014-04-29_63948159.xml"));
+		JFileChooser jFileChooser = new JFileChooser();
+		jFileChooser.setMultiSelectionEnabled(true);
+        int i = jFileChooser.showOpenDialog(null);
+        if(i== jFileChooser.APPROVE_OPTION){ //打开文件
+            File[] fs = jFileChooser.getSelectedFiles();
+            for(int j = 0; j < fs.length; j++){
+            	File f = fs[j];
+	            FileInputStream fis = new FileInputStream(f);
+	    		BufferedInputStream bis = new BufferedInputStream(fis);
+	    		//String path = f.getAbsolutePath();
+	    		//path.replaceAll(".pdf", ".xml");
+	    		FileOutputStream fos = new FileOutputStream(f.getAbsolutePath()+".xml");
+	    		//BufferedWriter writer = new BufferedWriter(new FileWriter("430248_2014-04-29_63948159.xml"));
+	    		
+	    		//PageStreamGenerator psg = new PageStreamGenerator(fis);
+	    		
+	    		//PDFTextStripper tsp = new PDFTextStripper();
+	    		
+	    		//PDFStreamEngine pse = new PDFStreamEngine();
+	    		//pse.registerOperatorProcessor("BT", new BeginText());
+	    		//pse.registerOperatorProcessor("ET", new EndText());
+	    		
+	    		PageParser pp = new PageParser(bis);
+	    		//pp.parse(30, 40);
+	    		//pp.print();
+	    		//pp.parse();
+	    		pp.output(fos);
+	    		//writer.write(fos);
+	    		
+	    		//BufferedWriter bw = new BufferedWriter();
+	    		
+	    		//System.out.println("123");
+	    		bis.close();
+	    		fis.close();
+	    		fos.close();
+	    		//writer.close();
+            }
+        }
 		
-		//PageStreamGenerator psg = new PageStreamGenerator(fis);
-		
-		//PDFTextStripper tsp = new PDFTextStripper();
-		
-		//PDFStreamEngine pse = new PDFStreamEngine();
-		//pse.registerOperatorProcessor("BT", new BeginText());
-		//pse.registerOperatorProcessor("ET", new EndText());
-		
-		/*if(psg.getSize() > 0){
-			for(int i = 0 ; i < psg.getSize() ; i++){
-				writer.write("Page "+i+":\n");
-				//pse.processStream(pages.get(i), pages.get(i).getResources(), ps.getStream());
-				//Matrix m = pse.getTextMatrix();
-				//System.out.println(m.toString());
-				PDStream pps = psg.getStream(i);
-				if( pps!=null)
-					writer.write(pps.getInputStreamAsString());
-			}
-		}*/
-		
-		/*psg.parse();
-		psg.translate();
-		psg.tableFinder();
-		psg.printTokens();*/
-		
-		PageParser pp = new PageParser(bis);
+	}
+	
+	public static void test() throws Exception{
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		//String path = f.getAbsolutePath();
+   		//path.replaceAll(".pdf", ".xml");
+   		FileOutputStream fos = new FileOutputStream("000039_2014_n.xml");
+   		PageParser pp = new PageParser(bis);
 		//pp.parse(30, 40);
 		//pp.print();
-		pp.parse();
+		//pp.parse();
 		pp.output(fos);
 		//writer.write(fos);
 		
 		//BufferedWriter bw = new BufferedWriter();
 		
 		//System.out.println("123");
-		
+		bis.close();
 		fis.close();
 		fos.close();
-		//writer.close();
-	}
+   }
 
 }

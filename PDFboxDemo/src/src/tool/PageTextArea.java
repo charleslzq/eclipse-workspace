@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javafx.util.Pair;
+
 import org.dom4j.Element;
 
 public class PageTextArea {
@@ -17,7 +19,7 @@ public class PageTextArea {
 	//private List<TextObject> texts;
 	private List<CellLine> lines;
 	private List<CharacterGroup> groups;
-	//private List<CharacterObject> characters;
+	private List<CharacterObject> characters;
 	
 	private PageTextArea right;
 	private PageTextArea down;
@@ -36,10 +38,10 @@ public class PageTextArea {
 		splitedCols = 1;
 		
 		area = ro;
-		lines = new ArrayList<CellLine>();
+		//lines = new ArrayList<CellLine>();
 		//groups = new ArrayList<CharacterGroup>();
 		//texts = new ArrayList<TextObject>();
-		//characters = new ArrayList<CharacterObject>();
+		characters = new ArrayList<CharacterObject>();
 		
 		right = null;
 		down = null;
@@ -234,15 +236,19 @@ public class PageTextArea {
 	
 	public String getString(){
 		String s = "";
-		for(int i = 0; i < lines.size(); i++)
-			s += lines.get(i).getString();
+		for(int i = 0; i < characters.size(); i++)
+			s += characters.get(i).getCharacter();
 		return s;
 	}
 	
-	public void setCharacters(List<CharacterObject> characters) {
+	public void setCharacters(List<CharacterObject> characters){
+		this.characters = characters;
+	}
+	
+	public List<CellLine> formMultipleLines() {
 		//this.characters = characters;
 		if(characters.size() == 0)
-			return;
+			return null;
 		List<CharacterGroup> groups = new ArrayList<CharacterGroup>();
 		CharacterGroup current = new CharacterGroup(characters.get(0));
 		groups.add(current);
@@ -286,6 +292,7 @@ public class PageTextArea {
 				}
 			}
 		}
+		return lines;
 	}
 
 
@@ -326,8 +333,8 @@ public class PageTextArea {
 			downLink.addText(this.getDown().getAreaNo()+"");
 		Element text = tmp.addElement("Text");
 		text.addAttribute("Content", this.getString());
-		for(int j = 0; j < lines.size(); j++)
-			lines.get(j).writeToXML(text);
+		/*for(int j = 0; j < lines.size(); j++)
+			lines.get(j).writeToXML(text);*/
 		/*for(int j = 0; j < groups.size(); j++)
 			groups.get(j).writeToXML(text);
 		for(int j = 0; j < this.textSize(); j++){
@@ -355,5 +362,103 @@ public class PageTextArea {
 		to.setString(text);
 		texts.add(to);
 	}*/
+	
+	@SuppressWarnings("unchecked")
+	public void recursivelyPutInRowHeader(Map<Pair<Float,Float>,String> rowMap, 
+			String prefix){
+		if(prefix.equals("") == false)
+			prefix+="|";
+		rowMap.put(new Pair(new Float(this.getColNo()), 
+				new Float(this.getSplitedCols()) ), 
+				prefix+this.getString());
+		if(this.getDown() != null)
+			if(this.getDown().getSplitedCols() < this.getSplitedCols()){
+				PageTextArea tmp = this.getDown();
+				double sum = this.getDown().getSplitedCols();
+				tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
+				while(sum < this.getSplitedCols() && tmp.getRight()!=null){
+					tmp = tmp.getRight();
+					tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
+					sum += tmp.getSplitedCols();
+				}
+			}
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	public void recursivelyPutInColumnHeader(
+			Map<Pair<Float, Float>, String> columnMap, String prefix) {
+		// TODO Auto-generated method stub
+		if(prefix.equals("") == false)
+			prefix+="|";
+		columnMap.put(new Pair(new Float(this.getRowNo()), 
+				new Float(this.getSplitedRows()) ), 
+				prefix+this.getString());
+		if(this.getRight() != null)
+			if(this.getRight().getHeight() < this.getHeight()){
+				PageTextArea tmp = this.getRight();
+				double sum = this.getRight().getSplitedRows();
+				tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
+				while(sum < this.getSplitedRows() && tmp.getDown()!=null){
+					tmp = tmp.getDown();
+					tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
+					sum += tmp.getSplitedRows();
+				}
+			}
+	}
+
+
+
+	public void recursivelyPutInRowList(List<Map<String, String>> returnList,
+			Map<Pair<Float, Float>, String> rowMap,
+			Map<Pair<Float, Float>, String> columnMap) {
+		// TODO Auto-generated method stub
+		if(returnList.size() == 0)
+			return;
+		for( int i = 0; i < returnList.size(); i++){
+			if(returnList.get(i).containsKey(new Pair(new Float(this.getRowNo()),
+					new Float(this.getSplitedRows())))== true){
+				String rowName = returnList.get(i).get(new Pair(new Float(this.getRowNo()),
+					new Float(this.getSplitedRows())));
+				System.out.println(rowName);
+				if(rowName.contains(this.getString()) == false){
+					String columnName = columnMap.get(new Pair(new Float(this.getColNo()),
+					new Float(this.getSplitedCols())));
+					if(columnName.contains(getString()) == false)
+						returnList.get(i).put(columnName, this.getString());
+					System.out.println(rowName+" "+columnName+" "+getString());
+				}
+			}
+		}
+		if(this.getRight() != null)
+			this.getRight().recursivelyPutInRowList(returnList, rowMap, columnMap);
+		if(this.getDown() != null)
+			this.getDown().recursivelyPutInRowList(returnList, rowMap, columnMap);
+	}
+
+
+
+	public void addToRowHeaderList(List<Pair<String, PageTextArea>> returnList, 
+			String prefix) {
+		// TODO Auto-generated method stub
+		if( this.getRight() == null 
+				|| this.getRight().getSplitedRows() == this.getSplitedRows()){
+			returnList.add(new Pair(prefix, this));
+			return;
+		}
+		else{
+			double sum = this.getRight().getSplitedRows();
+			PageTextArea tmp = this.getRight();
+			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			while(sum <= this.getSplitedRows()){
+				tmp = tmp.getDown();
+				if(tmp == null)
+					break;
+				sum += tmp.getSplitedRows();
+				tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			}
+		}
+	}
 	
 }

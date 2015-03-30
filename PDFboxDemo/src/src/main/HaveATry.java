@@ -33,9 +33,9 @@ import src.tool.PageParser;
 public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
-		//test();
+		test();
 		// TODO Auto-generated method stub
-		JFileChooser jFileChooser = new JFileChooser();
+		/*JFileChooser jFileChooser = new JFileChooser();
 		jFileChooser.setMultiSelectionEnabled(true);
         int i = jFileChooser.showOpenDialog(null);
         if(i== jFileChooser.APPROVE_OPTION){ //打开文件
@@ -72,7 +72,7 @@ public class HaveATry {
 	    		fos.close();
 	    		//writer.close();
             }
-        }
+        }*/
 		
 	}
 	

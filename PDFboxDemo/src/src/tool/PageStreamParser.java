@@ -241,6 +241,7 @@ public class PageStreamParser {
 			for(int i = 0; i < headers.size(); i++){
 				Element table = root.addElement("Table ");
 				PageTextArea header = headers.get(i);
+				table.addAttribute("PageNo", this.pageNo+"");
 				List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
 				if(list.size() > 0){
 					for(int j = 0; j < list.size() ;j++){

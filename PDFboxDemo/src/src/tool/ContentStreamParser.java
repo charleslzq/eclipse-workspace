@@ -25,6 +25,7 @@ public class ContentStreamParser {
 		
 		pta = new ArrayList<PageTextArea>();//this.constructRegions(tp.getAreas());
 		
+		this.constructTable();
 		//tsbro.print();
 		//this.extraTextsAfterLastTable();
 		

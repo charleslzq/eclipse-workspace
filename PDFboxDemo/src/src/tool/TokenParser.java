@@ -35,12 +35,21 @@ public class TokenParser {
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);
-				if(/*op.getOperation().equals("f*") || */op.getOperation().equals("W*")){
+				if(op.getOperation().equals("W") || op.getOperation().equals("W*")){
+					System.out.println(op.toString());
 					if( tokens.get(i-1) instanceof PDFOperator){
 						PDFOperator op2 = (PDFOperator) tokens.get(i-1);
+						//System.out.println(((PDFOperator) tokens.get(i-4)).toString());
 						if(op2.getOperation().equals("re")){
 							RectangleObject ro = getRectangleObject(i);
 							rectangleMap.put(new Integer(i), ro);
+						}
+						else if(op2.getOperation().equals("h")){
+							PDFOperator op3 = (PDFOperator) tokens.get(i-2);
+							if(op3.getOperation().equals("re")){
+								RectangleObject ro = getRectangleObject(i-1);
+								rectangleMap.put(new Integer(i), ro);
+							}
 						}
 					}
 				}

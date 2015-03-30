@@ -1,7 +1,0 @@
-package src.tool;
-
-import org.apache.pdfbox.util.PDFTextStripperByArea;
-
-public class TextStripperByRectangleObject extends PDFTextStripperByArea {
-
-}

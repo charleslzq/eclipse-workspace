@@ -23,10 +23,10 @@ public class ContentStreamParser {
 		
 		tsbro = new TextStripperByRectangleObject();
 		
-		pta = this.PageAreaConstructor();
+		pta = new ArrayList<PageTextArea>();//this.constructRegions(tp.getAreas());
 		
 		//tsbro.print();
-		this.extraTextsAfterLastTable();
+		//this.extraTextsAfterLastTable();
 		
 	}
 	
@@ -44,6 +44,10 @@ public class ContentStreamParser {
 
 	public void setErr(double err) {
 		this.err = err;
+	}
+	
+	public void constructTable() throws IOException{
+		pta = this.PageAreaConstructor();
 	}
 
 	public List<PageTextArea> PageAreaConstructor() throws IOException{

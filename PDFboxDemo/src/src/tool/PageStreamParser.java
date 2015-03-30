@@ -19,45 +19,45 @@ import org.dom4j.Element;
 
 public class PageStreamParser {
 	private int pageNo;
-	private PDStream content;
+	//private PDStream content;
 	private ContentStreamParser csp;
 	private List<TableInformation> ti;
-	private boolean extraTexts;
-	private boolean mightContainTableInTheNextPage;
+	//private boolean extraTexts;
+	//private boolean mightContainTableInTheNextPage;
 	
 	public PageStreamParser(int a, PDPage pdp) throws IOException{
 		pageNo = a;
-		content = pdp.getContents();
+		//content = pdp.getContents();
 
 		csp = new ContentStreamParser(pdp);
 		
-		ti = csp.extractTableInformation();
+		//ti = csp.extractTableInformation();
 		
-		extraTexts = csp.extraTextsAfterLastTable();
+		//extraTexts = csp.extraTextsAfterLastTable();
 		
-		this.mightContainTableInTheNextPage = false;
+		//this.mightContainTableInTheNextPage = false;
 	}
 	
-	public PDStream getPDStream(){
+/*	public PDStream getPDStream(){
 		return content;
-	}
+	}*/
 	
 	public List<TableInformation> getTi() {
 		return ti;
 	}
 
-	public boolean isMightContainTableInTheNextPage() {
+	/*public boolean isMightContainTableInTheNextPage() {
 		return mightContainTableInTheNextPage;
 	}
 
 	public void setMightContainTableInTheNextPage(
 			boolean mightContainTableInTheNextPage) {
 		this.mightContainTableInTheNextPage = mightContainTableInTheNextPage;
-	}
+	}*/
 
-	public boolean isExtraTexts() {
+	/*public boolean isExtraTexts() {
 		return extraTexts;
-	}
+	}*/
 	
 	public boolean containTable(){
 		if(ti.size() == 0)
@@ -66,11 +66,11 @@ public class PageStreamParser {
 	}
 
 	public void writeXML(Element pageRoot){
-		Element tableInformation = pageRoot.addElement("TableInformation");
+		/*Element tableInformation = pageRoot.addElement("TableInformation");
 		for(int i = 0 ; i < ti.size(); i++)
-			ti.get(i).writeToXML(tableInformation);
-		Element m = pageRoot.addElement("MightContainTableInTheNextPage");
-		m.addText(this.mightContainTableInTheNextPage+"");
+			ti.get(i).writeToXML(tableInformation);*/
+		//Element m = pageRoot.addElement("MightContainTableInTheNextPage");
+		//m.addText(this.mightContainTableInTheNextPage+"");
 		List<PageTextArea> pta = csp.getPTA();
 		Element currentTable = null;
 		int count = 0;
@@ -110,6 +110,8 @@ public class PageStreamParser {
 		return false;
 	}
 	
-	
+	public void constructTable() throws IOException{
+		csp.constructTable();
+	}
 
 }

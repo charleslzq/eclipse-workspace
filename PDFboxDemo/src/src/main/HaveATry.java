@@ -1,5 +1,6 @@
 package src.main;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -29,8 +30,9 @@ public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		FileInputStream fis = new FileInputStream("123.pdf");
-		FileOutputStream fos = new FileOutputStream("123.xml");
+		FileInputStream fis = new FileInputStream("430248_2014-04-29_63948159.pdf");
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		FileOutputStream fos = new FileOutputStream("430248_2014-04-29_63948159.xml");
 		//BufferedWriter writer = new BufferedWriter(new FileWriter("430248_2014-04-29_63948159.xml"));
 		
 		//PageStreamGenerator psg = new PageStreamGenerator(fis);
@@ -58,10 +60,10 @@ public class HaveATry {
 		psg.tableFinder();
 		psg.printTokens();*/
 		
-		PageParser pp = new PageParser(fis);
+		PageParser pp = new PageParser(bis);
 		//pp.parse(30, 40);
 		//pp.print();
-		pp.xmlBuilder();
+		pp.parse();
 		pp.output(fos);
 		//writer.write(fos);
 		

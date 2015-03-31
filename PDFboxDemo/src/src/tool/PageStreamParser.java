@@ -261,4 +261,12 @@ public class PageStreamParser {
 			}
 		}
 	}
+
+	public void print() {
+		// TODO Auto-generated method stub
+		List<PageTextArea> pta = csp.getPTA();
+		for( int i = 0; i < pta.size(); i++)
+			pta.get(i).print();
+		
+	}
 }

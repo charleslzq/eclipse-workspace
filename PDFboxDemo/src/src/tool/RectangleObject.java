@@ -50,7 +50,7 @@ public class RectangleObject{
 	
 	
 	public boolean isSameArea(RectangleObject ro){
-		double err = 0.01;
+		double err = 0.1;
 		if(!isSame(ro.getHeight(), height, err))
 			return false;
 		if(!isSame(ro.getWidth(), width, err))
@@ -107,6 +107,14 @@ public class RectangleObject{
 		if(y < this.YofLeftBottom)
 			return false;
 		if(y > this.YofLeftBottom + this.height)
+			return false;
+		return true;
+	}
+	
+	public boolean isInThisRegion(RectangleObject ro){
+		if(isInThisRectangle(ro.getXofLeftUpper(), ro.getYofLeftUpper()) == false)
+			return false;
+		if(isInThisRectangle(ro.getXofLeftUpper()+ro.getWidth(),ro.getYofLeftUpper()-ro.getHeight()) == false)
 			return false;
 		return true;
 	}

@@ -105,9 +105,10 @@ public class PageTextArea {
 	
 	public void print(){
 		System.out.println("Area No: " + areaNo);
-		System.out.println("Column No: " + colNo);
-		System.out.println("Row No: " + rowNo);
-		//area.print();
+		//System.out.println(this.getString());
+		//System.out.println("Column No: " + colNo);
+		//System.out.println("Row No: " + rowNo);
+		area.print();
 		if( right != null)
 			System.out.println("Right: " + right.getAreaNo());
 		if( down != null)
@@ -242,7 +243,45 @@ public class PageTextArea {
 	}
 	
 	public void setCharacters(List<CharacterObject> characters){
-		this.characters = characters;
+		List<CharacterObject> tmp = characters;
+		boolean cutOff = true;
+		//System.out.println(tmp.size());
+		if(tmp.size() %2 == 0){
+			int s = tmp.size()/2;
+			//System.out.println(s);
+			for(int i = 0; i < s; i++){
+				//System.out.println(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()));
+				//byte[] b1 = tmp.get(i).getCharacter().getBytes();
+				//byte[] b2 = tmp.get(i+s).getCharacter().getBytes();
+				//System.out.println(b1.length+":"+b1+":"+tmp.get(i).getCharacter()+"|"+b2.length+":"+b2+":"+tmp.get(i+s).getCharacter());
+				/*if(b1.length != b2.length){
+					cutOff = false;
+					break;
+				}
+				else{
+					int l = b1.length;
+					for(int j = 0; j < l; j++)
+						if(b1[j] != b2[j]){
+							System.out.println(b1[j]+" "+b2[j]);
+							cutOff = false;
+							break;
+						}
+				}*/
+				if(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()) == false){
+					System.out.println(tmp.get(i).getCharacter());
+					cutOff = false;
+					break;
+				}
+			}
+		}
+		else
+			cutOff = false;
+		if( cutOff == true){
+			tmp = new ArrayList<CharacterObject>();
+			for(int i = 0; i < characters.size()/2; i++)
+				tmp.add(characters.get(i));
+		}
+		this.characters = tmp;
 	}
 	
 	public List<CellLine> formMultipleLines() {

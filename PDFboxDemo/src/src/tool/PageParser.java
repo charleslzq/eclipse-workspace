@@ -41,7 +41,8 @@ public class PageParser {
 			psp.add(new PageStreamParser(i,pages.get(i)));
 			System.out.println("Page "+i);
 			psp.get(i).constructTable();
-			psp.get(i).printRowAndColumnMap();
+			//psp.get(i).print();
+			//psp.get(i).printRowAndColumnMap();
 			psp.get(i).writeTableToXML(root);
 		}
 		

@@ -61,7 +61,12 @@ public class PDFRectangle{
 	}
 	
 	public boolean isInThisArea(PDFRectangle pr){
-		return rect.contains(pr.getX(), pr.getY(), pr.getWidth(), pr.getHeight());
+		if( pr.getX() > this.getX()
+				&& pr.getY() > this.getY()
+				&& pr.getX()+pr.getWidth() < this.getX()+this.getWidth()
+				&& pr.getY()+pr.getHeight() < this.getY()+this.getHeight())
+			return true;
+		return false;
 	}
 	
 	public boolean isSameRectangle(PDFRectangle pr){
@@ -120,5 +125,13 @@ public class PDFRectangle{
 				+ ";Y:"+this.getY()
 				+ ";Width:"+this.getWidth()
 				+ ";Height:"+this.getHeight());
+	}
+	
+	public boolean isLegal(){
+		if(this.getX() < 0)
+			return false;
+		if(this.getY() < 0)
+			return false;
+		return true;
 	}
 }

@@ -35,9 +35,15 @@ public class PageParser {
 		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
 		csp = new ArrayList<ContentStreamParser>();
 		for(int i = 0; i < pages.size(); i++){
-			writer.write(pages.get(i).getContents().getInputStreamAsString());
-			
-			csp.add(new ContentStreamParser(i,pages.get(i)));
+			if(pages.get(i) != null){
+				if(pages.get(i).getContents() != null){
+					writer.write(pages.get(i).getContents().getInputStreamAsString());
+					csp.add(new ContentStreamParser(i,pages.get(i)));
+				}
+			}
+		}
+		
+		for(int i=0; i < csp.size() ; i++){
 			csp.get(i).parse();
 			csp.get(i).writeTableToXML(root);
 			csp.get(i).writeXML(root);

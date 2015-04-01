@@ -57,7 +57,7 @@ public class TokenParser {
 				}*/
 				if(op.getOperation().equals("re")){
 					PDFRectangle ro = getPDFRectangle(i+1);
-					if(ro != null)
+					if(ro != null && ro.isLegal() == true)
 						rectangleMap.put(new Integer(i), ro);
 				}
 				/*else if(op.getOperation().equals("m")){
@@ -67,52 +67,30 @@ public class TokenParser {
 				}*/
 			}
 		}
-		/*for(int i = 0; i < tokens.size(); i++){
+		for(int i = 0; i < tokens.size(); i++){
 			if(rectangleMap.containsKey(new Integer(i))){
 				PDFRectangle ro1 = rectangleMap.get(new Integer(i));
 				for(int j = i+1 ; j < tokens.size() ; j++){
 					if(rectangleMap.containsKey(new Integer(j))){
 						PDFRectangle ro2 = rectangleMap.get(new Integer(j));
-						if(ro1.isSameRectangle(ro2))
+						if(ro1.isSameRectangle(ro2)){
 							rectangleMap.remove(new Integer(i));
-						if(ro1.isInThisArea(ro2))
+							continue;
+						}
+						if(ro1.isInThisArea(ro2)){
 							rectangleMap.remove(new Integer(j));
-						if(ro2.isInThisArea(ro1))
+							continue;
+						}
+						if(ro2.isInThisArea(ro1)){
 							rectangleMap.remove(new Integer(i));
+							continue;
+						}
 					}
 				}
 			}
-		}*/
+		}
 		return rectangleMap;
 	}
-	
-	/*private TextObject getTextObject(int start, int end){
-		TextObject to = new TextObject();
-		for(int i = start+1; i < end ; i++){
-			if( tokens.get(i) instanceof PDFOperator ){
-				PDFOperator op = (PDFOperator) tokens.get(i);
-				if(op.getOperation().equals("Tm"))
-					setTextMatrix(to, i);
-				else if(op.getOperation().equals("Tj"))
-					setSingleString(to, i);
-				else if(op.getOperation().equals("TJ"))
-					setCompositeString(to, i);
-			}
-			else if( tokens.get(i) instanceof COSName){
-				COSName fontName = (COSName) tokens.get(i);
-				to.setFontName(fontName.getName());
-			}
-		}
-		return to;
-	}
-	
-	private void setTextMatrix(TextObject to, int index){
-		int base = index - 6;
-		float a[]={0,0,0,0,0,0};
-		for(int i = 0; i < 6; i++)
-			a[i] = getFloatValueFromCOS(tokens.get(i+base));
-		to.setMatrix(a[0], a[1], a[2], a[3], a[4], a[5]);
-	}*/
 	
 	private PDFRectangle getPDFRectangleFromLines(int index) {
 		// TODO Auto-generated method stub
@@ -191,16 +169,6 @@ public class TokenParser {
 			return ((COSFloat)o).floatValue();
 		return (float) -9999.99999;
 	}
-	
-	/*private void setSingleString(TextObject to, int index){
-		COSString previous = (COSString) tokens.get(index - 1); 
-		to.setString(previous);
-	}
-	
-	private void setCompositeString(TextObject to, int index){
-		COSArray previous = (COSArray) tokens.get(index - 1);
-        to.addString(previous);
-	}*/
 	
 	private PDFRectangle getPDFRectangle(int index){
 		double a[] ={0,0,0,0};

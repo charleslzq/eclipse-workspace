@@ -16,14 +16,14 @@ import org.apache.pdfbox.util.PDFOperator;
 
 public class TokenParser {
 	private List tokens;
-	private Map<Integer, RectangleObject> areas;
+	private Map<Integer, PDFRectangle> areas;
 	
 	public TokenParser(List t){
 		tokens = t;
 		areas = this.rectangleParser();
 	}
 	
-	public Map<Integer, RectangleObject> getAreas() {
+	public Map<Integer, PDFRectangle> getAreas() {
 		return areas;
 	}
 
@@ -33,46 +33,56 @@ public class TokenParser {
 			System.out.println(tokens.get(i).toString());
 	}
 	
-	public Map<Integer, RectangleObject> rectangleParser(){
-		Map<Integer, RectangleObject> rectangleMap= new HashMap<Integer, RectangleObject>();
+	public Map<Integer, PDFRectangle> rectangleParser(){
+		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);
-				if(op.getOperation().equals("W") || op.getOperation().equals("W*") || op.getOperation().equals("f")){
+/*				if(op.getOperation().equals("W") || op.getOperation().equals("W*") || op.getOperation().equals("f")){
 					//System.out.println(op.toString());
 					if( tokens.get(i-1) instanceof PDFOperator){
 						PDFOperator op2 = (PDFOperator) tokens.get(i-1);
 						//System.out.println(((PDFOperator) tokens.get(i-1)).toString());
 						if(op2.getOperation().equals("re")){
-							RectangleObject ro = getRectangleObject(i);
+							PDFRectangle ro = getPDFRectangle(i);
+							if(ro != null)
+								rectangleMap.put(new Integer(i), ro);
+						}
+						else if(op2.getOperation().equals("h")){
+							PDFRectangle ro = getPDFRectangle(i-1);
 							if(ro != null)
 								rectangleMap.put(new Integer(i), ro);
 						}
 					}
+				}*/
+				if(op.getOperation().equals("re")){
+					PDFRectangle ro = getPDFRectangle(i+1);
+					if(ro != null)
+						rectangleMap.put(new Integer(i), ro);
 				}
 				/*else if(op.getOperation().equals("m")){
-					RectangleObject ro = getRectangleObjectFromLines(i);
+					PDFRectangle ro = getPDFRectangleFromLines(i);
 					if(ro != null)
 						rectangleMap.put(new Integer(i), ro);
 				}*/
 			}
 		}
-		for(int i = 0; i < tokens.size(); i++){
+		/*for(int i = 0; i < tokens.size(); i++){
 			if(rectangleMap.containsKey(new Integer(i))){
-				RectangleObject ro1 = rectangleMap.get(new Integer(i));
+				PDFRectangle ro1 = rectangleMap.get(new Integer(i));
 				for(int j = i+1 ; j < tokens.size() ; j++){
 					if(rectangleMap.containsKey(new Integer(j))){
-						RectangleObject ro2 = rectangleMap.get(new Integer(j));
-						if(ro1.isSameArea(ro2))
+						PDFRectangle ro2 = rectangleMap.get(new Integer(j));
+						if(ro1.isSameRectangle(ro2))
 							rectangleMap.remove(new Integer(i));
-						if(ro1.isInThisRegion(ro2))
+						if(ro1.isInThisArea(ro2))
 							rectangleMap.remove(new Integer(j));
-						if(ro2.isInThisRegion(ro1))
+						if(ro2.isInThisArea(ro1))
 							rectangleMap.remove(new Integer(i));
 					}
 				}
 			}
-		}
+		}*/
 		return rectangleMap;
 	}
 	
@@ -104,7 +114,7 @@ public class TokenParser {
 		to.setMatrix(a[0], a[1], a[2], a[3], a[4], a[5]);
 	}*/
 	
-	private RectangleObject getRectangleObjectFromLines(int index) {
+	private PDFRectangle getPDFRectangleFromLines(int index) {
 		// TODO Auto-generated method stub
 		int p = index;
 		List<Float> xs = new ArrayList<Float>();
@@ -126,7 +136,7 @@ public class TokenParser {
 		}
 		//System.out.println(xs.size()+"");
 		float x, y, width, height;
-		ApproprixateComparison ac = new ApproprixateComparison(2,0.1);
+		ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
 		if(p < tokens.size() && xs.size() >= 4){
 			if(ac.alreadyEqual(xs.get(0), xs.get(1)) && ac.alreadyEqual(xs.get(2), xs.get(3)))
 				if( ac.alreadyEqual(ys.get(0), ys.get(3)) && ac.alreadyEqual(ys.get(1), ys.get(2))){
@@ -147,7 +157,7 @@ public class TokenParser {
 						height = ys.get(0) - ys.get(2);
 					}
 					//System.out.println(x+" "+y+" "+width+" "+height);
-					return new RectangleObject(x,y,width,height);
+					return new PDFRectangle(x,y,width,height);
 				}
 				else if(ac.alreadyEqual(xs.get(0), xs.get(3)) && ac.alreadyEqual(xs.get(1), xs.get(2)))
 					if( ac.alreadyEqual(ys.get(0), ys.get(1)) && ac.alreadyEqual(ys.get(2), ys.get(3))){
@@ -168,7 +178,7 @@ public class TokenParser {
 							height = ys.get(0) - ys.get(2);
 						}
 						//System.out.println(x+" "+y+" "+width+" "+height);
-						return new RectangleObject(x,y,width,height);
+						return new PDFRectangle(x,y,width,height);
 					}
 		}
 		return null;
@@ -192,14 +202,14 @@ public class TokenParser {
         to.addString(previous);
 	}*/
 	
-	private RectangleObject getRectangleObject(int index){
+	private PDFRectangle getPDFRectangle(int index){
 		double a[] ={0,0,0,0};
 		int base = index - 5;
 		for(int i = 0; i < 4; i++)
 			a[i] = getFloatValueFromCOS(tokens.get(base+i));
 		if( a[2] < 2 || a[3] < 2)
 			return null;
-		return new RectangleObject(a[0],a[1],a[2],a[3]);
+		return new PDFRectangle(a[0],a[1],a[2],a[3]);
 	}
 	
 	public int getSize(){

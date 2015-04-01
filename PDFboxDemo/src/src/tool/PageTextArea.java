@@ -12,36 +12,17 @@ import org.dom4j.Element;
 
 public class PageTextArea {
 	private int areaNo;
-	private double colNo;
-	private double rowNo;
-	
-	private RectangleObject area;
-	//private List<TextObject> texts;
-	private List<CellLine> lines;
-	private List<CharacterGroup> groups;
-	private List<CharacterObject> characters;
+	private PDFRectangle area;
+	private List<PDFCharacter> characters;
 	
 	private PageTextArea right;
 	private PageTextArea down;
 	
-	double splitedRows;
-	double splitedCols;
-	
 	boolean referenced;
 	
-	public PageTextArea(int n, RectangleObject ro){
+	public PageTextArea(int n, PDFRectangle ro){
 		areaNo = n;
-		colNo = 0;
-		rowNo = 0;
-		
-		splitedRows = 1;
-		splitedCols = 1;
-		
 		area = ro;
-		//lines = new ArrayList<CellLine>();
-		//groups = new ArrayList<CharacterGroup>();
-		//texts = new ArrayList<TextObject>();
-		characters = new ArrayList<CharacterObject>();
 		
 		right = null;
 		down = null;
@@ -99,7 +80,7 @@ public class PageTextArea {
 		return right;
 	}
 	
-	public RectangleObject getArea(){
+	public PDFRectangle getArea(){
 		return area;
 	}
 	
@@ -119,58 +100,6 @@ public class PageTextArea {
 		return areaNo;
 	}
 	
-	public void setColNo(int n){
-		colNo = n;
-	}
-	
-	public void setRowNo(int n){
-		rowNo = n;
-	}
-	
-	public double getColNo(){
-		return colNo;
-	}
-	
-	public double getRowNo(){
-		return rowNo;
-	}
-	
-	public void recursiveSetColAndRowNo(double c, double r, int n){
-		colNo = c;
-		rowNo = r;
-		if(this.getRight() != null)
-			this.getRight().recursiveSetColAndRowNo(round(c+this.splitedCols,n), r, n);
-		if(this.getDown() != null)
-			this.getDown().recursiveSetColAndRowNo(c, round(r+this.splitedRows,n),n);
-		
-	}
-	
-
-	public boolean nullColRow(){
-		if( colNo != 0)
-			return false;
-		if( rowNo != 0)
-			return false;
-		return true;
-	}
-	
-
-	public double getSplitedRows() {
-		return splitedRows;
-	}
-
-	public void setSplitedRows(double splitedRows) {
-		this.splitedRows = splitedRows;
-	}
-
-	public double getSplitedCols() {
-		return splitedCols;
-	}
-
-	public void setSplitedCols(double splitedCols) {
-		this.splitedCols = splitedCols;
-	}
-
 	public double getHeight(){
 		return area.getHeight();
 	}
@@ -179,18 +108,14 @@ public class PageTextArea {
 		return area.getWidth();
 	}
 
-	public boolean nextColumnInTheSameRow(PageTextArea pageTextArea) {
+	public boolean isNextCellInTheSameRow(PageTextArea pageTextArea) {
 		// TODO Auto-generated method stub
-		if( area.nextColumnInTheSameRow(pageTextArea.getArea()))
-			return true;
-		return false;
+		return area.isNextCellInTheSameRow(pageTextArea.getArea());
 	}
 
-	public boolean nextRowInTheSameColumn(PageTextArea pageTextArea) {
+	public boolean isNextCellInTheSameColumn(PageTextArea pageTextArea) {
 		// TODO Auto-generated method stub
-		if( area.nextRowInTheSameColumn(pageTextArea.getArea()))
-			return true;
-		return false;
+		return area.isNextCellInTheSameColumn(pageTextArea.getArea());
 	}
 	
 	public boolean isIsolated(){
@@ -202,37 +127,15 @@ public class PageTextArea {
 	}
 	
 	public boolean isInThisArea(double x, double y){
-		return area.isInThisRectangle(x, y);
+		return area.isInThisArea(x, y);
 	}
-	
-	/*public boolean isInThisArea(TextObject to){
-		return area.isInThisRectangle(to.getX(), to.getY());
-	}
-	
-	public boolean nullText(){
-		if(texts.size() == 0)
-			return true;
-		return false;
-	}
-	
-	public int textSize(){
-		return texts.size();
-	}
-	
-	public TextObject getText(int i){
-		return texts.get(i);
-	}*/
-	
-	/*public int textSize(){
-		return characters.size();
-	}*/
 	
 	public double getX(){
-		return area.getXofLeftUpper();
+		return area.getX();
 	}
 	
 	public double getY(){
-		return area.getYofLeftUpper();
+		return area.getY();
 	}
 	
 	public String getString(){
@@ -242,33 +145,14 @@ public class PageTextArea {
 		return s;
 	}
 	
-	public void setCharacters(List<CharacterObject> characters){
-		List<CharacterObject> tmp = characters;
+	public void setCharacters(List<PDFCharacter> characters){
+		List<PDFCharacter> tmp = characters;
 		boolean cutOff = true;
-		//System.out.println(tmp.size());
 		if(tmp.size() %2 == 0){
 			int s = tmp.size()/2;
-			//System.out.println(s);
 			for(int i = 0; i < s; i++){
-				//System.out.println(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()));
-				//byte[] b1 = tmp.get(i).getCharacter().getBytes();
-				//byte[] b2 = tmp.get(i+s).getCharacter().getBytes();
-				//System.out.println(b1.length+":"+b1+":"+tmp.get(i).getCharacter()+"|"+b2.length+":"+b2+":"+tmp.get(i+s).getCharacter());
-				/*if(b1.length != b2.length){
-					cutOff = false;
-					break;
-				}
-				else{
-					int l = b1.length;
-					for(int j = 0; j < l; j++)
-						if(b1[j] != b2[j]){
-							System.out.println(b1[j]+" "+b2[j]);
-							cutOff = false;
-							break;
-						}
-				}*/
 				if(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()) == false){
-					System.out.println(tmp.get(i).getCharacter());
+					//System.out.println(tmp.get(i).getCharacter());
 					cutOff = false;
 					break;
 				}
@@ -277,92 +161,25 @@ public class PageTextArea {
 		else
 			cutOff = false;
 		if( cutOff == true){
-			tmp = new ArrayList<CharacterObject>();
+			tmp = new ArrayList<PDFCharacter>();
 			for(int i = 0; i < characters.size()/2; i++)
 				tmp.add(characters.get(i));
 		}
 		this.characters = tmp;
 	}
 	
-	public List<CellLine> formMultipleLines() {
-		//this.characters = characters;
-		if(characters.size() == 0)
-			return null;
-		List<CharacterGroup> groups = new ArrayList<CharacterGroup>();
-		CharacterGroup current = new CharacterGroup(characters.get(0));
-		groups.add(current);
-		boolean newGroup = false;
-		int last = 0;
-		if(characters.size() > 1){
-			for(int i = 1; i < characters.size(); i++){
-				if( characters.get(last).isNextInTheSameLine(characters.get(i)) && characters.get(i).getCharacter().equals(" ") == false){
-					current.addCharacter(characters.get(i));
-					last = i;
-				}
-				else if(characters.get(i).getCharacter().equals(" ") == true){
-					newGroup = true;
-					continue;
-				}
-				else if(newGroup == true && characters.get(i).getCharacter().equals(" ") == false){
-					last = i;
-					current = new CharacterGroup(characters.get(i));
-					groups.add(current);
-					newGroup = false;
-				}
-				else if(characters.get(last).isNextInTheSameLine(characters.get(i)) == false){
-					current = new CharacterGroup(characters.get(i));
-					groups.add(current);
-					last = i;
-				}
-			}
-		}
-		int cellNo = 1;
-		CellLine currentLine = new CellLine(cellNo,groups.get(0));
-		lines.add(currentLine);
-		if(groups.size() > 1){
-			//System.out.println(groups.size());
-			for(int i = 1; i < groups.size(); i++){
-				if( groups.get(i-1).isInTheSameLine(groups.get(i)) )
-					currentLine.addGroup(groups.get(i));
-				else{
-					cellNo++;
-					currentLine = new CellLine(cellNo, groups.get(i));
-					lines.add(currentLine);
-				}
-			}
-		}
-		return lines;
-	}
-
-
-
-	public double round(double a, int n){
-		BigDecimal b = new BigDecimal(a);
-		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
-		return f;
-	}
-	
 	public void writeToXML(Element currentTable){
 		Element tmp = currentTable.addElement("Cell");
 		tmp.addAttribute("No", this.getAreaNo()+"");
 		Element areaPosition = tmp.addElement("AreaPosition");
-		Element xOfLeftUpper = areaPosition.addElement("XofLeftUpper");
+		Element xOfLeftUpper = areaPosition.addElement("X");
 		xOfLeftUpper.addText(this.getX()+"");
-		Element yOfLeftUpper = areaPosition.addElement("YofLeftUpper");
+		Element yOfLeftUpper = areaPosition.addElement("Y");
 		yOfLeftUpper.addText(this.getY()+"");
 		Element width = areaPosition.addElement("Width");
 		width.addText(this.getWidth()+"");
 		Element height = areaPosition.addElement("Height");
 		height.addText(this.getHeight()+"");
-		Element cellInformation = tmp.addElement("SimplifiedPosition");
-		Element splitedRows = cellInformation.addElement("SimplifiedHeight");
-		Element splitedCols = cellInformation.addElement("SimplifiedWidth");
-		splitedRows.addText(this.getSplitedRows()+"");
-		splitedCols.addText(this.getSplitedCols()+"");
-		Element rowNo = cellInformation.addElement("SimplifedY");
-		rowNo.addText(this.getRowNo()+"");
-		Element colNo = cellInformation.addElement("SimplifedX");
-		colNo.addText(this.getColNo()+"");
 		Element links = tmp.addElement("Links");
 		Element rightLink = links.addElement("NextCellInTheSameRow");
 		if(this.getRight()!=null)
@@ -372,109 +189,9 @@ public class PageTextArea {
 			downLink.addText(this.getDown().getAreaNo()+"");
 		Element text = tmp.addElement("Text");
 		text.addAttribute("Content", this.getString());
-		/*for(int j = 0; j < lines.size(); j++)
-			lines.get(j).writeToXML(text);*/
-		/*for(int j = 0; j < groups.size(); j++)
-			groups.get(j).writeToXML(text);
-		for(int j = 0; j < this.textSize(); j++){
-			this.getCharacter(j).writeToXML(text);
-		}*/
-		/*if(this.nullText() == false)
-			for(int j = 0; j < this.textSize(); j++){
-				TextObject to = this.getText(j);
-				Element text = tmp.addElement("Text");
-				Element content = text.addElement("Content");
-				content.addText(to.getString());
-				Element position = text.addElement("TextPosition");
-				Element x = position.addElement("X");
-				x.addText(to.getX()+"");
-				Element y = position.addElement("Y");
-				y.addText(to.getY()+"");
-			}*/
 	}
-
-
-
-	/*public void setText(String text) throws IOException {
-		// TODO Auto-generated method stub
-		TextObject to = new TextObject();
-		to.setString(text);
-		texts.add(to);
-	}*/
 	
 	@SuppressWarnings("unchecked")
-	public void recursivelyPutInRowHeader(Map<Pair<Float,Float>,String> rowMap, 
-			String prefix){
-		if(prefix.equals("") == false)
-			prefix+="|";
-		rowMap.put(new Pair(new Float(this.getColNo()), 
-				new Float(this.getSplitedCols()) ), 
-				prefix+this.getString());
-		if(this.getDown() != null)
-			if(this.getDown().getSplitedCols() < this.getSplitedCols()){
-				PageTextArea tmp = this.getDown();
-				double sum = this.getDown().getSplitedCols();
-				tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
-				while(sum < this.getSplitedCols() && tmp.getRight()!=null){
-					tmp = tmp.getRight();
-					tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
-					sum += tmp.getSplitedCols();
-				}
-			}
-	}
-
-
-
-	@SuppressWarnings("unchecked")
-	public void recursivelyPutInColumnHeader(
-			Map<Pair<Float, Float>, String> columnMap, String prefix) {
-		// TODO Auto-generated method stub
-		if(prefix.equals("") == false)
-			prefix+="|";
-		columnMap.put(new Pair(new Float(this.getRowNo()), 
-				new Float(this.getSplitedRows()) ), 
-				prefix+this.getString());
-		if(this.getRight() != null)
-			if(this.getRight().getHeight() < this.getHeight()){
-				PageTextArea tmp = this.getRight();
-				double sum = this.getRight().getSplitedRows();
-				tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
-				while(sum < this.getSplitedRows() && tmp.getDown()!=null){
-					tmp = tmp.getDown();
-					tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
-					sum += tmp.getSplitedRows();
-				}
-			}
-	}
-
-
-
-	public void recursivelyPutInRowList(List<Map<String, String>> returnList,
-			Map<Pair<Float, Float>, String> rowMap,
-			Map<Pair<Float, Float>, String> columnMap) {
-		// TODO Auto-generated method stub
-		if(returnList.size() == 0)
-			return;
-		for( int i = 0; i < returnList.size(); i++){
-			if(returnList.get(i).containsKey(new Pair(new Float(this.getRowNo()),
-					new Float(this.getSplitedRows())))== true){
-				String rowName = returnList.get(i).get(new Pair(new Float(this.getRowNo()),
-					new Float(this.getSplitedRows())));
-				System.out.println(rowName);
-				if(rowName.contains(this.getString()) == false){
-					String columnName = columnMap.get(new Pair(new Float(this.getColNo()),
-					new Float(this.getSplitedCols())));
-					if(columnName.contains(getString()) == false)
-						returnList.get(i).put(columnName, this.getString());
-					System.out.println(rowName+" "+columnName+" "+getString());
-				}
-			}
-		}
-		if(this.getRight() != null)
-			this.getRight().recursivelyPutInRowList(returnList, rowMap, columnMap);
-		if(this.getDown() != null)
-			this.getDown().recursivelyPutInRowList(returnList, rowMap, columnMap);
-	}
 
 
 
@@ -482,22 +199,32 @@ public class PageTextArea {
 			String prefix) {
 		// TODO Auto-generated method stub
 		if( this.getRight() == null 
-				|| this.getRight().getSplitedRows() == this.getSplitedRows()){
+				|| this.isSameHeight(this.getRight()) == true ){
 			returnList.add(new Pair(prefix, this));
 			return;
 		}
 		else{
-			double sum = this.getRight().getSplitedRows();
+			PDFRectangle right = this.getRight().getArea();
 			PageTextArea tmp = this.getRight();
 			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
-			while(sum <= this.getSplitedRows()){
+			while(this.getArea().isSameHeight(right) == false){
 				tmp = tmp.getDown();
 				if(tmp == null)
 					break;
-				sum += tmp.getSplitedRows();
+				right = right.union(tmp.getArea());
+				if( right == null)
+					break;
 				tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
 			}
 		}
+	}
+	
+	public boolean isSameHeight(PageTextArea pta){
+		return this.getArea().isSameHeight(pta.getArea());
+	}
+	
+	public boolean isSameWidth(PageTextArea pta){
+		return this.getArea().isSameWidth(pta.getArea());
 	}
 	
 }

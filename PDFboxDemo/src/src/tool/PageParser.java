@@ -20,7 +20,7 @@ import org.dom4j.io.XMLWriter;
 
 public class PageParser {
 	private List<PDPage> pages;
-	private List<PageStreamParser> psp;
+	private List<ContentStreamParser> csp;
 	private Document xml;
 	
 	@SuppressWarnings("unchecked")
@@ -33,17 +33,14 @@ public class PageParser {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("text.txt"));
 		
 		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		psp = new ArrayList<PageStreamParser>();
+		csp = new ArrayList<ContentStreamParser>();
 		for(int i = 0; i < pages.size(); i++){
-			
 			writer.write(pages.get(i).getContents().getInputStreamAsString());
 			
-			psp.add(new PageStreamParser(i,pages.get(i)));
-			System.out.println("Page "+i);
-			psp.get(i).constructTable();
-			//psp.get(i).print();
-			//psp.get(i).printRowAndColumnMap();
-			psp.get(i).writeTableToXML(root);
+			csp.add(new ContentStreamParser(i,pages.get(i)));
+			csp.get(i).parse();
+			csp.get(i).writeTableToXML(root);
+			csp.get(i).writeXML(root);
 		}
 		
 		writer.close();
@@ -51,39 +48,7 @@ public class PageParser {
 	}
 	
 	public void output(FileOutputStream fos) throws Exception{
-		//for(int i = 0; i < psp.size(); i++)
-			//bw.write(psp.get(i).getPDStream().getInputStreamAsString());
-		//OutputStream os = new FileOutputStream("456789.xml");
 		serializetoXML(fos);
-		//bw.write(xml.asXML());
-	}
-	
-	public void parse() throws IOException{
-		Element root = this.xmlBuilder();
-		for(int i = 0; i < psp.size(); i++){
-			System.out.println("Page "+i);
-			psp.get(i).constructTable();
-			//psp.get(i).printRowAndColumnMap();
-			//Element page = root.addElement("Page "+i);
-			//psp.get(i).writeXML(page);
-		}
-	}
-	
-	public Element xmlBuilder(){
-		Element root = xml.addElement("root");
-		/*Element pageNo = root.addElement("PageNumberThatMayContainConsecutiveTable");
-		List<Integer> result = this.findTableOnMultiplePages();
-		if(result.size() > 0){
-			for(int i = 0; i < result.size(); i++){
-				Element no = pageNo.addElement("No");
-				no.addText(result.get(i).intValue()+"");
-			}
-		}
-		for(int i = 0; i < psp.size(); i++){
-			Element page = root.addElement("Page"+(new Integer(i+1)).toString());
-			psp.get(i).writeXML(page);
-		}*/
-		return root;
 	}
 	
 	 public void serializetoXML(OutputStream out) throws Exception {
@@ -92,18 +57,5 @@ public class PageParser {
 		   XMLWriter writer = new XMLWriter(out, outformat);
 		   writer.write(xml);
 		   writer.flush();
-		 }
-	 
-	/* public List<Integer> findTableOnMultiplePages(){
-		 List<Integer> returnList = new ArrayList<Integer>();
-		 for(int i = 0; i < psp.size()-1 ; i++){
-			 if(psp.get(i).containTable() == false || psp.get(i+1).containTable() == false)
-				 continue;
-			 if(psp.get(i).nextTable(psp.get(i+1)) == true){
-				 psp.get(i).setMightContainTableInTheNextPage(true);
-				 returnList.add(new Integer(i+1));
-			 }
-		 }
-		 return returnList;
-	 }*/
+	}
 }

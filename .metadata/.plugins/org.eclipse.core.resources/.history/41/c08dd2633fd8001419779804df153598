@@ -1,0 +1,14 @@
+package src.tool;
+
+import org.apache.pdfbox.util.TextPosition;
+
+public class PDFCharacter extends TextPosition {
+	int areaNo;
+	TextPosition text;
+	
+	public PDFCharacter(int n, TextPosition t){
+		text = t;
+		areaNo =n;
+	}
+
+}

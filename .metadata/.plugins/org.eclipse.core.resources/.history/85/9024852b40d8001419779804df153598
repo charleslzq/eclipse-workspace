@@ -1,0 +1,114 @@
+package src.tool;
+
+import java.awt.geom.Rectangle2D;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.*;
+
+import org.apache.pdfbox.cos.COSStream;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDStream;
+import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.util.TextPosition;
+
+public class TextStripperByRectangleObject extends PDFTextStripper {
+	private List<Integer> regions = new ArrayList<Integer>();
+    private Map<Integer,PDFRectangle> regionArea = new HashMap<Integer,PDFRectangle>();
+    private Map<Integer,Vector<ArrayList<TextPosition>>> regionCharacterList = 
+        new HashMap<Integer,Vector<ArrayList<TextPosition>>>();
+    private Map<Integer,StringWriter> regionText = new HashMap<Integer,StringWriter>();
+    private List<CharacterObject> characters = new ArrayList<CharacterObject>();
+
+	
+	//@SuppressWarnings("deprecation")
+	public TextStripperByRectangleObject() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+		this.setPageSeparator("");
+		setPageStart("");
+		setPageEnd("");
+	}
+	
+	public boolean contain(Integer in){
+		for(int i = 0; i< regions.size() ; i++)
+			if(regions.get(i).equals(in))
+				return true;
+		return false;
+	}
+	
+	public void addRegion( int areaNo, PDFRectangle rect ){
+        regions.add( new Integer(areaNo) );
+        regionArea.put( new Integer(areaNo), rect );
+    }
+	
+	 public String getTextForRegion( int no ){
+	        StringWriter text = regionText.get( new Integer(no) );
+	        return text.toString();
+	 }
+	 
+	 public void extractRegions( PDPage page ) throws IOException{
+	       for(int i = 0; i < regions.size(); i++){
+	            setStartPage(getCurrentPageNo());
+	            setEndPage(getCurrentPageNo());
+	            //reset the stored text for the region so this class
+	            //can be reused.
+	            Integer regionNo = regions.get(i);
+	            Vector<ArrayList<TextPosition>> regionCharactersByArticle = new Vector<ArrayList<TextPosition>>();
+	            regionCharactersByArticle.add( new ArrayList<TextPosition>() );
+	            regionCharacterList.put( regionNo, regionCharactersByArticle );
+	            regionText.put( regionNo, new StringWriter() );
+	        }
+
+	        PDStream contentStream = page.getContents();
+	        if( contentStream != null ){
+	            COSStream contents = contentStream.getStream();
+	            if(contents != null)
+	            	processPage( page, contents );
+	        }
+	    }
+	 
+	 protected void processTextPosition( TextPosition text ){
+	        Iterator<Integer> regionIter = regionArea.keySet().iterator();
+	        while( regionIter.hasNext() )
+	        {
+	            Integer region = regionIter.next();
+	            PDFRectangle rect = regionArea.get( region );
+	            if( rect.isInThisArea( text.getTextPos().getValue(2, 0), text.getTextPos().getValue(2, 1) ) )
+	            {
+	                charactersByArticle = (Vector)regionCharacterList.get( region );
+	                characters.add(new CharacterObject(region, text));
+	                super.processTextPosition( text );
+	            }
+	        }
+	    }
+
+	    
+	    /**
+	     * This will print the processed page text to the output stream.
+	     *
+	     * @throws IOException If there is an error writing the text.
+	     */
+	    protected void writePage() throws IOException{
+	        Iterator<Integer> regionIter = regionArea.keySet().iterator();
+	        while( regionIter.hasNext() )
+	        {
+	            Integer region = regionIter.next();
+	            charactersByArticle = (Vector)regionCharacterList.get( region );
+	            output = regionText.get( region );
+	            super.writePage();
+	        }
+	    }
+	    
+	    public List<CharacterObject> getCharactersByRegion(int no){
+	    	List<CharacterObject> returnList = new ArrayList<CharacterObject>();
+	    	for(int i = 0; i < characters.size(); i++)
+	    		if(characters.get(i).getAreaNo() == no)
+	    			returnList.add(characters.get(i));
+	    	return returnList;
+	    }
+	    
+	    public void print(){
+	    	for(int i = 0; i < characters.size(); i++)
+	    		characters.get(i).print();
+	    }
+	}

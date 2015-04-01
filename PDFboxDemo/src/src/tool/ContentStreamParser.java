@@ -6,200 +6,94 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javafx.util.Pair;
+
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.dom4j.Element;
 
 public class ContentStreamParser {
+	private int pageNo;
 	private PDPage pdpage;
 	private TokenParser tp;
 	private List<PageTextArea> pta;
-	private TextStripperByRectangleObject tsbro;
-	private int precision = 2;
-	private double err = 0.1;
+	private TextStripperByPDFRectangle tsbro;
+	private List<TableInformation> ti;
 	
-	public ContentStreamParser(PDPage pdp) throws IOException{
+	public ContentStreamParser(int no, PDPage pdp) throws IOException{
+		pageNo = no;
 		pdpage = pdp;
+		
 		tp = new TokenParser(pdpage.getContents().getStream().getStreamTokens());
-		//tp.print();
+		tsbro = new TextStripperByPDFRectangle();
+		pta = new ArrayList<PageTextArea>();
 		
-		tsbro = new TextStripperByRectangleObject();
-		
-		pta = new ArrayList<PageTextArea>();//this.constructRegions(tp.getAreas());
-		
-		this.constructTable();
-		//tsbro.print();
-		//this.extraTextsAfterLastTable();
-		
+		ti = new ArrayList<TableInformation>();
 	}
 	
-	public int getPrecision() {
-		return precision;
+	public void parse() throws IOException{
+		pta = this.TextAreaConstructor();
 	}
 
-	public void setPrecision(int precision) {
-		this.precision = precision;
-	}
-
-	public double getErr() {
-		return err;
-	}
-
-	public void setErr(double err) {
-		this.err = err;
-	}
-	
-	public void constructTable() throws IOException{
-		pta = this.PageAreaConstructor();
-	}
-
-	public List<PageTextArea> PageAreaConstructor() throws IOException{
-		Map<Integer, RectangleObject> areas = tp.getAreas();
-		//Map<Integer, TextObject> texts = tp.getTexts();
+	public List<PageTextArea> TextAreaConstructor() throws IOException{
+		Map<Integer, PDFRectangle> areas = tp.getAreas();
 		List<PageTextArea> textAreas = this.constructRegions(areas);
-		this.findSplittedInformation(textAreas);
-		this.simplifyPositions(textAreas);
-		int last = 0;
 
 		for(int i = 0; i < tp.getSize(); i++){
 			if(areas.containsKey(new Integer(i))){
 				tsbro.addRegion(i, areas.get(new Integer(i)));
-				//last = i;
 			}
 		}
 		
 		/*if(last !=0 && areas != null){
-			RectangleObject lastRo = areas.get(new Integer(last));
+			PDFRectangle lastRo = areas.get(new Integer(last));
 			double y = lastRo.getYofLeftUpper() - lastRo.getHeight();
 			double w = pdpage.getArtBox().getWidth();
-			RectangleObject extra = new RectangleObject(0,0,w,y);
+			PDFRectangle extra = new PDFRectangle(0,0,w,y);
 			tsbro.addRegion(-1, extra);
 		}*/
 		
 		tsbro.extractRegions(pdpage);
-		/*for(int i = 0; i < textAreas.size() ; i++){
-			int no = textAreas.get(i).getAreaNo();
-			String text = tsbro.getTextForRegion(no);
-			textAreas.get(i).setText(text);
-			//System.out.println(no+":"+text);
-		}*/
-		//tsbro.print();
 		attachTexts(textAreas);
-		/*for( int i = 0; i < textAreas.size(); i++)
-			textAreas.get(i).print();*/
 		return textAreas;
 	}
 	
-	private List<PageTextArea> constructRegions(Map<Integer, RectangleObject> areas){
+	private List<PageTextArea> constructRegions(Map<Integer, PDFRectangle> areas){
 		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
 		for(int i = 0; i < tp.getSize(); i++)
 			if(areas.containsKey(new Integer(i))){
 				textAreas.add(new PageTextArea(i, areas.get(new Integer(i))));
-				//System.out.println(i);
 			}
 		for(int i = 0; i < textAreas.size(); i++)
 			for(int j = i+1 ; j < textAreas.size(); j++){
-				if( textAreas.get(i).getRight() == null && textAreas.get(i).nextColumnInTheSameRow(textAreas.get(j))){
+				if( textAreas.get(i).getArea().isInThisArea(textAreas.get(j).getArea())){
+					textAreas.remove(j);
+					j--;
+				}
+				if( textAreas.get(i).getRight() == null 
+						&& textAreas.get(i).isNextCellInTheSameRow(textAreas.get(j))){
+					System.out.println("!!!!!Right!");
 					textAreas.get(i).setRight(textAreas.get(j));
 					textAreas.get(j).setReferenced(true);
 				}
-				else if( textAreas.get(i).getDown() == null && textAreas.get(i).nextRowInTheSameColumn(textAreas.get(j))){
+				else if( textAreas.get(i).getDown() == null 
+						&& textAreas.get(i).isNextCellInTheSameColumn(textAreas.get(j))){
 					textAreas.get(i).setDown(textAreas.get(j));
 					textAreas.get(j).setReferenced(true);
 				}
+				//textAreas.get(i).print();
+				//textAreas.get(j).print();
 			}
+		for(int i=0; i < textAreas.size(); i++)
+			textAreas.get(i).print();
 		return textAreas;
-	}
-	
-	private void findSplittedInformation(List<PageTextArea> textAreas){
-		for(int i = 0; i < textAreas.size(); i++){
-			PageTextArea current = textAreas.get(i);
-			if( current.getRight() != null){
-				int n = precision;
-				if(alreadyEqual(current.getHeight(), current.getRight().getHeight(), err))
-					current.getRight().setSplitedRows(current.getSplitedRows());
-				else{
-					double sum = current.getRight().getHeight()/current.getHeight();
-					current.getRight().setSplitedRows(round(current.getSplitedRows()*sum,n));
-					if( sum < 1){
-						PageTextArea next = current.getRight();
-						while( sum < 1){
-							if(next.getDown() != null){
-								double tmp = next.getDown().getHeight()/current.getHeight();
-								sum += tmp;
-								if(alreadyEqual(sum,1,Math.exp(-(n-1)))){
-									next.getDown().setSplitedRows(round(1-sum+tmp,n)*current.getSplitedRows());
-									break;
-								}
-								next.getDown().setSplitedRows(round(tmp*current.getSplitedRows(),n));
-								next = next.getDown();
-							}
-							else
-								break;
-						}
-					}
-				}
-			}
-			if( current.getDown() != null){
-				int n = precision;
-				if(alreadyEqual(current.getWidth(), current.getDown().getWidth(), err))
-					current.getDown().setSplitedCols(current.getSplitedCols());
-				else{
-					double sum = current.getDown().getWidth()/current.getWidth();
-					current.getDown().setSplitedCols(round(current.getSplitedCols()*sum,n));
-					if(sum < 1){
-						PageTextArea next = current.getDown();
-						while(sum < 1){
-							if(next.getRight() != null){
-								double tmp = next.getRight().getWidth()/current.getWidth();
-								sum += tmp;
-								if(alreadyEqual(sum, 1, Math.exp(-(n-1)))){
-									next.getRight().setSplitedCols(round(1-sum+tmp,n)*current.getSplitedCols());
-									break;
-								}
-								next.getRight().setSplitedCols(round(tmp*current.getSplitedCols(),n));
-								next = next.getRight();
-							}
-							else
-								break;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	private void simplifyPositions(List<PageTextArea> textAreas){
-		int col = 0;
-		int row = 0;
-		for(int i = 0; i < textAreas.size() ; i++){
-			if(textAreas.get(i).nullColRow()){
-				textAreas.get(i).recursiveSetColAndRowNo(col, row, 2);
-				if(textAreas.get(i).isIsolated() == true)
-					row = 0;
-			}
-		}
 	}
 	
 	private void attachTexts(List<PageTextArea> textAreas){
 		for(int i = 0; i < textAreas.size(); i++){
 			int no = textAreas.get(i).getAreaNo();
-			List<CharacterObject> cs = tsbro.getCharactersByRegion(no);
-			textAreas.get(i).print();
-			for(int j = 0; j < cs.size(); j++)
-				System.out.println(i+" "+" "+j+" "+no+" "+cs.get(j).getCharacter());
+			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
 			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
 		}
-	}
-	
-	public double round(double a, int n){
-		BigDecimal b = new BigDecimal(a);
-		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
-		return f;
-	}
-	
-	public boolean alreadyEqual(double a, double b, double err){
-		if(Math.abs(a-b) <= err)
-			return true;
-		return false;
 	}
 	
 	public List<PageTextArea> getPTA(){
@@ -246,12 +140,80 @@ public class ContentStreamParser {
 		return ti;
 	}
 	
-	public boolean extraTextsAfterLastTable(){
-		if(tsbro.contain(-1)){
-			String text = tsbro.getTextForRegion(-1);
-			if(text.equals(" "))
-				return false;
+	public List<PageTextArea> getTableHeader(){
+		List<PageTextArea> header = new ArrayList<PageTextArea>();
+		for(int i = 0; i < pta.size(); i++){
+			if(!pta.get(i).isReferenced()){
+				if(!pta.get(i).isIsolated()){
+					header.add(pta.get(i));
+				}
+			}
 		}
-		return true;
+		return header;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Pair<String,PageTextArea>> getRowHeaders(PageTextArea header){
+		if(header == null)
+			return null;
+		if(header.isIsolated() == true)
+			return null;
+		if(header.isReferenced() == true)
+			return null;
+		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
+		PageTextArea currentRowHeader = header;
+		returnList.add(new Pair(header.getString(), header));
+		while(currentRowHeader.getDown() != null){
+			currentRowHeader = currentRowHeader.getDown();
+			currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
+		}
+		return returnList;
+	}
+	
+	public void writeTableToXML(Element root){
+		List<PageTextArea> headers = this.getTableHeader();
+		if(headers.size()>0){
+			for(int i = 0; i < headers.size(); i++){
+				Element table = root.addElement("Table ");
+				PageTextArea header = headers.get(i);
+				table.addAttribute("PageNo", this.pageNo+"");
+				List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
+				if(list.size() > 0){
+					for(int j = 0; j < list.size() ;j++){
+						Element row = table.addElement("row");
+						row.addAttribute("行头", list.get(j).getKey());
+						PageTextArea rowIt = list.get(j).getValue();
+						int count = 0;
+						rowIt = rowIt.getRight();
+						if( rowIt == null){
+							row.addAttribute("列数", "0");
+							continue;
+						}
+						while(rowIt != null){
+							row.addAttribute("第"+count+"列", rowIt.getString());
+							rowIt = rowIt.getRight();
+							count++;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void writeXML(Element pageRoot){
+		Element currentTable = null;
+		int count = 0;
+		for(int i = 0; i < pta.size(); i++){
+			if(!pta.get(i).isReferenced()){
+				if(!pta.get(i).isIsolated()){
+					currentTable = pageRoot.addElement("Table");
+					count++;
+					currentTable.addAttribute("No.", count+"");
+				}
+			}
+			if(currentTable != null){
+				pta.get(i).writeToXML(currentTable);
+			}
+		}
 	}
 }

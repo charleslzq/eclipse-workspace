@@ -1,0 +1,66 @@
+package src.tool;
+
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.util.TextPosition;
+
+public class PDFCharacter extends TextPosition {
+	private int areaNo;
+	private TextPosition text;
+	private static ApproximateCalculation ac = new ApproximateCalculation(3,0.1);
+	
+	public PDFCharacter(int n, TextPosition t){
+		text = t;
+		areaNo =n;
+	}
+	
+	public int getAreaNo() {
+		return areaNo;
+	}
+	
+	public float getX(){
+		return text.getX();
+	}
+	
+	public float getY(){
+		return text.getY();
+	}
+	
+	public float getFontSize(){
+		return text.getFontSize();
+	}
+	
+	public float getWidth(){
+		return text.getWidth();
+	}
+	
+	public float getHeight(){
+		return text.getHeight();
+	}
+	
+	public float getSpacing(){
+		return text.getWordSpacing();
+	}
+	
+	public String getCharacter(){
+		return text.getCharacter();
+	}
+	
+	public PDFont getFont(){
+		return text.getFont();
+	}
+	
+	public boolean isInTheSameLine(CharacterObject co){
+		if( ac.alreadyEqual(this.getY(), co.getY() ) 
+				&& ac.alreadyEqual(this.getHeight(), co.getHeight()) )
+			return true;
+		return false;
+	}
+	
+	public boolean isNextInTheSameLine(CharacterObject co){
+		double err = 0.2;
+		if( this.isInTheSameLine(co) )
+			if(almostEqual(this.getX()+this.getWidth(), co.getX(), err))
+				return true;
+		return false;
+	}
+}

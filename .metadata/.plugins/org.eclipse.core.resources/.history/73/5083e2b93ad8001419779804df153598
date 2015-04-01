@@ -1,0 +1,7 @@
+package src.tool;
+
+public class ApproximateCalculation {
+	private int precision;
+	private double err;
+
+}

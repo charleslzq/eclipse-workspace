@@ -1,0 +1,109 @@
+package src.tool;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
+
+public class PageParser {
+	private List<PDPage> pages;
+	private List<PageStreamParser> psp;
+	private Document xml;
+	
+	@SuppressWarnings("unchecked")
+	public PageParser(BufferedInputStream fis) throws IOException{
+		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		xml = DocumentHelper.createDocument();
+		Element root = xml.addElement("root");
+		BufferedWriter writer = new BufferedWriter(new FileWriter("text.txt"));
+		
+		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		psp = new ArrayList<PageStreamParser>();
+		for(int i = 0; i < pages.size(); i++){
+			
+			writer.write(pages.get(i).getContents().getInputStreamAsString());
+			
+			psp.add(new PageStreamParser(i,pages.get(i)));
+			//System.out.println("Page "+i);
+			psp.get(i).constructTable();
+			//psp.get(i).print();
+			//psp.get(i).printRowAndColumnMap();
+			psp.get(i).writeTableToXML(root);
+		}
+		
+		writer.close();
+		
+	}
+	
+	public void output(FileOutputStream fos) throws Exception{
+		//for(int i = 0; i < psp.size(); i++)
+			//bw.write(psp.get(i).getPDStream().getInputStreamAsString());
+		//OutputStream os = new FileOutputStream("456789.xml");
+		serializetoXML(fos);
+		//bw.write(xml.asXML());
+	}
+	
+	public void parse() throws IOException{
+		Element root = this.xmlBuilder();
+		for(int i = 0; i < psp.size(); i++){
+			System.out.println("Page "+i);
+			psp.get(i).constructTable();
+			//psp.get(i).printRowAndColumnMap();
+			//Element page = root.addElement("Page "+i);
+			//psp.get(i).writeXML(page);
+		}
+	}
+	
+	public Element xmlBuilder(){
+		Element root = xml.addElement("root");
+		/*Element pageNo = root.addElement("PageNumberThatMayContainConsecutiveTable");
+		List<Integer> result = this.findTableOnMultiplePages();
+		if(result.size() > 0){
+			for(int i = 0; i < result.size(); i++){
+				Element no = pageNo.addElement("No");
+				no.addText(result.get(i).intValue()+"");
+			}
+		}
+		for(int i = 0; i < psp.size(); i++){
+			Element page = root.addElement("Page"+(new Integer(i+1)).toString());
+			psp.get(i).writeXML(page);
+		}*/
+		return root;
+	}
+	
+	 public void serializetoXML(OutputStream out) throws Exception {
+		   OutputFormat outformat = OutputFormat.createPrettyPrint();
+		   //outformat.setEncoding(aEncodingScheme);
+		   XMLWriter writer = new XMLWriter(out, outformat);
+		   writer.write(xml);
+		   writer.flush();
+		 }
+	 
+	/* public List<Integer> findTableOnMultiplePages(){
+		 List<Integer> returnList = new ArrayList<Integer>();
+		 for(int i = 0; i < psp.size()-1 ; i++){
+			 if(psp.get(i).containTable() == false || psp.get(i+1).containTable() == false)
+				 continue;
+			 if(psp.get(i).nextTable(psp.get(i+1)) == true){
+				 psp.get(i).setMightContainTableInTheNextPage(true);
+				 returnList.add(new Integer(i+1));
+			 }
+		 }
+		 return returnList;
+	 }*/
+}

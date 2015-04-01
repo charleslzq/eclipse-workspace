@@ -1,0 +1,305 @@
+package src.tool;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javafx.util.Pair;
+
+import org.dom4j.Element;
+
+public class PageTextArea {
+	private int areaNo;
+	private PDFRectangle area;
+	private List<PDFCharacter> characters;
+	
+	private PageTextArea right;
+	private PageTextArea down;
+	
+	boolean referenced;
+	
+	public PageTextArea(int n, PDFRectangle ro){
+		areaNo = n;
+		area = ro;
+		
+		right = null;
+		down = null;
+		
+		referenced = false;
+	}
+	
+	
+	
+	public boolean isReferenced() {
+		return referenced;
+	}
+
+
+
+	public void setReferenced(boolean referenced) {
+		this.referenced = referenced;
+	}
+
+
+
+	/*public void putText(TextObject to){
+		texts.add(to);
+	}*/
+	
+	public void setRight(PageTextArea r){
+		right = r;
+	}
+	
+	public void setDown(PageTextArea d){
+		down = d;
+	}
+	
+	public PageTextArea getRight(){
+		return right;
+	}
+	
+	public PageTextArea getDown(){
+		return down;
+	}
+	
+	public boolean isSameRow(PageTextArea pta){
+		if(area.isSameRow(pta.getArea()))
+			return true;
+		return false;
+	}
+	
+	public boolean isSameColumn(PageTextArea pta){
+		if(area.isSameColumn(pta.getArea()))
+			return true;
+		return false;
+	}
+	
+	public PageTextArea nextRight(){
+		return right;
+	}
+	
+	public PDFRectangle getArea(){
+		return area;
+	}
+	
+	public void print(){
+		System.out.println("Area No: " + areaNo);
+		//System.out.println(this.getString());
+		//System.out.println("Column No: " + colNo);
+		//System.out.println("Row No: " + rowNo);
+		area.print();
+		if( right != null)
+			System.out.println("Right: " + right.getAreaNo());
+		if( down != null)
+			System.out.println("Down: " + down.getAreaNo());
+	}
+	
+	public int getAreaNo(){
+		return areaNo;
+	}
+	
+	public double getHeight(){
+		return area.getHeight();
+	}
+	
+	public double getWidth(){
+		return area.getWidth();
+	}
+
+	public boolean nextColumnInTheSameRow(PageTextArea pageTextArea) {
+		// TODO Auto-generated method stub
+		if( area.isNextCellInTheSameRow(pageTextArea.getArea()))
+			return true;
+		return false;
+	}
+
+	public boolean nextRowInTheSameColumn(PageTextArea pageTextArea) {
+		// TODO Auto-generated method stub
+		if( area.isNextCellInTheSameColumn(pageTextArea.getArea()))
+			return true;
+		return false;
+	}
+	
+	public boolean isIsolated(){
+		if( right != null)
+			return false;
+		if( down != null)
+			return false;
+		return true;
+	}
+	
+	public boolean isInThisArea(double x, double y){
+		return area.isInThisArea(x, y);
+	}
+	
+	public double getX(){
+		return area.getX();
+	}
+	
+	public double getY(){
+		return area.getY();
+	}
+	
+	public String getString(){
+		String s = "";
+		for(int i = 0; i < characters.size(); i++)
+			s += characters.get(i).getCharacter();
+		return s;
+	}
+	
+	public void setCharacters(List<PDFCharacter> characters){
+		List<PDFCharacter> tmp = characters;
+		boolean cutOff = true;
+		if(tmp.size() %2 == 0){
+			int s = tmp.size()/2;
+			for(int i = 0; i < s; i++){
+				if(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()) == false){
+					//System.out.println(tmp.get(i).getCharacter());
+					cutOff = false;
+					break;
+				}
+			}
+		}
+		else
+			cutOff = false;
+		if( cutOff == true){
+			tmp = new ArrayList<PDFCharacter>();
+			for(int i = 0; i < characters.size()/2; i++)
+				tmp.add(characters.get(i));
+		}
+		this.characters = tmp;
+	}
+	
+	public void writeToXML(Element currentTable){
+		Element tmp = currentTable.addElement("Cell");
+		tmp.addAttribute("No", this.getAreaNo()+"");
+		Element areaPosition = tmp.addElement("AreaPosition");
+		Element xOfLeftUpper = areaPosition.addElement("XofLeftUpper");
+		xOfLeftUpper.addText(this.getX()+"");
+		Element yOfLeftUpper = areaPosition.addElement("YofLeftUpper");
+		yOfLeftUpper.addText(this.getY()+"");
+		Element width = areaPosition.addElement("Width");
+		width.addText(this.getWidth()+"");
+		Element height = areaPosition.addElement("Height");
+		height.addText(this.getHeight()+"");
+		Element links = tmp.addElement("Links");
+		Element rightLink = links.addElement("NextCellInTheSameRow");
+		if(this.getRight()!=null)
+			rightLink.addText(this.getRight().getAreaNo()+"");
+		Element downLink = links.addElement("NextCellInTheSameColumn");
+		if(this.getDown()!=null)
+			downLink.addText(this.getDown().getAreaNo()+"");
+		Element text = tmp.addElement("Text");
+		text.addAttribute("Content", this.getString());
+	}
+
+
+
+	/*public void setText(String text) throws IOException {
+		// TODO Auto-generated method stub
+		TextObject to = new TextObject();
+		to.setString(text);
+		texts.add(to);
+	}*/
+	
+	@SuppressWarnings("unchecked")
+	public void recursivelyPutInRowHeader(Map<Pair<Float,Float>,String> rowMap, 
+			String prefix){
+		if(prefix.equals("") == false)
+			prefix+="|";
+		rowMap.put(new Pair(new Float(this.getColNo()), 
+				new Float(this.getSplitedCols()) ), 
+				prefix+this.getString());
+		if(this.getDown() != null)
+			if(this.getDown().getSplitedCols() < this.getSplitedCols()){
+				PageTextArea tmp = this.getDown();
+				double sum = this.getDown().getSplitedCols();
+				tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
+				while(sum < this.getSplitedCols() && tmp.getRight()!=null){
+					tmp = tmp.getRight();
+					tmp.recursivelyPutInRowHeader(rowMap, prefix+this.getString());
+					sum += tmp.getSplitedCols();
+				}
+			}
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	public void recursivelyPutInColumnHeader(
+			Map<Pair<Float, Float>, String> columnMap, String prefix) {
+		// TODO Auto-generated method stub
+		if(prefix.equals("") == false)
+			prefix+="|";
+		columnMap.put(new Pair(new Float(this.getRowNo()), 
+				new Float(this.getSplitedRows()) ), 
+				prefix+this.getString());
+		if(this.getRight() != null)
+			if(this.getRight().getHeight() < this.getHeight()){
+				PageTextArea tmp = this.getRight();
+				double sum = this.getRight().getSplitedRows();
+				tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
+				while(sum < this.getSplitedRows() && tmp.getDown()!=null){
+					tmp = tmp.getDown();
+					tmp.recursivelyPutInColumnHeader(columnMap, prefix+this.getString());
+					sum += tmp.getSplitedRows();
+				}
+			}
+	}
+
+
+
+	public void recursivelyPutInRowList(List<Map<String, String>> returnList,
+			Map<Pair<Float, Float>, String> rowMap,
+			Map<Pair<Float, Float>, String> columnMap) {
+		// TODO Auto-generated method stub
+		if(returnList.size() == 0)
+			return;
+		for( int i = 0; i < returnList.size(); i++){
+			if(returnList.get(i).containsKey(new Pair(new Float(this.getRowNo()),
+					new Float(this.getSplitedRows())))== true){
+				String rowName = returnList.get(i).get(new Pair(new Float(this.getRowNo()),
+					new Float(this.getSplitedRows())));
+				System.out.println(rowName);
+				if(rowName.contains(this.getString()) == false){
+					String columnName = columnMap.get(new Pair(new Float(this.getColNo()),
+					new Float(this.getSplitedCols())));
+					if(columnName.contains(getString()) == false)
+						returnList.get(i).put(columnName, this.getString());
+					System.out.println(rowName+" "+columnName+" "+getString());
+				}
+			}
+		}
+		if(this.getRight() != null)
+			this.getRight().recursivelyPutInRowList(returnList, rowMap, columnMap);
+		if(this.getDown() != null)
+			this.getDown().recursivelyPutInRowList(returnList, rowMap, columnMap);
+	}
+
+
+
+	public void addToRowHeaderList(List<Pair<String, PageTextArea>> returnList, 
+			String prefix) {
+		// TODO Auto-generated method stub
+		if( this.getRight() == null 
+				|| this.getRight().getSplitedRows() == this.getSplitedRows()){
+			returnList.add(new Pair(prefix, this));
+			return;
+		}
+		else{
+			double sum = this.getRight().getSplitedRows();
+			PageTextArea tmp = this.getRight();
+			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			while(sum <= this.getSplitedRows()){
+				tmp = tmp.getDown();
+				if(tmp == null)
+					break;
+				sum += tmp.getSplitedRows();
+				tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			}
+		}
+	}
+	
+}

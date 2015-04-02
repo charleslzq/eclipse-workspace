@@ -48,6 +48,15 @@ public class ContentStreamParser {
 					tsbro.addRegion(i, pr);
 			}
 		}
+		
+		/*if(last !=0 && areas != null){
+			PDFRectangle lastRo = areas.get(new Integer(last));
+			double y = lastRo.getYofLeftUpper() - lastRo.getHeight();
+			double w = pdpage.getArtBox().getWidth();
+			PDFRectangle extra = new PDFRectangle(0,0,w,y);
+			tsbro.addRegion(-1, extra);
+		}*/
+		
 		tsbro.extractRegions(pdpage);
 		attachTexts(textAreas);
 		removeUselessRegions(textAreas);
@@ -70,9 +79,7 @@ public class ContentStreamParser {
 					continue;
 				}
 				if(pr2.isInThisArea(pr1)
-						&& (textAreas.get(i).getString().trim().isEmpty()
-								|| textAreas.get(j).getString().trim().equals(
-										textAreas.get(i).getString().trim()))){
+						&& textAreas.get(i).getString().trim().isEmpty()){
 					textAreas.remove(i);
 					i--;
 					continue;

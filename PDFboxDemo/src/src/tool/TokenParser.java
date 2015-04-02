@@ -35,6 +35,7 @@ public class TokenParser {
 	
 	public Map<Integer, PDFRectangle> rectangleParser(){
 		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
+		PDFRectangle.setThreshold(7);
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);
@@ -60,11 +61,11 @@ public class TokenParser {
 					if(ro != null && ro.isLegal() == true)
 						rectangleMap.put(new Integer(i), ro);
 				}
-				/*else if(op.getOperation().equals("m")){
+				else if(op.getOperation().equals("m")){
 					PDFRectangle ro = getPDFRectangleFromLines(i);
-					if(ro != null)
+					if(ro != null && ro.isLegal() == true)
 						rectangleMap.put(new Integer(i), ro);
-				}*/
+				}
 			}
 		}
 		for(int i = 0; i < tokens.size(); i++){
@@ -77,14 +78,14 @@ public class TokenParser {
 							rectangleMap.remove(new Integer(i));
 							continue;
 						}
-						if(ro1.isInThisArea(ro2)){
+						/*if(ro1.isInThisArea(ro2)){
 							rectangleMap.remove(new Integer(j));
 							continue;
 						}
 						if(ro2.isInThisArea(ro1)){
 							rectangleMap.remove(new Integer(i));
 							continue;
-						}
+						}*/
 					}
 				}
 			}
@@ -112,7 +113,6 @@ public class TokenParser {
 			}
 			p = p+3;
 		}
-		//System.out.println(xs.size()+"");
 		float x, y, width, height;
 		ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
 		if(p < tokens.size() && xs.size() >= 4){
@@ -155,7 +155,6 @@ public class TokenParser {
 							y = ys.get(2);
 							height = ys.get(0) - ys.get(2);
 						}
-						//System.out.println(x+" "+y+" "+width+" "+height);
 						return new PDFRectangle(x,y,width,height);
 					}
 		}

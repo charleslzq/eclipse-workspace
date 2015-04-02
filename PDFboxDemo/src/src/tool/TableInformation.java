@@ -5,19 +5,37 @@ import java.util.List;
 import org.dom4j.Element;
 
 public class TableInformation {
-	int rowNumInTheFirstRow;
-	int rowNumInTheLastRow;
-	List<Float> XofCellInTheFirstRow;
-	List<Float> XofCellInTheLastRow;
-	List<String> textsInTheFirstRow;
+	private int head;
+	private int rowNumInTheFirstRow;
+	private int rowNumInTheLastRow;
+	private List<Float> XofCellInTheFirstRow;
+	private List<Float> XofCellInTheLastRow;
+	private List<String> textsInTheFirstRow;
+	private int max_row;
 	
-	public TableInformation(int a, int b, List<Float> c, List<Float> d, List<String> texts){
+	public TableInformation(int h, int a, int b, List<Float> c, List<Float> d, List<String> texts, int m_row){
+		head = h;
 		rowNumInTheFirstRow = a;
 		rowNumInTheLastRow = b;
 		XofCellInTheFirstRow = c;
 		XofCellInTheLastRow = d;
 		textsInTheFirstRow = texts;
+		max_row = m_row;
 	}
+	
+	
+
+	public int getHead() {
+		return head;
+	}
+
+
+
+	public int getMax_row() {
+		return max_row;
+	}
+
+
 
 	public int getRowNumInTheFirstRow() {
 		return rowNumInTheFirstRow;

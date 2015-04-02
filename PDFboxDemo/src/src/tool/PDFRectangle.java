@@ -5,10 +5,28 @@ import java.awt.geom.Rectangle2D;
 public class PDFRectangle{
 	private Rectangle2D rect;
 	private static ApproximateCalculation ac = new ApproximateCalculation(2,1);
+	private RectangleType rt;
+	private static double threshold;
 	
 	public PDFRectangle(double a, double b, 
 			double c, double d){
 		rect = new Rectangle2D.Double(a, b, c, d);
+		this.setType();
+	}
+	
+	private void setType(){
+		if( rect.getWidth() <= threshold 
+				&& rect.getHeight() <= threshold)
+			rt = RectangleType.PDF_POINT;
+		else if(rect.getWidth() <= threshold 
+				|| rect.getHeight() <= threshold)
+			rt = RectangleType.PDF_LINE;
+		else
+			rt = RectangleType.PDF_CELL;
+	}
+	
+	public RectangleType getType(){
+		return this.rt;
 	}
 
 	public static void setPrecision(int precision){
@@ -19,6 +37,16 @@ public class PDFRectangle{
 		ac.setErr(err);
 	}
 	
+	
+	
+	public static double getThreshold() {
+		return threshold;
+	}
+
+	public static void setThreshold(double threshold) {
+		PDFRectangle.threshold = threshold;
+	}
+
 	public PDFRectangle union(PDFRectangle pr){
 		if(this.isInThisArea(pr))
 			return null;
@@ -61,10 +89,10 @@ public class PDFRectangle{
 	}
 	
 	public boolean isInThisArea(PDFRectangle pr){
-		if( pr.getX() > this.getX()
-				&& pr.getY() > this.getY()
-				&& pr.getX()+pr.getWidth() < this.getX()+this.getWidth()
-				&& pr.getY()+pr.getHeight() < this.getY()+this.getHeight())
+		if( ac.approximateMoreEqual(pr.getX(), this.getX())
+				&& ac.approximateMoreEqual(pr.getY(), this.getY())
+				&& ac.approximateLessEqual(pr.getX()+pr.getWidth(), this.getX()+this.getWidth())
+				&& ac.approximateLessEqual(pr.getY()+pr.getHeight(), this.getY()+this.getHeight()))
 			return true;
 		return false;
 	}
@@ -124,7 +152,8 @@ public class PDFRectangle{
 		System.out.println("PDFRectangle:	X:"+this.getX()
 				+ ";Y:"+this.getY()
 				+ ";Width:"+this.getWidth()
-				+ ";Height:"+this.getHeight());
+				+ ";Height:"+this.getHeight()
+				+ ";Type:"+this.getType()+"/"+this.getThreshold());
 	}
 	
 	public boolean isLegal(){

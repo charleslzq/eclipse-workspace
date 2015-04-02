@@ -34,6 +34,7 @@ public class ContentStreamParser {
 		pta = this.TextAreaConstructor();
 		/*for(int i = 0; i < pta.size(); i++)
 			pta.get(i).print();*/
+		ti = this.extractTableInformation();
 	}
 
 	public List<PageTextArea> TextAreaConstructor() throws IOException{
@@ -42,7 +43,9 @@ public class ContentStreamParser {
 
 		for(int i = 0; i < tp.getSize(); i++){
 			if(areas.containsKey(new Integer(i))){
-				tsbro.addRegion(i, areas.get(new Integer(i)));
+				PDFRectangle pr = areas.get(new Integer(i));
+				if(pr.getType() == RectangleType.PDF_CELL)
+					tsbro.addRegion(i, pr);
 			}
 		}
 		
@@ -56,20 +59,49 @@ public class ContentStreamParser {
 		
 		tsbro.extractRegions(pdpage);
 		attachTexts(textAreas);
+		removeUselessRegions(textAreas);
+		this.buildConnectionsBetweenRegions(textAreas);
 		return textAreas;
 	}
 	
+	private void removeUselessRegions(List<PageTextArea> textAreas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < textAreas.size(); i++){
+			PDFRectangle pr1 = textAreas.get(i).getArea();
+			for(int j=i+1; j < textAreas.size(); j++){
+				PDFRectangle pr2 = textAreas.get(j).getArea();
+				if(pr1.isInThisArea(pr2) 
+						&& textAreas.get(j).getString().trim().isEmpty()){
+					textAreas.remove(j);
+					j--;
+					continue;
+				}
+				if(pr2.isInThisArea(pr1)
+						&& textAreas.get(i).getString().trim().isEmpty()){
+					textAreas.remove(i);
+					i--;
+					continue;
+				}
+			}
+		}
+	}
+
 	private List<PageTextArea> constructRegions(Map<Integer, PDFRectangle> areas){
 		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
 		for(int i = 0; i < tp.getSize(); i++)
 			if(areas.containsKey(new Integer(i))){
-				textAreas.add(new PageTextArea(i, areas.get(new Integer(i))));
+				PDFRectangle pr = areas.get(new Integer(i));
+				if(pr.getType() == RectangleType.PDF_CELL)
+					textAreas.add(new PageTextArea(i, pr));
 			}
+		return textAreas;
+	}
+	
+	private void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
 		for(int i = 0; i < textAreas.size(); i++)
 			for(int j = i+1 ; j < textAreas.size(); j++){
 				if( textAreas.get(i).getRight() == null 
 						&& textAreas.get(i).isNextCellInTheSameRow(textAreas.get(j))){
-					//System.out.println("!!!!!Right!");
 					textAreas.get(i).setRight(textAreas.get(j));
 					textAreas.get(j).setReferenced(true);
 				}
@@ -78,13 +110,7 @@ public class ContentStreamParser {
 					textAreas.get(i).setDown(textAreas.get(j));
 					textAreas.get(j).setReferenced(true);
 				}
-				//textAreas.get(i).print();
-				//textAreas.get(j).print();
-				//System.out.println("Above:i&j:"+i+";"+j);
 			}
-		//for(int i=0; i < textAreas.size(); i++)
-			//textAreas.get(i).print();
-		return textAreas;
 	}
 	
 	private void attachTexts(List<PageTextArea> textAreas){
@@ -118,8 +144,13 @@ public class ContentStreamParser {
 						current = current.getRight();
 					}
 					current = head;
-					while(current.getDown()!=null)
+					int max_row = current.cellsOnTheRight();
+					while(current.getDown()!=null){
 						current = current.getDown();
+						int tmp = current.cellsOnTheRight();
+						if( tmp > max_row)
+							max_row = tmp;
+					}
 					while(current!=null){
 						count2++;
 						ls2.add(new Float(current.getX()));
@@ -132,7 +163,7 @@ public class ContentStreamParser {
 						else
 							break;
 					}
-					ti.add(new TableInformation(count1,count2,ls1,ls2,ls3));
+					ti.add(new TableInformation(i,count1,count2,ls1,ls2,ls3, max_row));
 				}
 			}
 		}
@@ -173,25 +204,29 @@ public class ContentStreamParser {
 		List<PageTextArea> headers = this.getTableHeader();
 		if(headers.size()>0){
 			for(int i = 0; i < headers.size(); i++){
-				Element table = root.addElement("Table");
 				PageTextArea header = headers.get(i);
-				table.addAttribute("PageNo", this.pageNo+"");
-				List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
-				if(list.size() > 0){
-					for(int j = 0; j < list.size() ;j++){
-						Element row = table.addElement("row");
-						row.addAttribute("行头", list.get(j).getKey());
-						PageTextArea rowIt = list.get(j).getValue();
-						int count = 0;
-						rowIt = rowIt.getRight();
-						if( rowIt == null){
-							row.addAttribute("列数", "0");
-							continue;
-						}
-						while(rowIt != null){
-							row.addAttribute("第"+count+"列", rowIt.getString());
+				TableInformation t = ti.get(i);
+				
+				if(t.getMax_row() != 1){
+					Element table = root.addElement("Table");
+					table.addAttribute("PageNo", this.pageNo+"");
+					List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
+					if(list.size() > 0){
+						for(int j = 0; j < list.size() ;j++){
+							Element row = table.addElement("row");
+							row.addAttribute("行头", list.get(j).getKey());
+							PageTextArea rowIt = list.get(j).getValue();
+							int count = 1;
 							rowIt = rowIt.getRight();
-							count++;
+							if( rowIt == null){
+								row.addAttribute("列数", "0");
+								continue;
+							}
+							while(rowIt != null){
+								row.addAttribute("第"+count+"列", rowIt.getString());
+								rowIt = rowIt.getRight();
+								count++;
+							}
 						}
 					}
 				}
@@ -202,17 +237,17 @@ public class ContentStreamParser {
 	public void writeXML(Element pageRoot){
 		Element currentTable = null;
 		int count = 0;
-		for(int i = 0; i < pta.size(); i++){
-			if(!pta.get(i).isReferenced()){
-				if(!pta.get(i).isIsolated()){
-					currentTable = pageRoot.addElement("Table");
-					count++;
-					currentTable.addAttribute("No.", count+"");
-				}
-			}
-			if(currentTable != null){
-				pta.get(i).writeToXML(currentTable);
+		List<PageTextArea> headers = this.getTableHeader();
+		for(int i = 0; i < headers.size(); i++){
+			if(ti.get(i).getMax_row()!=1){
+				currentTable = pageRoot.addElement("Table");
+				count++;
+				currentTable.addAttribute("No.", count+"");
+				headers.get(i).writeToXML(currentTable);
 			}
 		}
+		Element cells = pageRoot.addElement("Cells");
+		for(int i=0; i < pta.size(); i++)
+			pta.get(i).writeToXML(cells);
 	}
 }

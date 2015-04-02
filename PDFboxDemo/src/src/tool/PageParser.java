@@ -38,7 +38,7 @@ public class PageParser {
 			if(pages.get(i) != null){
 				if(pages.get(i).getContents() != null){
 					writer.write(pages.get(i).getContents().getInputStreamAsString());
-					csp.add(new ContentStreamParser(i,pages.get(i)));
+					csp.add(new ContentStreamParser(i+1,pages.get(i)));
 				}
 			}
 		}

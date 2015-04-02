@@ -33,6 +33,24 @@ public class ApproximateCalculation {
 		return false;
 	}
 	
+	public boolean approximateLess(double a, double b){
+		if(a < b + err )
+			return true;
+		return false;
+	}
+	
+	public boolean approximateMoreEqual(double a, double b){
+		if( a +err >= b )
+			return true;
+		return false;
+	}
+	
+	public boolean approximateLessEqual(double a, double b){
+		if( a <= b + err)
+			return true;
+		return false;
+	}
+	
 	public double round(double a, int n){
 		BigDecimal b = new BigDecimal(a);
 		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();

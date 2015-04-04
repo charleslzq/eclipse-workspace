@@ -1,0 +1,52 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.PDFRectangle;
+
+public class SameRowColumnTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testIsSameRow() {
+		//fail("Not yet implemented");
+		PDFRectangle p1 = new PDFRectangle(1,2,3,4);
+		PDFRectangle p2 = new PDFRectangle(1,9,3,4);
+		
+		System.out.println("Same Row:"+p1.isSameRow(p2));
+	}
+
+	@Test
+	public void testIsSameColumn() {
+		//fail("Not yet implemented");
+		PDFRectangle p1 = new PDFRectangle(1,2,3,4);
+		PDFRectangle p2 = new PDFRectangle(1,9,3,4);
+		
+		System.out.println("Same Column:"+p1.isSameColumn(p2));
+	}
+
+	@Test
+	public void testIsNextCellInTheSameRow() {
+		//fail("Not yet implemented");
+		PDFRectangle p1 = new PDFRectangle(1,2,3,4);
+		PDFRectangle p2 = new PDFRectangle(4,2,3,4);
+		
+		System.out.println("Next Cell in the Same Row:"+p1.isNextCellInTheSameRow(p2));
+	}
+
+	@Test
+	public void testIsNextCellInTheSameColumn() {
+		//fail("Not yet implemented");
+		PDFRectangle p1 = new PDFRectangle(1,6,3,4);
+		PDFRectangle p2 = new PDFRectangle(1,2,3,4);
+		
+		System.out.println("Next Cell in the Same Column:"+p1.isNextCellInTheSameColumn(p2));
+	}
+
+}

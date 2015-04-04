@@ -3,6 +3,7 @@ package src.tool;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -52,63 +53,160 @@ public class ContentStreamParser {
 		attachTexts(textAreas);
 		removeUselessRegions(textAreas);
 		this.buildConnectionsBetweenRegions(textAreas);
+		checkMissingAreas(tsbro, textAreas);
 		return textAreas;
 	}
 	
-	private void removeUselessRegions(List<PageTextArea> textAreas) {
+	private void checkMissingAreas(TextStripperByPDFRectangle tsbro2,
+			List<PageTextArea> textAreas) throws IOException {
 		// TODO Auto-generated method stub
-		for(int i=0; i < textAreas.size(); i++){
+		int base = tp.getSize();
+		int previousSize = textAreas.size();
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea now = textAreas.get(i);
+			if( now.getRight() != null){
+				if(now.getRight().getX() - now.getX() - now.getWidth()
+						> PDFRectangle.getThreshold()){
+					PDFRectangle rect = new PDFRectangle( now.getX()+now.getWidth(), 
+							now.getY(),
+							now.getRight().getX()-now.getX()-now.getWidth(),
+							now.getHeight());
+					tsbro.addRegion(base+i, rect);
+					PageTextArea pta = new PageTextArea(base+i,rect);
+					PageTextArea tmp = now.getRight();
+					now.setRight(pta);
+					pta.setRight(tmp);
+					textAreas.add(pta);
+				}
+			}
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = previousSize; i < textAreas.size(); i++ ){
+			int no = textAreas.get(i).getAreaNo();
+			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
+			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
+		}
+	}
+
+	public void removeUselessRegions(List<PageTextArea> textAreas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < textAreas.size()-1 ; i++){
 			PDFRectangle pr1 = textAreas.get(i).getArea();
 			for(int j=i+1; j < textAreas.size(); j++){
 				PDFRectangle pr2 = textAreas.get(j).getArea();
-				if(pr1.isInThisArea(pr2) 
-						&& (textAreas.get(j).getString().trim().isEmpty()
-								|| textAreas.get(i).getString().trim().equals(
-										textAreas.get(j).getString().trim()))){
-					textAreas.remove(j);
-					j--;
-					continue;
+				if(pr1.isInThisArea(pr2))
+					if(textAreas.get(i).getString() != null)
+						if(textAreas.get(j).getString() == null
+							|| textAreas.get(j).getString().trim().isEmpty()
+							|| textAreas.get(j).getString().trim().equals(
+									textAreas.get(i).getString().trim())){
+										textAreas.remove(j);
+										j--;
+					//continue;
 				}
-				if(pr2.isInThisArea(pr1)
-						&& (textAreas.get(i).getString().trim().isEmpty()
+				else if(pr2.isInThisArea(pr1))
+					if(textAreas.get(j).getString() != null)
+						if(textAreas.get(i).getString().trim().isEmpty()
 								|| textAreas.get(j).getString().trim().equals(
-										textAreas.get(i).getString().trim()))){
-					textAreas.remove(i);
-					i--;
-					continue;
+										textAreas.get(i).getString().trim())){
+											textAreas.remove(i);
+											i--;
+					//continue;
 				}
 			}
 		}
 	}
 
-	private List<PageTextArea> constructRegions(Map<Integer, PDFRectangle> areas){
+	public List<PageTextArea> constructRegions(Map<Integer, PDFRectangle> areas){
 		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
-		for(int i = 0; i < tp.getSize(); i++)
+		for(int i=0; i<tp.getSize(); i++)
 			if(areas.containsKey(new Integer(i))){
 				PDFRectangle pr = areas.get(new Integer(i));
 				if(pr.getType() == RectangleType.PDF_CELL)
-					textAreas.add(new PageTextArea(i, pr));
+					textAreas.add(new PageTextArea(i,pr));
 			}
+		int base = tp.getSize()*2;
+		List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
+		for(int i = 0; i < rects.size(); i++){
+			PDFRectangle pr = rects.get(i);
+			if(pr.getType() == RectangleType.PDF_CELL)
+				textAreas.add(new PageTextArea(base+i+1,pr));
+		}
 		return textAreas;
 	}
 	
-	private void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
+	public void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
 		for(int i = 0; i < textAreas.size(); i++)
 			for(int j = i+1 ; j < textAreas.size(); j++){
-				if( textAreas.get(i).getRight() == null 
-						&& textAreas.get(i).isNextCellInTheSameRow(textAreas.get(j))){
-					textAreas.get(i).setRight(textAreas.get(j));
-					textAreas.get(j).setReferenced(true);
+				if( textAreas.get(i).isSameRow(textAreas.get(j))){
+					if(textAreas.get(i).getX()
+							< textAreas.get(j).getX()){
+						if(textAreas.get(i).getRight() == null){
+							textAreas.get(i).setRight(textAreas.get(j));
+							textAreas.get(j).setReferenced(true);
+						}
+						else{
+							if(textAreas.get(j).getX() 
+									< textAreas.get(i).getRight().getX()){
+								PageTextArea tmp = textAreas.get(i).getRight();
+								textAreas.get(i).setRight(textAreas.get(j));
+								textAreas.get(j).setRight(tmp);
+								textAreas.get(j).setReferenced(true);
+							}
+						}
+					}
+					/*else{
+						if(textAreas.get(j).getRight() == null){
+							textAreas.get(i).setRight(textAreas.get(j));
+							textAreas.get(i).setReferenced(true);
+						}
+						else{
+							if(textAreas.get(i).getX() < textAreas.get(j).getRight().getX()){
+								PageTextArea tmp = textAreas.get(j).getRight();
+								textAreas.get(j).setRight(textAreas.get(i));
+								textAreas.get(i).setRight(tmp);
+								textAreas.get(i).setReferenced(true);
+							}
+						}
+					}*/
 				}
-				else if( textAreas.get(i).getDown() == null 
-						&& textAreas.get(i).isNextCellInTheSameColumn(textAreas.get(j))){
-					textAreas.get(i).setDown(textAreas.get(j));
-					textAreas.get(j).setReferenced(true);
+				else if( textAreas.get(i).isSameColumn(textAreas.get(j))){
+					if(textAreas.get(i).getY()+textAreas.get(i).getHeight()
+							> textAreas.get(j).getY()+textAreas.get(j).getHeight()){
+						if(textAreas.get(i).getDown() == null ){
+							textAreas.get(i).setDown(textAreas.get(j));
+							textAreas.get(j).setReferenced(true);
+						}
+						else{
+							if(textAreas.get(j).getY()+textAreas.get(j).getHeight() 
+									> textAreas.get(i).getDown().getY()+textAreas.get(i).getDown().getHeight()){
+								PageTextArea tmp = textAreas.get(i).getRight();
+								textAreas.get(i).setDown(textAreas.get(j));
+								textAreas.get(j).setDown(tmp);
+								textAreas.get(j).setReferenced(true);
+							}
+						}
+					}
+					/*else{
+						if(textAreas.get(j).getDown() == null ){
+							textAreas.get(j).setDown(textAreas.get(i));
+							textAreas.get(i).setReferenced(true);
+						}
+						else{
+							if(textAreas.get(i).getY()+textAreas.get(i).getHeight() 
+									> textAreas.get(j).getDown().getY()+textAreas.get(j).getDown().getHeight()){
+								PageTextArea tmp = textAreas.get(i).getRight();
+								textAreas.get(j).setDown(textAreas.get(i));
+								textAreas.get(i).setDown(tmp);
+								textAreas.get(i).setReferenced(true);
+							}
+						}
+					}*/
 				}
 			}
 	}
 	
-	private void attachTexts(List<PageTextArea> textAreas){
+	public void attachTexts(List<PageTextArea> textAreas){
 		for(int i = 0; i < textAreas.size(); i++){
 			int no = textAreas.get(i).getAreaNo();
 			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
@@ -244,5 +342,10 @@ public class ContentStreamParser {
 		Element cells = pageRoot.addElement("Cells");
 		for(int i=0; i < pta.size(); i++)
 			pta.get(i).writeToXML(cells);
+	}
+	
+	public void print(){
+		for(int i=0; i<pta.size(); i++)
+			pta.get(i).print();
 	}
 }

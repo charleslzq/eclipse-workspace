@@ -77,6 +77,7 @@ public class TextStripperByPDFRectangle extends PDFTextStripper{
 	        {
 	            Integer region = regionIter.next();
 	            PDFRectangle rect = regionArea.get( region );
+	            //if(rect.isInThisArea(text.getX(), text.getY()))
 	            if( rect.isInThisArea( text.getTextPos().getValue(2, 0), text.getTextPos().getValue(2, 1) ) )
 	            {
 	                charactersByArticle = (Vector)regionCharacterList.get( region );

@@ -1,7 +1,10 @@
 package src.tool;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +38,7 @@ public class TokenParser {
 	
 	public Map<Integer, PDFRectangle> rectangleParser(){
 		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
-		PDFRectangle.setThreshold(7);
+		PDFRectangle.setThreshold(3);
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);
@@ -78,14 +81,6 @@ public class TokenParser {
 							rectangleMap.remove(new Integer(i));
 							continue;
 						}
-						/*if(ro1.isInThisArea(ro2)){
-							rectangleMap.remove(new Integer(j));
-							continue;
-						}
-						if(ro2.isInThisArea(ro1)){
-							rectangleMap.remove(new Integer(i));
-							continue;
-						}*/
 					}
 				}
 			}
@@ -182,5 +177,73 @@ public class TokenParser {
 	public int getSize(){
 		return tokens.size();
 	}
+	
+	private List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isVerticalLine() == true)
+				result.add(pr);
+		}
+		this.sort(result);
+		return result;
+	}
+	
+	private void sort(List<PDFRectangle> pList){
+		for(int i=0; i<pList.size(); i++){
+			PDFRectangle min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PDFRectangle it = pList.get(j);
+				if(isHigherLefter(it, min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
+	}
+	
+	private boolean isHigherLefter(PDFRectangle p1, PDFRectangle p2){
+		if(p1.isHigher(p2))
+			return true;
+		else if(p2.isHigher(p1))
+			return false;
+		else{
+			if(p1.isLefter(p2))
+				return true;
+			return false;
+		}
+	}
+	
+	public List<PDFRectangle> buildAreaFromLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> lines =this.getVerticalLines(rects);
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		for(int i=0; i<lines.size()-1 ; i++){
+			PDFRectangle p = formArea(lines.get(i), lines.get(i+1));
+			if(p != null)
+				result.add(p);
+		}
+		return result;
+	}
 
+	private PDFRectangle formArea(PDFRectangle p1,
+			PDFRectangle p2) {
+		// TODO Auto-generated method stub
+		if(p1.getType() == RectangleType.PDF_LINE 
+				&& p2.getType() == RectangleType.PDF_LINE){
+			double x = p1.getX() + p1.getWidth();
+			double y = p2.getY();
+			double width = p2.getX() - x;
+			double height = p2.getHeight();
+			if(p1.isSameY(y+height) 
+					&& p1.isLefter(p2))
+				return new PDFRectangle(x, y, width, height);
+		}
+		return null;
+	}
 }

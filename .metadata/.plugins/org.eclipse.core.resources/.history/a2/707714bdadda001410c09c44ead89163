@@ -1,0 +1,79 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.PDFRectangle;
+import src.tool.RectangleType;
+import src.tool.TokenParser;
+
+public class TokenParserTest {
+
+	@SuppressWarnings("unchecked")
+	@Before
+	public void setUp() throws Exception {
+		
+	}
+
+	@Test
+	public void testRectangleParser() throws IOException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 10;
+		System.out.print(pages.get(index).getContents().getInputStreamAsString());
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
+		//tp.print();
+		
+		for(int i=0; i<tp.getSize(); i++)
+			if(areas.containsKey(new Integer(i))){
+				PDFRectangle pr = areas.get(new Integer(i));
+				System.out.print(i);
+				pr.print();
+			}
+	}
+
+	@Test
+	public void testBuildAreaFromLines() throws IOException {
+		fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 10;
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		
+		Map<Integer, PDFRectangle> rects = tp.rectangleParser();
+		
+		List<PDFRectangle> lines = tp.buildAreaFromLines(rects);
+		for(int i=0; i<lines.size();i++)
+			lines.get(i).print();
+	}
+
+}

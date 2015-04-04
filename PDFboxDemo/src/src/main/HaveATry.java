@@ -33,7 +33,6 @@ import src.tool.PageParser;
 public class HaveATry {
 
 	public static void main(String[] args) throws Exception {
-		//test();
 		// TODO Auto-generated method stub
 		JFileChooser jFileChooser = new JFileChooser();
         int i = jFileChooser.showOpenDialog(null);
@@ -51,16 +50,5 @@ public class HaveATry {
         }
 		
 	}
-	
-	public static void test() throws Exception{
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
-   		BufferedInputStream bis = new BufferedInputStream(fis);
-   		FileOutputStream fos = new FileOutputStream("000039_2014_n.xml");
-   		PageParser pp = new PageParser(bis);
-		pp.output(fos);
-		bis.close();
-		fis.close();
-		fos.close();
-   }
 
 }

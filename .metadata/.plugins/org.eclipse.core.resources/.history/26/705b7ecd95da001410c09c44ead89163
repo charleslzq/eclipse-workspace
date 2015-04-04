@@ -1,0 +1,29 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.junit.Before;
+import org.junit.Test;
+
+public class CellExtractionText {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testPageParser() throws FileNotFoundException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+	}
+
+}

@@ -1,0 +1,18 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class RectangleContainText {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testIsInThisAreaPDFRectangle() {
+		fail("Not yet implemented");
+	}
+
+}

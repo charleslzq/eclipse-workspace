@@ -30,14 +30,12 @@ public class PageParser {
 		
 		xml = DocumentHelper.createDocument();
 		Element root = xml.addElement("root");
-		BufferedWriter writer = new BufferedWriter(new FileWriter("text.txt"));
 		
 		pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
 		csp = new ArrayList<ContentStreamParser>();
 		for(int i = 0; i < pages.size(); i++){
 			if(pages.get(i) != null){
 				if(pages.get(i).getContents() != null){
-					writer.write(pages.get(i).getContents().getInputStreamAsString());
 					csp.add(new ContentStreamParser(i+1,pages.get(i)));
 				}
 			}
@@ -48,8 +46,6 @@ public class PageParser {
 			csp.get(i).writeTableToXML(root);
 			csp.get(i).writeXML(root);
 		}
-		
-		writer.close();
 		
 	}
 	

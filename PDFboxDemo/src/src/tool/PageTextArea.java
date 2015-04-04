@@ -86,7 +86,7 @@ public class PageTextArea {
 	
 	public void print(){
 		System.out.println("Area No: " + areaNo);
-		//System.out.println(this.getString());
+		System.out.println(this.getString());
 		//System.out.println("Column No: " + colNo);
 		//System.out.println("Row No: " + rowNo);
 		area.print();
@@ -199,28 +199,26 @@ public class PageTextArea {
 			String prefix) {
 		// TODO Auto-generated method stub
 		if( this.getRight() == null 
-				|| this.isSameHeight(this.getRight()) == true ){
+				|| this.isSameHeight(this.getRight().getHeight()) == true ){
 			returnList.add(new Pair(prefix, this));
 			return;
 		}
 		else{
-			PDFRectangle right = this.getRight().getArea();
+			double sum = this.getRight().getHeight();
 			PageTextArea tmp = this.getRight();
 			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
-			while(this.getArea().isSameHeight(right) == false){
+			while(this.getArea().isSameHeight(sum) == false){
 				tmp = tmp.getDown();
 				if(tmp == null)
 					break;
-				right = right.union(tmp.getArea());
-				if( right == null)
-					break;
+				sum += tmp.getHeight();
 				tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
 			}
 		}
 	}
 	
-	public boolean isSameHeight(PageTextArea pta){
-		return this.getArea().isSameHeight(pta.getArea());
+	public boolean isSameHeight(double h){
+		return this.getArea().isSameHeight(h);
 	}
 	
 	public boolean isSameWidth(PageTextArea pta){
@@ -235,6 +233,14 @@ public class PageTextArea {
 			it = it.getRight();
 		}
 		return count;
+	}
+	
+	public boolean isLefter(PageTextArea p){
+		return this.getArea().isLefter(p.getArea());
+	}
+	
+	public boolean isHigher(PageTextArea p){
+		return this.getArea().isHigher(p.getArea());
 	}
 	
 }

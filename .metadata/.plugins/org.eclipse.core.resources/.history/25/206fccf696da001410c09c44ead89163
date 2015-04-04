@@ -1,0 +1,73 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.ContentStreamParser;
+
+public class CellExtractionText {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testPageParser() throws IOException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		Document xml = DocumentHelper.createDocument();
+		Element root = xml.addElement("root");
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		List<ContentStreamParser> csp = new ArrayList<ContentStreamParser>();
+		for(int i = 0; i < pages.size(); i++){
+			if(pages.get(i) != null){
+				if(pages.get(i).getContents() != null){
+					csp.add(new ContentStreamParser(i+1,pages.get(i)));
+					if(i == 13)
+						csp.get(i).print();
+				}
+			}
+		}
+		
+		FileOutputStream fos = new FileOutputStream("000039_2014_n.xml");
+		
+		OutputFormat outformat = OutputFormat.createPrettyPrint();
+		//outformat.setEncoding(aEncodingScheme);
+		XMLWriter writer = new XMLWriter(fos, outformat);
+		writer.write(xml);
+		writer.flush();
+		
+		for(int i=0; i < csp.size() ; i++){
+			csp.get(i).parse();
+			csp.get(i).writeTableToXML(root);
+			csp.get(i).writeXML(root);
+		}
+		
+		fis.close();
+		fos.close();
+	}
+
+}

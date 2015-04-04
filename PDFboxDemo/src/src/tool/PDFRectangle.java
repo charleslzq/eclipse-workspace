@@ -72,6 +72,10 @@ public class PDFRectangle{
 		// TODO Auto-generated method stub
 		return rect.getWidth();
 	}
+	
+	public double getMidX(){
+		return rect.getX()+rect.getWidth()/2;
+	}
 
 	public double getX() {
 		// TODO Auto-generated method stub
@@ -140,8 +144,8 @@ public class PDFRectangle{
 			return false;
 	}
 	
-	public boolean isSameHeight(PDFRectangle pr){
-		return ac.alreadyEqual(this.getHeight(), pr.getHeight());
+	public boolean isSameHeight(double h){
+		return ac.alreadyEqual(this.getHeight(), h);
 	}
 	
 	public boolean isSameWidth(PDFRectangle pr){
@@ -162,5 +166,36 @@ public class PDFRectangle{
 		if(this.getY() < 0)
 			return false;
 		return true;
+	}
+	
+	public boolean isHigher(PDFRectangle pr){
+		if( ac.approximateMore(this.getY()+this.getHeight(), pr.getY()+pr.getHeight()))
+			return true;
+		return false;
+	}
+	
+	public boolean isLefter(PDFRectangle pr){
+		if( ac.approximateLess(this.getMidX(), pr.getMidX()))
+			return true;
+		return false;
+	}
+	
+	public boolean isVerticalLine(){
+		if(this.rt == RectangleType.PDF_LINE)
+			if(this.getHeight() > this.getWidth())
+				return true;
+		return false;
+	}
+	
+	public boolean isSameX(double x){
+		return ac.alreadyEqual(this.getX(), x);
+	}
+	
+	public boolean isSameY(double y){
+		return ac.alreadyEqual(this.getY()+this.getHeight(), y);
+	}
+	
+	public boolean isRigher(PDFRectangle pr){
+		return ac.approximateMore(this.getMidX(), pr.getMidX());
 	}
 }

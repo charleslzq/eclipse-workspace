@@ -39,6 +39,12 @@ public class ApproximateCalculation {
 		return false;
 	}
 	
+	public boolean approximateMore(double a, double b){
+		if(a+err > b)
+			return true;
+		return false;
+	}
+	
 	public boolean approximateMoreEqual(double a, double b){
 		if( a +err >= b )
 			return true;

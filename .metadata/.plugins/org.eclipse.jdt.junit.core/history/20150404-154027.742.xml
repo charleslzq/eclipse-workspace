@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TokenParserTest" project="PDFboxDemo" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TokenParserTest" time="0.43">
+    <testcase name="testRectangleParser" classname="test.TokenParserTest" time="0.319"/>
+    <testcase name="testBuildAreaFromLines" classname="test.TokenParserTest" time="0.111"/>
+  </testsuite>
+</testrun>

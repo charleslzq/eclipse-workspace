@@ -1,0 +1,25 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.PDFRectangle;
+
+
+public class RectangleContainText {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testIsInThisAreaPDFRectangle() {
+		//fail("Not yet implemented");
+		PDFRectangle.setThreshold(0.1);
+		PDFRectangle p1 = new PDFRectangle(1,2,3,4);
+		PDFRectangle p2 = new PDFRectangle(1,2,2,2);
+		System.out.println(p1.isSameRectangle(p2));
+		System.out.println(p1.isInThisArea(p2));
+	}
+
+}

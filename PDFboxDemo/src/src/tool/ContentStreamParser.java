@@ -41,6 +41,8 @@ public class ContentStreamParser {
 	public List<PageTextArea> TextAreaConstructor() throws IOException{
 		Map<Integer, PDFRectangle> areas = tp.getAreas();
 		List<PageTextArea> textAreas = this.constructRegions(areas);
+		
+		removeUselessRegions(textAreas);
 
 		for(int i = 0; i < tp.getSize(); i++){
 			if(areas.containsKey(new Integer(i))){
@@ -51,7 +53,6 @@ public class ContentStreamParser {
 		}
 		tsbro.extractRegions(pdpage);
 		attachTexts(textAreas);
-		removeUselessRegions(textAreas);
 		this.buildConnectionsBetweenRegions(textAreas);
 		checkMissingAreas(tsbro, textAreas);
 		return textAreas;
@@ -73,6 +74,7 @@ public class ContentStreamParser {
 							now.getHeight());
 					tsbro.addRegion(base+i, rect);
 					PageTextArea pta = new PageTextArea(base+i,rect);
+					pta.setReferenced(true);
 					PageTextArea tmp = now.getRight();
 					now.setRight(pta);
 					pta.setRight(tmp);
@@ -86,6 +88,7 @@ public class ContentStreamParser {
 			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
 			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
 		}
+		//this.removeUselessRegions(textAreas);
 	}
 
 	public void removeUselessRegions(List<PageTextArea> textAreas) {
@@ -95,20 +98,20 @@ public class ContentStreamParser {
 			for(int j=i+1; j < textAreas.size(); j++){
 				PDFRectangle pr2 = textAreas.get(j).getArea();
 				if(pr1.isInThisArea(pr2))
-					if(textAreas.get(i).getString() != null)
-						if(textAreas.get(j).getString() == null
+					//if(textAreas.get(i).getString() != null)
+						/*if(textAreas.get(j).getString() == null
 							|| textAreas.get(j).getString().trim().isEmpty()
 							|| textAreas.get(j).getString().trim().equals(
-									textAreas.get(i).getString().trim())){
+									textAreas.get(i).getString().trim()))*/{
 										textAreas.remove(j);
 										j--;
 					//continue;
 				}
 				else if(pr2.isInThisArea(pr1))
-					if(textAreas.get(j).getString() != null)
+					/*if(textAreas.get(j).getString() != null)
 						if(textAreas.get(i).getString().trim().isEmpty()
 								|| textAreas.get(j).getString().trim().equals(
-										textAreas.get(i).getString().trim())){
+										textAreas.get(i).getString().trim()))*/{
 											textAreas.remove(i);
 											i--;
 					//continue;
@@ -126,84 +129,51 @@ public class ContentStreamParser {
 					textAreas.add(new PageTextArea(i,pr));
 			}
 		int base = tp.getSize()*2;
-		List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
+		/*List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
 		for(int i = 0; i < rects.size(); i++){
 			PDFRectangle pr = rects.get(i);
 			if(pr.getType() == RectangleType.PDF_CELL)
 				textAreas.add(new PageTextArea(base+i+1,pr));
-		}
+		}*/
+		//this.sort(textAreas);
 		return textAreas;
 	}
 	
 	public void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
-		for(int i = 0; i < textAreas.size(); i++)
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea p1 = textAreas.get(i);
 			for(int j = i+1 ; j < textAreas.size(); j++){
-				if( textAreas.get(i).isSameRow(textAreas.get(j))){
-					if(textAreas.get(i).getX()
-							< textAreas.get(j).getX()){
-						if(textAreas.get(i).getRight() == null){
-							textAreas.get(i).setRight(textAreas.get(j));
-							textAreas.get(j).setReferenced(true);
+				PageTextArea p2 = textAreas.get(j);
+				if( p1.isSameRow(p2)){
+					if(p1.isLefter(p2)){
+						if(p1.getRight() == null){
+							p1.setRight(textAreas.get(j));
+							p2.setReferenced(true);
 						}
-						else{
-							if(textAreas.get(j).getX() 
-									< textAreas.get(i).getRight().getX()){
-								PageTextArea tmp = textAreas.get(i).getRight();
-								textAreas.get(i).setRight(textAreas.get(j));
-								textAreas.get(j).setRight(tmp);
-								textAreas.get(j).setReferenced(true);
-							}
-						}
+						/*else if(p2.isLefter(p1.getRight())){
+							PageTextArea tmp = p1.getRight();
+							p1.setRight(p2);
+							p2.setRight(tmp);
+							p2.setReferenced(true);
+						}*/
 					}
-					/*else{
-						if(textAreas.get(j).getRight() == null){
-							textAreas.get(i).setRight(textAreas.get(j));
-							textAreas.get(i).setReferenced(true);
-						}
-						else{
-							if(textAreas.get(i).getX() < textAreas.get(j).getRight().getX()){
-								PageTextArea tmp = textAreas.get(j).getRight();
-								textAreas.get(j).setRight(textAreas.get(i));
-								textAreas.get(i).setRight(tmp);
-								textAreas.get(i).setReferenced(true);
-							}
-						}
-					}*/
 				}
-				else if( textAreas.get(i).isSameColumn(textAreas.get(j))){
-					if(textAreas.get(i).getY()+textAreas.get(i).getHeight()
-							> textAreas.get(j).getY()+textAreas.get(j).getHeight()){
-						if(textAreas.get(i).getDown() == null ){
-							textAreas.get(i).setDown(textAreas.get(j));
-							textAreas.get(j).setReferenced(true);
+				else if( p1.isNextCellInTheSameColumn(p2)){
+					if(p1.isHigher(p2)){
+						if(p1.getDown() == null ){
+							p1.setDown(textAreas.get(j));
+							p2.setReferenced(true);
 						}
-						else{
-							if(textAreas.get(j).getY()+textAreas.get(j).getHeight() 
-									> textAreas.get(i).getDown().getY()+textAreas.get(i).getDown().getHeight()){
-								PageTextArea tmp = textAreas.get(i).getRight();
-								textAreas.get(i).setDown(textAreas.get(j));
-								textAreas.get(j).setDown(tmp);
-								textAreas.get(j).setReferenced(true);
-							}
-						}
+						/*else if(p2.isHigher(p1.getDown())){
+							PageTextArea tmp = p1.getDown();
+							p1.setDown(p2);
+							p2.setDown(tmp);
+							p2.setReferenced(true);
+						}*/
 					}
-					/*else{
-						if(textAreas.get(j).getDown() == null ){
-							textAreas.get(j).setDown(textAreas.get(i));
-							textAreas.get(i).setReferenced(true);
-						}
-						else{
-							if(textAreas.get(i).getY()+textAreas.get(i).getHeight() 
-									> textAreas.get(j).getDown().getY()+textAreas.get(j).getDown().getHeight()){
-								PageTextArea tmp = textAreas.get(i).getRight();
-								textAreas.get(j).setDown(textAreas.get(i));
-								textAreas.get(i).setDown(tmp);
-								textAreas.get(i).setReferenced(true);
-							}
-						}
-					}*/
 				}
 			}
+	}
 	}
 	
 	public void attachTexts(List<PageTextArea> textAreas){
@@ -285,7 +255,12 @@ public class ContentStreamParser {
 			return null;
 		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
 		PageTextArea currentRowHeader = header;
-		returnList.add(new Pair(header.getString(), header));
+		if(currentRowHeader.getRight() != null){
+			if(currentRowHeader.getRight().getHeight() < currentRowHeader.getHeight())
+				currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
+			else
+				returnList.add(new Pair(header.getString(), header));
+		}
 		while(currentRowHeader.getDown() != null){
 			currentRowHeader = currentRowHeader.getDown();
 			currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
@@ -347,5 +322,23 @@ public class ContentStreamParser {
 	public void print(){
 		for(int i=0; i<pta.size(); i++)
 			pta.get(i).print();
+	}
+	
+	private void sort(List<PageTextArea> pList){
+		for(int i=0; i<pList.size(); i++){
+			PageTextArea min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PageTextArea it = pList.get(j);
+				if(it.isHigherLeft(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
 	}
 }

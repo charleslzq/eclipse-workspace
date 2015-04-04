@@ -207,12 +207,13 @@ public class PageTextArea {
 			double sum = this.getRight().getHeight();
 			PageTextArea tmp = this.getRight();
 			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
-			while(this.getArea().isSameHeight(sum) == false){
+			while(tmp.getDown() != null ){
 				tmp = tmp.getDown();
-				if(tmp == null)
-					break;
 				sum += tmp.getHeight();
-				tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+				if(sum > this.getHeight())
+					break;
+				else
+					tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
 			}
 		}
 	}
@@ -241,6 +242,10 @@ public class PageTextArea {
 	
 	public boolean isHigher(PageTextArea p){
 		return this.getArea().isHigher(p.getArea());
+	}
+	
+	public boolean isHigherLeft(PageTextArea p){
+		return this.getArea().isHigherLefter(p.getArea());
 	}
 	
 }

@@ -38,7 +38,7 @@ public class TokenParser {
 	
 	public Map<Integer, PDFRectangle> rectangleParser(){
 		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
-		PDFRectangle.setThreshold(3);
+		PDFRectangle.setThreshold(5);
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);
@@ -196,7 +196,7 @@ public class TokenParser {
 			int index = i;
 			for(int j=i+1; j<pList.size(); j++){
 				PDFRectangle it = pList.get(j);
-				if(isHigherLefter(it, min) == true){
+				if(it.isHigherLefter(min) == true){
 					min = it;
 					index = j;
 				}
@@ -205,18 +205,6 @@ public class TokenParser {
 				pList.set(index, pList.get(i));
 				pList.set(i, min);
 			}
-		}
-	}
-	
-	private boolean isHigherLefter(PDFRectangle p1, PDFRectangle p2){
-		if(p1.isHigher(p2))
-			return true;
-		else if(p2.isHigher(p1))
-			return false;
-		else{
-			if(p1.isLefter(p2))
-				return true;
-			return false;
 		}
 	}
 	

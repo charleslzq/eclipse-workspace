@@ -138,7 +138,8 @@ public class PDFRectangle{
 			return false;
 		if(this.isSameColumn(pr) == false)
 			return false;
-		if(ac.alreadyEqual(this.getY(), pr.getY()+pr.getHeight()))
+		if(ac.approximateLess(Math.abs(this.getY()-pr.getY()-pr.getHeight()), 
+				PDFRectangle.threshold))
 			return true;
 		else
 			return false;
@@ -195,7 +196,19 @@ public class PDFRectangle{
 		return ac.alreadyEqual(this.getY()+this.getHeight(), y);
 	}
 	
-	public boolean isRigher(PDFRectangle pr){
+	public boolean isRighter(PDFRectangle pr){
 		return ac.approximateMore(this.getMidX(), pr.getMidX());
+	}
+	
+	public boolean isHigherLefter(PDFRectangle pr){
+		if(this.isHigher(pr))
+			return true;
+		else if(pr.isHigher(this))
+			return false;
+		else{
+			if(this.isLefter(pr))
+				return true;
+			return false;
+		}
 	}
 }

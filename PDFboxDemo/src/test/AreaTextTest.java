@@ -31,7 +31,7 @@ public class AreaTextTest {
 	@Test
 	public void testRemoveUselessRegions() throws IOException {
 		fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
    		
@@ -39,7 +39,7 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 18;
+		int index = 15;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
@@ -55,7 +55,7 @@ public class AreaTextTest {
 	@Test
 	public void testConstructRegions() throws IOException {
 		fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
    		
@@ -63,7 +63,7 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 18;
+		int index = 15;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
@@ -76,7 +76,7 @@ public class AreaTextTest {
 	@Test
 	public void testBuildConnectionsBetweenRegions() throws IOException {
 		fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
    		
@@ -84,7 +84,7 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 18;
+		int index = 15;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
@@ -115,7 +115,7 @@ public class AreaTextTest {
 	@Test
 	public void testAttachTexts() throws IOException {
 		//fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
    		
@@ -123,7 +123,7 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 18;
+		int index = 14;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();

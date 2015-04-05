@@ -123,8 +123,8 @@ public class PDFRectangle{
 	}
 	
 	public boolean isSameRow(PDFRectangle pr){
-		return ac.alreadyEqual(this.getY()+this.getHeight(), 
-				pr.getY()+pr.getHeight());
+		return ac.approximateLess(Math.abs(this.getY()+this.getHeight()-pr.getY()-pr.getHeight()), 
+				PDFRectangle.threshold);
 	}
 	
 	public boolean isSameColumn(PDFRectangle pr){

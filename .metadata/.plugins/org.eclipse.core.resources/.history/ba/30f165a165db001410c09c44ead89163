@@ -1,0 +1,229 @@
+package src.tool;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.cos.COSFloat;
+import org.apache.pdfbox.cos.COSInteger;
+import org.apache.pdfbox.util.PDFOperator;
+
+public class TokenParser {
+	private List tokens;
+	private Map<Integer, PDFRectangle> areas;
+	
+	public TokenParser(List t){
+		tokens = t;
+		areas = this.rectangleParser();
+	}
+	
+	public Map<Integer, PDFRectangle> getAreas() {
+		return areas;
+	}
+
+
+	public void print(){
+		for(int i = 0 ; i < tokens.size(); i++)
+			System.out.println(tokens.get(i).toString());
+	}
+	
+	public Map<Integer, PDFRectangle> rectangleParser(){
+		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
+		PDFRectangle.setThreshold(3);
+		PDFRectangle.setBlank(9.0);
+		for(int i = 0 ; i < tokens.size(); i++){
+			if( tokens.get(i) instanceof PDFOperator ){
+				PDFOperator op = (PDFOperator) tokens.get(i);
+/*				if(op.getOperation().equals("W") || op.getOperation().equals("W*") || op.getOperation().equals("f")){
+					//System.out.println(op.toString());
+					if( tokens.get(i-1) instanceof PDFOperator){
+						PDFOperator op2 = (PDFOperator) tokens.get(i-1);
+						//System.out.println(((PDFOperator) tokens.get(i-1)).toString());
+						if(op2.getOperation().equals("re")){
+							PDFRectangle ro = getPDFRectangle(i);
+							if(ro != null)
+								rectangleMap.put(new Integer(i), ro);
+						}
+						else if(op2.getOperation().equals("h")){
+							PDFRectangle ro = getPDFRectangle(i-1);
+							if(ro != null)
+								rectangleMap.put(new Integer(i), ro);
+						}
+					}
+				}*/
+				if(op.getOperation().equals("re")){
+					PDFRectangle ro = getPDFRectangle(i+1);
+					if(ro != null && ro.isLegal() == true)
+						rectangleMap.put(new Integer(i), ro);
+				}
+				else if(op.getOperation().equals("m")){
+					PDFRectangle ro = getPDFRectangleFromLines(i);
+					if(ro != null && ro.isLegal() == true)
+						rectangleMap.put(new Integer(i), ro);
+				}
+			}
+		}
+		/*for(int i = 0; i < tokens.size(); i++){
+			if(rectangleMap.containsKey(new Integer(i))){
+				PDFRectangle ro1 = rectangleMap.get(new Integer(i));
+				for(int j = i+1 ; j < tokens.size() ; j++){
+					if(rectangleMap.containsKey(new Integer(j))){
+						PDFRectangle ro2 = rectangleMap.get(new Integer(j));
+						if(ro1.isSameRectangle(ro2)){
+							rectangleMap.remove(new Integer(i));
+							continue;
+						}
+					}
+				}
+			}
+		}*/
+		return rectangleMap;
+	}
+	
+	public PDFRectangle getPDFRectangleFromLines(int index) {
+		// TODO Auto-generated method stub
+		int p = index;
+		List<Float> xs = new ArrayList<Float>();
+		List<Float> ys = new ArrayList<Float>();
+		xs.add(new Float(this.getFloatValueFromCOS(tokens.get(p-2))));
+		ys.add(new Float(this.getFloatValueFromCOS(tokens.get(p-1))));
+		p = p+3;
+		while(p < tokens.size()){
+			if( tokens.get(p) instanceof PDFOperator){
+				PDFOperator op = (PDFOperator) tokens.get(p);
+				if( op.getOperation().equals("m") || op.getOperation().equals("h") )
+					break;
+				else if(op.getOperation().equals("l")){
+					xs.add(new Float(this.getFloatValueFromCOS(tokens.get(p-2))));
+					ys.add(new Float(this.getFloatValueFromCOS(tokens.get(p-1))));
+				}
+			}
+			p = p+3;
+		}
+		float x, y, width, height;
+		ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
+		if(p < tokens.size() && xs.size() >= 4){
+			if(ac.alreadyEqual(xs.get(0), xs.get(1)) && ac.alreadyEqual(xs.get(2), xs.get(3)))
+				if( ac.alreadyEqual(ys.get(0), ys.get(3)) && ac.alreadyEqual(ys.get(1), ys.get(2))){
+					if(xs.get(0) < xs.get(2)){
+						x = xs.get(0);
+						width = xs.get(2) - xs.get(0);
+					}
+					else{
+						x = xs.get(2);
+						width = xs.get(0) - xs.get(2);
+					}
+					if( ys.get(0) < ys.get(2)){
+						y = ys.get(0);
+						height = ys.get(2) - ys.get(0);
+					}
+					else{
+						y = ys.get(2);
+						height = ys.get(0) - ys.get(2);
+					}
+					//System.out.println(x+" "+y+" "+width+" "+height);
+					return new PDFRectangle(x,y,width,height);
+				}
+				else if(ac.alreadyEqual(xs.get(0), xs.get(3)) && ac.alreadyEqual(xs.get(1), xs.get(2)))
+					if( ac.alreadyEqual(ys.get(0), ys.get(1)) && ac.alreadyEqual(ys.get(2), ys.get(3))){
+						if(xs.get(0) < xs.get(2)){
+							x = xs.get(0);
+							width = xs.get(2) - xs.get(0);
+						}
+						else{
+							x = xs.get(2);
+							width = xs.get(0) - xs.get(2);
+						}
+						if( ys.get(0) < ys.get(2)){
+							y = ys.get(0);
+							height = ys.get(2) - ys.get(0);
+						}
+						else{
+							y = ys.get(2);
+							height = ys.get(0) - ys.get(2);
+						}
+						return new PDFRectangle(x,y,width,height);
+					}
+		}
+		return null;
+	}
+
+	private float getFloatValueFromCOS(Object o){
+		if(o instanceof COSInteger)
+			return ((COSInteger)o).floatValue();
+		else if(o instanceof COSFloat)
+			return ((COSFloat)o).floatValue();
+		return (float) -9999.99999;
+	}
+	
+	private PDFRectangle getPDFRectangle(int index){
+		double a[] ={0,0,0,0};
+		int base = index - 5;
+		for(int i = 0; i < 4; i++)
+			a[i] = getFloatValueFromCOS(tokens.get(base+i));
+		return new PDFRectangle(a[0],a[1],a[2],a[3]);
+	}
+	
+	public int getSize(){
+		return tokens.size();
+	}
+	
+	public List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isVerticalLine() == true)
+				result.add(pr);
+		}
+		this.sort(result);
+		return result;
+	}
+	
+	private void sort(List<PDFRectangle> pList){
+		for(int i=0; i<pList.size(); i++){
+			PDFRectangle min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PDFRectangle it = pList.get(j);
+				if(it.isHigherLefter(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
+	}
+	
+	public List<PDFRectangle> buildAreaFromLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> lines =this.getVerticalLines(rects);
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		for(int i=0; i<lines.size()-1 ; i++){
+			PDFRectangle p = formArea(lines.get(i), lines.get(i+1));
+			if(p != null)
+				result.add(p);
+		}
+		return result;
+	}
+
+	private PDFRectangle formArea(PDFRectangle p1,
+			PDFRectangle p2) {
+		// TODO Auto-generated method stub
+		if(p1.getType() == RectangleType.PDF_LINE 
+				&& p2.getType() == RectangleType.PDF_LINE){
+			double x = p1.getX() + p1.getWidth();
+			double y = p2.getY();
+			double width = p2.getX() - x;
+			double height = p2.getHeight();
+			if(p1.isSameY(y+height) 
+					&& p1.isLefter(p2))
+				return new PDFRectangle(x, y, width, height);
+		}
+		return null;
+	}
+}

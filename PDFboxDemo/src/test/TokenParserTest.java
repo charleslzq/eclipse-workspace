@@ -34,7 +34,7 @@ public class TokenParserTest {
 	@Test
 	public void testRectangleParser() throws IOException {
 		//fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
    		
@@ -42,11 +42,11 @@ public class TokenParserTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 10;
+		int index = 14;
 		System.out.print(pages.get(index).getContents().getInputStreamAsString());
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
-		//tp.print();
+		tp.print();
 		
 		for(int i=0; i<tp.getSize(); i++)
 			if(areas.containsKey(new Integer(i))){

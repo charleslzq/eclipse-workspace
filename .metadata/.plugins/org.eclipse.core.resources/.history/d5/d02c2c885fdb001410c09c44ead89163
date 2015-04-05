@@ -1,0 +1,96 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.ContentStreamParser;
+import src.tool.PDFRectangle;
+import src.tool.PageTextArea;
+import src.tool.TokenParser;
+
+public class BuildRectangleBasedOnLinesTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testGetPDFRectangleFromLines() throws IOException {
+		fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 15;
+		PDFRectangle.setThreshold(3);
+		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
+	
+		List<PDFRectangle> lines = tp.getVerticalLines(areas);
+	}
+
+	@Test
+	public void testGetVerticalLines() throws IOException {
+		fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 15;
+		PDFRectangle.setThreshold(3);
+		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
+	
+		List<PDFRectangle> lines = tp.getVerticalLines(areas);
+		
+		for(int i=0; i<lines.size(); i++){
+			lines.get(i).print();
+		}
+	}
+
+	@Test
+	public void testBuildAreaFromLines() throws IOException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000063_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 15;
+		PDFRectangle.setThreshold(3);
+		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
+	
+		List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
+		
+		for(int i=0; i<rects.size(); i++)
+			rects.get(i).print();
+		
+	}
+
+}

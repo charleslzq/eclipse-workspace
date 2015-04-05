@@ -82,7 +82,7 @@ public class TokenParser {
 		return rectangleMap;
 	}
 	
-	private PDFRectangle getPDFRectangleFromLines(int index) {
+	public PDFRectangle getPDFRectangleFromLines(int index) {
 		// TODO Auto-generated method stub
 		int p = index;
 		List<Float> xs = new ArrayList<Float>();
@@ -163,8 +163,6 @@ public class TokenParser {
 		int base = index - 5;
 		for(int i = 0; i < 4; i++)
 			a[i] = getFloatValueFromCOS(tokens.get(base+i));
-		if( a[2] < 2 || a[3] < 2)
-			return null;
 		return new PDFRectangle(a[0],a[1],a[2],a[3]);
 	}
 	
@@ -172,7 +170,7 @@ public class TokenParser {
 		return tokens.size();
 	}
 	
-	private List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+	public List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
 		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
 		Iterator<Integer> it = rects.keySet().iterator();
 		while(it.hasNext()){
@@ -207,7 +205,8 @@ public class TokenParser {
 		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
 		for(int i=0; i<lines.size()-1 ; i++){
 			PDFRectangle p = formArea(lines.get(i), lines.get(i+1));
-			if(p != null)
+			if(p != null
+					&& p.getType() == RectangleType.PDF_CELL)
 				result.add(p);
 		}
 		return result;
@@ -218,13 +217,24 @@ public class TokenParser {
 		// TODO Auto-generated method stub
 		if(p1.getType() == RectangleType.PDF_LINE 
 				&& p2.getType() == RectangleType.PDF_LINE){
-			double x = p1.getX() + p1.getWidth();
-			double y = p2.getY();
-			double width = p2.getX() - x;
-			double height = p2.getHeight();
-			if(p1.isSameY(y+height) 
-					&& p1.isLefter(p2))
-				return new PDFRectangle(x, y, width, height);
+			if(p2.getHeight() >= p1.getHeight()){
+				double x = p1.getX() + p1.getWidth();
+				double y = p2.getY();
+				double width = p2.getX() - x;
+				double height = p2.getHeight();
+				if(p1.isSameY(y+height) 
+						&& p1.isLefter(p2))
+					return new PDFRectangle(x, y, width, height);
+			}
+			else{
+				double x = p1.getX() + p1.getWidth();
+				double y = p1.getY();
+				double width = p2.getX() - x;
+				double height = p1.getHeight();
+				if(p1.isSameY(y+height)
+						&& p1.isLefter(p2))
+					return new PDFRectangle(x, y, width, height);
+			}
 		}
 		return null;
 	}

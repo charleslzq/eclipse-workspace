@@ -44,11 +44,15 @@ public class PageParser {
 			}
 		}
 		
+		JProgressBar progressBar = new JProgressBar();
+		
 		for(int i=0; i < csp.size() ; i++){
 			csp.get(i).parse();
 			csp.get(i).writeLineTableToXML(root);
 			csp.get(i).writeCellTableToXML(root);
-			
+			progressBar.setStringPainted(true);  
+	        progressBar.setString("Processing "+i+"/"+csp.size()+"pages");
+	        progressBar.setValue(i);
 			//csp.get(i).writeTextTableToXML(root);
 			//csp.get(i).writeXML(root);
 		}

@@ -1,0 +1,15 @@
+package simpleUI;
+
+import javax.swing.JProgressBar;
+
+public class ProcessingIndicator extends JFrame{
+	private static final long serialVersionUID = 6823378424400186364L;  
+    
+    static ProcessingIndicator frame;
+    
+    public ProcessingIndicator(){
+    	JProgressBar progressBar = new JProgressBar(); 
+    	progressBar.setStringPainted(true);  
+        progressBar.setString("Processing "+i+"/"+csp.size()+"pages");
+    }
+}

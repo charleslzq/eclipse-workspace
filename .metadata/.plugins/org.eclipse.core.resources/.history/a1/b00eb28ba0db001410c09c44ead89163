@@ -139,7 +139,7 @@ public class PDFRectangle{
 	}
 	
 	public boolean isSameColumn(PDFRectangle pr){
-		return ac.approximateLess(Math.abs(this.getX() - pr.getX()), 5*PDFRectangle.threshold);
+		return ac.approximateLess(Math.abs(this.getX() - pr.getX()), PDFRectangle.threshold);
 	}
 	
 	public boolean isNextCellInTheSameRow(PDFRectangle pr){

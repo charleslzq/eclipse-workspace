@@ -330,7 +330,9 @@ public class ContentStreamParser {
 	
 	public void writeLineTableToXML(Element root){
 		if(ptaForLine.size()>0){
-			this.writeTableToXML(root, ptaForLine, tiForLine,"Line");
+			Element method = root.addElement("Method");
+			method.addAttribute("Source", "Lines");
+			this.writeTableToXML(method, ptaForLine, tiForLine,"Line");
 		}
 	}
 	

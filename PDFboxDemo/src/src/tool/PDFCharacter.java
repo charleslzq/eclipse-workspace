@@ -6,7 +6,7 @@ import org.apache.pdfbox.util.TextPosition;
 public class PDFCharacter extends TextPosition {
 	private int areaNo;
 	private TextPosition text;
-	private static ApproximateCalculation ac = new ApproximateCalculation(3,0.1);
+	private static ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
 	
 	public PDFCharacter(int n, TextPosition t){
 		text = t;
@@ -18,11 +18,11 @@ public class PDFCharacter extends TextPosition {
 	}
 	
 	public float getX(){
-		return text.getX();
+		return text.getTextPos().getValue(2, 0);
 	}
 	
 	public float getY(){
-		return text.getY();
+		return text.getTextPos().getValue(2, 1);
 	}
 	
 	public float getFontSize(){
@@ -69,5 +69,19 @@ public class PDFCharacter extends TextPosition {
 				+";Y:"+this.getY()
 				+";Width:"+this.getWidth()
 				+";Height:"+this.getHeight());
+	}
+	
+	public boolean isHigherLefter(PDFCharacter c){
+		if(ac.alreadyEqual(this.getY(), c.getY())){
+			if(this.getX() <= c.getX())
+				return true;
+			else
+				return false;
+		}
+		else if(this.getY() > c.getY())
+			return true;
+		else
+			return false;
+		
 	}
 }

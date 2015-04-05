@@ -98,16 +98,27 @@ public class PDFRectangle{
 
 	
 	public boolean isInThisArea(double x, double y){
-		return rect.contains(x, y);
+		if(ac.approximateMoreEqual(x, this.getX())
+				&& ac.approximateMoreEqual(y, this.getY())
+				&& ac.approximateMoreEqual(this.getX()+this.getWidth(), x)
+				&& ac.approximateMoreEqual(this.getY()+this.getHeight(), y))
+			return true;
+		return false;
 	}
 	
 	public boolean isInThisArea(PDFRectangle pr){
-		if( ac.approximateMoreEqual(pr.getX(), this.getX())
+		return this.isInThisArea(pr.getX(), pr.getY()) 
+				&& this.isInThisArea(pr.getX()+pr.getWidth(), pr.getY()+pr.getHeight());
+		/*if( pr.getX() >= this.getX()
+				&& pr.getY() >= this.getY()
+				&& pr.getX()+pr.getWidth() <= this.getX()+this.getWidth()
+				&& pr.getY()+pr.getHeight() <= this.getY()+this.getWidth())*/
+		/*if( ac.approximateMoreEqual(pr.getX(), this.getX())
 				&& ac.approximateMoreEqual(pr.getY(), this.getY())
 				&& ac.approximateLessEqual(pr.getX()+pr.getWidth(), this.getX()+this.getWidth())
-				&& ac.approximateLessEqual(pr.getY()+pr.getHeight(), this.getY()+this.getHeight()))
-			return true;
-		return false;
+				&& ac.approximateLessEqual(pr.getY()+pr.getHeight(), this.getY()+this.getHeight()))*/
+			/*return true;
+		return false;*/
 	}
 	
 	public boolean isSameRectangle(PDFRectangle pr){
@@ -164,7 +175,7 @@ public class PDFRectangle{
 	
 	public void print(){
 		System.out.println("PDFRectangle:	X:"+this.getX()
-				+ ";Y:"+(this.getY()+this.getHeight())
+				+ ";Y:"+(this.getY()/*+this.getHeight()*/)
 				+ ";Width:"+this.getWidth()
 				+ ";Height:"+this.getHeight()
 				+ ";Type:"+this.getType()+"/"+this.getThreshold());
@@ -222,5 +233,20 @@ public class PDFRectangle{
 			else
 				return false;
 		}
+	}
+	
+	public double getMeasure(){
+		return rect.getWidth()*rect.getHeight();
+	}
+	
+	public double intersect(PDFRectangle pr){
+		double x = Math.max(this.getX(), pr.getX());
+		double y = Math.max(this.getY(), pr.getY());
+		double x2 = Math.min(this.getX()+this.getWidth(), pr.getX()+pr.getWidth());
+		double y2 = Math.min(this.getY()+this.getHeight(), pr.getY()+pr.getHeight());
+		if(x2 > x && y2 > y)
+			return (x2-x)*(y2-y);
+		else
+			return -1;
 	}
 }

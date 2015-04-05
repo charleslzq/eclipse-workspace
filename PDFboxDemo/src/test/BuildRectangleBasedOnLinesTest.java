@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import src.tool.ContentStreamParser;
 import src.tool.PDFCharacter;
+import src.tool.PDFCharacterBag;
 import src.tool.PDFRectangle;
 import src.tool.PageTextArea;
 import src.tool.TableInformation;
@@ -91,10 +92,15 @@ public class BuildRectangleBasedOnLinesTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 3;
+		int index = 82;
 		PDFRectangle.setThreshold(3);
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
-		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		List<PDFCharacter> chars = csp.getAllCharacters();
+		List<PDFCharacterBag> bags = csp.formBags(chars);
+		for(int i=0; i<bags.size();i++){
+			System.out.println(bags.get(i).getString());
+		}
+		/*TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> as = tp.rectangleParser();
 	
 		List<PDFRectangle> rects = tp.buildAreaFromLines(as);
@@ -103,6 +109,7 @@ public class BuildRectangleBasedOnLinesTest {
 		for(int i=0; i<rects.size(); i++){
 			areas.add(new PageTextArea(tp.getSize()+i,rects.get(i)));
 		}
+		csp.sort(areas);
 		
 		csp.removeUselessRegions(areas);
 		
@@ -121,6 +128,7 @@ public class BuildRectangleBasedOnLinesTest {
 			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
 			
 		}
+	
 		
 		csp.buildConnectionsBetweenRegions(areas);
 		List<TableInformation> ti = csp.extractTableInformation(areas);
@@ -129,18 +137,21 @@ public class BuildRectangleBasedOnLinesTest {
 			System.out.print(i+":");
 			areas.get(i).print();
 		}
-		
+		System.out.println("Headers");
 		for(int i = 0; i < ti.size(); i++){
 			PageTextArea header = areas.get(ti.get(i).getHead());
 			header.print();
 			System.out.println(header.isReferenced());
 			System.out.println(header.isIsolated());
 		}
-		
-		areas.get(10).print();
-		areas.get(12).print();
-		System.out.println(areas.get(12).getArea().isSameRow(areas.get(10).getArea()));
-		System.out.println(areas.get(10).getArea().isSameColumn(areas.get(12).getArea()));
+		System.out.println("????");
+		areas.get(3).print();
+		areas.get(5).print();
+		System.out.println(areas.get(3).getArea().isSameRow(areas.get(5).getArea()));
+		System.out.println(areas.get(3).getArea().isSameRectangle(areas.get(5).getArea()));
+		System.out.println(areas.get(3).getArea().isInThisArea(areas.get(5).getArea()));
+		System.out.println(areas.get(5).getArea().isInThisArea(areas.get(3).getArea()));
+		System.out.println(areas.get(3).getArea().isNextCellInTheSameRow(areas.get(5).getArea()));*/
 		
 	}
 

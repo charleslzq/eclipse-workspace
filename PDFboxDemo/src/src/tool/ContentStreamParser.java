@@ -10,6 +10,7 @@ import java.util.Map;
 import javafx.util.Pair;
 
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.dom4j.Element;
 
 public class ContentStreamParser {
@@ -18,9 +19,11 @@ public class ContentStreamParser {
 	private TokenParser tp;
 	private List<PageTextArea> pta;
 	private List<PageTextArea> ptaForLine;
+	private List<PageTextArea> ptaForText;
 	private TextStripperByPDFRectangle tsbro;
 	private List<TableInformation> ti;
 	private List<TableInformation> tiForLine;
+	private List<TableInformation> tiForText;
 	
 	public ContentStreamParser(int no, PDPage pdp) throws IOException{
 		pageNo = no;
@@ -37,10 +40,12 @@ public class ContentStreamParser {
 	public void parse() throws IOException{
 		pta = this.TextAreaConstructor();
 		ptaForLine = this.LineAreaConstructor();
+		ptaForText = this.TextPositionConstructor();
 		/*for(int i = 0; i < pta.size(); i++)
 			pta.get(i).print();*/
 		ti = this.extractTableInformation(pta);
 		tiForLine = this.extractTableInformation(ptaForLine);
+		tiForText = this.extractTableInformation(ptaForText);
 	}
 
 	public List<PageTextArea> TextAreaConstructor() throws IOException{
@@ -145,9 +150,20 @@ public class ContentStreamParser {
 						if(textAreas.get(i).getString().trim().isEmpty()
 								|| textAreas.get(j).getString().trim().equals(
 										textAreas.get(i).getString().trim()))*/{
+											//System.out.println(i+"/"+textAreas.size());
 											textAreas.remove(i);
-											i--;
+											if(i > 1)
+												i--;
 					//continue;
+				}
+				else if( pr1.intersect(pr2)/pr2.getMeasure() >= 0.6){
+					textAreas.remove(j);
+					j--;
+				}
+				else if( pr1.intersect(pr2)/pr1.getMeasure() >= 0.6 ){
+					textAreas.remove(i);
+					if(i > 1)
+						i--;
 				}
 			}
 		}
@@ -316,19 +332,23 @@ public class ContentStreamParser {
 		if(ptaForLine.size()>0){
 			Element method = root.addElement("Method");
 			method.addAttribute("Source", "Lines");
-			this.writeTableToXML(method, ptaForLine, tiForLine);
+			this.writeTableToXML(method, ptaForLine, tiForLine,"Line");
 		}
 	}
 	
 	public void writeCellTableToXML(Element root){
 		if(pta.size()>0){
-			Element method = root.addElement("Method");
-			method.addAttribute("Source", "ClippingPath");
-			this.writeTableToXML(method, pta, ti);
+			this.writeTableToXML(root, pta, ti, "ClippingPath");
 		}
 	}
 	
-	public void writeTableToXML(Element root, List<PageTextArea> p, List<TableInformation> tt){
+	public void writeTextTableToXML(Element root){
+		if(ptaForText.size()>0){
+			this.writeTableToXML(root, ptaForText, tiForText, "TextPosition");
+		}
+	}
+	
+	public void writeTableToXML(Element root, List<PageTextArea> p, List<TableInformation> tt, String method){
 		if(tt.size()>0){
 			for(int i = 0; i < tt.size(); i++){
 				PageTextArea header = p.get(tt.get(i).getHead());
@@ -337,6 +357,7 @@ public class ContentStreamParser {
 				if(t.getMax_row() != 1){
 					Element table = root.addElement("Table");
 					table.addAttribute("PageNo", this.pageNo+"");
+					table.addAttribute("Method", method);
 					List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
 					List<Pair<String, PageTextArea>> cl = this.getColumnHeaders(header);
 					Element firstRow = table.addElement("FirstRow");
@@ -397,8 +418,8 @@ public class ContentStreamParser {
 			ptaForLine.get(i).print();
 	}
 	
-	private void sort(List<PageTextArea> pList){
-		for(int i=0; i<pList.size(); i++){
+	public void sort(List<PageTextArea> pList){
+		for(int i=0; i<pList.size()-1; i++){
 			PageTextArea min = pList.get(i);
 			int index = i;
 			for(int j=i+1; j<pList.size(); j++){
@@ -415,6 +436,77 @@ public class ContentStreamParser {
 		}
 	}
 	
+	public void sortChar(List<PDFCharacter> cs){
+		for(int i=0; i<cs.size()-1; i++){
+			PDFCharacter min = cs.get(i);
+			int index = i;
+			for(int j=i+1; j<cs.size();j++){
+				PDFCharacter it = cs.get(j);
+				if(it.isHigherLefter(min)){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				cs.set(index, cs.get(i));
+				cs.set(i, min);
+			}
+		}
+	}
+	
+	public List<PDFCharacterBag> formBags(List<PDFCharacter> cs){
+		this.sortChar(cs);
+		List<PDFCharacterBag> bags = new ArrayList<PDFCharacterBag>();
+		PDFCharacterBag now = null;
+		for(int i=0; i<cs.size(); i++){
+			if(i == 0){
+				now = new PDFCharacterBag();
+				bags.add(now);
+				now.addCharacter(cs.get(i));
+				continue;
+			}
+			if(now.isNextInTheSameRow(cs.get(i)))
+				now.addCharacter(cs.get(i));
+			else{
+				now = new PDFCharacterBag();
+				bags.add(now);
+				now.addCharacter(cs.get(i));
+			}
+			
+		}
+		return bags;
+	}
+	
+	public List<PageTextArea> TextPositionConstructor() throws IOException{
+		List<PDFCharacter> cs = this.getAllCharacters();
+		List<PDFCharacterBag> bags = this.formBags(cs);
+		List<PageTextArea> areas = this.formTextAreaFromBags(bags);
+		
+		this.buildConnectionsBetweenRegions(areas);
+		return areas;
+	}
+	
+	public List<PageTextArea> formTextAreaFromBags(List<PDFCharacterBag> bags){
+		List<PageTextArea> areas = new ArrayList<PageTextArea>();
+		for(int i=0; i<bags.size(); i++)
+			areas.add(convertToTextArea(i, bags.get(i)));
+		this.sort(areas);
+		return areas;
+	}
+	
+	private PageTextArea convertToTextArea(int no, PDFCharacterBag bag) {
+		// TODO Auto-generated method stub
+		if(bag == null)
+			return null;
+		PageTextArea p = new PageTextArea(2*tp.getSize()+no,
+				new PDFRectangle(bag.getX(),
+						bag.getY(),
+						bag.getWidth(),
+						bag.getHeight()));
+		p.setCharacters(bag.getCharacters());
+		return p;
+	}
+
 	public List<PageTextArea> buildAreasFromLines(Map<Integer, PDFRectangle> as) throws IOException{
 		List<PDFRectangle> rects = tp.buildAreaFromLines(as);
 		tsbro = new TextStripperByPDFRectangle();
@@ -440,5 +532,15 @@ public class ContentStreamParser {
 			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
 		}
 		return areas;
+	}
+	
+	public List<PDFCharacter> getAllCharacters() throws IOException{
+		TextStripperByPDFRectangle ts = new TextStripperByPDFRectangle();
+		PDRectangle pd = pdpage.getMediaBox();
+		PDFRectangle p = new PDFRectangle(pd.getLowerLeftX(),pd.getLowerLeftY(),pd.getWidth(),pd.getHeight());
+		
+		ts.addRegion(-1, p);
+		ts.extractRegions(pdpage);
+		return ts.getCharactersByRegion(-1);
 	}
 }

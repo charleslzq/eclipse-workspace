@@ -34,9 +34,21 @@ public class SameRowColumnTest {
 	@Test
 	public void testIsNextCellInTheSameRow() {
 		//fail("Not yet implemented");
-		PDFRectangle p1 = new PDFRectangle(1,2,3,4);
-		PDFRectangle p2 = new PDFRectangle(5,2,3,4);
-		
+		PDFRectangle p1 = new PDFRectangle(373.55999755859375,427.67999267578125,45.0,16.08001708984375);
+		PDFRectangle p2 = new PDFRectangle(371.87999272346497,428.760009765625,94.56000971794128,10.199999809265137);
+		p1.print();
+		p2.print();
+		System.out.println(p2.isInThisArea(p1.getX(),p1.getY()));
+		System.out.println(p2.isInThisArea(p1.getX()+p1.getWidth(),p1.getY()+p1.getHeight()));
+		System.out.println(p1.getX()+p1.getWidth());
+		System.out.println(p2.getX()+p2.getWidth());
+		System.out.println(p1.getY()+p1.getHeight());
+		System.out.println(p2.getY()+p2.getHeight());
+		System.out.println(p1.intersect(p2));
+		System.out.println(p1.intersect(p2)/p1.getMeasure());
+		System.out.println(p1.intersect(p2)/p2.getMeasure());
+		System.out.println("Contain 2 in 1:"+p1.isInThisArea(p2));
+		System.out.println("Contain 1 in 2:"+p2.isInThisArea(p1));
 		System.out.println("Next Cell in the Same Row:"+p1.isNextCellInTheSameRow(p2));
 	}
 

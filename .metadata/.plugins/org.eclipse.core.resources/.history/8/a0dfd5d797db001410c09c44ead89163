@@ -1,0 +1,32 @@
+package src.tool;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PDFCharacterBag {
+	List<PDFCharacter> bag = new ArrayList<PDFCharacter>();
+	double x;
+	double y;
+	double width;
+	double height;
+	
+	public PDFCharacterBag(){
+		x=-1;
+		y=-1;
+		width=-1;
+		height=-1;
+	}
+	
+	public void addCharacter(PDFCharacter c){
+		bag.add(c);
+		if(bag.size() == 1){
+			x = c.getTextPos().getValue(2, 0);
+			y = c.getTextPos().getValue(2, 1);
+			width = c.getWidth();
+			height = c.getHeight();
+		}
+		else
+			width += c.getWidth();
+	}
+	
+}

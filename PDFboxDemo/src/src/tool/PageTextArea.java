@@ -140,6 +140,8 @@ public class PageTextArea {
 	
 	public String getString(){
 		String s = "";
+		if( characters == null)
+			return s;
 		for(int i = 0; i < characters.size(); i++)
 			s += characters.get(i).getCharacter();
 		return s;
@@ -222,8 +224,8 @@ public class PageTextArea {
 		return this.getArea().isSameHeight(h);
 	}
 	
-	public boolean isSameWidth(PageTextArea pta){
-		return this.getArea().isSameWidth(pta.getArea());
+	public boolean isSameWidth(double d){
+		return this.getArea().isSameWidth(d);
 	}
 	
 	public int cellsOnTheRight(){
@@ -246,6 +248,31 @@ public class PageTextArea {
 	
 	public boolean isHigherLeft(PageTextArea p){
 		return this.getArea().isHigherLefter(p.getArea());
+	}
+
+
+
+	public void addToColumnHeaderList(
+			List<Pair<String, PageTextArea>> returnList, String prefix) {
+		// TODO Auto-generated method stub
+		if( this.getDown() == null 
+				|| Math.abs(this.getWidth()-this.getDown().getWidth()) < PDFRectangle.getThreshold() ){
+			returnList.add(new Pair(prefix, this));
+			return;
+		}
+		else{
+			double sum = this.getDown().getWidth();
+			PageTextArea tmp = this.getDown();
+			tmp.addToColumnHeaderList(returnList, prefix+"|"+tmp.getString());
+			while(tmp.getRight() != null ){
+				tmp = tmp.getRight();
+				sum += tmp.getWidth();
+				if(sum > this.getWidth())
+					break;
+				else
+					tmp.addToColumnHeaderList(returnList, prefix+"|"+tmp.getString());
+			}
+		}
 	}
 	
 }

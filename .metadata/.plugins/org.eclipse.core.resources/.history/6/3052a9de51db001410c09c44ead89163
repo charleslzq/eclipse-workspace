@@ -1,0 +1,364 @@
+package src.tool;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javafx.util.Pair;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.dom4j.Element;
+
+public class ContentStreamParser {
+	private int pageNo;
+	private PDPage pdpage;
+	private TokenParser tp;
+	private List<PageTextArea> pta;
+	private TextStripperByPDFRectangle tsbro;
+	private List<TableInformation> ti;
+	
+	public ContentStreamParser(int no, PDPage pdp) throws IOException{
+		pageNo = no;
+		pdpage = pdp;
+		
+		tp = new TokenParser(pdpage.getContents().getStream().getStreamTokens());
+		tsbro = new TextStripperByPDFRectangle();
+		pta = new ArrayList<PageTextArea>();
+		
+		ti = new ArrayList<TableInformation>();
+	}
+	
+	public void parse() throws IOException{
+		pta = this.TextAreaConstructor();
+		/*for(int i = 0; i < pta.size(); i++)
+			pta.get(i).print();*/
+		ti = this.extractTableInformation();
+	}
+
+	public List<PageTextArea> TextAreaConstructor() throws IOException{
+		Map<Integer, PDFRectangle> areas = tp.getAreas();
+		List<PageTextArea> textAreas = this.constructRegions(areas);
+		
+		removeUselessRegions(textAreas);
+
+		for(int i = 0; i < tp.getSize(); i++){
+			if(areas.containsKey(new Integer(i))){
+				PDFRectangle pr = areas.get(new Integer(i));
+				if(pr.getType() == RectangleType.PDF_CELL)
+					tsbro.addRegion(i, pr);
+			}
+		}
+		tsbro.extractRegions(pdpage);
+		attachTexts(textAreas);
+		this.buildConnectionsBetweenRegions(textAreas);
+		checkMissingAreas(tsbro, textAreas);
+		return textAreas;
+	}
+	
+	public void checkMissingAreas(TextStripperByPDFRectangle tsbro2,
+			List<PageTextArea> textAreas) throws IOException {
+		// TODO Auto-generated method stub
+		int base = tp.getSize();
+		int previousSize = textAreas.size();
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea now = textAreas.get(i);
+			if( now.getRight() != null){
+				if(now.getRight().getX() - now.getX() - now.getWidth()
+						> PDFRectangle.getBlank()){
+					PDFRectangle rect = new PDFRectangle( now.getX()+now.getWidth(), 
+							now.getY(),
+							now.getRight().getX()-now.getX()-now.getWidth(),
+							now.getHeight());
+					tsbro.addRegion(base+i, rect);
+					PageTextArea pta = new PageTextArea(base+i,rect);
+					pta.setReferenced(true);
+					PageTextArea tmp = now.getRight();
+					now.setRight(pta);
+					pta.setRight(tmp);
+					textAreas.add(pta);
+				}
+			}
+		}
+		for(int i =0; i < previousSize; i++){
+			PageTextArea pta1 = textAreas.get(i);
+			for(int j =0; j < textAreas.size()-previousSize; j++){
+				PageTextArea pta2 = textAreas.get(previousSize+j);
+				if(pta1.isNextCellInTheSameColumn(pta2)){
+					pta1.setDown(pta2);
+					pta2.setReferenced(true);
+				}
+			}
+		}
+		for(int i =0; i < textAreas.size()-previousSize; i++){
+			PageTextArea pta1 = textAreas.get(previousSize+i);
+			for(int j=i+1; j < textAreas.size()-previousSize; j++){
+				PageTextArea pta2 = textAreas.get(previousSize+j);
+				if(pta1.isNextCellInTheSameColumn(pta2)){
+					pta1.setDown(pta2);
+					pta2.setReferenced(true);
+				}
+			}
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = previousSize; i < textAreas.size(); i++ ){
+			int no = textAreas.get(i).getAreaNo();
+			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
+			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
+		}
+		//this.removeUselessRegions(textAreas);
+	}
+
+	public void removeUselessRegions(List<PageTextArea> textAreas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < textAreas.size()-1 ; i++){
+			PDFRectangle pr1 = textAreas.get(i).getArea();
+			for(int j=i+1; j < textAreas.size(); j++){
+				PDFRectangle pr2 = textAreas.get(j).getArea();
+				if(pr1.isInThisArea(pr2))
+					//if(textAreas.get(i).getString() != null)
+						/*if(textAreas.get(j).getString() == null
+							|| textAreas.get(j).getString().trim().isEmpty()
+							|| textAreas.get(j).getString().trim().equals(
+									textAreas.get(i).getString().trim()))*/{
+										textAreas.remove(j);
+										j--;
+					//continue;
+				}
+				else if(pr2.isInThisArea(pr1))
+					/*if(textAreas.get(j).getString() != null)
+						if(textAreas.get(i).getString().trim().isEmpty()
+								|| textAreas.get(j).getString().trim().equals(
+										textAreas.get(i).getString().trim()))*/{
+											textAreas.remove(i);
+											i--;
+					//continue;
+				}
+			}
+		}
+	}
+
+	public List<PageTextArea> constructRegions(Map<Integer, PDFRectangle> areas){
+		List<PageTextArea> textAreas = new ArrayList<PageTextArea>();
+		for(int i=0; i<tp.getSize(); i++)
+			if(areas.containsKey(new Integer(i))){
+				PDFRectangle pr = areas.get(new Integer(i));
+				if(pr.getType() == RectangleType.PDF_CELL)
+					textAreas.add(new PageTextArea(i,pr));
+			}
+		int base = tp.getSize()*2;
+		List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
+		/*for(int i = 0; i < rects.size(); i++){
+			PDFRectangle pr = rects.get(i);
+			if(pr.getType() == RectangleType.PDF_CELL)
+				textAreas.add(new PageTextArea(base+i+1,pr));
+		}*/
+		this.sort(textAreas);
+		return textAreas;
+	}
+	
+	public void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea p1 = textAreas.get(i);
+			for(int j = i+1 ; j < textAreas.size(); j++){
+				PageTextArea p2 = textAreas.get(j);
+				if( p1.isSameRow(p2)){
+					if(p1.isLefter(p2)){
+						if(p1.getRight() == null){
+							p1.setRight(textAreas.get(j));
+							p2.setReferenced(true);
+						}
+						/*else if(p2.isLefter(p1.getRight())){
+							PageTextArea tmp = p1.getRight();
+							p1.setRight(p2);
+							p2.setRight(tmp);
+							p2.setReferenced(true);
+						}*/
+					}
+				}
+				else if( p1.isNextCellInTheSameColumn(p2)){
+					if(p1.isHigher(p2)){
+						if(p1.getDown() == null ){
+							p1.setDown(textAreas.get(j));
+							p2.setReferenced(true);
+						}
+						/*else if(p2.isHigher(p1.getDown())){
+							PageTextArea tmp = p1.getDown();
+							p1.setDown(p2);
+							p2.setDown(tmp);
+							p2.setReferenced(true);
+						}*/
+					}
+				}
+			}
+	}
+	}
+	
+	public void attachTexts(List<PageTextArea> textAreas){
+		for(int i = 0; i < textAreas.size(); i++){
+			int no = textAreas.get(i).getAreaNo();
+			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
+			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
+		}
+	}
+	
+	public List<PageTextArea> getPTA(){
+		return pta;
+	}
+	
+	public List<TableInformation> extractTableInformation(){
+		List<TableInformation> ti = new ArrayList<TableInformation>();
+		for(int i = 0; i < pta.size(); i++){
+			if(!pta.get(i).isReferenced()){
+				if(!pta.get(i).isIsolated()){
+					PageTextArea head = pta.get(i);
+					PageTextArea current = head;
+					List<Float> ls1 = new ArrayList<Float>();
+					List<Float> ls2 = new ArrayList<Float>();
+					List<String> ls3 = new ArrayList<String>();
+					int count1 = 0;
+					int count2 = 0;
+					while(current != null){
+						count1++;
+						ls1.add(new Float(current.getX()));
+						ls3.add(current.getString());
+						current = current.getRight();
+					}
+					current = head;
+					int max_row = current.cellsOnTheRight();
+					while(current.getDown()!=null){
+						current = current.getDown();
+						int tmp = current.cellsOnTheRight();
+						if( tmp > max_row)
+							max_row = tmp;
+					}
+					while(current!=null){
+						count2++;
+						ls2.add(new Float(current.getX()));
+						PageTextArea tmp = current.getRight();
+						if(tmp!=null){
+							while(tmp.getDown() != null)
+								tmp = tmp.getDown();
+							current = tmp;
+						}
+						else
+							break;
+					}
+					ti.add(new TableInformation(i,count1,count2,ls1,ls2,ls3, max_row));
+				}
+			}
+		}
+		return ti;
+	}
+	
+	public List<PageTextArea> getTableHeader(){
+		List<PageTextArea> header = new ArrayList<PageTextArea>();
+		for(int i = 0; i < pta.size(); i++){
+			if(!pta.get(i).isReferenced()){
+				if(!pta.get(i).isIsolated()){
+					header.add(pta.get(i));
+				}
+			}
+		}
+		return header;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Pair<String,PageTextArea>> getRowHeaders(PageTextArea header){
+		if(header == null)
+			return null;
+		if(header.isIsolated() == true)
+			return null;
+		if(header.isReferenced() == true)
+			return null;
+		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
+		PageTextArea currentRowHeader = header;
+		if(currentRowHeader.getRight() != null){
+			if(currentRowHeader.getRight().getHeight() < currentRowHeader.getHeight())
+				currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
+			else
+				returnList.add(new Pair(header.getString(), header));
+		}
+		while(currentRowHeader.getDown() != null){
+			currentRowHeader = currentRowHeader.getDown();
+			currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
+		}
+		return returnList;
+	}
+	
+	public void writeTableToXML(Element root){
+		List<PageTextArea> headers = this.getTableHeader();
+		if(headers.size()>0){
+			for(int i = 0; i < headers.size(); i++){
+				PageTextArea header = headers.get(i);
+				TableInformation t = ti.get(i);
+				
+				if(t.getMax_row() != 1){
+					Element table = root.addElement("Table");
+					table.addAttribute("PageNo", this.pageNo+"");
+					List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
+					if(list.size() > 0){
+						for(int j = 0; j < list.size() ;j++){
+							Element row = table.addElement("row");
+							row.addAttribute("行头", list.get(j).getKey());
+							PageTextArea rowIt = list.get(j).getValue();
+							int count = 1;
+							rowIt = rowIt.getRight();
+							if( rowIt == null){
+								row.addAttribute("列数", "0");
+								continue;
+							}
+							while(rowIt != null){
+								row.addAttribute("第"+count+"列", rowIt.getString());
+								rowIt = rowIt.getRight();
+								count++;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void writeXML(Element pageRoot){
+		Element currentTable = null;
+		int count = 0;
+		List<PageTextArea> headers = this.getTableHeader();
+		for(int i = 0; i < headers.size(); i++){
+			if(ti.get(i).getMax_row()!=1){
+				currentTable = pageRoot.addElement("Table");
+				count++;
+				currentTable.addAttribute("No.", count+"");
+				headers.get(i).writeToXML(currentTable);
+			}
+		}
+		Element cells = pageRoot.addElement("Cells");
+		for(int i=0; i < pta.size(); i++)
+			pta.get(i).writeToXML(cells);
+	}
+	
+	public void print(){
+		for(int i=0; i<pta.size(); i++)
+			pta.get(i).print();
+	}
+	
+	private void sort(List<PageTextArea> pList){
+		for(int i=0; i<pList.size(); i++){
+			PageTextArea min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PageTextArea it = pList.get(j);
+				if(it.isHigherLeft(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
+	}
+}

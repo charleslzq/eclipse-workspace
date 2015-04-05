@@ -17,9 +17,9 @@ public class CellExtractionText {
 	@Test
 	public void testPageParser() throws Exception {
 		//fail("Not yet implemented");
-		FileInputStream fis = new FileInputStream("000895_2014_n.pdf");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
-   		FileOutputStream fos = new FileOutputStream("000895_2014_n.xml");
+   		FileOutputStream fos = new FileOutputStream("000039_2014_n.xml");
    		PageParser pp = new PageParser(bis);
 		pp.output(fos);
 		bis.close();

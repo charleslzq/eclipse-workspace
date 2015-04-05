@@ -30,7 +30,7 @@ public class AreaTextTest {
 
 	@Test
 	public void testRemoveUselessRegions() throws IOException {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
    		
@@ -39,28 +39,12 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 10;
+		int index = 18;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
 		List<PageTextArea> textAreas = csp.constructRegions(areas);
-		TextStripperByPDFRectangle tsbro = new TextStripperByPDFRectangle();
-		
-		for(int i = 0; i < tp.getSize(); i++){
-			if(areas.containsKey(new Integer(i))){
-				PDFRectangle pr = areas.get(new Integer(i));
-				if(pr.getType() == RectangleType.PDF_CELL)
-					tsbro.addRegion(i, pr);
-			}
-		}
-		
-		tsbro.extractRegions(pages.get(0));
-		
-		for(int i = 0; i < textAreas.size(); i++){
-			int no = textAreas.get(i).getAreaNo();
-			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
-			textAreas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
-		}
+
 		
 		csp.removeUselessRegions(textAreas);
 		
@@ -79,7 +63,7 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 10;
+		int index = 18;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
@@ -90,12 +74,7 @@ public class AreaTextTest {
 	}
 
 	@Test
-	public void testBuildConnectionsBetweenRegions() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testAttachTexts() throws IOException {
+	public void testBuildConnectionsBetweenRegions() throws IOException {
 		fail("Not yet implemented");
 		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
    		BufferedInputStream bis = new BufferedInputStream(fis);
@@ -105,28 +84,69 @@ public class AreaTextTest {
 		parser.parse();
 		
 		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
-		int index = 10;
+		int index = 18;
 		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
 		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
 		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
 		List<PageTextArea> textAreas = csp.constructRegions(areas);
+		
+		csp.removeUselessRegions(textAreas);
+		
 		TextStripperByPDFRectangle tsbro = new TextStripperByPDFRectangle();
 		
-		for(int i = 0; i < tp.getSize(); i++){
-			if(areas.containsKey(new Integer(i))){
-				PDFRectangle pr = areas.get(new Integer(i));
-				if(pr.getType() == RectangleType.PDF_CELL)
-					tsbro.addRegion(i, pr);
-			}
+		for(int i = 0; i < textAreas.size(); i++){
+			int no = textAreas.get(i).getAreaNo();
+			tsbro.addRegion(no, textAreas.get(i).getArea());
 		}
 		
-		tsbro.extractRegions(pages.get(0));
+		tsbro.extractRegions(pages.get(index));
+		
+		for(int i = 0; i < textAreas.size(); i++){
+			int no = textAreas.get(i).getAreaNo();
+			textAreas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
+		}
+		csp.buildConnectionsBetweenRegions(textAreas);
+		csp.checkMissingAreas(tsbro, textAreas);
+		
+		for(int i=0; i<textAreas.size(); i++)
+			textAreas.get(i).print();
+	}
+
+	@Test
+	public void testAttachTexts() throws IOException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("000039_2014_n.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 18;
+		ContentStreamParser csp = new ContentStreamParser(index+1,pages.get(index));
+		TokenParser tp = new TokenParser(pages.get(index).getContents().getStream().getStreamTokens());
+		Map<Integer, PDFRectangle> areas = tp.rectangleParser();
+		List<PageTextArea> textAreas = csp.constructRegions(areas);
+		
+		csp.removeUselessRegions(textAreas);
+		
+		TextStripperByPDFRectangle tsbro = new TextStripperByPDFRectangle();
+		
+		for(int i = 0; i < textAreas.size(); i++){
+			int no = textAreas.get(i).getAreaNo();
+			tsbro.addRegion(no, textAreas.get(i).getArea());
+		}
+		
+		tsbro.extractRegions(pages.get(index));
 		
 		for(int i = 0; i < textAreas.size(); i++){
 			int no = textAreas.get(i).getAreaNo();
 			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
 			textAreas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
 		}
+		
+		csp.checkMissingAreas(tsbro, textAreas);
 		
 		for(int i=0; i<textAreas.size(); i++)
 			textAreas.get(i).print();

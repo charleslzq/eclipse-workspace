@@ -1,0 +1,26 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import src.tool.PDFRectangle;
+
+public class HigherLefterText {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testIsHigherLefter() {
+		//fail("Not yet implemented");
+		PDFRectangle p1 = new PDFRectangle(78,641,110,16);
+		PDFRectangle p2 = new PDFRectangle(455,641,124,16);
+		System.out.println(p1.isHigher(p2));
+		System.out.println(p1.isLefter(p2));
+		System.out.println(p1.isHigherLefter(p2));
+	}
+
+}

@@ -58,7 +58,7 @@ public class ContentStreamParser {
 		return textAreas;
 	}
 	
-	private void checkMissingAreas(TextStripperByPDFRectangle tsbro2,
+	public void checkMissingAreas(TextStripperByPDFRectangle tsbro2,
 			List<PageTextArea> textAreas) throws IOException {
 		// TODO Auto-generated method stub
 		int base = tp.getSize();
@@ -67,7 +67,7 @@ public class ContentStreamParser {
 			PageTextArea now = textAreas.get(i);
 			if( now.getRight() != null){
 				if(now.getRight().getX() - now.getX() - now.getWidth()
-						> PDFRectangle.getThreshold()){
+						> PDFRectangle.getBlank()){
 					PDFRectangle rect = new PDFRectangle( now.getX()+now.getWidth(), 
 							now.getY(),
 							now.getRight().getX()-now.getX()-now.getWidth(),
@@ -88,7 +88,28 @@ public class ContentStreamParser {
 			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
 			textAreas.get(i).setCharacters(this.tsbro.getCharactersByRegion(no));
 		}
-		//this.removeUselessRegions(textAreas);
+		this.sort(textAreas);
+		this.buildConnectionsBetweenRegions(textAreas);
+		/*for(int i =0; i < previousSize; i++){
+			PageTextArea pta1 = textAreas.get(i);
+			for(int j =0; j < textAreas.size()-previousSize; j++){
+				PageTextArea pta2 = textAreas.get(previousSize+j);
+				if(pta1.isNextCellInTheSameColumn(pta2)){
+					pta1.setDown(pta2);
+					pta2.setReferenced(true);
+				}
+			}
+		}
+		for(int i =0; i < textAreas.size()-previousSize; i++){
+			PageTextArea pta1 = textAreas.get(previousSize+i);
+			for(int j=i+1; j < textAreas.size()-previousSize; j++){
+				PageTextArea pta2 = textAreas.get(previousSize+j);
+				if(pta1.isNextCellInTheSameColumn(pta2)){
+					pta1.setDown(pta2);
+					pta2.setReferenced(true);
+				}
+			}
+		}*/
 	}
 
 	public void removeUselessRegions(List<PageTextArea> textAreas) {
@@ -129,13 +150,13 @@ public class ContentStreamParser {
 					textAreas.add(new PageTextArea(i,pr));
 			}
 		int base = tp.getSize()*2;
-		/*List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
-		for(int i = 0; i < rects.size(); i++){
+		List<PDFRectangle> rects = tp.buildAreaFromLines(areas);
+		/*for(int i = 0; i < rects.size(); i++){
 			PDFRectangle pr = rects.get(i);
 			if(pr.getType() == RectangleType.PDF_CELL)
 				textAreas.add(new PageTextArea(base+i+1,pr));
 		}*/
-		//this.sort(textAreas);
+		this.sort(textAreas);
 		return textAreas;
 	}
 	
@@ -246,7 +267,7 @@ public class ContentStreamParser {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Pair<String,PageTextArea>> getRowHeaders(PageTextArea header){
+	public List<Pair<String, PageTextArea>> getRowHeaders(PageTextArea header){
 		if(header == null)
 			return null;
 		if(header.isIsolated() == true)
@@ -255,15 +276,32 @@ public class ContentStreamParser {
 			return null;
 		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
 		PageTextArea currentRowHeader = header;
-		if(currentRowHeader.getRight() != null){
+		//returnList.add(new Pair(header.getString(), header));
+		/*if(currentRowHeader.getRight() != null){
 			if(currentRowHeader.getRight().getHeight() < currentRowHeader.getHeight())
 				currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
 			else
 				returnList.add(new Pair(header.getString(), header));
-		}
+		}*/
 		while(currentRowHeader.getDown() != null){
 			currentRowHeader = currentRowHeader.getDown();
 			currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());
+		}
+		return returnList;
+	}
+	
+	public List<Pair<String, PageTextArea>> getColumnHeaders(PageTextArea header){
+		if(header == null)
+			return null;
+		if(header.isIsolated() == true)
+			return null;
+		if(header.isReferenced() == true)
+			return null;
+		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
+		PageTextArea cHeader = header;
+		while(cHeader.getRight() != null){
+			cHeader = cHeader.getRight();
+			cHeader.addToColumnHeaderList(returnList, cHeader.getString());
 		}
 		return returnList;
 	}
@@ -279,6 +317,15 @@ public class ContentStreamParser {
 					Element table = root.addElement("Table");
 					table.addAttribute("PageNo", this.pageNo+"");
 					List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
+					List<Pair<String, PageTextArea>> cl = this.getColumnHeaders(header);
+					Element firstRow = table.addElement("FirstRow");
+					firstRow.addAttribute("行头", header.getString());
+					if(cl.size() == 0)
+						firstRow.addAttribute("列数", "0");
+					else
+						for(int j =0; j<cl.size();j++){
+							firstRow.addAttribute("第"+(j+1)+"列", cl.get(j).getKey());
+						}
 					if(list.size() > 0){
 						for(int j = 0; j < list.size() ;j++){
 							Element row = table.addElement("row");

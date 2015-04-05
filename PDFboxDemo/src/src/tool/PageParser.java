@@ -44,7 +44,7 @@ public class PageParser {
 		for(int i=0; i < csp.size() ; i++){
 			csp.get(i).parse();
 			csp.get(i).writeTableToXML(root);
-			csp.get(i).writeXML(root);
+			//csp.get(i).writeXML(root);
 		}
 		
 	}

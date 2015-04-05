@@ -1,20 +1,13 @@
 package src.tool;
 
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javafx.util.Pair;
-
-import org.apache.pdfbox.cos.COSArray;
 import org.apache.pdfbox.cos.COSFloat;
 import org.apache.pdfbox.cos.COSInteger;
-import org.apache.pdfbox.cos.COSName;
-import org.apache.pdfbox.cos.COSString;
 import org.apache.pdfbox.util.PDFOperator;
 
 public class TokenParser {
@@ -38,7 +31,8 @@ public class TokenParser {
 	
 	public Map<Integer, PDFRectangle> rectangleParser(){
 		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
-		PDFRectangle.setThreshold(5);
+		PDFRectangle.setThreshold(3);
+		PDFRectangle.setBlank(9.0);
 		for(int i = 0 ; i < tokens.size(); i++){
 			if( tokens.get(i) instanceof PDFOperator ){
 				PDFOperator op = (PDFOperator) tokens.get(i);

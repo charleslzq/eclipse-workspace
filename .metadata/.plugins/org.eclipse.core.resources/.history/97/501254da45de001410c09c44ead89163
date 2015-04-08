@@ -1,0 +1,28 @@
+package src.processing;
+
+import java.util.List;
+
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+
+public class ClippingPathTableExtractor extends BasicTableExtractor {
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<PDFTable> getTables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

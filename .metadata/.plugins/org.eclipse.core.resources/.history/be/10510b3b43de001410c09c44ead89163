@@ -194,7 +194,34 @@ public class ContentStreamParser {
 	}
 	
 	public void buildConnectionsBetweenRegions(List<PageTextArea> textAreas){
-		te.buildConnectionsBetweenRegions(textAreas);
+		for(int i = 0; i < textAreas.size(); i++){
+			PageTextArea p1 = textAreas.get(i);
+			for(int j = i+1 ; j < textAreas.size(); j++){
+				PageTextArea p2 = textAreas.get(j);
+				if( p1.isSameRow(p2)){
+					if(p1.isLefter(p2)){
+						if(p1.getRight() == null){
+							p1.setRight(textAreas.get(j));
+						}
+					}
+				}
+				else if( p1.isNextCellInTheSameColumn(p2)){
+					if(p1.isHigher(p2)){
+						if(p1.getDown() == null ){
+							p1.setDown(textAreas.get(j));
+						}
+					}
+				}
+			}
+		}
+		for(int i=0; i<textAreas.size();i++){
+			PageTextArea p1 = textAreas.get(i);
+			if(p1.getRight() != null)
+				p1.getRight().setReferenced(true);
+			if(p1.getDown() != null){
+				p1.getDown().setReferenced(true);
+			}
+		}
 	}
 	
 	public void attachTexts(List<PageTextArea> textAreas){

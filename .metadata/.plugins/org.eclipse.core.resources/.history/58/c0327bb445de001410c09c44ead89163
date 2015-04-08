@@ -6,7 +6,7 @@ import src.interfaces.TableExtractor;
 import src.tool.PDFTable;
 import src.tool.PageTextArea;
 
-public abstract class BasicTableExtractor implements TableExtractor {
+public class BasicTableExtractor implements TableExtractor {
 
 	public void sort(List<PageTextArea> areas) {
 		// TODO Auto-generated method stub
@@ -25,6 +25,16 @@ public abstract class BasicTableExtractor implements TableExtractor {
 				areas.set(i, min);
 			}
 		}
+	}
+	
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public void attachTexts(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
 	}
 
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas) {
@@ -57,6 +67,11 @@ public abstract class BasicTableExtractor implements TableExtractor {
 				p1.getDown().setReferenced(true);
 			}
 		}
+	}
+
+	public List<PDFTable> getTables() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

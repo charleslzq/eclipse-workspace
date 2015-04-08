@@ -1,6 +1,5 @@
 package src.interfaces;
 
-import java.io.IOException;
 import java.util.List;
 
 import src.tool.PDFTable;
@@ -9,7 +8,7 @@ import src.tool.PageTextArea;
 public interface TableExtractor {
 	public void sort(List<PageTextArea> areas);
 	public void removeUselessRegions(List<PageTextArea> areas);
-	public void attachTexts(List<PageTextArea> areas) throws Exception ;
+	public void attachTexts(List<PageTextArea> areas);
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas);
 	public List<PDFTable> getTables();
 }

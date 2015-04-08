@@ -1,0 +1,65 @@
+package src.processing;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+
+import src.tool.PDFCharacter;
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.TextStripperByPDFRectangle;
+import src.tool.TokenParser;
+
+public class ClippingPathTableExtractor extends BasicTableExtractor {
+	
+	private PDPage pdpage;
+	private TextStripperByPDFRectangle tsbro;
+	
+	public ClippingPathTableExtractor(PDPage page) throws IOException{
+		pdpage = page;
+		tsbro = new TextStripperByPDFRectangle();
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < areas.size()-1 ; i++){
+			PDFRectangle pr1 = areas.get(i).getArea();
+			for(int j=i+1; j < areas.size(); j++){
+				PDFRectangle pr2 = areas.get(j).getArea();
+				if(pr1.isInThisArea(pr2)){
+					areas.remove(j);
+					j--;
+				}
+				else if(pr2.isInThisArea(pr1)){
+					areas.remove(i);
+					if(i > 1)
+						i--;
+				}
+			}
+		}
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws IOException {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			tsbro.addRegion(no, areas.get(i).getArea());
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
+		}
+	}
+
+	@Override
+	public List<PDFTable> getTables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

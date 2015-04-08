@@ -1,0 +1,35 @@
+package src.processing;
+
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.TextStripperByPDFRectangle;
+import src.tool.TokenParser;
+
+public class ClippingPathTableExtractor extends BasicTableExtractor {
+	
+	private PDPage pdpage;
+	private TextStripperByPDFRectangle tsbro;
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<PDFTable> getTables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

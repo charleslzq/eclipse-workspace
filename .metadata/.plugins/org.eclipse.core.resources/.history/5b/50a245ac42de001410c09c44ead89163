@@ -1,0 +1,53 @@
+package src.processing;
+
+import java.util.List;
+
+import src.interfaces.TableExtractor;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+
+public class BasicTableExtractor implements TableExtractor {
+
+	public void sort(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i<areas.size()-1; i++){
+			PageTextArea min = areas.get(i);
+			int index = i;
+			for(int j=i+1; j<areas.size(); j++){
+				PageTextArea it = areas.get(j);
+				if(it.isHigherLeft(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				areas.set(index, areas.get(i));
+				areas.set(i, min);
+			}
+		}
+	}
+	
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void buildConnectionsBetweenRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<PDFTable> getTables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

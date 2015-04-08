@@ -11,8 +11,6 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.dom4j.Element;
 
-import src.interfaces.TableExtractor;
-
 public class ContentStreamParser {
 	private int pageNo;
 	private PDPage pdpage;
@@ -24,7 +22,6 @@ public class ContentStreamParser {
 	private List<TableInformation> ti;
 	private List<TableInformation> tiForLine;
 	private List<TableInformation> tiForText;
-	private TableExtractor te;
 	
 	public ContentStreamParser(int no, PDPage pdp) throws IOException{
 		pageNo = no;
@@ -36,10 +33,6 @@ public class ContentStreamParser {
 		ptaForLine = new ArrayList<PageTextArea>();
 		
 		ti = new ArrayList<TableInformation>();
-	}
-	
-	public void setExtractionMethod(TableExtractor t){
-		te = t;
 	}
 	
 	public void parse() throws IOException{
@@ -426,7 +419,21 @@ public class ContentStreamParser {
 	}
 	
 	public void sort(List<PageTextArea> pList){
-		te.sort(pList);
+		for(int i=0; i<pList.size()-1; i++){
+			PageTextArea min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PageTextArea it = pList.get(j);
+				if(it.isHigherLeft(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
 	}
 	
 	public void sortChar(List<PDFCharacter> cs){

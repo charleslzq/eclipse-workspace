@@ -4,7 +4,7 @@ import java.awt.geom.Rectangle2D;
 
 public class PDFRectangle{
 	private Rectangle2D rect;
-	private static ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
+	private static ApproximateCalculation ac = new ApproximateCalculation(0.1);
 	private RectangleType rt;
 	private static double threshold;
 	private static double blank;
@@ -36,10 +36,6 @@ public class PDFRectangle{
 
 	public RectangleType getType(){
 		return this.rt;
-	}
-
-	public static void setPrecision(int precision){
-		ac.setPrecision(precision);
 	}
 	
 	public static void setErr(double err){
@@ -98,10 +94,10 @@ public class PDFRectangle{
 
 	
 	public boolean isInThisArea(double x, double y){
-		if(ac.approximateMoreEqual(x, this.getX())
-				&& ac.approximateMoreEqual(y, this.getY())
-				&& ac.approximateMoreEqual(this.getX()+this.getWidth(), x)
-				&& ac.approximateMoreEqual(this.getY()+this.getHeight(), y))
+		if(ac.weakMore(x, this.getX())
+				&& ac.weakMore(y, this.getY())
+				&& ac.weakMore(this.getX()+this.getWidth(), x)
+				&& ac.weakMore(this.getY()+this.getHeight(), y))
 			return true;
 		return false;
 	}
@@ -134,12 +130,12 @@ public class PDFRectangle{
 	}
 	
 	public boolean isSameRow(PDFRectangle pr){
-		return ac.approximateLess(Math.abs(this.getY()+this.getHeight()-pr.getY()-pr.getHeight()), 
+		return ac.weakLess(Math.abs(this.getY()+this.getHeight()-pr.getY()-pr.getHeight()), 
 				PDFRectangle.threshold);
 	}
 	
 	public boolean isSameColumn(PDFRectangle pr){
-		return ac.approximateLess(Math.abs(this.getX() - pr.getX()), 5*PDFRectangle.threshold);
+		return ac.weakLess(Math.abs(this.getX() - pr.getX()), PDFRectangle.threshold);
 	}
 	
 	public boolean isNextCellInTheSameRow(PDFRectangle pr){
@@ -158,8 +154,8 @@ public class PDFRectangle{
 			return false;
 		if(this.isSameColumn(pr) == false)
 			return false;
-		if(ac.approximateLess(Math.abs(this.getY()-pr.getY()-pr.getHeight()), 
-				5*PDFRectangle.blank))
+		if(ac.weakLess(Math.abs(this.getY()-pr.getY()-pr.getHeight()), 
+				3*PDFRectangle.blank))
 			return true;
 		else
 			return false;
@@ -192,7 +188,7 @@ public class PDFRectangle{
 	public boolean isHigher(PDFRectangle pr){
 		if(this.isSameRow(pr))
 			return false;
-		if( ac.approximateMore(this.getY()+this.getHeight(), pr.getY()+pr.getHeight()))
+		if( ac.weakMore(this.getY()+this.getHeight(), pr.getY()+pr.getHeight()))
 			return true;
 		return false;
 	}
@@ -219,7 +215,7 @@ public class PDFRectangle{
 	}
 	
 	public boolean isRighter(PDFRectangle pr){
-		return ac.approximateMore(this.getMidX(), pr.getMidX());
+		return ac.weakMore(this.getMidX(), pr.getMidX());
 	}
 	
 	public boolean isHigherLefter(PDFRectangle pr){

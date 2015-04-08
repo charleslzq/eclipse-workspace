@@ -28,6 +28,8 @@ public class PageParser {
 	
 	@SuppressWarnings("unchecked")
 	public PageParser(BufferedInputStream fis) throws IOException{
+		System.out.println("Start processing");
+		
 		PDFParser parser = new PDFParser(fis);
 		parser.parse();
 		
@@ -48,8 +50,9 @@ public class PageParser {
 			csp.get(i).parse();
 			csp.get(i).writeLineTableToXML(root);
 			csp.get(i).writeCellTableToXML(root);
+			System.out.println("Processing " + i +"/"+csp.size()+ " page...");
 			
-			//csp.get(i).writeTextTableToXML(root);
+			csp.get(i).writeTextTableToXML(root);
 			//csp.get(i).writeXML(root);
 		}
 		

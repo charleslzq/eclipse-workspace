@@ -2,30 +2,47 @@ package src.tool;
 
 import java.math.BigDecimal;
 
+/**
+* This class determines the relation between two number of double type, within error can be tolerated.
+* @author zqliu
+* @version 1.0
+*/
 public class ApproximateCalculation {
-	private int precision;
 	private double err;
 	
-	public ApproximateCalculation(int p, double e){
-		precision = p;
+	/**
+	   * This method uses an double to initialize this class
+	   * @param e The error.
+	   */
+	public ApproximateCalculation(double e){
 		err = e;
 	}
-
-	public int getPrecision() {
-		return precision;
-	}
-
-	public void setPrecision(int precision) {
-		this.precision = precision;
-	}
+	
+	/**
+	 * Return the specified error.
+	 * @return The error specified.
+	 */
 
 	public double getErr() {
 		return err;
 	}
+	
+	/**
+	 * Specify the error.
+	 * @param err The error specified.
+	 */
 
 	public void setErr(double err) {
 		this.err = err;
 	}
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether they are equal within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if the absolute value of the difference of these two numbers is less than error specified; false, otherwise.
+	 */
 	
 	public boolean alreadyEqual(double a, double b){
 		if(Math.abs(a-b) <= err)
@@ -33,34 +50,68 @@ public class ApproximateCalculation {
 		return false;
 	}
 	
-	public boolean approximateLess(double a, double b){
-		if(a < b + err )
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is strongly smaller than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if b-a is more than error; false, otherwise
+	 */
+	
+	public boolean strongLess(double a, double b){
+		if(a + err < b)
 			return true;
 		return false;
 	}
 	
-	public boolean approximateMore(double a, double b){
-		if(a+err > b)
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is weakly smaller than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if a-b is less than error; false, otherwise
+	 */
+	
+	public boolean weakLess(double a, double b){
+		if(a < b + err)
 			return true;
 		return false;
 	}
 	
-	public boolean approximateMoreEqual(double a, double b){
-		if( a +err >= b )
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is strongly larger than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if a-b is more than error; false, otherwise
+	 */
+	
+	public boolean strongMore(double a, double b){
+		if( a > b + err)
 			return true;
 		return false;
 	}
 	
-	public boolean approximateLessEqual(double a, double b){
-		if( a <= b + err)
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is weakly larger than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if b-a is less than error; false, otherwise
+	 */
+	public boolean weakMore(double a, double b){
+		if( a + err > b)
 			return true;
 		return false;
-	}
-	
-	public double round(double a, int n){
-		BigDecimal b = new BigDecimal(a);
-		double f = b.setScale(n, BigDecimal.ROUND_HALF_UP).doubleValue();
-		return f;
 	}
 
 }

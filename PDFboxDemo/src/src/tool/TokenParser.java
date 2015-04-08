@@ -103,7 +103,7 @@ public class TokenParser {
 			p = p+3;
 		}
 		float x, y, width, height;
-		ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
+		ApproximateCalculation ac = new ApproximateCalculation(0.1);
 		if(p < tokens.size() && xs.size() >= 4){
 			if(ac.alreadyEqual(xs.get(0), xs.get(1)) && ac.alreadyEqual(xs.get(2), xs.get(3)))
 				if( ac.alreadyEqual(ys.get(0), ys.get(3)) && ac.alreadyEqual(ys.get(1), ys.get(2))){

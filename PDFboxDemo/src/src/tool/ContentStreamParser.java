@@ -7,8 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javafx.util.Pair;
-
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.dom4j.Element;
@@ -289,14 +287,14 @@ public class ContentStreamParser {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Pair<String, PageTextArea>> getRowHeaders(PageTextArea header){
+	public List<Pair> getRowHeaders(PageTextArea header){
 		if(header == null)
 			return null;
 		if(header.isIsolated() == true)
 			return null;
 		if(header.isReferenced() == true)
 			return null;
-		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
+		List<Pair> returnList = new ArrayList<Pair>();
 		PageTextArea currentRowHeader = header;
 		//returnList.add(new Pair(header.getString(), header));
 		/*if(currentRowHeader.getRight() != null){
@@ -312,14 +310,14 @@ public class ContentStreamParser {
 		return returnList;
 	}
 	
-	public List<Pair<String, PageTextArea>> getColumnHeaders(PageTextArea header){
+	public List<Pair> getColumnHeaders(PageTextArea header){
 		if(header == null)
 			return null;
 		if(header.isIsolated() == true)
 			return null;
 		if(header.isReferenced() == true)
 			return null;
-		List<Pair<String,PageTextArea>> returnList = new ArrayList<Pair<String,PageTextArea>>();
+		List<Pair> returnList = new ArrayList<Pair>();
 		PageTextArea cHeader = header;
 		while(cHeader.getRight() != null){
 			cHeader = cHeader.getRight();
@@ -356,21 +354,22 @@ public class ContentStreamParser {
 					Element table = root.addElement("Table");
 					table.addAttribute("PageNo", this.pageNo+"");
 					table.addAttribute("Method", method);
-					List<Pair<String, PageTextArea>> list = this.getRowHeaders(header);
-					List<Pair<String, PageTextArea>> cl = this.getColumnHeaders(header);
+					List<Pair> lt = this.getRowHeaders(header);
+					List<Pair> cl = this.getColumnHeaders(header);
 					Element firstRow = table.addElement("FirstRow");
 					firstRow.addAttribute("行头", header.getString());
 					if(cl.size() == 0)
 						firstRow.addAttribute("列数", "0");
-					else
-						for(int j =0; j<cl.size();j++){
-							firstRow.addAttribute("第"+(j+1)+"列", cl.get(j).getKey());
-						}
-					if(list.size() > 0){
-						for(int j = 0; j < list.size() ;j++){
+					else{
+						for(int j=0 ; j<cl.size(); j++)
+							firstRow.addAttribute("第"+(j+1)+"列", cl.get(j).getContent());
+					}
+					if(lt.size() > 0){
+						for(int j=0 ; j<lt.size(); j++){
+							String s = lt.get(j).getContent();
 							Element row = table.addElement("row");
-							row.addAttribute("行头", list.get(j).getKey());
-							PageTextArea rowIt = list.get(j).getValue();
+							row.addAttribute("行头", s);
+							PageTextArea rowIt = lt.get(j).getPta();
 							int count = 1;
 							rowIt = rowIt.getRight();
 							if( rowIt == null){
@@ -378,7 +377,10 @@ public class ContentStreamParser {
 								continue;
 							}
 							while(rowIt != null){
-								row.addAttribute("第"+count+"列", rowIt.getString());
+								String st = "第"+count+"列";
+								if(count-1 < cl.size())
+									st = cl.get(count-1).getContent();
+								row.addAttribute(st, rowIt.getString());
 								rowIt = rowIt.getRight();
 								count++;
 							}

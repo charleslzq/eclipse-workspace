@@ -3,10 +3,9 @@ package src.tool;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import javafx.util.Pair;
 
 import org.dom4j.Element;
 
@@ -197,7 +196,7 @@ public class PageTextArea {
 
 
 
-	public void addToRowHeaderList(List<Pair<String, PageTextArea>> returnList, 
+	public void addToRowHeaderList(List<Pair> returnList, 
 			String prefix) {
 		// TODO Auto-generated method stub
 		if( this.getRight() == null 
@@ -253,7 +252,7 @@ public class PageTextArea {
 
 
 	public void addToColumnHeaderList(
-			List<Pair<String, PageTextArea>> returnList, String prefix) {
+			List<Pair> returnList, String prefix) {
 		// TODO Auto-generated method stub
 		if( this.getDown() == null 
 				|| Math.abs(this.getWidth()-this.getDown().getWidth()) < PDFRectangle.getThreshold() ){

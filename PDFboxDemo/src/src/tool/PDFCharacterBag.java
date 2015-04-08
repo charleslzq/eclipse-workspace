@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PDFCharacterBag {
-	private static ApproximateCalculation ac= new ApproximateCalculation(2,1);
+	private static ApproximateCalculation ac= new ApproximateCalculation(1);
 	private List<PDFCharacter> bag;
 	private double x;
 	private double y;

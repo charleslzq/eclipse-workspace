@@ -1,0 +1,119 @@
+package src.tool;
+
+import java.math.BigDecimal;
+
+/**
+* This class determines the relation between two number of double type, within error can be tolerated.
+* @author Eric Charles
+* @date 2015-04-09
+* @version 1.0
+*/
+public class ApproximateCalculation {
+	private double err;
+	
+	/**
+	   * This method uses an double to initialize this class
+	   * @param The error.
+	   * @return Nothing returned.
+	   */
+	public ApproximateCalculation(double e){
+		err = e;
+	}
+	
+	/**
+	 * Return the specified error.
+	 * @return The error specified.
+	 */
+
+	public double getErr() {
+		return err;
+	}
+	
+	/**
+	 * Specify the error.
+	 * @param The error specified.
+	 */
+
+	public void setErr(double err) {
+		this.err = err;
+	}
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether they are equal within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if the absolute value of the difference of these two numbers is less than error specified; false, otherwise.
+	 */
+	
+	public boolean alreadyEqual(double a, double b){
+		if(Math.abs(a-b) <= err)
+			return true;
+		return false;
+	}
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is strongly smaller than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if b-a>error; false, otherwise
+	 */
+	
+	public boolean strongLess(double a, double b){
+		if(a + err < b)
+			return true;
+		return false;
+	}
+	
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is weakly smaller than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if a-b<error; false, otherwise
+	 */
+	
+	public boolean weakLess(double a, double b){
+		if(a < b + err)
+			return true;
+		return false;
+	}
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is strongly larger than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if a-b>error; false, otherwise
+	 */
+	
+	public boolean strongMore(double a, double b){
+		if( a > b + err)
+			return true;
+		return false;
+	}
+	
+	/**
+	 * This method compares two numbers, 
+	 * checks whether the first number 
+	 * is weakly larger than the second number, 
+	 * within an error.
+	 * @param a The first number
+	 * @param b The second number
+	 * @return true, if b-a<error; false, otherwise
+	 */
+	public boolean weakMore(double a, double b){
+		if( a + err > b)
+			return true;
+		return false;
+	}
+
+}

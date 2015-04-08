@@ -6,7 +6,7 @@ import org.apache.pdfbox.util.TextPosition;
 public class PDFCharacter extends TextPosition {
 	private int areaNo;
 	private TextPosition text;
-	private static ApproximateCalculation ac = new ApproximateCalculation(2,0.1);
+	private static ApproximateCalculation ac = new ApproximateCalculation(0.1);
 	
 	public PDFCharacter(int n, TextPosition t){
 		text = t;

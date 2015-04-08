@@ -19,4 +19,38 @@
 <entry path="C:\Program Files\Java\jre1.8.0_31\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="F:\Program Files (x86)\Java\jre1.5.0_22" version="1.5.0_22">
+<bootpath>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\rt.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\i18n.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\sunrsasign.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\jsse.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\jce.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\charsets.jar"/>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="F:\Program Files (x86)\Java\jre1.5.0_22\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="F:\Program Files (x86)\Java\jdk1.5.0_22" version="1.5.0_22">
+<bootpath>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\rt.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\i18n.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\sunrsasign.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\jsse.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\jce.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\charsets.jar"/>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="F:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 </libraryInfos>

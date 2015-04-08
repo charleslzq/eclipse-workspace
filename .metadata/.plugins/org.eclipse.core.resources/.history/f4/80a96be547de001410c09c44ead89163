@@ -7,7 +7,6 @@ import src.tool.PDFTable;
 import src.tool.PageTextArea;
 
 public interface TableExtractor {
-	public List<PageTextArea> getAreas(List tokens);
 	public void sort(List<PageTextArea> areas);
 	public void removeUselessRegions(List<PageTextArea> areas);
 	public void attachTexts(List<PageTextArea> areas) throws Exception ;

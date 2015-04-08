@@ -16,7 +16,6 @@ import src.tool.PDFCharacter;
 import src.tool.PDFRectangle;
 import src.tool.PDFTable;
 import src.tool.PageTextArea;
-import src.tool.RectangleType;
 import src.tool.TextStripperByPDFRectangle;
 import src.tool.TokenParser;
 
@@ -73,20 +72,11 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 	@Override
 	public List<PageTextArea> getAreas(List tokens) {
 		// TODO Auto-generated method stub
-		List<PageTextArea> areas = new ArrayList<PageTextArea>();
-		Map<Integer, PDFRectangle> rectangleMap = rectangleParser(tokens);
-		for(int i=0 ; i<tokens.size(); i++){
-			if(rectangleMap.containsKey(new Integer(i))){
-				PDFRectangle pr = rectangleMap.get(new Integer(i));
-				if(pr.getType() == RectangleType.PDF_CELL)
-					areas.add(new PageTextArea(i,pr));
-			}
-		}
-		return areas;
+		return null;
 	}
 	
 	public Map<Integer, PDFRectangle> rectangleParser(List tokens){
-		Map<Integer, PDFRectangle> rectangleMap = new HashMap<Integer, PDFRectangle>();
+		Map<Integer, PDFRectangle> rectangleMap= new HashMap<Integer, PDFRectangle>();
 		PDFRectangle.setThreshold(3);
 		PDFRectangle.setBlank(9.0);
 		for(int i = 0 ; i < tokens.size(); i++){

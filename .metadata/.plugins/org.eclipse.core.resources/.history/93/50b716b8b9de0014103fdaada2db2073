@@ -72,10 +72,6 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 		attachTexts(areas);
 		
 		List<PageTextArea> headers = getTableHeader(areas);
-		List<PDFTable> tables = new ArrayList<PDFTable>();
-		for(int i=0; i<headers.size(); i++)
-			tables.add(getTableFromHeader(headers.get(i)));
-		
 		return null;
 	}
 

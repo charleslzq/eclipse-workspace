@@ -274,12 +274,4 @@ public class PageTextArea {
 		}
 	}
 	
-	public void addToList(List<PageTextArea> list){
-		list.add(this);
-		if(right != null)
-			right.addToList(list);
-		if(down != null)
-			down.addToList(list);
-	}
-	
 }

@@ -65,12 +65,5 @@ public abstract class BasicTableExtractor implements TableExtractor {
 		}
 		return header;
 	}
-	
-	public PDFTable getTableFromHeader(PageTextArea header){
-		List<PageTextArea> list = new ArrayList<PageTextArea>();
-		header.addToList(list);
-		sort(list);
-		return new PDFTable(list);
-	}
 
 }

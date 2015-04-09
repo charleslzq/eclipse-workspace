@@ -65,17 +65,8 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 	}
 
 	@Override
-	public List<PDFTable> getTables(List tokens) throws Exception {
+	public List<PDFTable> getTables(List tokens) {
 		// TODO Auto-generated method stub
-		List<PageTextArea> areas = getAreas(tokens);
-		removeUselessRegions(areas);
-		attachTexts(areas);
-		
-		List<PageTextArea> headers = getTableHeader(areas);
-		List<PDFTable> tables = new ArrayList<PDFTable>();
-		for(int i=0; i<headers.size(); i++)
-			tables.add(getTableFromHeader(headers.get(i)));
-		
 		return null;
 	}
 
@@ -94,7 +85,7 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 		return areas;
 	}
 	
-	private Map<Integer, PDFRectangle> rectangleParser(List tokens){
+	public Map<Integer, PDFRectangle> rectangleParser(List tokens){
 		Map<Integer, PDFRectangle> rectangleMap = new HashMap<Integer, PDFRectangle>();
 		PDFRectangle.setThreshold(3);
 		PDFRectangle.setBlank(9.0);
@@ -146,7 +137,7 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 		return new PDFRectangle(a[0],a[1],a[2],a[3]);
 	}
 	
-	private PDFRectangle getPDFRectangleFromLines(List tokens, int index) {
+	public PDFRectangle getPDFRectangleFromLines(List tokens, int index) {
 		// TODO Auto-generated method stub
 		int p = index;
 		List<Float> xs = new ArrayList<Float>();

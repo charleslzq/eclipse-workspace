@@ -11,22 +11,11 @@ import org.apache.pdfbox.util.PDFOperator;
 
 import src.tool.ApproximateCalculation;
 import src.tool.PDFRectangle;
-
-/**
- * This abstract class should be the super class of any class representing a method to extract tables from a PDF page
- * by parsing the PDF stream for rectangles. Some general methods such as rectangleParser are implemented.
- * @author zqliu
- * @version 1.0
- */
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
 
 public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
 	
-	/**
-	 * This method tries to extract rectangles from
-	 * a list of tokens generated from a PDF page.
-	 * @param tokens The list of tokens.
-	 * @return A hash map contains all the rectangles and their corresponding keys, which are the indexes of their operators "re" or "m" in the token list.
-	 */
 	protected Map<Integer, PDFRectangle> rectangleParser(List tokens){
 		Map<Integer, PDFRectangle> rectangleMap = new HashMap<Integer, PDFRectangle>();
 		PDFRectangle.setThreshold(3);
@@ -63,12 +52,6 @@ public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
 		return rectangleMap;
 	}
 	
-	/**
-	 * This method gets a float value from a COS object
-	 * in a PDF stream.
-	 * @param o A COS object, should be COSInteger or COSFloat
-	 * @return the value the object represents. Return -9999.9999 if the input is out of expectation.
-	 */
 	private float getFloatValueFromCOS(Object o){
 		if(o instanceof COSInteger)
 			return ((COSInteger)o).floatValue();
@@ -77,13 +60,6 @@ public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
 		return (float) -9999.99999;
 	}
 	
-	/**
-	 * This method generates a rectangle 
-	 * by parsing the "re" operator.
-	 * @param tokens The list of tokens.
-	 * @param index The index of "re" in the token list.
-	 * @return The rectangle this "re" operator depicts.
-	 */
 	private PDFRectangle getPDFRectangle(List tokens, int index){
 		double a[] ={0,0,0,0};
 		int base = index - 5;
@@ -92,13 +68,6 @@ public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
 		return new PDFRectangle(a[0],a[1],a[2],a[3]);
 	}
 	
-	/**
-	 * This method generates a rectangle
-	 * by parsing a set of "m/l/h" operators
-	 * @param tokens The list of tokens.
-	 * @param index The index of "m" in the token list.
-	 * @return The rectangle this set of operators depicts.
-	 */
 	private PDFRectangle getPDFRectangleFromLines(List tokens, int index) {
 		// TODO Auto-generated method stub
 		int p = index;

@@ -7,13 +7,6 @@ import src.interfaces.TableExtractor;
 import src.tool.PDFTable;
 import src.tool.PageTextArea;
 
-/**
- * This class implements TableExtractor and any classes represents a method to extract
- * table from a PDF page should be sub class of it. General methods such as sort are
- * implemented.
- * @author zqliu
- * @version 1.0
- */
 public abstract class BasicTableExtractor implements TableExtractor {
 
 	public void sort(List<PageTextArea> areas) {
@@ -34,7 +27,7 @@ public abstract class BasicTableExtractor implements TableExtractor {
 			}
 		}
 	}
-	
+
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas) {
 		// TODO Auto-generated method stub
 		for(int i = 0; i < areas.size(); i++){

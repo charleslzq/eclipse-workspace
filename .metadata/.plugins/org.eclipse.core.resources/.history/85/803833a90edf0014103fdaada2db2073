@@ -51,7 +51,7 @@ public interface TableExtractor {
 	 * A rectangle has two links, one links to the rectangle next
 	 * to it on the right, the other one links to the rectangle
 	 * considered to be next to it downside.
-	 * @param areas The list of sorted rectangles.
+	 * @param areas The list of rectangles.
 	 */
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas);
 	

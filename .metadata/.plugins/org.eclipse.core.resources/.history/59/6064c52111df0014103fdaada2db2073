@@ -12,13 +12,6 @@ import org.apache.pdfbox.util.PDFOperator;
 import src.tool.ApproximateCalculation;
 import src.tool.PDFRectangle;
 
-/**
- * This abstract class should be the super class of any class representing a method to extract tables from a PDF page
- * by parsing the PDF stream for rectangles. Some general methods such as rectangleParser are implemented.
- * @author zqliu
- * @version 1.0
- */
-
 public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
 	
 	/**

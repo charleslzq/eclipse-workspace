@@ -12,6 +12,5 @@ public interface TableExtractor {
 	public void removeUselessRegions(List<PageTextArea> areas);
 	public void attachTexts(List<PageTextArea> areas) throws Exception ;
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas);
-	public List<PDFTable> getTables(List tokens);
-	public List<PageTextArea> getTableHeader(List<PageTextArea> areas);
+	public List<PDFTable> getTables();
 }

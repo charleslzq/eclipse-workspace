@@ -1,6 +1,5 @@
 package src.processing;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import src.interfaces.TableExtractor;
@@ -38,7 +37,6 @@ public abstract class BasicTableExtractor implements TableExtractor {
 					if(p1.isLefter(p2)){
 						if(p1.getRight() == null){
 							p1.setRight(areas.get(j));
-							p2.setReferenced(true);
 						}
 					}
 				}
@@ -46,24 +44,19 @@ public abstract class BasicTableExtractor implements TableExtractor {
 					if(p1.isHigher(p2)){
 						if(p1.getDown() == null ){
 							p1.setDown(areas.get(j));
-							p2.setReferenced(true);
 						}
 					}
 				}
 			}
 		}
-	}
-	
-	public List<PageTextArea> getTableHeader(List<PageTextArea> p){
-		List<PageTextArea> header = new ArrayList<PageTextArea>();
-		for(int i = 0; i < p.size(); i++){
-			if(!p.get(i).isReferenced()){
-				if(!p.get(i).isIsolated()){
-					header.add(p.get(i));
-				}
+		for(int i=0; i<areas.size();i++){
+			PageTextArea p1 = areas.get(i);
+			if(p1.getRight() != null)
+				p1.getRight().setReferenced(true);
+			if(p1.getDown() != null){
+				p1.getDown().setReferenced(true);
 			}
 		}
-		return header;
 	}
 
 }

@@ -1,5 +1,11 @@
 package src.tool;
 
-public class PDFTable {
+import java.util.List;
 
+public class PDFTable {
+	private List<PageTextArea> pta;
+	
+	public PDFTable(List<PageTextArea> p){
+		pta = p;
+	}
 }

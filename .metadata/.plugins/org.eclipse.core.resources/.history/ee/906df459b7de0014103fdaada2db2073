@@ -65,7 +65,7 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 	}
 
 	@Override
-	public List<PDFTable> getTables(List tokens) {
+	public List<PDFTable> getTables() {
 		// TODO Auto-generated method stub
 		return null;
 	}

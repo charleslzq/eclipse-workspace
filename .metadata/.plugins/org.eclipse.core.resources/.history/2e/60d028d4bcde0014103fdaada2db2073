@@ -70,14 +70,13 @@ public class ClippingPathTableExtractor extends BasicTableExtractor {
 		List<PageTextArea> areas = getAreas(tokens);
 		removeUselessRegions(areas);
 		attachTexts(areas);
-		buildConnectionsBetweenRegions(areas);
 		
 		List<PageTextArea> headers = getTableHeader(areas);
 		List<PDFTable> tables = new ArrayList<PDFTable>();
 		for(int i=0; i<headers.size(); i++)
 			tables.add(getTableFromHeader(headers.get(i)));
 		
-		return tables;
+		return null;
 	}
 
 	@Override

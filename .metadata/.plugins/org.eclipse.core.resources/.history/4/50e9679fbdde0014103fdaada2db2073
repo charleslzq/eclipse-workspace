@@ -276,9 +276,9 @@ public class PageTextArea {
 	
 	public void addToList(List<PageTextArea> list){
 		list.add(this);
-		if(right != null && list.contains(right) == false)
+		if(right != null)
 			right.addToList(list);
-		if(down != null && list.contains(down) == false)
+		if(down != null)
 			down.addToList(list);
 	}
 	

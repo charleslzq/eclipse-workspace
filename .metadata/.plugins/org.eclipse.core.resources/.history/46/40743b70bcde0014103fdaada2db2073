@@ -8,10 +8,4 @@ public class PDFTable {
 	public PDFTable(List<PageTextArea> p){
 		pta = p;
 	}
-	
-	public void print(){
-		for(int i=0; i<pta.size(); i++)
-			pta.get(i).print();
-		System.out.println();
-	}
 }

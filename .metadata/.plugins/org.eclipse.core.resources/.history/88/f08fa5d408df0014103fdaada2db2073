@@ -1,0 +1,86 @@
+package src.processing;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import src.tool.PDFCharacter;
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.TextStripperByPDFRectangle;
+
+public class LineTableExtractor extends TokenParserTableExtrctor {
+
+	@Override
+	public List<PageTextArea> getAreas(List tokens) {
+		// TODO Auto-generated method stub
+		List<PDFRectangle> rects = tp.buildAreaFromLines(as);
+		List<PageTextArea> areas = new ArrayList<PageTextArea>();
+		
+		for(int i=0; i<rects.size(); i++){
+			PageTextArea cell = new PageTextArea(tp.getSize()+i,rects.get(i));
+			areas.add(cell);	
+		}
+		this.sort(areas);
+		this.removeUselessRegions(areas);
+		
+		for(int i=0; i<rects.size(); i++){
+			tsbro.addRegion(tp.getSize()+i, rects.get(i));
+		}
+		
+		tsbro.extractRegions(pdpage);
+		
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			List<PDFCharacter> cs = tsbro.getCharactersByRegion(no);
+			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
+		}
+		return areas;
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<PDFTable> getTables(List tokens) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isVerticalLine() == true)
+				result.add(pr);
+		}
+		this.sort(result);
+		return result;
+	}
+	
+	public List<PDFRectangle> getHorizontalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isHorizontalLine() == true)
+				result.add(pr);
+		}
+		return result;
+	}
+	
+	
+
+}

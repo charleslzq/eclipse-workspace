@@ -206,13 +206,6 @@ public class PDFRectangle{
 		return false;
 	}
 	
-	public boolean isHorizontalLine(){
-		if(this.rt == RectangleType.PDF_LINE)
-			if(this.getHeight() < this.getWidth())
-				return true;
-		return false;
-	}
-	
 	public boolean isSameX(double x){
 		return ac.alreadyEqual(this.getX(), x);
 	}

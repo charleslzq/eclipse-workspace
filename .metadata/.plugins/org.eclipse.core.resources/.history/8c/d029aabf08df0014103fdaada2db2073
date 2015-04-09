@@ -1,0 +1,61 @@
+package src.processing;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+
+public class LineTableExtractor extends TokenParserTableExtrctor {
+
+	@Override
+	public List<PageTextArea> getAreas(List tokens) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<PDFTable> getTables(List tokens) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isVerticalLine() == true)
+				result.add(pr);
+		}
+		this.sort(result);
+		return result;
+	}
+	
+	public List<PDFRectangle> getHorizontalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isHorizontalLine() == true)
+				result.add(pr);
+		}
+		return result;
+	}
+
+}

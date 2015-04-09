@@ -43,7 +43,7 @@ public class ContentStreamParser {
 		te = t;
 	}
 	
-	public void parse() throws Exception{
+	public void parse() throws IOException{
 		pta = this.TextAreaConstructor();
 		ptaForLine = this.LineAreaConstructor();
 		ptaForText = this.TextPositionConstructor();
@@ -54,9 +54,8 @@ public class ContentStreamParser {
 		tiForText = this.extractTableInformation(ptaForText);
 	}
 
-	public List<PageTextArea> TextAreaConstructor() throws Exception{
+	public List<PageTextArea> TextAreaConstructor() throws IOException{
 		ClippingPathTableExtractor cpte = new ClippingPathTableExtractor(pdpage);
-		this.te = cpte;
 		List<PageTextArea> areas = cpte.getAreas(tp.getTokens());
 		
 		cpte.removeUselessRegions(areas);

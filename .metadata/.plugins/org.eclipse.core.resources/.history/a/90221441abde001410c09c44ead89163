@@ -22,10 +22,6 @@ public class TokenParser {
 	public Map<Integer, PDFRectangle> getAreas() {
 		return areas;
 	}
-	
-	public List getTokens(){
-		return tokens;
-	}
 
 
 	public void print(){

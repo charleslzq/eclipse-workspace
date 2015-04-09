@@ -27,7 +27,7 @@ public class PageParser {
 	private Document xml;
 	
 	@SuppressWarnings("unchecked")
-	public PageParser(BufferedInputStream fis) throws Exception{
+	public PageParser(BufferedInputStream fis) throws IOException{
 		System.out.println("Start processing");
 		
 		PDFParser parser = new PDFParser(fis);

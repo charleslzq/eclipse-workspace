@@ -56,7 +56,6 @@ public class ContentStreamParser {
 
 	public List<PageTextArea> TextAreaConstructor() throws Exception{
 		ClippingPathTableExtractor cpte = new ClippingPathTableExtractor(pdpage);
-		this.te = cpte;
 		List<PageTextArea> areas = cpte.getAreas(tp.getTokens());
 		
 		cpte.removeUselessRegions(areas);

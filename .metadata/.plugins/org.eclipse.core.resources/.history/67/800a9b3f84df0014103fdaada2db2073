@@ -96,11 +96,6 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 		return tables;
 	}
 	
-	/**
-	 * This method identifies vertical lines from a collection of rectangles.
-	 * @param rects A hash map contains all the rectangles.
-	 * @return The list of rectangles that are considered vertical lines.
-	 */
 	private List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
 		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
 		Iterator<Integer> it = rects.keySet().iterator();
@@ -112,11 +107,6 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 		return result;
 	}
 	
-	/**
-	 * This method identifies horizontal lines from a collection of rectangles.
-	 * @param rects A hash map contains all the rectangles.
-	 * @return The list of rectangles that are considered horizontal lines.
-	 */
 	private List<PDFRectangle> getHorizontalLines(Map<Integer, PDFRectangle> rects){
 		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
 		Iterator<Integer> it = rects.keySet().iterator();
@@ -128,35 +118,19 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 		return result;
 	}
 	
-	/**
-	 * This method constructs cells from a collection of rectangles
-	 * @param rects A hash map contains all the rectangles. 
-	 * @return The list of rectangles that are constructed as table cells.
-	 */
 	private List<PDFRectangle> buildAreaFromLines(Map<Integer, PDFRectangle> rects){
 		List<PDFRectangle> lines =this.getVerticalLines(rects);
 		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
 		for(int i=0; i<lines.size()-1 ; i++){
-			PDFRectangle p = formAreaFromVerticalLines(lines.get(i), lines.get(i+1));
+			PDFRectangle p = formArea(lines.get(i), lines.get(i+1));
 			if(p != null
 					&& p.getType() == RectangleType.PDF_CELL)
 				result.add(p);
 		}
 		return result;
 	}
-	
-	
-	/**
-	 * This method constructs a rectangle based on two sorted vertical lines.
-	 * The width of this rectangle is the horizontal distance between these
-	 * two lines and the height is determined by the line with larger height.
-	 * The X is determined by the first line while the Y is the smaller one 
-	 * of Ys of these two lines.
-	 * @param p1 The left vertical line, should have a smaller X. And the left-upper Y should be the same as the left-upper Y of the second rectangle.
-	 * @param p2 The right vertical line, should have a larger X.
-	 * @return The rectangle constructed from these two lines.
-	 */
-	private PDFRectangle formAreaFromVerticalLines(PDFRectangle p1,
+
+	private PDFRectangle formArea(PDFRectangle p1,
 			PDFRectangle p2) {
 		// TODO Auto-generated method stub
 		if(p1.getType() == RectangleType.PDF_LINE 

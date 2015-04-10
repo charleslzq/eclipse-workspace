@@ -22,14 +22,7 @@ import src.tool.TokenParser;
 
 public class ClippingPathTableExtractor extends TokenParserTableExtrctor {
 	
-	/**
-	 * The page that would be processed
-	 */
 	private PDPage pdpage;
-	
-	/**
-	 * A class that would be used to extract texts from a specified areas in a PDF page.
-	 */
 	private TextStripperByPDFRectangle tsbro;
 	
 	public ClippingPathTableExtractor(PDPage page) throws IOException{

@@ -1,5 +1,6 @@
 package src.interfaces;
 
+import java.io.IOException;
 import java.util.List;
 
 import src.tool.PDFTable;

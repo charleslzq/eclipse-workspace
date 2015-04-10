@@ -8,7 +8,7 @@ import src.tool.PDFTable;
 import src.tool.PageTextArea;
 
 /**
- * This class implements TableExtractor and any class represents a method to extract
+ * This class implements TableExtractor and any classes represents a method to extract
  * table from a PDF page should be sub class of it. General methods such as sort are
  * implemented.
  * @author zqliu

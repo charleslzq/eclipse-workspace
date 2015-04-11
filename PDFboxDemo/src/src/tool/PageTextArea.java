@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.dom4j.Element;
 
-public class PageTextArea {
+public class PageTextArea implements Comparable<PageTextArea>{
 	private int areaNo;
 	private PDFRectangle area;
 	private List<PDFCharacter> characters;
@@ -280,6 +280,16 @@ public class PageTextArea {
 			right.addToList(list);
 		if(down != null && list.contains(down) == false)
 			down.addToList(list);
+	}
+
+
+
+	@Override
+	public int compareTo(PageTextArea o) {
+		// TODO Auto-generated method stub
+		if(this.isHigherLeft(o))
+			return -1;
+		return 1;
 	}
 	
 }

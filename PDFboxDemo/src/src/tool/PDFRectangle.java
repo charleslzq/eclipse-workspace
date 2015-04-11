@@ -2,7 +2,7 @@ package src.tool;
 
 import java.awt.geom.Rectangle2D;
 
-public class PDFRectangle{
+public class PDFRectangle implements Comparable<PDFRectangle>{
 	private Rectangle2D rect;
 	private static ApproximateCalculation ac = new ApproximateCalculation(0.1);
 	private RectangleType rt;
@@ -251,5 +251,13 @@ public class PDFRectangle{
 			return (x2-x)*(y2-y);
 		else
 			return -1;
+	}
+
+	@Override
+	public int compareTo(PDFRectangle o) {
+		// TODO Auto-generated method stub
+		if(this.isHigherLefter(o))
+			return -1;
+		return 1;
 	}
 }

@@ -49,8 +49,8 @@ public class TableXMLWriter extends BasicXMLWriter {
 		for(int i=0; i<rowHeaders.size(); i++){
 			Element row = t.addElement("Row");
 			addAttributes(row, table.getRows(rowHeaders.get(i).getPta()));
+			if(i == 8)
+				rowHeaders.get(i).getPta().print();
 		}
-		
-		write();
 	}
 }

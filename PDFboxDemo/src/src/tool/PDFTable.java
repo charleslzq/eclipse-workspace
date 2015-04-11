@@ -20,9 +20,14 @@ public class PDFTable {
 		
 	}
 	
+	public List<PageTextArea> getPTA(){
+		return pta;
+	}
+	
 	public List<Pair> getRowHeaders(){
 		List<Pair> returnList = new ArrayList<Pair>();
 		PageTextArea currentRowHeader = pta.get(0);
+		returnList.add(new Pair("First", currentRowHeader));
 		while(currentRowHeader.getDown() != null){
 			currentRowHeader = currentRowHeader.getDown();
 			currentRowHeader.addToRowHeaderList(returnList, currentRowHeader.getString());

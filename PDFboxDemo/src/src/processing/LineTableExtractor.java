@@ -2,6 +2,7 @@ package src.processing;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 			areas.add(cell);	
 		}
 		
-		sort(areas);
+		Collections.sort(areas);
 		return areas;
 	}
 
@@ -65,7 +66,16 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 			PDFRectangle pr1 = textAreas.get(i).getArea();
 			for(int j=i+1; j < textAreas.size(); j++){
 				PDFRectangle pr2 = textAreas.get(j).getArea();
-				if( pr1.intersect(pr2)/pr2.getMeasure() >= 0.6){
+				if(pr1.isInThisArea(pr2)){
+					textAreas.remove(j);
+					j--;
+				}
+				else if(pr2.isInThisArea(pr1)){
+					textAreas.remove(i);
+					if(i > 1)
+						i--;
+				}
+				else if( pr1.intersect(pr2)/pr2.getMeasure() >= 0.6){
 					textAreas.remove(j);
 					j--;
 				}
@@ -96,6 +106,7 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 	public List<PDFTable> getTables(PDPage page) throws Exception {
 		// TODO Auto-generated method stub
 		pdpage = page;
+		PDFRectangle.setThreshold(3);
 		List tokens = getTokens(pdpage);
 		List<PageTextArea> areas = getAreas(tokens);
 		removeUselessRegions(areas);
@@ -123,9 +134,35 @@ public class LineTableExtractor extends TokenParserTableExtrctor {
 			if(pr.isVerticalLine() == true)
 				result.add(pr);
 		}
+		sortRectangle(result);
 		return result;
 	}
 	
+	
+	/**
+	 * This method sorts the rectangles in the same way sort() sorts a list of PageTextArea.
+	 * @param pList The list of rectangles that we want to sort.
+	 */
+	private void sortRectangle(List<PDFRectangle> pList) {
+		// TODO Auto-generated method stub
+		for(int i=0; i<pList.size(); i++){
+			PDFRectangle min = pList.get(i);
+			int index = i;
+			for(int j=i+1; j<pList.size(); j++){
+				PDFRectangle it = pList.get(j);
+				if(it.isHigherLefter(min) == true){
+					min = it;
+					index = j;
+				}
+			}
+			if(i != index){
+				pList.set(index, pList.get(i));
+				pList.set(i, min);
+			}
+		}
+	}
+
+
 	/**
 	 * This method identifies horizontal lines from a collection of rectangles.
 	 * @param rects A hash map contains all the rectangles.

@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+package src.interfaces;
+
+import src.processing.RectangleSorter;
+import src.tool.PDFCharacter;
+
+/**
+ * This interface is used to sort classes that based on rectangles.
+ * @author zqliu
+ * @version 1.0
+ */
+public interface Sorter {
+	
+	/**
+	 * This method are supposed to compare 
+	 * two arguments, each of which is supposed to 
+	 * contain a rectangle to specify its position.
+	 * If the first one, compared to the second one,
+	 * is higher or lefter with the same Y+height, 
+	 * then the result will be true;
+	 * @return The result of determining whether a is higher or lefter with the same Y+height than b or not.
+	 */
+	public boolean isHigherLefter(Sorter b);
+
+	boolean isHigherLefter(RectangleSorter a, RectangleSorter b);
+	
+	/**
+	 * This method are supposed to compare 
+	 * two arguments, each of which is supposed to 
+	 * contain a rectangle to specify its position.
+	 * @param a The first rectangle
+	 * @param b The second rectangle
+	 * @return The result of determining whether a is higher than b or not.
+	 *//*
+	public boolean isHigher(Sorter a, Sorter b);
+	
+	*//**
+	 * This method are supposed to compare 
+	 * two arguments, each of which is supposed to 
+	 * contain a rectangle to specify its position.
+	 * @param a The first rectangle
+	 * @param b The second rectangle
+	 * @return The result of determining whether a is lefter than b or not.
+	 *//*
+	public boolean isLefter(Sorter a, Sorter b);*/
+}

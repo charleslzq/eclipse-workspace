@@ -75,6 +75,7 @@ public class ClippingPathTableExtractor extends TokenParserTableExtrctor {
 	public List<PDFTable> getTables(PDPage page) throws Exception {
 		// TODO Auto-generated method stub
 		pdpage = page;
+		PDFRectangle.setThreshold(7);
 		List tokens = getTokens(pdpage);
 		List<PageTextArea> areas = getAreas(tokens);
 		removeUselessRegions(areas);

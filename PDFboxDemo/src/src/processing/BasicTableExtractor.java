@@ -1,6 +1,7 @@
 package src.processing;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import src.interfaces.TableExtractor;
@@ -16,24 +17,6 @@ import src.tool.PageTextArea;
  */
 public abstract class BasicTableExtractor implements TableExtractor {
 
-	public void sort(List<PageTextArea> areas) {
-		// TODO Auto-generated method stub
-		for(int i=0; i<areas.size()-1; i++){
-			PageTextArea min = areas.get(i);
-			int index = i;
-			for(int j=i+1; j<areas.size(); j++){
-				PageTextArea it = areas.get(j);
-				if(it.isHigherLeft(min) == true){
-					min = it;
-					index = j;
-				}
-			}
-			if(i != index){
-				areas.set(index, areas.get(i));
-				areas.set(i, min);
-			}
-		}
-	}
 	
 	public void buildConnectionsBetweenRegions(List<PageTextArea> areas) {
 		// TODO Auto-generated method stub
@@ -76,7 +59,7 @@ public abstract class BasicTableExtractor implements TableExtractor {
 	public PDFTable getTableFromHeader(PageTextArea header){
 		List<PageTextArea> list = new ArrayList<PageTextArea>();
 		header.addToList(list);
-		sort(list);
+		Collections.sort(list);
 		return new PDFTable(list);
 	}
 

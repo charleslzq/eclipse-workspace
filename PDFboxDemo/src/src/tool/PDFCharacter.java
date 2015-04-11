@@ -3,7 +3,7 @@ package src.tool;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.util.TextPosition;
 
-public class PDFCharacter extends TextPosition {
+public class PDFCharacter implements Comparable<PDFCharacter>{
 	private int areaNo;
 	private TextPosition text;
 	private static ApproximateCalculation ac = new ApproximateCalculation(0.1);
@@ -83,5 +83,14 @@ public class PDFCharacter extends TextPosition {
 		else
 			return false;
 		
+	}
+
+
+	@Override
+	public int compareTo(PDFCharacter c) {
+		// TODO Auto-generated method stub
+		if(this.isHigherLefter(c))
+			return -1;
+		return 1;
 	}
 }

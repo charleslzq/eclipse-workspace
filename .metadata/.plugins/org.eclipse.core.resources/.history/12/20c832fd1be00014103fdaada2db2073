@@ -1,0 +1,68 @@
+package src.processing;
+
+import java.awt.geom.Rectangle2D;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.TextStripperByPDFRectangle;
+
+public class TextPositionExtractor extends BasicTableExtractor {
+	
+	/**
+	 * The page that would be processed.
+	 */
+	private PDPage pdpage;
+	
+	/**
+	 * The constructor use a page to initialize this class.
+	 * @param page The page that would be processed.
+	 * @throws IOException
+	 */
+	public TextPositionExtractor(PDPage page) throws IOException{
+		pdpage = page;
+		tsbro = new TextStripperByPDFRectangle();
+	}
+
+	@Override
+	public List getTokens(PDPage page) throws IOException {
+		// TODO Auto-generated method stub
+		TextStripperByPDFRectangle ts = new TextStripperByPDFRectangle();
+		PDRectangle pd = pdpage.getMediaBox();
+		PDFRectangle p = new PDFRectangle(pd.getLowerLeftX(),pd.getLowerLeftY(),pd.getWidth(),pd.getHeight());
+		
+		ts.addRegion(-1, p);
+		ts.extractRegions(pdpage);
+		return ts.getCharactersByRegion(-1);
+	}
+
+	@Override
+	public List<PageTextArea> getAreas(List tokens) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<PDFTable> getTables(PDPage page) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

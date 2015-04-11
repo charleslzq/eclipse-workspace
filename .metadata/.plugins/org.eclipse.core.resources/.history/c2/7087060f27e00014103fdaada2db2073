@@ -1,0 +1,15 @@
+package src.processing;
+
+import src.interfaces.Sorter;
+
+public abstract class RectangleSorter implements Sorter {
+
+	
+	
+	@Override
+	public boolean isHigherLefter(RectangleSorter a, RectangleSorter b) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

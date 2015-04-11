@@ -3,7 +3,7 @@ package src.tool;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PDFCharacterBag {
+public class PDFCharacterBag implements Comparable<PDFCharacterBag>{
 	private static ApproximateCalculation ac= new ApproximateCalculation(1);
 	private List<PDFCharacter> bag;
 	private double x;
@@ -75,6 +75,17 @@ public class PDFCharacterBag {
 	public List<PDFCharacter> getCharacters() {
 		// TODO Auto-generated method stub
 		return this.bag;
+	}
+
+	@Override
+	public int compareTo(PDFCharacterBag b) {
+		// TODO Auto-generated method stub
+		if(this.getY()+this.getHeight() > b.getY()+b.getHeight())
+			return 1;
+		else if(this.getY()+this.getHeight() == b.getY()+b.getHeight())
+			if(this.getX() <= b.getX())
+				return -1;
+		return 1;
 	}
 	
 }

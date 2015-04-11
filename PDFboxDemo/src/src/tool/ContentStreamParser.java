@@ -3,6 +3,7 @@ package src.tool;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -56,18 +57,11 @@ public class ContentStreamParser {
 
 	public List<PageTextArea> TextAreaConstructor() throws Exception{
 		setExtractionMethod(new ClippingPathTableExtractor(pdpage));
-		List<PageTextArea> areas = te.getAreas(tp.getTokens());
-		
-		te.removeUselessRegions(areas);
-		te.attachTexts(areas);
-		te.buildConnectionsBetweenRegions(areas);
-		
-		checkMissingAreas(tsbro, areas);
 		
 		List<PDFTable> tables = te.getTables(pdpage);
 		for(int i=0; i<tables.size(); i++)
 			tables.get(i).print();
-		return areas;
+		return tables.get(0).getPTA();
 	}
 	
 	public List<PageTextArea> LineAreaConstructor() throws IOException{
@@ -396,7 +390,7 @@ public class ContentStreamParser {
 	}
 	
 	public void sort(List<PageTextArea> pList){
-		te.sort(pList);
+		Collections.sort(pList);
 	}
 	
 	public void sortChar(List<PDFCharacter> cs){
@@ -484,7 +478,7 @@ public class ContentStreamParser {
 		this.removeUselessRegions(areas);
 		
 		for(int i=0; i<rects.size(); i++){
-			tsbro.addRegion(tp.getSize()+i, rects.get(i));
+			tsbro.addRegion(tp.getSize()+i, areas.get(i).getArea());
 		}
 		
 		tsbro.extractRegions(pdpage);

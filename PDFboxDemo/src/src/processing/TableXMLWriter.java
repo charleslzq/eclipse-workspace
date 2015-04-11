@@ -1,0 +1,36 @@
+package src.processing;
+
+import java.util.List;
+
+import org.dom4j.Element;
+
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.Pair;
+
+public class TableXMLWriter extends BasicXMLWriter {
+	Element root;
+
+	public TableXMLWriter(String p) {
+		super(p);
+		root = xml.addElement("root");
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void addAttributes(Element root, List<PageTextArea> cells){
+		for(int i=0; i<cells.size(); i++){
+			addAttribute(root, "╣з"+i+"ап", cells.get(i).getString());
+		}
+	}
+	
+	public void writeTable(PDFTable table) throws Exception{
+		Element t = root.addElement("Table");
+		List<Pair> rowHeaders = table.getRowHeaders();
+		for(int i=0; i<rowHeaders.size(); i++){
+			Element row = t.addElement("Row");
+			addAttributes(row, table.getRows(rowHeaders.get(i).getPta()));
+		}
+		
+		write();
+	}
+}

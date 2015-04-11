@@ -1,0 +1,187 @@
+package src.processing;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.RectangleType;
+import src.tool.TextStripperByPDFRectangle;
+
+
+/**
+ * This class represents the method to extract tables from a PDF page using table lines to construct cells.
+ * @author zqliu
+ * @version 1.0
+ */
+public class LineTableExtractor extends TokenParserTableExtrctor {
+	
+	/**
+	 * The page that would be processed.
+	 */
+	private PDPage pdpage;
+	
+	/**
+	 * A class that would be used to extract texts from a specified areas in a PDF page.
+	 */
+	private TextStripperByPDFRectangle tsbro;
+
+	@Override
+	public List<PageTextArea> getAreas(List tokens) {
+		// TODO Auto-generated method stub
+		List<PDFRectangle> rects = buildAreaFromLines(rectangleParser(tokens));
+		List<PageTextArea> areas = new ArrayList<PageTextArea>();
+		
+		for(int i=0; i<rects.size(); i++){
+			PageTextArea cell = new PageTextArea(tokens.size()+i,rects.get(i));
+			areas.add(cell);	
+		}
+		
+		sort(areas);
+		return areas;
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> textAreas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < textAreas.size()-1 ; i++){
+			PDFRectangle pr1 = textAreas.get(i).getArea();
+			for(int j=i+1; j < textAreas.size(); j++){
+				PDFRectangle pr2 = textAreas.get(j).getArea();
+				if( pr1.intersect(pr2)/pr2.getMeasure() >= 0.6){
+					textAreas.remove(j);
+					j--;
+				}
+				else if( pr1.intersect(pr2)/pr1.getMeasure() >= 0.6 ){
+					textAreas.remove(i);
+					if(i > 1)
+						i--;
+				}
+			}
+		}
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception{
+		// TODO Auto-generated method stub
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			tsbro.addRegion(no, areas.get(i).getArea());
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
+		}
+	}
+
+	@Override
+	public List<PDFTable> getTables(PDPage page) throws Exception {
+		// TODO Auto-generated method stub
+		List tokens = getTokens(page);
+		List<PageTextArea> areas = getAreas(tokens);
+		removeUselessRegions(areas);
+		attachTexts(areas);
+		buildConnectionsBetweenRegions(areas);
+		
+		List<PageTextArea> headers = getTableHeader(areas);
+		List<PDFTable> tables = new ArrayList<PDFTable>();
+		for(int i=0; i<headers.size(); i++)
+			tables.add(getTableFromHeader(headers.get(i)));
+		
+		return tables;
+	}
+	
+	/**
+	 * This method identifies vertical lines from a collection of rectangles.
+	 * @param rects A hash map contains all the rectangles.
+	 * @return The list of rectangles that are considered vertical lines.
+	 */
+	private List<PDFRectangle> getVerticalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isVerticalLine() == true)
+				result.add(pr);
+		}
+		return result;
+	}
+	
+	/**
+	 * This method identifies horizontal lines from a collection of rectangles.
+	 * @param rects A hash map contains all the rectangles.
+	 * @return The list of rectangles that are considered horizontal lines.
+	 */
+	private List<PDFRectangle> getHorizontalLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		Iterator<Integer> it = rects.keySet().iterator();
+		while(it.hasNext()){
+			PDFRectangle pr = rects.get(it.next());
+			if(pr.isHorizontalLine() == true)
+				result.add(pr);
+		}
+		return result;
+	}
+	
+	/**
+	 * This method constructs cells from a collection of rectangles
+	 * @param rects A hash map contains all the rectangles. 
+	 * @return The list of rectangles that are constructed as table cells.
+	 */
+	private List<PDFRectangle> buildAreaFromLines(Map<Integer, PDFRectangle> rects){
+		List<PDFRectangle> lines =this.getVerticalLines(rects);
+		List<PDFRectangle> result = new ArrayList<PDFRectangle>();
+		for(int i=0; i<lines.size()-1 ; i++){
+			PDFRectangle p = formAreaFromVerticalLines(lines.get(i), lines.get(i+1));
+			if(p != null
+					&& p.getType() == RectangleType.PDF_CELL)
+				result.add(p);
+		}
+		return result;
+	}
+	
+	
+	/**
+	 * This method constructs a rectangle based on two sorted vertical lines.
+	 * The width of this rectangle is the horizontal distance between these
+	 * two lines and the height is determined by the line with larger height.
+	 * The X is determined by the first line while the Y is the smaller one 
+	 * of Ys of these two lines.
+	 * @param p1 The left vertical line, should have a smaller X. And the left-upper Y should be the same as the left-upper Y of the second rectangle.
+	 * @param p2 The right vertical line, should have a larger X.
+	 * @return The rectangle constructed from these two lines.
+	 */
+	private PDFRectangle formAreaFromVerticalLines(PDFRectangle p1,
+			PDFRectangle p2) {
+		// TODO Auto-generated method stub
+		if(p1.getType() == RectangleType.PDF_LINE 
+				&& p2.getType() == RectangleType.PDF_LINE){
+			if(p2.getHeight() >= p1.getHeight()){
+				double x = p1.getX() + p1.getWidth();
+				double y = p2.getY();
+				double width = p2.getX() - x;
+				double height = p2.getHeight();
+				if(p1.isSameY(y+height) 
+						&& p1.isLefter(p2))
+					return new PDFRectangle(x, y, width, height);
+			}
+			else{
+				double x = p1.getX() + p1.getWidth();
+				double y = p1.getY();
+				double width = p2.getX() - x;
+				double height = p1.getHeight();
+				if(p1.isSameY(y+height)
+						&& p1.isLefter(p2))
+					return new PDFRectangle(x, y, width, height);
+			}
+		}
+		return null;
+	}
+
+}

@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package src.interfaces;
+
+import org.dom4j.Element;
+
+/** This interface will contain the methods to write tables into XML files.
+ * @author zqliu
+ * @version 1.0
+ */
+public interface XMLWriter {
+	/**
+	 * This method will setup a XML file to output.
+	 * @param path The path of the XML file.
+	 */
+	public void setup(String path);
+	
+	/**
+	 * This method would add an attribute to the element root.
+	 * @param root The element that the attribute will be added on.
+	 * @param attributeName The name of attribute.
+	 * @param text The content of the attribute.
+	 */
+	public void addAttribute(Element root, String attributeName, String text);
+	
+	/**
+	 * This method is supposed to do some necessary jobs after finishing the writing, like closing the opened files.
+	 */
+	public void endWriting();
+}

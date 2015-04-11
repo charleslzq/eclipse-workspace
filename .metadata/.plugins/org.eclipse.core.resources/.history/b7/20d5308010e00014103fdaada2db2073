@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package src.interfaces;
+
+/** This interface will contain the methods to write tables into XML files.
+ * @author zqliu
+ * @version 1.0
+ */
+public interface XMLWriter {
+	public void setup(String name);
+}

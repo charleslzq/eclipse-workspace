@@ -1,0 +1,26 @@
+package src.processing;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import src.interfaces.XMLWriter;
+
+
+/**
+ * This class implements some basic methods about writing something into a XML file.
+ * @author zqliu
+ * @version 1.0
+ */
+public abstract class BasicXMLWriter implements XMLWriter {
+	
+	public Document setup(String path){
+		Document xml = DocumentHelper.createDocument();
+		Element root = xml.addElement("root");
+		return xml;
+	}
+	
+	public void addAttribute(Element root, String attributeName, String text){
+		root.addAttribute(attributeName, text);
+	}
+}

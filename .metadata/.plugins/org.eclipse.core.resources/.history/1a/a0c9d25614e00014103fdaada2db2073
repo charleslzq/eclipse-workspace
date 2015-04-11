@@ -1,0 +1,19 @@
+package src.processing;
+
+import java.util.List;
+
+import org.dom4j.Element;
+
+import src.tool.PageTextArea;
+
+public class TableXMLWriter extends BasicXMLWriter {
+
+	public TableXMLWriter(String p) {
+		super(p);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void addAttributes(Element root, List<PageTextArea> cells){
+		
+	}
+}

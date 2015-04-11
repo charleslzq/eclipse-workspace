@@ -64,7 +64,7 @@ public class ContentStreamParser {
 		
 		checkMissingAreas(tsbro, areas);
 		
-		List<PDFTable> tables = te.getTables(tp.getTokens());
+		List<PDFTable> tables = te.getTables(pdpage);
 		for(int i=0; i<tables.size(); i++)
 			tables.get(i).print();
 		return areas;

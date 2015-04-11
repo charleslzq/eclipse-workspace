@@ -1,0 +1,16 @@
+package src.processing;
+
+import src.interfaces.XMLWriter;
+
+
+/**
+ * This class implements some basic methods about writing something into a XML file.
+ * @author zqliu
+ * @version 1.0
+ */
+public abstract class BasicXMLWriter implements XMLWriter {
+	
+	public void setup(String path){
+		
+	}
+}

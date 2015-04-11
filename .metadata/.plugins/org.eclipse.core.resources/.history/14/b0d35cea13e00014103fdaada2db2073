@@ -1,0 +1,5 @@
+package src.processing;
+
+public class TableXMLWriter extends BasicXMLWriter {
+
+}

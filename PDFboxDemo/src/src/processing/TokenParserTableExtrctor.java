@@ -1,5 +1,6 @@
 package src.processing;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import org.apache.pdfbox.cos.COSFloat;
 import org.apache.pdfbox.cos.COSInteger;
+import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.util.PDFOperator;
 
 import src.tool.ApproximateCalculation;
@@ -20,6 +22,10 @@ import src.tool.PDFRectangle;
  */
 
 public abstract class TokenParserTableExtrctor extends BasicTableExtractor {
+	
+	public List getTokens(PDPage page) throws IOException{
+		return page.getContents().getStream().getStreamTokens();
+	}
 	
 	/**
 	 * This method tries to extract rectangles from

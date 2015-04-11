@@ -1,0 +1,109 @@
+package src.processing;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.pdfbox.cos.COSFloat;
+import org.apache.pdfbox.cos.COSInteger;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.util.PDFOperator;
+
+import src.tool.ApproximateCalculation;
+import src.tool.PDFCharacter;
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.RectangleType;
+import src.tool.TextStripperByPDFRectangle;
+import src.tool.TokenParser;
+
+public class ClippingPathTableExtractor extends TokenParserTableExtrctor {
+	
+	/**
+	 * The page that would be processed
+	 */
+	private PDPage pdpage;
+	
+	/**
+	 * A class that would be used to extract texts from a specified areas in a PDF page.
+	 */
+	private TextStripperByPDFRectangle tsbro;
+	
+	public ClippingPathTableExtractor(PDPage page) throws IOException{
+		pdpage = page;
+		tsbro = new TextStripperByPDFRectangle();
+	}
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+		for(int i=0; i < areas.size()-1 ; i++){
+			PDFRectangle pr1 = areas.get(i).getArea();
+			for(int j=i+1; j < areas.size(); j++){
+				PDFRectangle pr2 = areas.get(j).getArea();
+				if(pr1.isInThisArea(pr2)){
+					areas.remove(j);
+					j--;
+				}
+				else if(pr2.isInThisArea(pr1)){
+					areas.remove(i);
+					if(i > 1)
+						i--;
+				}
+			}
+		}
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception{
+		// TODO Auto-generated method stub
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			tsbro.addRegion(no, areas.get(i).getArea());
+		}
+		tsbro.extractRegions(pdpage);
+		for(int i = 0; i < areas.size(); i++){
+			int no = areas.get(i).getAreaNo();
+			areas.get(i).setCharacters(tsbro.getCharactersByRegion(no));
+		}
+	}
+
+	@Override
+	public List<PDFTable> getTables(PDPage page) throws Exception {
+		// TODO Auto-generated method stub
+		pdpage = page;
+		List tokens = getTokens(page);
+		List<PageTextArea> areas = getAreas(tokens);
+		removeUselessRegions(areas);
+		attachTexts(areas);
+		buildConnectionsBetweenRegions(areas);
+		
+		List<PageTextArea> headers = getTableHeader(areas);
+		List<PDFTable> tables = new ArrayList<PDFTable>();
+		for(int i=0; i<headers.size(); i++)
+			tables.add(getTableFromHeader(headers.get(i)));
+		
+		return tables;
+	}
+
+	@Override
+	public List<PageTextArea> getAreas(List tokens) {
+		// TODO Auto-generated method stub
+		List<PageTextArea> areas = new ArrayList<PageTextArea>();
+		Map<Integer, PDFRectangle> rectangleMap = rectangleParser(tokens);
+		for(int i=0 ; i<tokens.size(); i++){
+			if(rectangleMap.containsKey(new Integer(i))){
+				PDFRectangle pr = rectangleMap.get(new Integer(i));
+				if(pr.getType() == RectangleType.PDF_CELL)
+					areas.add(new PageTextArea(i,pr));
+			}
+		}
+		return areas;
+	}
+	
+	
+
+}

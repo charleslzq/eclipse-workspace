@@ -1,0 +1,7 @@
+package src.processing;
+
+import src.interfaces.XMLWriter;
+
+public abstract class BasicXMLWriter implements XMLWriter {
+
+}

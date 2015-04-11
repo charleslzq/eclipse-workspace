@@ -1,0 +1,11 @@
+package src.processing;
+
+public class TableXMLWriter extends BasicXMLWriter {
+
+	public TableXMLWriter(String p) {
+		super(p);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

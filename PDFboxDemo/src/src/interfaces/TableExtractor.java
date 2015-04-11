@@ -1,6 +1,9 @@
 package src.interfaces;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDPage;
 
 import src.tool.PDFTable;
 import src.tool.PageTextArea;
@@ -11,6 +14,14 @@ import src.tool.PageTextArea;
  * @version 1.0
  */
 public interface TableExtractor {
+	/**
+	 * This method generates a list of tokens that will be used to construct tables. 
+	 * @param page The page that would be processed.
+	 * @return A list contains the result of parsing this page.
+	 * @throws IOException 
+	 */
+	public List getTokens(PDPage page) throws IOException;
+	
 	/**
 	 * This method should extract rectangles 
 	 * which are supposed to be cells of table 
@@ -57,18 +68,20 @@ public interface TableExtractor {
 	/**
 	 * This method is supposed to use other methods
 	 * in this interface to generate tables in the
-	 * PDF page.
-	 * @param tokens The list of tokens generated from the PDF page.
+	 * PDF page. It will also set the internal 
+	 * variable represent the processed page, 
+	 * if there is one, to variable "page".
+	 * @param page The page that would be processed.
 	 * @return A list of tables this PDF page may contain.
 	 * @throws Exception
 	 */
-	public List<PDFTable> getTables(List tokens) throws Exception;
+	public List<PDFTable> getTables(PDPage page) throws Exception;
 	
 	/**
 	 * This method should find out the first cell for each
 	 * table in a list of rectangles. These rectangles should
 	 * be sorted and their connections should be built before
-	 * this method is called.
+	 * this method is called. 
 	 * @param areas The list of sorted and connected rectangles
 	 * @return The list of cells, each of which is the first cell of a table in this PDF page.
 	 */

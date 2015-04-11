@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <Table>
+    <Row 第0列="1 " 第1列="TALG " 第2列="ACM Transactions on Algorithms " 第3列="ACM " 第4列="http://talg.acm.org/ "/>
+    <Row 第0列="2 " 第1列="TOCL " 第2列="ACM Transactions on Computational Logic " 第3列="ACM " 第4列="http://tocl.acm.org/ "/>
+    <Row 第0列="3 " 第1列="TOMS " 第2列="ACM Transactions on Mathematical Software " 第3列="ACM " 第4列="http://toms.acm.org/ "/>
+    <Row 第0列="4 " 第1列=" " 第2列="Algorithmica " 第3列="Springer " 第4列="http://www.springerlink.com/content/100117/ "/>
+    <Row 第0列="5 " 第1列=" " 第2列="Computational complexity " 第3列="Springer " 第4列="http://www.springer.com/birkhauser/computer+science/journal/37 "/>
+    <Row 第0列="6 " 第1列="FAC " 第2列="Formal Aspects of Computing " 第3列="Springer " 第4列="http://www.springerlink.com/content/1433-299X/ "/>
+    <Row 第0列="7 " 第1列=" " 第2列="Formal Methods in System Design " 第3列="Springer " 第4列="http://www.springerlink.com/content/1572-8102/ "/>
+    <Row 第0列="8 " 第1列=" " 第2列="INFORMS Journal on Computing " 第3列="INFORMS " 第4列="http://www.informs.org/Pubs/IJOC "/>
+    <Row 第0列="9 " 第1列="JCSS " 第2列="Journal of Computer and System Sciences " 第3列="Elsevier " 第4列="http://www.journals.elsevier.com/journal-of-computer-and-system-sciences/ "/>
+    <Row 第0列="10 " 第1列="JGO " 第2列="Journal of Global Optimization " 第3列="Springer " 第4列="http://link.springer.com/journal/10898 "/>
+    <Row 第0列="11 " 第1列=" " 第2列="Journal of Symbolic Computation " 第3列="Elsevier " 第4列="http://www.elsevier.com/wps/find/journaldescription.cws_home/622902/description "/>
+    <Row 第0列="12 " 第1列="MSCS " 第2列="Mathematical Structures in Computer Science " 第3列="Cambridge University Press " 第4列="http://journals.cambridge.org/action/displayJournal?jid=MSC "/>
+    <Row 第0列="13 " 第1列="TCS " 第2列="Theoretical Computer Science " 第3列="Elsevier " 第4列="http://www.journals.elsevier.com/theoretical-computer-science/ "/>
+  </Table>
+</root>

@@ -72,8 +72,10 @@ public class ClippingPathTableExtractor extends TokenParserTableExtrctor {
 	}
 
 	@Override
-	public List<PDFTable> getTables(List tokens) throws Exception {
+	public List<PDFTable> getTables(PDPage page) throws Exception {
 		// TODO Auto-generated method stub
+		pdpage = page;
+		List tokens = getTokens(pdpage);
 		List<PageTextArea> areas = getAreas(tokens);
 		removeUselessRegions(areas);
 		attachTexts(areas);

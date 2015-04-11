@@ -8,16 +8,7 @@ import src.tool.PDFTable;
 import src.tool.PageTextArea;
 import src.tool.Pair;
 
-
-/**
- * This class will handle the problem of writing a table into the XML file.
- * @author zqliu
- * @version 1.0
- */
 public class TableXMLWriter extends BasicXMLWriter {
-	/*
-	 * The root of the entire XML file.
-	 */
 	Element root;
 
 	public TableXMLWriter(String p) {

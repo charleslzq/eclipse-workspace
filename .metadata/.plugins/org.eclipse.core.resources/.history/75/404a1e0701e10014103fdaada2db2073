@@ -1,0 +1,54 @@
+package src.tool;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * This class stores the projections of text areas on a vertical or a horizontal line.
+ * @author zqliu
+ * @version 1.0
+ */
+public class LineSegments {
+	boolean vertical;
+	double startPoint;
+	double endPoint;
+	List<Double> positions;
+	
+	/**
+	 * The type of this class (horizontal or vertical) must be specified when it is initialized.
+	 * @param v true, if want to project areas on a vertical line.
+	 */
+	public LineSegments(boolean v){
+		vertical = v;
+		positions = new ArrayList<Double>();
+	}
+
+	/**
+	 * Get method of vertical
+	 * @return true, if this class is constructed for a vertical line.
+	 */
+	public boolean isVertical() {
+		return vertical;
+	}
+
+	/**
+	 * Set the start point of this line.
+	 * @param startPoint The value of the start point. Min X or Max Y
+	 */
+	public void setStartPoint(double startPoint) {
+		this.startPoint = startPoint;
+	}
+
+	/**
+	 * Set the end point of this line.
+	 * @param endPoint The value of the end point. Max X or Min Y.
+	 */
+	public void setEndPoint(double endPoint) {
+		this.endPoint = endPoint;
+	}
+	
+	public void addPosition(double d){
+		positions.add(new Double(d));
+	}
+}

@@ -1,0 +1,60 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.junit.Test;
+
+import src.interfaces.TableExtractor;
+import src.processing.BasicAreaDivider;
+import src.processing.TableXMLWriter;
+import src.processing.TextPositionExtractor;
+import src.tool.LineSegments;
+import src.tool.PDFRectangle;
+import src.tool.PageTextArea;
+
+public class AreaDividerTest {
+
+	@Test
+	public void test() throws IOException {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("123.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		int index = 0;
+		TextPositionExtractor te = new TextPositionExtractor(pages.get(index));
+		List<PageTextArea> areas = te.getAreas(te.getTokens(pages.get(index)));
+		List<PDFRectangle> rects = new ArrayList<PDFRectangle>();
+		for(int i=0; i<areas.size(); i++)
+			rects.add(areas.get(i).getArea());
+		Collections.sort(rects);
+		
+		PDRectangle pd = pages.get(index).getMediaBox();
+		BasicAreaDivider bad = new BasicAreaDivider();
+		LineSegments ls = bad.project(rects, 
+				pd.getUpperRightY(), 
+				pd.getLowerLeftY(), 
+				true);
+		if(ls!=null)
+			ls.print();
+		
+		List<Double> mids = ls.getLine();
+		
+	}
+
+}

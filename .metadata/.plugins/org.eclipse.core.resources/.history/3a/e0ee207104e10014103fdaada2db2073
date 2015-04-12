@@ -1,0 +1,33 @@
+package src.processing;
+
+import java.util.List;
+
+import src.interfaces.AreaDivider;
+import src.tool.LineSegments;
+import src.tool.PDFRectangle;
+
+public class BasicAreaDivider implements AreaDivider {
+
+	@Override
+	public LineSegments project(List<PDFRectangle> areas, 
+			double start, 
+			double end,
+			boolean v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PDFRectangle> divideArea(PDFRectangle pr, double value,
+			boolean v) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int countAreas(List<PDFRectangle> areas, PDFRectangle rect) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

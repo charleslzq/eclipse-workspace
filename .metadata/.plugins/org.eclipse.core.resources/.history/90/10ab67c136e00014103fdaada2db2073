@@ -1,0 +1,295 @@
+package src.tool;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.dom4j.Element;
+
+public class PageTextArea implements Comparable<PageTextArea>{
+	private int areaNo;
+	private PDFRectangle area;
+	private List<PDFCharacter> characters;
+	
+	private PageTextArea right;
+	private PageTextArea down;
+	
+	boolean referenced;
+	
+	public PageTextArea(int n, PDFRectangle ro){
+		areaNo = n;
+		area = ro;
+		
+		right = null;
+		down = null;
+		
+		referenced = false;
+	}
+	
+	
+	
+	public boolean isReferenced() {
+		return referenced;
+	}
+
+
+
+	public void setReferenced(boolean referenced) {
+		this.referenced = referenced;
+	}
+
+
+
+	/*public void putText(TextObject to){
+		texts.add(to);
+	}*/
+	
+	public void setRight(PageTextArea r){
+		right = r;
+	}
+	
+	public void setDown(PageTextArea d){
+		down = d;
+	}
+	
+	public PageTextArea getRight(){
+		return right;
+	}
+	
+	public PageTextArea getDown(){
+		return down;
+	}
+	
+	public boolean isSameRow(PageTextArea pta){
+		if(area.isSameRow(pta.getArea()))
+			return true;
+		return false;
+	}
+	
+	public boolean isSameColumn(PageTextArea pta){
+		if(area.isSameColumn(pta.getArea()))
+			return true;
+		return false;
+	}
+	
+	public PageTextArea nextRight(){
+		return right;
+	}
+	
+	public PDFRectangle getArea(){
+		return area;
+	}
+	
+	public void print(){
+		System.out.println("Area No: " + areaNo);
+		System.out.println(this.getString());
+		//System.out.println("Column No: " + colNo);
+		//System.out.println("Row No: " + rowNo);
+		area.print();
+		if( right != null)
+			System.out.println("Right: " + right.getAreaNo());
+		if( down != null)
+			System.out.println("Down: " + down.getAreaNo());
+	}
+	
+	public int getAreaNo(){
+		return areaNo;
+	}
+	
+	public double getHeight(){
+		return area.getHeight();
+	}
+	
+	public double getWidth(){
+		return area.getWidth();
+	}
+
+	public boolean isNextCellInTheSameRow(PageTextArea pageTextArea) {
+		// TODO Auto-generated method stub
+		return area.isNextCellInTheSameRow(pageTextArea.getArea());
+	}
+
+	public boolean isNextCellInTheSameColumn(PageTextArea pageTextArea) {
+		// TODO Auto-generated method stub
+		return area.isNextCellInTheSameColumn(pageTextArea.getArea());
+	}
+	
+	public boolean isIsolated(){
+		if( right != null)
+			return false;
+		if( down != null)
+			return false;
+		return true;
+	}
+	
+	public boolean isInThisArea(double x, double y){
+		return area.isInThisArea(x, y);
+	}
+	
+	public double getX(){
+		return area.getX();
+	}
+	
+	public double getY(){
+		return area.getY();
+	}
+	
+	public String getString(){
+		String s = "";
+		if( characters == null)
+			return s;
+		for(int i = 0; i < characters.size(); i++)
+			s += characters.get(i).getCharacter();
+		return s;
+	}
+	
+	public void setCharacters(List<PDFCharacter> characters){
+		List<PDFCharacter> tmp = characters;
+		boolean cutOff = true;
+		if(tmp.size() %2 == 0){
+			int s = tmp.size()/2;
+			for(int i = 0; i < s; i++){
+				if(tmp.get(i).getCharacter().equals(tmp.get(i+s).getCharacter()) == false){
+					//System.out.println(tmp.get(i).getCharacter());
+					cutOff = false;
+					break;
+				}
+			}
+		}
+		else
+			cutOff = false;
+		if( cutOff == true){
+			tmp = new ArrayList<PDFCharacter>();
+			for(int i = 0; i < characters.size()/2; i++)
+				tmp.add(characters.get(i));
+		}
+		this.characters = tmp;
+	}
+	
+	public void writeToXML(Element currentTable){
+		Element tmp = currentTable.addElement("Cell");
+		tmp.addAttribute("No", this.getAreaNo()+"");
+		Element areaPosition = tmp.addElement("AreaPosition");
+		Element xOfLeftUpper = areaPosition.addElement("X");
+		xOfLeftUpper.addText(this.getX()+"");
+		Element yOfLeftUpper = areaPosition.addElement("Y");
+		yOfLeftUpper.addText(this.getY()+"");
+		Element width = areaPosition.addElement("Width");
+		width.addText(this.getWidth()+"");
+		Element height = areaPosition.addElement("Height");
+		height.addText(this.getHeight()+"");
+		Element links = tmp.addElement("Links");
+		Element rightLink = links.addElement("NextCellInTheSameRow");
+		if(this.getRight()!=null)
+			rightLink.addText(this.getRight().getAreaNo()+"");
+		Element downLink = links.addElement("NextCellInTheSameColumn");
+		if(this.getDown()!=null)
+			downLink.addText(this.getDown().getAreaNo()+"");
+		Element text = tmp.addElement("Text");
+		text.addAttribute("Content", this.getString());
+	}
+	
+	@SuppressWarnings("unchecked")
+
+
+
+	public void addToRowHeaderList(List<Pair> returnList, 
+			String prefix) {
+		// TODO Auto-generated method stub
+		if( this.getRight() == null 
+				|| this.isSameHeight(this.getRight().getHeight()) == true ){
+			returnList.add(new Pair(prefix, this));
+			return;
+		}
+		else{
+			double sum = this.getRight().getHeight();
+			PageTextArea tmp = this.getRight();
+			tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			while(tmp.getDown() != null ){
+				tmp = tmp.getDown();
+				sum += tmp.getHeight();
+				if(sum > this.getHeight())
+					break;
+				else
+					tmp.addToRowHeaderList(returnList, prefix+"|"+tmp.getString());
+			}
+		}
+	}
+	
+	public boolean isSameHeight(double h){
+		return this.getArea().isSameHeight(h);
+	}
+	
+	public boolean isSameWidth(double d){
+		return this.getArea().isSameWidth(d);
+	}
+	
+	public int cellsOnTheRight(){
+		int count = 1;
+		PageTextArea it = this;
+		while(it.getRight() != null){
+			count++;
+			it = it.getRight();
+		}
+		return count;
+	}
+	
+	public boolean isLefter(PageTextArea p){
+		return this.getArea().isLefter(p.getArea());
+	}
+	
+	public boolean isHigher(PageTextArea p){
+		return this.getArea().isHigher(p.getArea());
+	}
+	
+	public boolean isHigherLeft(PageTextArea p){
+		return this.getArea().isHigherLefter(p.getArea());
+	}
+
+
+
+	public void addToColumnHeaderList(
+			List<Pair> returnList, String prefix) {
+		// TODO Auto-generated method stub
+		if( this.getDown() == null 
+				|| Math.abs(this.getWidth()-this.getDown().getWidth()) < PDFRectangle.getThreshold() ){
+			returnList.add(new Pair(prefix, this));
+			return;
+		}
+		else{
+			double sum = this.getDown().getWidth();
+			PageTextArea tmp = this.getDown();
+			tmp.addToColumnHeaderList(returnList, prefix+"|"+tmp.getString());
+			while(tmp.getRight() != null ){
+				tmp = tmp.getRight();
+				sum += tmp.getWidth();
+				if(sum > this.getWidth())
+					break;
+				else
+					tmp.addToColumnHeaderList(returnList, prefix+"|"+tmp.getString());
+			}
+		}
+	}
+	
+	public void addToList(List<PageTextArea> list){
+		list.add(this);
+		if(right != null && list.contains(right) == false)
+			right.addToList(list);
+		if(down != null && list.contains(down) == false)
+			down.addToList(list);
+	}
+
+
+
+	@Override
+	public int compareTo(PageTextArea o) {
+		// TODO Auto-generated method stub
+		if(this.isHigherLeft(o))
+			return -1;
+		return 1;
+	}
+	
+}

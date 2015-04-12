@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PDFCharacterBag implements Comparable<PDFCharacterBag>{
-	private static ApproximateCalculation ac= new ApproximateCalculation(1);
+	private static ApproximateCalculation ac= new ApproximateCalculation(7);
 	private List<PDFCharacter> bag;
 	private double x;
 	private double y;
@@ -81,11 +81,14 @@ public class PDFCharacterBag implements Comparable<PDFCharacterBag>{
 	public int compareTo(PDFCharacterBag b) {
 		// TODO Auto-generated method stub
 		if(this.getY()+this.getHeight() > b.getY()+b.getHeight())
+			return -1;
+		else if(this.getY()+this.getHeight() < b.getY()+b.getHeight())
 			return 1;
-		else if(this.getY()+this.getHeight() == b.getY()+b.getHeight())
-			if(this.getX() <= b.getX())
+		else if(this.getX() < b.getX())
 				return -1;
-		return 1;
+		else if(this.getX() > b.getX())
+			return 1;
+		return 0;
 	}
 	
 }

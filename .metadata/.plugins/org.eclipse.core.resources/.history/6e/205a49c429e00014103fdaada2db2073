@@ -1,0 +1,49 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.junit.Test;
+
+import src.interfaces.TableExtractor;
+import src.processing.BasicXMLWriter;
+import src.processing.ClippingPathTableExtractor;
+import src.processing.LineTableExtractor;
+import src.processing.TableXMLWriter;
+import src.processing.TextPositionExtractor;
+import src.tool.PDFTable;
+
+public class TableExtractorTest {
+
+	@Test
+	public void test() throws Exception {
+		//fail("Not yet implemented");
+		FileInputStream fis = new FileInputStream("123.pdf");
+   		BufferedInputStream bis = new BufferedInputStream(fis);
+   		
+   		
+   		PDFParser parser = new PDFParser(fis);
+		parser.parse();
+		
+		List<PDPage> pages = parser.getPDDocument().getDocumentCatalog().getAllPages();
+		TableXMLWriter txw = new TableXMLWriter("1234.xml");
+		
+		for(int index=0; index < pages.size(); index++){
+			TableExtractor te = new TextPositionExtractor(pages.get(index));
+			List<PDFTable> tables = te.getTables(pages.get(index));
+			
+			
+			for(int i=0 ; i<tables.size(); i++)
+				txw.writeTable(tables.get(i));
+		}	
+		txw.write();
+		
+	}
+
+}

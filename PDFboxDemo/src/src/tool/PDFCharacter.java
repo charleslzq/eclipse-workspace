@@ -73,7 +73,7 @@ public class PDFCharacter implements Comparable<PDFCharacter>{
 	
 	public boolean isHigherLefter(PDFCharacter c){
 		if(ac.alreadyEqual(this.getY(), c.getY())){
-			if(this.getX() <= c.getX())
+			if(this.getX() < c.getX())
 				return true;
 			else
 				return false;
@@ -91,6 +91,8 @@ public class PDFCharacter implements Comparable<PDFCharacter>{
 		// TODO Auto-generated method stub
 		if(this.isHigherLefter(c))
 			return -1;
-		return 1;
+		else if(c.isHigherLefter(this))
+			return 1;
+		return 0;
 	}
 }

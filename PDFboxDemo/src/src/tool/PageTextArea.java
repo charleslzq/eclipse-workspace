@@ -29,6 +29,10 @@ public class PageTextArea implements Comparable<PageTextArea>{
 		referenced = false;
 	}
 	
+	public void setRect(double x, double y, double w, double h){
+		area.setRect(x, y, w, h);
+	}
+	
 	
 	
 	public boolean isReferenced() {
@@ -289,7 +293,43 @@ public class PageTextArea implements Comparable<PageTextArea>{
 		// TODO Auto-generated method stub
 		if(this.isHigherLeft(o))
 			return -1;
-		return 1;
+		else if(o.isHigherLeft(this))
+			return 1;
+		return 0;
+	}
+
+
+
+	public boolean isSameColumnWithMiddle(PageTextArea p2) {
+		// TODO Auto-generated method stub
+		return area.isSameColumnWithMiddle(p2.getArea());
+	}
+
+
+
+	public boolean isSameRowWithMiddle(PageTextArea p2) {
+		// TODO Auto-generated method stub
+		return area.isSameRowWithMiddle(p2.getArea());
+	}
+	
+	public List<PageTextArea> getDownList(){
+		PageTextArea it = this;
+		List<PageTextArea> list = new ArrayList<PageTextArea>();
+		while(it.getDown() != null){
+			it = it.getDown();
+			list.add(it);
+		}
+		return list;
+	}
+	
+	public List<PageTextArea> getRightList(){
+		PageTextArea it = this;
+		List<PageTextArea> list = new ArrayList<PageTextArea>();
+		while(it.getRight() != null){
+			it = it.getRight();
+			list.add(it);
+		}
+		return list;
 	}
 	
 }

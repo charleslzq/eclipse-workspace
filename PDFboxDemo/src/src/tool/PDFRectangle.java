@@ -15,6 +15,11 @@ public class PDFRectangle implements Comparable<PDFRectangle>{
 		this.setType();
 	}
 	
+	public void setRect(double a, double b, 
+			double c, double d){
+		rect = new Rectangle2D.Double(a, b, c, d);
+	}
+	
 	private void setType(){
 		if( rect.getWidth() <= threshold 
 				&& rect.getHeight() <= threshold)
@@ -138,6 +143,10 @@ public class PDFRectangle implements Comparable<PDFRectangle>{
 		return ac.weakLess(Math.abs(this.getX() - pr.getX()), PDFRectangle.threshold);
 	}
 	
+	public boolean isSameColumnWithMiddle(PDFRectangle pr){
+		return ac.weakLess(Math.abs(this.getMidX()-pr.getMidX()), PDFRectangle.threshold);
+	}
+	
 	public boolean isNextCellInTheSameRow(PDFRectangle pr){
 		if(this.isSameRectangle(pr) == true)
 			return false;
@@ -155,7 +164,7 @@ public class PDFRectangle implements Comparable<PDFRectangle>{
 		if(this.isSameColumn(pr) == false)
 			return false;
 		if(ac.weakLess(Math.abs(this.getY()-pr.getY()-pr.getHeight()), 
-				3*PDFRectangle.blank))
+				5*PDFRectangle.blank))
 			return true;
 		else
 			return false;
@@ -186,9 +195,7 @@ public class PDFRectangle implements Comparable<PDFRectangle>{
 	}
 	
 	public boolean isHigher(PDFRectangle pr){
-		if(this.isSameRow(pr))
-			return false;
-		if( ac.weakMore(this.getY()+this.getHeight(), pr.getY()+pr.getHeight()))
+		if( this.getY()+this.getHeight() > pr.getY()+pr.getHeight())
 			return true;
 		return false;
 	}
@@ -258,6 +265,17 @@ public class PDFRectangle implements Comparable<PDFRectangle>{
 		// TODO Auto-generated method stub
 		if(this.isHigherLefter(o))
 			return -1;
-		return 1;
+		else if(o.isHigherLefter(this))
+			return 1;
+		return 0;
+	}
+
+	public boolean isSameRowWithMiddle(PDFRectangle area) {
+		// TODO Auto-generated method stub
+		return ac.weakLess(Math.abs(this.getY()
+				+ this.getHeight()/2
+				- area.getY()
+				- area.getHeight()/2), 
+				PDFRectangle.threshold);
 	}
 }

@@ -1,0 +1,56 @@
+package src.processing;
+
+import java.util.List;
+
+import org.dom4j.Element;
+
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.Pair;
+
+
+/**
+ * This class will handle the problem of writing a table into the XML file.
+ * @author zqliu
+ * @version 1.0
+ */
+public class TableXMLWriter extends BasicXMLWriter {
+	/*
+	 * The root of the entire XML file.
+	 */
+	Element root;
+
+	public TableXMLWriter(String p) {
+		super(p);
+		root = xml.addElement("root");
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * Used to add all strings of table cells as attributes of an element.
+	 * @param root The element that these attributes will add on.
+	 * @param cells The cells that would be written.
+	 */
+	public void addAttributes(Element root, List<PageTextArea> cells){
+		for(int i=0; i<cells.size(); i++){
+			addAttribute(root, "╣з"+i+"ап", cells.get(i).getString());
+		}
+	}
+	
+	
+	/**
+	 * Write the table into the XML file.
+	 * @param table The table would be processed.
+	 * @throws Exception
+	 */
+	public void writeTable(PDFTable table) throws Exception{
+		Element t = root.addElement("Table");
+		List<Pair> rowHeaders = table.getRowHeaders();
+		for(int i=0; i<rowHeaders.size(); i++){
+			Element row = t.addElement("Row");
+			addAttributes(row, table.getRows(rowHeaders.get(i).getPta()));
+			if(i == 8)
+				rowHeaders.get(i).getPta().print();
+		}
+	}
+}

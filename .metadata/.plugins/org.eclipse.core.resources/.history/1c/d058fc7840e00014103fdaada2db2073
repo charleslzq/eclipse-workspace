@@ -1,0 +1,192 @@
+package src.processing;
+
+import java.awt.geom.Rectangle2D;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+
+import src.tool.PDFCharacter;
+import src.tool.PDFCharacterBag;
+import src.tool.PDFRectangle;
+import src.tool.PDFTable;
+import src.tool.PageTextArea;
+import src.tool.TextStripperByPDFRectangle;
+
+public class TextPositionExtractor extends BasicTableExtractor {
+	
+	/**
+	 * The page that would be processed.
+	 */
+	private PDPage pdpage;
+	
+	/**
+	 * The constructor use a page to initialize this class.
+	 * @param page The page that would be processed.
+	 * @throws IOException
+	 */
+	public TextPositionExtractor(PDPage page) throws IOException{
+		pdpage = page;
+	}
+
+	public List<PDFCharacter> getTokens(PDPage page) throws IOException {
+		// TODO Auto-generated method stub
+		TextStripperByPDFRectangle ts = new TextStripperByPDFRectangle();
+		PDFRectangle.setBlank(3);
+		PDFRectangle.setErr(1);
+		PDFRectangle.setThreshold(7);
+		PDRectangle pd = pdpage.getMediaBox();
+		PDFRectangle p = new PDFRectangle(pd.getLowerLeftX(),pd.getLowerLeftY(),pd.getWidth(),pd.getHeight());
+		
+		ts.addRegion(-1, p);
+		ts.extractRegions(pdpage);
+		return ts.getCharactersByRegion(-1);
+	}
+	
+	public List<PageTextArea> getAreas(List<PDFCharacter> tokens) {
+		// TODO Auto-generated method stub
+		List<PDFCharacterBag> bags = this.formBags(tokens);
+		List<PageTextArea> areas = this.formTextAreaFromBags(bags);
+		return areas;
+	}
+	
+	
+	/**
+	 * This method will be used to extract consecutive characters and form character bags.
+	 * @param tokens The list of characters.
+	 * @return The list of character bags.
+	 */
+	private List<PDFCharacterBag> formBags(List<PDFCharacter> cs) {
+		// TODO Auto-generated method stub
+		Collections.sort(cs);
+		List<PDFCharacterBag> bags = new ArrayList<PDFCharacterBag>();
+		PDFCharacterBag now = null;
+		for(int i=0; i<cs.size(); i++){
+			if(i == 0){
+				now = new PDFCharacterBag();
+				bags.add(now);
+				now.addCharacter(cs.get(i));
+				continue;
+			}
+			if(now.isNextInTheSameRow(cs.get(i)))
+				now.addCharacter(cs.get(i));
+			else{
+				now = new PDFCharacterBag();
+				bags.add(now);
+				now.addCharacter(cs.get(i));
+			}
+			
+		}
+		return bags;
+	}
+	
+
+	@Override
+	public void removeUselessRegions(List<PageTextArea> areas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attachTexts(List<PageTextArea> areas) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<PDFTable> getTables(PDPage page) throws Exception {
+		// TODO Auto-generated method stub
+		List<PageTextArea> areas = getAreas(getTokens(page));
+		this.linkBagAreas(areas);
+
+		List<PageTextArea> headers = getTableHeader(areas);
+		List<PDFTable> tables = new ArrayList<PDFTable>();
+		for(int i=0; i<headers.size(); i++)
+			tables.add(getTableFromHeader(headers.get(i)));
+		
+		return tables;
+	}
+	
+	
+	/**
+	 * This method will convert a character-bag to a PageTextArea.
+	 * @param no The No will be assigned to.
+	 * @param bag The bag that will be transformed.
+	 * @return The PageTextArea generated from the bag.
+	 */
+	private PageTextArea convertToTextArea(int no, PDFCharacterBag bag) {
+		// TODO Auto-generated method stub
+		if(bag == null)
+			return null;
+		PageTextArea p = new PageTextArea(no,
+				new PDFRectangle(bag.getX(),
+						bag.getY(),
+						bag.getWidth(),
+						bag.getHeight()));
+		p.setCharacters(bag.getCharacters());
+		return p;
+	}
+	
+	/**
+	 * This method converts a list of character bags to a list of PageTextArea.
+	 * @param bags The list of character bags.
+	 * @return The list of PageTextArea generated.
+	 */
+	private List<PageTextArea> formTextAreaFromBags(List<PDFCharacterBag> bags){
+		List<PageTextArea> areas = new ArrayList<PageTextArea>();
+		for(int i=0; i<bags.size(); i++)
+			areas.add(convertToTextArea(i, bags.get(i)));
+		Collections.sort(areas);
+		return areas;
+	}
+	
+	private void linkBagAreas(List<PageTextArea> areas){
+		for(int i = 0; i < areas.size(); i++){
+			PageTextArea p1 = areas.get(i);
+			for(int j = i+1 ; j < areas.size(); j++){
+				PageTextArea p2 = areas.get(j);
+				if( p1.isSameRow(p2)
+						|| p1.isSameRowWithMiddle(p2)){
+					if(p1.isLefter(p2)){
+						if(p1.getRight() == null){
+							p1.setRight(areas.get(j));
+							p2.setReferenced(true);
+						}
+					}
+				}
+				else if( p1.isSameColumn(p2)
+						|| p1.isSameColumnWithMiddle(p2)){
+					if(p1.isHigher(p2)){
+						if(p1.getDown() == null ){
+							p1.setDown(areas.get(j));
+							p2.setReferenced(true);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void updateAreas(List<PageTextArea> areas){
+		for(int i = 0; i < areas.size(); i++){
+			PageTextArea p1 = areas.get(i);
+			if(p1.getDown() != null){
+				PageTextArea pd = p1.getDown();
+				double x = Math.min(p1.getX(), pd.getX());
+				double width = Math.max(p1.getWidth(), pd.getWidth());
+				p1.setRect(x, p1.getY(), width, p1.getHeight());
+				pd.setRect(x, pd.getY(), width, pd.getHeight());
+			}
+			if(p1.getRight() != null){
+				PageTextArea pr = p1.getDown();
+				double y = Math.min(p1.getY(), pr.getY());
+				double height = Math.max(p1.getHeight(), pr.getHeight());
+				p1.setRect(p1.getX(), y, p1.getWidth(), height);
+				pr.setRect(pr.getX(), y, pr.getHeight(), height);
+			}
+		}
+	}
+}

@@ -35,6 +35,9 @@ public class TextPositionExtractor extends BasicTableExtractor {
 	public List<PDFCharacter> getTokens(PDPage page) throws IOException {
 		// TODO Auto-generated method stub
 		TextStripperByPDFRectangle ts = new TextStripperByPDFRectangle();
+		PDFRectangle.setBlank(3);
+		PDFRectangle.setErr(1);
+		PDFRectangle.setThreshold(7);
 		PDRectangle pd = pdpage.getMediaBox();
 		PDFRectangle p = new PDFRectangle(pd.getLowerLeftX(),pd.getLowerLeftY(),pd.getWidth(),pd.getHeight());
 		
@@ -58,7 +61,7 @@ public class TextPositionExtractor extends BasicTableExtractor {
 	 */
 	private List<PDFCharacterBag> formBags(List<PDFCharacter> cs) {
 		// TODO Auto-generated method stub
-		sortChar(cs);
+		Collections.sort(cs);
 		List<PDFCharacterBag> bags = new ArrayList<PDFCharacterBag>();
 		PDFCharacterBag now = null;
 		for(int i=0; i<cs.size(); i++){
@@ -80,27 +83,6 @@ public class TextPositionExtractor extends BasicTableExtractor {
 		return bags;
 	}
 	
-	/**
-	 * This method is used to sort characters, from up to down, and from left to right.
-	 * @param cs The list of characters.
-	 */
-	public void sortChar(List<PDFCharacter> cs){
-		for(int i=0; i<cs.size()-1; i++){
-			PDFCharacter min = cs.get(i);
-			int index = i;
-			for(int j=i+1; j<cs.size();j++){
-				PDFCharacter it = cs.get(j);
-				if(it.isHigherLefter(min)){
-					min = it;
-					index = j;
-				}
-			}
-			if(i != index){
-				cs.set(index, cs.get(i));
-				cs.set(i, min);
-			}
-		}
-	}
 
 	@Override
 	public void removeUselessRegions(List<PageTextArea> areas) {
@@ -118,7 +100,8 @@ public class TextPositionExtractor extends BasicTableExtractor {
 	public List<PDFTable> getTables(PDPage page) throws Exception {
 		// TODO Auto-generated method stub
 		List<PageTextArea> areas = getAreas(getTokens(page));
-		this.buildConnectionsBetweenRegions(areas);
+		this.linkBagAreas(areas);
+		this.updateAreas(areas);
 
 		List<PageTextArea> headers = getTableHeader(areas);
 		List<PDFTable> tables = new ArrayList<PDFTable>();
@@ -160,5 +143,77 @@ public class TextPositionExtractor extends BasicTableExtractor {
 		Collections.sort(areas);
 		return areas;
 	}
-
+	
+	private void linkBagAreas(List<PageTextArea> areas){
+		for(int i = 0; i < areas.size(); i++){
+			PageTextArea p1 = areas.get(i);
+			for(int j = i+1 ; j < areas.size(); j++){
+				PageTextArea p2 = areas.get(j);
+				if( p1.isSameRow(p2)
+						|| p1.isSameRowWithMiddle(p2)){
+					if(p1.isLefter(p2)){
+						if(p1.getRight() == null){
+							p1.setRight(areas.get(j));
+							p2.setReferenced(true);
+						}
+					}
+				}
+				else if( p1.isSameColumn(p2)
+						|| p1.isSameColumnWithMiddle(p2)){
+					if(p1.isHigher(p2)){
+						if(p1.getDown() == null ){
+							p1.setDown(areas.get(j));
+							p2.setReferenced(true);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void updateAreas(List<PageTextArea> areas){
+		for(int i = 0; i < areas.size(); i++){
+			PageTextArea p1 = areas.get(i);
+			if(p1.getDown() != null){
+				PageTextArea pd = p1.getDown();
+				double x = Math.min(p1.getX(), pd.getX());
+				double width = Math.max(p1.getWidth(), pd.getWidth());
+				p1.setRect(x, p1.getY(), width, p1.getHeight());
+				pd.setRect(x, pd.getY(), width, pd.getHeight());
+			}
+			if(p1.getRight() != null){
+				PageTextArea pr = p1.getRight();
+				double y = Math.min(p1.getY(), pr.getY());
+				double height = Math.max(p1.getHeight(), pr.getHeight());
+				p1.setRect(p1.getX(), y, p1.getWidth(), height);
+				pr.setRect(pr.getX(), y, pr.getHeight(), height);
+			}
+			if(p1.getDown() != null
+					&& p1.getRight() != null){
+				PageTextArea pd = p1.getDown();
+				PageTextArea pr = p1.getDown();
+				if( pd.getRight() == null
+						&& pr.getDown() != null){
+					if(pr.getDown().getY() > pd.getY())
+						pd.setRight(pr.getDown());
+				}
+				else if( pr.getDown() == null
+						&& pd.getRight() != null){
+					if(pd.getRight().getX() < pr.getX())
+						pr.setDown(pd.getRight());
+				}
+				else if( pr.getDown()!= null
+						&& pd.getRight() != null){
+					if(pr.getDown().equals(pd.getRight()) == false){
+						if(pr.getDownList().contains(pd.getRight())){
+							pd.setRight(pr.getDown());
+						}
+						else if(pd.getRightList().contains(pr.getDown())){
+							pr.setDown(pd.getRight());
+						}
+					}
+				}
+			}
+		}
+	}
 }
